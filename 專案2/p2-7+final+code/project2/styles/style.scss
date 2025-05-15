@@ -1,0 +1,223 @@
+$themeColor: rgba(152, 57, 255, 0.5);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+body {
+  position: relative;
+
+  img.fixed-image {
+    min-height: 100vh;
+    position: fixed;
+    width: 100%;
+    z-index: -5;
+    bottom: 0;
+    left: 0;
+  }
+  header {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    section.logo {
+      flex: 2 1 400px;
+      // border: 2px solid green;
+      display: flex;
+      align-items: center;
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      img {
+        width: 6vw;
+        height: 6vw;
+      }
+    }
+
+    nav {
+      flex: 5 1 500px;
+      // border: 2px solid red;
+      ul {
+        display: flex;
+        list-style-type: none;
+        justify-content: space-around;
+        li {
+          a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.35rem;
+            transition: all 0.2s ease;
+            padding-bottom: 0.3rem;
+            &:hover {
+              color: $themeColor;
+              border-bottom: 3px solid $themeColor;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    section.background-img {
+      // 設定背景圖片
+      min-height: 70vh;
+      background-image: url("../images/日本櫻花.jpg");
+      background-size: cover;
+      background-position: center;
+      transition: all 0.75s ease;
+      position: relative;
+      z-index: 0; // stacking context
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      div.filter {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        min-height: 70vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      h3 {
+        color: white;
+        font-size: 2.5rem;
+        text-align: center;
+      }
+    }
+
+    section.info-circles {
+      background-color: white;
+      padding: 2rem 1rem;
+
+      h3 {
+        text-align: center;
+        font-size: 2rem;
+      }
+
+      div.circles {
+        // border: 3px solid black;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        div.circle {
+          padding: 1rem;
+          // border: 3px solid red;
+          flex: 0 1 250px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          img {
+            width: 80%;
+            border-radius: 50%;
+            transition: all 0.1s ease-in;
+            padding: 0.3rem;
+            &:hover {
+              border: 3px solid $themeColor;
+            }
+          }
+        }
+      }
+    }
+
+    section.empty-container {
+      min-height: 70vh;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h3 {
+        font-size: 2rem;
+        color: white;
+      }
+    }
+
+    section.google-map {
+      background-color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      h3 {
+        font-size: 2.5rem;
+      }
+      p {
+        font-size: 1.25rem;
+        margin: 1rem;
+      }
+
+      iframe {
+        width: 100%;
+        height: 40vh;
+      }
+    }
+  }
+
+  footer {
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    section.logo {
+      img {
+        width: 20vw;
+      }
+      h3 {
+        font-size: 2.5rem;
+      }
+    }
+
+    section.links {
+      margin-top: 2rem;
+      a {
+        img {
+          width: 5vh;
+          margin: 0rem 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    header {
+      section.logo {
+        flex-direction: column;
+        img {
+          width: 50vw;
+          height: 50vw;
+        }
+      }
+      nav {
+        ul {
+          flex-direction: column;
+          li {
+            padding: 0.5rem 0.25rem;
+          }
+        }
+      }
+    }
+  }
+}

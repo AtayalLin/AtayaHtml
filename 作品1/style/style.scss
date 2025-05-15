@@ -1,0 +1,1124 @@
+$themeColor: rgb(79, 133, 155);
+
+@font-face {
+  font-family: "myFont";
+  src: url(./YujiMai-Regular.ttf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "myFont", DFkai-sb, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+body {
+  position: relative;
+
+  //此為背景
+  img.fixed-image {
+    min-height: 100vh;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    top: calc(-20% + 20vh);
+    z-index: -5;
+    bottom: 0;
+    left: 0;
+  }
+
+  //此為城市區
+  .city {
+    margin: 2rem;
+    border: 2.5px solid burlywood;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(248, 242, 242, 0.7);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    section.left {
+      flex: 0 0 300px;
+      figure {
+        margin: 0;
+      }
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    section.right {
+      flex: 1;
+
+      h4 {
+        font-size: 2rem;
+        color: rgb(255, 248, 186);
+        margin: 0 0 0.5rem 0;
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+      }
+
+      h5 {
+        font-size: 1.5rem;
+        color: rgb(6, 120, 120);
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin: 0;
+        line-height: 1.5;
+        color: #333;
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1rem;
+
+      section.left {
+        flex: none;
+        img {
+          width: 100%;
+          border-radius: 20px; /* 圓角縮小適應小螢幕 */
+        }
+      }
+
+      section.right {
+        h2 {
+          font-size: 1.8rem;
+        }
+
+        h3 {
+          font-size: 1.6rem;
+        }
+
+        h4,
+        h5 {
+          font-size: 1.4rem;
+        }
+
+        ul {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .city section {
+      padding: 20px;
+      width: 48%; /* 預設為兩欄排列 */
+    }
+
+    .city .left img {
+      max-width: 100%; /* 確保圖片不超過容器寬度 */
+      height: auto;
+    }
+
+    /* For smaller screens, ensure text and images fit within the screen width */
+    @media (max-width: 480px) {
+      margin: 0.5rem;
+      padding: 0.5rem;
+
+      section.left {
+        img {
+          border-radius: 15px;
+        }
+      }
+
+      section.right {
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        h3 {
+          font-size: 1.4rem;
+        }
+
+        h4,
+        h5 {
+          font-size: 1.2rem;
+        }
+
+        ul {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    /* Ensure that the photo and content stack vertically if they cannot be aligned side-by-side */
+    @media (max-width: 1024px) {
+      .city {
+        flex-direction: column;
+      }
+
+      .city section.left,
+      .city section.right {
+        width: 100%; /* Ensures each section takes full width on smaller devices */
+      }
+    }
+  }
+
+  //此為東京店家介紹
+  .storeTokyo {
+    margin-top: 1px; /* 上方的間距改為 1rem */
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    border-radius: 50px; /* 加入圓角，數值越大，角越圓 */
+
+    section.left {
+      flex: 0 0 600px;
+      figure {
+        margin: 0;
+      }
+      img {
+        width: 100%;
+        display: block;
+        border-radius: 50px; /* 加入圓角，數值越大，角越圓 */
+      }
+    }
+
+    section.right {
+      flex: 1;
+
+      h2 {
+        font-size: 2.2rem;
+        color: rgb(255, 223, 117);
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+      }
+
+      h3 {
+        font-size: 2rem;
+        color: rgb(255, 242, 122);
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+      }
+
+      h4,
+      h5 {
+        font-size: 1.8rem;
+        color: rgb(255, 248, 186);
+        margin: 0 0 0.5rem 0;
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+      }
+
+      ul {
+        font-size: 1.5rem;
+        margin: 0;
+        line-height: 1.5;
+        color: #333;
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1rem;
+
+      section.left {
+        flex: none;
+        img {
+          width: 100%;
+          border-radius: 20px; /* 圓角縮小適應小螢幕 */
+        }
+      }
+
+      section.right {
+        h2 {
+          font-size: 1.8rem;
+        }
+
+        h3 {
+          font-size: 1.6rem;
+        }
+
+        h4,
+        h5 {
+          font-size: 1.4rem;
+        }
+
+        ul {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .storeTokyo section {
+      padding: 20px;
+      width: 48%; /* 預設為兩欄排列 */
+    }
+
+    .storeTokyo .left img {
+      max-width: 100%; /* 確保圖片不超過容器寬度 */
+      height: auto;
+    }
+
+    /* For smaller screens, ensure text and images fit within the screen width */
+    @media (max-width: 480px) {
+      margin: 0.5rem;
+      padding: 0.5rem;
+
+      section.left {
+        img {
+          border-radius: 15px;
+        }
+      }
+
+      section.right {
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        h3 {
+          font-size: 1.4rem;
+        }
+
+        h4,
+        h5 {
+          font-size: 1.2rem;
+        }
+
+        ul {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    /* Ensure that the photo and content stack vertically if they cannot be aligned side-by-side */
+    @media (max-width: 1024px) {
+      .storeTokyo {
+        flex-direction: column;
+      }
+
+      .storeTokyo section.left,
+      .storeTokyo section.right {
+        width: 100%; /* Ensures each section takes full width on smaller devices */
+      }
+    }
+  }
+
+  //此為大阪店家介紹
+  .storeOsaka {
+    margin-top: 1px; /* 上方的間距改為 1rem */
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    // border: 2.5px solid burlywood;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    border-radius: 50px; /* 加入圓角，數值越大，角越圓 */
+
+    section.left {
+      flex: 0 0 600px;
+      figure {
+        margin: 0;
+      }
+      img {
+        width: 100%;
+        display: block;
+        border-radius: 50px; /* 加入圓角，數值越大，角越圓 */
+      }
+    }
+
+    section.right {
+      flex: 1;
+
+      h2 {
+        font-size: 2.2rem;
+        color: rgb(255, 223, 117);
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+      }
+
+      h3 {
+        font-size: 2rem;
+        color: rgb(255, 242, 122);
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+      }
+
+      h4,
+      h5 {
+        font-size: 1.8rem;
+        color: rgb(255, 248, 186);
+        margin: 0 0 0.5rem 0;
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+      }
+
+      ul {
+        font-size: 1.5rem;
+        margin: 0;
+        line-height: 1.5;
+        color: #333;
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1rem;
+
+      section.left {
+        flex: none;
+        img {
+          width: 100%;
+          border-radius: 20px; /* 圓角縮小適應小螢幕 */
+        }
+      }
+
+      section.right {
+        h2 {
+          font-size: 1.8rem;
+        }
+
+        h3 {
+          font-size: 1.6rem;
+        }
+
+        h4,
+        h5 {
+          font-size: 1.4rem;
+        }
+
+        ul {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .storeOsaka section {
+      padding: 20px;
+      width: 48%; /* 預設為兩欄排列 */
+    }
+
+    .storeOsaka.left img {
+      max-width: 100%; /* 確保圖片不超過容器寬度 */
+      height: auto;
+    }
+
+    /* For smaller screens, ensure text and images fit within the screen width */
+    @media (max-width: 480px) {
+      margin: 0.5rem;
+      padding: 0.5rem;
+
+      section.left {
+        img {
+          border-radius: 15px;
+        }
+      }
+
+      section.right {
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        h3 {
+          font-size: 1.4rem;
+        }
+
+        h4,
+        h5 {
+          font-size: 1.2rem;
+        }
+
+        ul {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    /* Ensure that the photo and content stack vertically if they cannot be aligned side-by-side */
+    @media (max-width: 1024px) {
+      .storeOsaka {
+        flex-direction: column;
+      }
+
+      .storeOsaka section.left,
+      .storeOsaka section.right {
+        width: 100%; /* Ensures each section takes full width on smaller devices */
+      }
+    }
+  }
+
+  .storekyoto {
+    margin-top: 1px; /* 上方的間距改為 1rem */
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    // border: 2.5px solid burlywood;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    border-radius: 50px; /* 加入圓角，數值越大，角越圓 */
+
+    section.left {
+      flex: 0 0 600px;
+      figure {
+        margin: 0;
+      }
+      img {
+        width: 100%;
+        display: block;
+        border-radius: 50px; /* 加入圓角，數值越大，角越圓 */
+      }
+    }
+
+    section.right {
+      flex: 1;
+
+      h2 {
+        font-size: 2.2rem;
+        color: rgb(255, 223, 117);
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+      }
+
+      h3 {
+        font-size: 2rem;
+        color: rgb(255, 242, 122);
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+      }
+
+      h4,
+      h5 {
+        font-size: 1.8rem;
+        color: rgb(255, 248, 186);
+        margin: 0 0 0.5rem 0;
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+      }
+
+      ul {
+        font-size: 1.5rem;
+        margin: 0;
+        line-height: 1.5;
+        color: #333;
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1rem;
+
+      section.left {
+        flex: none;
+        img {
+          width: 100%;
+          border-radius: 20px; /* 圓角縮小適應小螢幕 */
+        }
+      }
+
+      section.right {
+        h2 {
+          font-size: 1.8rem;
+        }
+
+        h3 {
+          font-size: 1.6rem;
+        }
+
+        h4,
+        h5 {
+          font-size: 1.4rem;
+        }
+
+        ul {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .storekyoto section {
+      padding: 20px;
+      width: 48%; /* 預設為兩欄排列 */
+    }
+
+    .storekyoto.left img {
+      max-width: 100%; /* 確保圖片不超過容器寬度 */
+      height: auto;
+    }
+
+    /* For smaller screens, ensure text and images fit within the screen width */
+    @media (max-width: 480px) {
+      margin: 0.5rem;
+      padding: 0.5rem;
+
+      section.left {
+        img {
+          border-radius: 15px;
+        }
+      }
+
+      section.right {
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        h3 {
+          font-size: 1.4rem;
+        }
+
+        h4,
+        h5 {
+          font-size: 1.2rem;
+        }
+
+        ul {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    /* Ensure that the photo and content stack vertically if they cannot be aligned side-by-side */
+    @media (max-width: 1024px) {
+      .storekyoto {
+        flex-direction: column;
+      }
+
+      .storekyoto section.left,
+      .storekyoto section.right {
+        width: 100%; /* Ensures each section takes full width on smaller devices */
+      }
+    }
+  }
+
+  // 上方主目錄
+  header {
+    background-color: rgb(247, 193, 111);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 10px 6px -6px #777;
+
+    section.logo {
+      flex: 2 1 400px;
+      display: flex;
+      align-items: center;
+      h1 {
+        font-size: 2.5rem;
+      }
+      img {
+        width: 6vw;
+        height: 6vw;
+      }
+    }
+
+    nav {
+      flex: 5 1 500px;
+      ul {
+        display: flex;
+        list-style-type: none;
+        justify-content: space-around;
+        li {
+          a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.35rem;
+            transition: all 0.2s ease;
+            padding-bottom: 0.3rem;
+            &:hover {
+              color: $themeColor;
+              border-bottom: 3px solid $themeColor;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 此為首頁區
+  main.home {
+    section.background-img {
+      min-height: 70vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      div.filter {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      h3 {
+        color: white;
+        font-size: 2.5rem;
+        text-align: center;
+      }
+    }
+  }
+
+  // 此東京分頁
+  main.tokyo {
+    section.background-img {
+      min-height: 35vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      div.filter {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      h3 {
+        color: white;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      hr {
+        width: 90%;
+        border: 1px solid white;
+        margin: 1rem 0;
+        opacity: 0.7;
+        text-align: center;
+      }
+    }
+
+    section.tokyohr {
+      h3 {
+        margin-top: 25px;
+        color: white;
+        font-size: 3.5rem;
+        text-align: center;
+      }
+      min-height: 20vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      div.filter {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      hr {
+        width: 90%;
+        border: 1px solid white;
+        margin: 1rem 0;
+        opacity: 0.7;
+        text-align: center;
+      }
+    }
+
+    section.tokyo-img {
+      position: relative;
+      min-height: 65vh;
+      overflow: hidden;
+
+      .carousel-inner {
+        height: 100%;
+      }
+
+      .carousel-bg {
+        height: 65vh;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        filter: invert(100%);
+      }
+
+      .bx-controls-direction {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+        z-index: 10;
+
+        .bx-prev,
+        .bx-next {
+          position: relative;
+          width: 40px;
+          height: 40px;
+          display: inline-block;
+          background-size: cover;
+          background-position: center;
+          text-decoration: none;
+          transition: background-image 0.3s ease;
+        }
+
+        .bx-prev::before,
+        .bx-next::before {
+          content: "";
+          position: absolute;
+          top: -300px;
+          bottom: -300px;
+          left: -100px;
+          right: -100px;
+          background: transparent;
+          z-index: -1;
+        }
+      }
+    }
+
+    // 手機響應式設計
+    @media screen and (max-width: 768px) {
+      section.background-img,
+      section.tokyohr {
+        h3 {
+          font-size: 1.5rem; // 調整標題大小
+          margin-bottom: 0.5rem; // 減少間距
+        }
+
+        hr {
+          width: 80%; // 縮小 <hr> 寬度
+        }
+      }
+
+      section.tokyo-img {
+        min-height: 50vh; // 減少圖片區域高度
+
+        .carousel-bg {
+          height: 50vh; // 同步縮小背景圖片高度
+        }
+
+        .bx-controls-direction {
+          .bx-prev,
+          .bx-next {
+            width: 30px; // 縮小左右控制按鈕
+            height: 30px;
+          }
+        }
+      }
+    }
+
+    // 平板響應式設計
+    @media screen and (max-width: 1024px) {
+      section.background-img,
+      section.tokyohr {
+        h3 {
+          font-size: 2rem; // 調整標題大小
+          margin-bottom: 0.8rem; // 減少間距
+        }
+
+        hr {
+          width: 85%; // 縮小 <hr> 寬度
+        }
+      }
+
+      section.tokyo-img {
+        min-height: 60vh; // 減少圖片區域高度
+
+        .carousel-bg {
+          height: 60vh; // 同步縮小背景圖片高度
+        }
+      }
+    }
+  }
+
+  main.Osaka {
+    section.background-img {
+      min-height: 35vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; /* 垂直排列 h3 和 hr */
+
+      div.filter {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      h3 {
+        color: white;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 1rem; /* 增加 h3 下方的間距 */
+      }
+
+      hr {
+        width: 90%; /* 調整 <hr> 的寬度 */
+        border: 1px solid white; /* 設定邊框顏色 */
+        margin: 1rem 0; /* 增加上下的間距 */
+        opacity: 0.7; /* 調整透明度 */
+        text-align: center; /* 確保 hr 在容器中居中 */
+      }
+    }
+
+    section.Osakahr {
+      h3 {
+        margin-top: 25px;
+        color: white;
+        font-size: 3.5rem;
+        text-align: center;
+      }
+      min-height: 20vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; /* 垂直排列 h3 和 hr */
+
+      div.filter {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      hr {
+        width: 90%; /* 調整 <hr> 的寬度 */
+        border: 1px solid white; /* 設定邊框顏色 */
+        margin: 1rem 0; /* 增加上下的間距 */
+        opacity: 0.7; /* 調整透明度 */
+        text-align: center; /* 確保 hr 在容器中居中 */
+      }
+    }
+
+    section.Osaka-img {
+      position: relative;
+      min-height: 65vh;
+      overflow: hidden;
+
+      .carousel-inner {
+        height: 100%;
+      }
+
+      .carousel-bg {
+        height: 65vh;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        filter: invert(100%);
+      }
+
+      .bx-controls-direction {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+        z-index: 10;
+
+        .bx-prev,
+        .bx-next {
+          position: relative;
+          width: 40px; /* 設定寬度 */
+          height: 40px; /* 設定高度 */
+          display: inline-block;
+          background-size: cover;
+          background-position: center;
+          text-decoration: none;
+          transition: background-image 0.3s ease;
+        }
+
+        .bx-prev::before,
+        .bx-next::before {
+          content: ""; /* 使用偽元素增加點擊範圍 */
+          position: absolute;
+          top: -300px; /* 擴大到上方 10px */
+          bottom: -300px; /* 擴大到下方 10px */
+          left: -100px; /* 擴大到左側 10px */
+          right: -100px; /* 擴大到右側 10px */
+          background: transparent; /* 確保透明，不影響外觀 */
+          z-index: -1; /* 保證圖片仍然可見 */
+        }
+      }
+    }
+  }
+
+  main.kyoto {
+    section.background-img {
+      min-height: 35vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; /* 垂直排列 h3 和 hr */
+
+      div.filter {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      h3 {
+        color: white;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 1rem; /* 增加 h3 下方的間距 */
+      }
+
+      hr {
+        width: 90%; /* 調整 <hr> 的寬度 */
+        border: 1px solid white; /* 設定邊框顏色 */
+        margin: 1rem 0; /* 增加上下的間距 */
+        opacity: 0.7; /* 調整透明度 */
+        text-align: center; /* 確保 hr 在容器中居中 */
+      }
+    }
+
+    section.kyotohr {
+      h3 {
+        margin-top: 25px;
+        color: white;
+        font-size: 3.5rem;
+        text-align: center;
+      }
+      min-height: 20vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; /* 垂直排列 h3 和 hr */
+
+      div.filter {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      hr {
+        width: 90%; /* 調整 <hr> 的寬度 */
+        border: 1px solid white; /* 設定邊框顏色 */
+        margin: 1rem 0; /* 增加上下的間距 */
+        opacity: 0.7; /* 調整透明度 */
+        text-align: center; /* 確保 hr 在容器中居中 */
+      }
+    }
+
+    section.kyoto-img {
+      position: relative;
+      min-height: 65vh;
+      overflow: hidden;
+
+      .carousel-inner {
+        height: 100%;
+      }
+
+      .carousel-bg {
+        height: 65vh;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        filter: invert(100%);
+      }
+
+      .bx-controls-direction {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+        z-index: 10;
+
+        .bx-prev,
+        .bx-next {
+          position: relative;
+          width: 40px; /* 設定寬度 */
+          height: 40px; /* 設定高度 */
+          display: inline-block;
+          background-size: cover;
+          background-position: center;
+          text-decoration: none;
+          transition: background-image 0.3s ease;
+        }
+
+        .bx-prev::before,
+        .bx-next::before {
+          content: ""; /* 使用偽元素增加點擊範圍 */
+          position: absolute;
+          top: -300px; /* 擴大到上方 10px */
+          bottom: -300px; /* 擴大到下方 10px */
+          left: -100px; /* 擴大到左側 10px */
+          right: -100px; /* 擴大到右側 10px */
+          background: transparent; /* 確保透明，不影響外觀 */
+          z-index: -1; /* 保證圖片仍然可見 */
+        }
+      }
+    }
+  }
+}
+
+.bx-prev {
+  background-image: url("/按鈕圖片/左按鈕背景2.png"); /* 預設的圖片 */
+}
+
+.bx-prev:hover {
+  background-image: url("/按鈕圖片/左按鈕背景1.png"); /* hover 時顯示的圖片 */
+}
+
+.bx-next {
+  background-image: url("/按鈕圖片/右按鈕背景2.png"); /* 預設的圖片 */
+}
+
+.bx-next:hover {
+  background-image: url("/按鈕圖片/右按鈕背景1.png"); /* hover 時顯示的圖片 */
+}

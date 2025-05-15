@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>圍棋資訊網 | 日本棋院</title>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["corechart"] });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["棋賽", "獎金(日幣)"],
+          ["棋聖", 45000000],
+          ["十段", 7000000],
+          ["本因坊", 28000000],
+          ["碁聖", 8000000],
+          ["名人", 30000000],
+          ["王座", 14000000],
+          ["天元", 13000000],
+        ]);
+
+        var options = {
+          title: "日本七大棋戰獎金分布圓餅圖",
+        };
+
+        var chart = new google.visualization.PieChart(
+          document.getElementById("piechart")
+        );
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="top">
+        <h1>圍棋資訊網</h1>
+        <h3>
+          圍棋是一種策略棋類，使用格狀棋盤及黑白二色棋子進行對弈。起源於中國，中國古時有「弈」、「碁」、「手談」等多種稱謂，屬琴棋書畫四藝。
+        </h3>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="./index.html">網站首頁</a></li>
+          <li><a href="./korea.html">韓國棋院</a></li>
+          <li><a class="active" href="#">日本棋院</a></li>
+          <li><a href="./china.html">中國棋院</a></li>
+          <li><a href="./taiwan.html">海峰棋院</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <div class="japan">
+          <div class="image">
+            <img
+              src="./images/Nihon_Ki-in_Headquarter_(2016-05-05)_5.jpg"
+              alt="日本棋院"
+            />
+          </div>
+          <div class="info">
+            <p>
+              日本棋院（日語：一般公益法人日本棋院／いっぱんこうえきほうじんにほんきいん
+              Ippankōekihōjin Nihon
+              kiin），是日本最大的圍棋管理組織，並負責組織各種棋戰。總部位於東京都千代田區，另在名古屋和大阪設有中部和關西總本部。目前，日本棋院轄下棋士約300名。
+            </p>
+            <p>
+              日本棋院成立於1924年，由當時最大的兩個圍棋組織本因坊門和方圓社在大倉喜七郎的支持下合併而成。日本棋院成立後，先後同棋正社、吳清源和圍棋新社等組織或個人產生競爭。1950年，以橋本宇太郎為首的關西部分棋士脫離日本棋院，自創關西棋院。
+            </p>
+            <p>旗下組織有：</p>
+            <ul>
+              <li>東京本院</li>
+              <li>關西總本部</li>
+              <li>中部總本部</li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <div class="competition">
+          <div class="text">
+            <h3>日本棋院頭銜賽</h3>
+            <p>
+              日本圍棋七大主要賽事，根據獎金排序是棋聖、名人、本因坊、王座、天元、碁聖和十段。在這當中獎金較高的三個賽事棋聖、名人、本因坊並稱“三大頭銜戰”。其中棋聖是最高頭銜。如果同時包攬這三個頭銜的話，就被稱為“大三冠”。
+              職業棋手爭冠的棋賽有很多，但是爭奪七個頭銜戰的“七大棋戰”和其他比賽有什麼區別呢？
+            </p>
+            <p>
+              七大棋戰的最大特點就是所有棋手都能參加，當然決定挑戰者的方式各不相同，名人戰和本因坊戰是在經過預選後進入循環圈。進入循環圈就能證明自己已經是一流棋手了。
+            </p>
+            <p>頭銜賽的獎金如下：</p>
+
+            <ul>
+              <li>棋聖：4500萬日幣</li>
+              <li>十段：700萬日幣</li>
+              <li>本因坊：2800萬日幣</li>
+              <li>碁聖：800萬日幣</li>
+              <li>名人：3000萬日幣</li>
+              <li>王座：1400萬日幣</li>
+              <li>天元：1300萬日幣</li>
+            </ul>
+          </div>
+          <div id="piechart"></div>
+        </div>
+      </section>
+    </main>
+    <script
+      color="0,0,0"
+      opacity="0.3"
+      zIndex="-2"
+      count="99"
+      src="https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js"
+      integrity="sha512-P+NGabN/TJDOnCVOFJO+E06TBm4i+M8dTT91lWg/8UpwLrzicEXIypmABPpA47D0x6r+yxFHjYIZKWhc1h7xlQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>日本美食餐廳推薦 | 大阪區域美食地圖</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <img
+      class="fixed-image"
+      src="./城市圖片/大阪通天閣.png"
+      alt="fixed-image"
+    />
+
+    <header>
+      <section class="logo">
+        <img
+          src="./Logo/chopsticks-food-japan-svgrepo-com3.svg"
+          alt="壽司圖案的 Logo"
+        />
+        <h1>日本美食餐廳推薦</h1>
+      </section>
+
+      <nav>
+        <ul>
+          <li><a href="./index.html">回首頁</a></li>
+          <li><a href="./tokyo.html">東京區域</a></li>
+          <li><a href="./osaka.html">大阪區域</a></li>
+          <li><a href="./kyoto.html">京都區域</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="Osaka">
+      <section class="background-img">
+        <div class="filter"></div>
+        <h3 class="Osaka-heading">
+          歡樂、華麗，又熱鬧有趣：擁有豐富多樣娛樂的大阪<br />
+          「新鮮感」和「懷舊感」一年四季都瀰漫在這座城市的各個角落。<br />
+          此外，上方落語和漫才作為大眾娛樂而誕生，並作為大阪人不可或缺的歡笑文化傳播到日本各地。<br />
+          它也是一個讓人情不自禁地被娛樂的動人城市。
+        </h3>
+        <hr />
+      </section>
+      <section class="Osaka-img">
+        <div id="OsakaCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div
+                class="d-block w-100 carousel-bg"
+                style="
+                  background-image: url('./大阪區/道頓堀.png');
+                  background-size: cover;
+                  background-position: center -130%;
+                "
+              >
+                <div
+                  class="text-overlay"
+                  style="
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    color: #3f3f3fe8;
+                    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+                    padding: 5px 10px;
+                    font-family: myFont, DFkai-sb, sans-serif;
+                    font-size: 65px;
+                    border-radius: 5px;
+                    -webkit-text-stroke: 1.5px rgba(0, 0, 0);
+                  "
+                >
+                  大阪 - 道頓堀
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div
+                class="d-block w-100 carousel-bg"
+                style="
+                  background-image: url('./大阪區/大阪城.jpg');
+                  background-size: cover;
+                  background-position: center 220%;
+                "
+              >
+                <div
+                  class="text-overlay"
+                  style="
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    color: rgb(241, 255, 114);
+                    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.801);
+                    padding: 5px 10px;
+                    font-family: myFont, DFkai-sb, sans-serif;
+                    font-size: 65px;
+                    border-radius: 5px;
+                    -webkit-text-stroke: 1.5px rgba(0, 0, 0);
+                  "
+                >
+                  大阪 - 大阪城
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div
+                class="d-block w-100 carousel-bg"
+                style="
+                  background-image: url('./大阪區/心齋橋筋商店街.jpg');
+                  background-size: cover;
+                "
+              >
+                <div
+                  class="text-overlay"
+                  style="
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    color: #ffe7d7;
+                    text-shadow: 12px 12px 24px rgba(0, 0, 0);
+                    padding: 5px 10px;
+                    font-family: myFont, DFkai-sb, sans-serif;
+                    font-size: 65px;
+                    border-radius: 5px;
+                    -webkit-text-stroke: 1.5px rgba(0, 0, 0);
+                  "
+                >
+                  大阪 - 心齋橋筋商店街
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div
+                class="d-block w-100 carousel-bg"
+                style="
+                  background-image: url('./大阪區/新世界商店街.jpg');
+                  background-size: cover;
+                "
+              >
+                <div
+                  class="text-overlay"
+                  style="
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    color: #dacefc;
+                    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+                    padding: 5px 10px;
+                    font-family: myFont, DFkai-sb, sans-serif;
+                    font-size: 65px;
+                    border-radius: 5px;
+                    -webkit-text-stroke: 1.5px rgba(0, 0, 0);
+                  "
+                >
+                  大阪 - 新世界商店街
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bx-controls-direction">
+            <a
+              class="bx-prev"
+              href="#"
+              onclick="prevSlide(event, 'OsakaCarousel')"
+            ></a>
+            <a
+              class="bx-next"
+              href="#"
+              onclick="nextSlide(event, 'OsakaCarousel')"
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="Osakahr">
+        <hr />
+        <h3>大阪餐廳、食堂介紹</h3>
+      </section>
+
+      <div class="storeOsaka">
+        <!-- 東京餐廳部分 -->
+        <section class="left">
+          <figure>
+            <img src="./大阪區/大阪餐廳1.jpg" alt="大阪餐廳照片" />
+          </figure>
+        </section>
+
+        <section class="right">
+          <h2>千房 道頓堀ビル店</h2>
+          <h4>超人氣的大阪燒，裡面的配料相當豐富，分量十足。</h4>
+          <h3>聯絡方式：</h3>
+          <ul>
+            <li>
+              地址：大阪府大阪市中央区道頓堀1-5-5
+              千房道頓堀ビル　１Ｆ・２Ｆ・３Ｆ・４Ｆ
+            </li>
+            <li>餐廳電話：050-1807-5395</li>
+            <li>
+              交通：從地鐵難波站步行10分鐘，從近鐵日本橋站步行5分鐘，距離日本橋283米。
+            </li>
+            <li>營業時間： 星期一 ~ 日 AM 11:00– PM 23:00 Last Order 22:00</li>
+            <li>
+              前往 Google 搜尋：<a
+                target="_blank"
+                href="https://www.google.com/search?q=%E5%8D%83%E6%88%BF+%E9%81%93%E9%A0%93%E5%A0%80%E3%83%93%E3%83%AB%E5%BA%97&rlz=1C1VIQF_zh-TWTW1083TW1083&sourceid=chrome&ie=UTF-8"
+                >千房 道頓堀ビル店</a
+              >
+            </li>
+            <li>
+              前往 Google 地圖查看位置 :
+              <a
+                target="_blank"
+                href="https://www.google.com/maps/place/%E5%8D%83%E6%88%BF+%E9%81%93%E9%A0%93%E5%A0%80%E3%83%93%E3%83%AB%E5%BA%97/@34.6688073,135.5039074,17z/data=!3m1!4b1!4m6!3m5!1s0x6000e714e0f7db93:0x9bdc7e61a5f722f1!8m2!3d34.6688073!4d135.5039074!16s%2Fg%2F1tdw_f4w?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
+                >點此前往地圖搜尋</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="storeOsaka">
+        <!-- 東京部分 -->
+        <section class="left">
+          <figure>
+            <img src="./大阪區/大阪餐廳2.JPG" alt="大阪餐廳照片" />
+          </figure>
+        </section>
+
+        <section class="right">
+          <h2>無鉄砲大阪店</h2>
+          <h4>
+            大排長龍的濃厚豚骨湯底拉麵店，不喜歡口味太重也沒關係，店裡也有叫淡的湯底，麵的硬度、蔥量，都可以調整
+            !
+          </h4>
+          <h3>聯絡方式：</h3>
+          <ul>
+            <li>地址：大阪府大阪市浪速区戎本町1-5-21 米田ビル １Ｆ</li>
+            <li>餐廳電話：06-6645-0522</li>
+            <li>交通 (1)：從南海高野線今宮戎站步行2分鐘。</li>
+            <li>
+              交通 (2)：從大阪地鐵御堂筋線、四橋線大國町站4號出口步行2分鐘
+              距離今宮戎神社 125 公尺。
+            </li>
+            <li>
+              營業時間： 公休日:星期一，二 ~ 日 AM 11:00 – PM 15:00，PM 17:30 –
+              PM 22:30
+            </li>
+            <li>
+              前往 Google 搜尋：<a
+                target="_blank"
+                href="https://www.google.com/search?q=%E7%84%A1%E9%90%B5%E7%A0%B2+%E5%A4%A7%E9%98%AA%E5%BA%97&rlz=1C1VIQF_zh-TWTW1083TW1083&sourceid=chrome&ie=UTF-8"
+                >無鉄砲大阪店
+              </a>
+            </li>
+            <li>
+              前往 Google 地圖查看位置 :
+              <a
+                target="_blank"
+                href="https://www.google.com/maps/place/%E7%84%A1%E9%90%B5%E7%A0%B2+%E5%A4%A7%E9%98%AA%E5%BA%97/@34.6546002,135.4976434,17z/data=!3m1!4b1!4m6!3m5!1s0x6000e7643a315555:0xd051b14b87ae536!8m2!3d34.6546002!4d135.5002183!16s%2Fg%2F11h551js8n?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
+                >點此前往地圖搜尋</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="storeOsaka">
+        <!-- 東京部分 -->
+        <section class="left">
+          <figure>
+            <img src="./大阪區/大阪餐廳3.JPG" alt="大阪餐廳照片" />
+          </figure>
+        </section>
+
+        <section class="right">
+          <h2>越源 1991</h2>
+          <h4>在地平價超好吃炸串老店，擁有多種炸物。</h4>
+          <h3>聯絡方式：</h3>
+          <ul>
+            <li>地址：大阪府大阪市浪速区恵美須東2丁目3-9</li>
+            <li>電話：06-6631-2696</li>
+            <li>
+              交通：
+              從地鐵動物園前站步行5分鐘，距離新今宮站前371米，離通天閣很近。
+            </li>
+            <li>
+              營業時間：公休日 : 星期四，星期一、二、三、五、六、日 AM 12: 00 PM
+              21:00
+            </li>
+            <li>
+              前往 Google 搜尋：<a
+                target="_blank"
+                href="https://www.google.com/search?q=%E8%B6%8A%E6%BA%90&rlz=1C1VIQF_zh-TWTW1083TW1083&sourceid=chrome&ie=UTF-8"
+                >越源</a
+              >
+            </li>
+            <li>
+              前往 Google 地圖查看位置 :
+              <a
+                target="_blank"
+                href="https://www.google.com/maps/place/%E8%B6%8A%E6%BA%90/data=!4m2!3m1!1s0x0:0xc44126526c1c6398?sa=X&ved=1t:2428&ictx=111&cshid=1734756858684974"
+                >點此前往地圖搜尋</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <style>
+        .storeOsaka {
+          margin-top: 1px;
+          margin-right: 2rem;
+          margin-bottom: 2rem;
+          margin-left: 2rem;
+          padding: 0.5rem;
+          position: relative;
+          z-index: 1;
+          background-color: rgba(255, 255, 255, 0.85);
+          display: flex;
+          align-items: flex-start;
+          gap: 1rem;
+          border-radius: 50px;
+          flex-wrap: wrap; /* Allow wrapping on smaller screens */
+
+          section.left {
+            flex: 0 0 600px;
+            figure {
+              margin: 0;
+            }
+            img {
+              width: 100%;
+              display: block;
+              border-radius: 50px;
+              margin: 0 auto; /* Centers the image */
+            }
+          }
+
+          section.right {
+            flex: 1;
+
+            h2 {
+              font-size: 2.2rem;
+              color: rgb(255, 223, 117);
+              text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+            }
+
+            h3 {
+              font-size: 2rem;
+              color: rgb(255, 242, 122);
+              text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+            }
+
+            h4,
+            h5 {
+              font-size: 1.8rem;
+              color: rgb(255, 248, 186);
+              margin: 0 0 0.5rem 0;
+              text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+            }
+
+            ul {
+              font-size: 1.5rem;
+              margin: 0;
+              line-height: 1.5;
+              color: #333;
+            }
+          }
+
+          /* For screens smaller than 1024px (iPad and smaller devices) */
+          @media (max-width: 1024px) {
+            .storeTokyo {
+              flex-direction: column;
+              align-items: center; /* Centers the content */
+            }
+
+            .storeTokyo section.left,
+            .storeTokyo section.right {
+              width: 100%;
+              text-align: center; /* Centers text */
+            }
+          }
+
+          /* For screens smaller than 768px */
+          @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1rem;
+            align-items: center; /* Ensures vertical stacking with centered content */
+
+            section.left {
+              flex: none;
+              img {
+                width: 100%;
+                border-radius: 20px;
+              }
+            }
+
+            section.right {
+              h2 {
+                font-size: 1.8rem;
+              }
+
+              h3 {
+                font-size: 1.6rem;
+              }
+
+              h4,
+              h5 {
+                font-size: 1.4rem;
+              }
+
+              ul {
+                font-size: 1.2rem;
+              }
+            }
+          }
+
+          /* For smaller screens like phones */
+          @media (max-width: 480px) {
+            margin: 0.5rem;
+            padding: 0.5rem;
+
+            section.left {
+              img {
+                border-radius: 15px;
+              }
+            }
+          }
+        }
+      </style>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="App.js"></script>
+  </body>
+</html>
