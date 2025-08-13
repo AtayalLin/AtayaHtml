@@ -601,6 +601,8 @@ body main section.resume section.table table tr td img {
   flex-wrap: wrap;
   gap: 0.8rem;
   margin-bottom: 0.8rem;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .skill-tag {
@@ -974,42 +976,159 @@ body main .pdf-viewer h1 {
   }
 }
 
-/* 中型行動裝置 (376px - 480px) */
-@media (max-width: 480px) {
+/* 大型行動裝置 (425px * 575px) */
+@media (max-width: 425px) {
   .nav-container {
     padding: 0 1rem;
+  }
+
+  .nav-logo a {
+    font-size: 1.4rem;
+  }
+
+  /* 主要區域優化 */
+  body main section.main-area {
+    padding: 2rem 1rem;
+    min-height: 65vh;
+  }
+
+  body main section.main-area div.info h1 {
+    font-size: 2.2rem;
+    line-height: 1.3;
+    margin-bottom: 1.2rem;
+  }
+
+  body main section.main-area div.info p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  body main section.main-area div.info a {
+    font-size: 1.1rem;
+    padding: 0.9rem 1.8rem;
+  }
+
+  /* 關於我區塊 */
+  body main section.about-me section.description {
+    width: 92%;
+    padding: 1.8rem;
+  }
+
+  body main section.about-me section.description h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  body main section.about-me section.description p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* 專長區塊 */
+  .skill-category {
+    padding: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .skill-category h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .skill-category p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .skill-tag {
+    font-size: 0.82rem;
+    padding: 0.35rem 0.7rem;
+    margin: 0.2rem;
+  }
+
+  .skill-tag img {
+    width: 15px;
+    height: 15px;
+  }
+
+  /* 履歷表格 */
+  body main section.resume section.table table tr td {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  body main section.resume section.table table tr td:first-child {
+    width: 90px;
+    min-width: 90px;
+    font-size: 0.85rem;
+  }
+}
+
+/* 中型行動裝置 (375px * 575px) */
+@media (max-width: 375px) {
+  .nav-container {
+    padding: 0 0.8rem;
   }
 
   .nav-logo a {
     font-size: 1.3rem;
   }
 
+  /* 主要區域優化 */
+  body main section.main-area {
+    padding: 1.8rem 0.8rem;
+    min-height: 60vh;
+  }
+
+  body main section.main-area div.info h1 {
+    font-size: 2rem;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  body main section.main-area div.info p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.3rem;
+  }
+
+  body main section.main-area div.info a {
+    font-size: 1rem;
+    padding: 0.8rem 1.6rem;
+  }
+
+  /* 關於我區塊 */
+  body main section.about-me section.description {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  body main section.about-me section.description h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  body main section.about-me section.description p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  /* 專長區塊 */
+  .skill-category {
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
   .skill-category h4 {
     font-size: 1rem;
+    margin-bottom: 0.7rem;
+    gap: 0.6rem;
   }
 
   .skill-category p {
-    font-size: 0.9rem;
-  }
-}
-
-/* 小型行動裝置 (320px - 375px) */
-@media (max-width: 375px) {
-  .nav-container {
-    padding: 0 0.5rem;
-  }
-
-  .nav-logo a {
-    font-size: 1.2rem;
-  }
-
-  .skill-category {
-    padding: 0.8rem;
-  }
-
-  .skill-category h4 {
-    font-size: 0.95rem;
-    gap: 0.6rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
   }
 
   .skill-icon {
@@ -1018,12 +1137,223 @@ body main .pdf-viewer h1 {
   }
 
   .skill-tag {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
+    font-size: 0.78rem;
+    padding: 0.3rem 0.6rem;
+    margin: 0.15rem;
   }
 
   .skill-tag img {
     width: 14px;
     height: 14px;
+  }
+
+  /* 履歷表格 */
+  body main section.resume section.table table tr td {
+    padding: 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  body main section.resume section.table table tr td:first-child {
+    width: 80px;
+    min-width: 80px;
+    font-size: 0.8rem;
+  }
+}
+
+/* 小型行動裝置 (320px * 575px) */
+@media (max-width: 320px) {
+  .nav-container {
+    padding: 0 0.5rem;
+  }
+
+  .nav-logo a {
+    font-size: 1.2rem;
+  }
+
+  /* 主要區域優化 */
+  body main section.main-area {
+    padding: 1.5rem 0.5rem;
+    min-height: 55vh;
+  }
+
+  body main section.main-area div.info h1 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+  }
+
+  body main section.main-area div.info p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+  }
+
+  body main section.main-area div.info a {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.4rem;
+  }
+
+  /* 關於我區塊 */
+  body main section.about-me {
+    padding: 2.5rem 0.5rem;
+  }
+
+  body main section.about-me section.description {
+    width: 98%;
+    padding: 1.2rem;
+  }
+
+  body main section.about-me section.description h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  body main section.about-me section.description p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* 專長區塊 */
+  .skills-container {
+    gap: 0.8rem;
+  }
+
+  .skill-category {
+    padding: 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .skill-category h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+    gap: 0.5rem;
+  }
+
+  .skill-category p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .skill-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .frontend-skills {
+    gap: 0.3rem;
+  }
+
+  .skill-tag {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.5rem;
+    margin: 0.1rem;
+  }
+
+  .skill-tag img {
+    width: 12px;
+    height: 12px;
+  }
+
+  .learning-note {
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+  }
+
+  /* 履歷表格 */
+  body main section.resume {
+    padding: 2rem 0.5rem;
+  }
+
+  body main section.resume section.table {
+    padding: 0.8rem;
+  }
+
+  body main section.resume section.table table tr td {
+    padding: 0.7rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  body main section.resume section.table table tr td:first-child {
+    width: 70px;
+    min-width: 70px;
+    font-size: 0.75rem;
+  }
+
+  /* 圖片區域 */
+  body main section.main-area div.img-area img,
+  body main section.resume section.picture img {
+    width: 95%;
+  }
+
+  /* 觸控優化 */
+  .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 文字選取優化 */
+  body main section.main-area div.info h1,
+  body main section.about-me section.description h2 {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  /* 極小螢幕的特殊處理 */
+  .skill-tag {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+
+  /* 確保重要按鈕可點擊 */
+  body main section.main-area div.info a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* 超小螢幕優化 (280px 以下) */
+@media (max-width: 280px) {
+  .nav-logo a {
+    font-size: 1.1rem;
+  }
+
+  body main section.main-area div.info h1 {
+    font-size: 1.6rem;
+  }
+
+  body main section.main-area div.info p {
+    font-size: 0.85rem;
+  }
+
+  .skill-category h4 {
+    font-size: 0.9rem;
+  }
+
+  .skill-category p {
+    font-size: 0.78rem;
+  }
+
+  .skill-tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+    max-width: 100px;
+  }
+
+  body main section.resume section.table table tr td {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  body main section.resume section.table table tr td:first-child {
+    width: 60px;
+    min-width: 60px;
+    font-size: 0.7rem;
   }
 } /*# sourceMappingURL=style.css.map */
