@@ -90,12 +90,13 @@ p {
 }
 
 .nav-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
 }
 
 .nav-logo a {
@@ -118,7 +119,7 @@ p {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: center;
 }
 
@@ -130,12 +131,20 @@ p {
   color: #2c3e50;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1rem;
-  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  padding: 0.7rem 1rem;
   border-radius: 25px;
   transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
+}
+
+.nav-subtitle {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #7f8c8d;
+  margin-left: 0.3rem;
 }
 
 .nav-link::before {
@@ -163,47 +172,9 @@ p {
   transform: translateY(-2px);
 }
 
-/* 下拉選單樣式 */
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 15px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-  padding: 1rem 0;
-  min-width: 200px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.dropdown:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.dropdown-item {
-  display: block;
-  padding: 0.75rem 1.5rem;
-  color: #2c3e50;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  border-radius: 0;
-}
-
-.dropdown-item:hover {
-  background: rgba(102, 126, 234, 0.1);
+/* 導覽列項目 hover 效果 */
+.nav-link:hover .nav-subtitle {
   color: #667eea;
-  transform: translateX(5px);
 }
 
 /* 漢堡選單樣式 */
@@ -919,7 +890,7 @@ body main .pdf-viewer h1 {
   }
 
   .nav-menu {
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 }
 
@@ -948,14 +919,16 @@ body main .pdf-viewer h1 {
     left: 0;
   }
 
-  .dropdown-menu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    background: rgba(102, 126, 234, 0.05);
-    margin-top: 1rem;
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .nav-subtitle {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.2rem;
+    font-size: 0.75rem;
   }
 
   .skills-container {
