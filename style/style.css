@@ -445,6 +445,88 @@ body main section.resume section.table table tr td img {
   margin-right: 8px;
   vertical-align: middle;
 }
+
+/* 專長區塊樣式 */
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill-category {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  padding: 1.2rem;
+  border-left: 4px solid #667eea;
+  transition: all 0.2s ease;
+}
+
+.skill-category:hover {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.skill-category h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.skill-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.skill-category p {
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.frontend-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(102, 126, 234, 0.15);
+  transform: translateY(-1px);
+}
+
+.skill-tag img {
+  width: 16px;
+  height: 16px;
+}
+
+.learning-note {
+  color: #27ae60;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0.5rem 0 0 0;
+  font-style: italic;
+}
 body main section.resume section.picture {
   flex: 1 1 500px;
   display: flex;
