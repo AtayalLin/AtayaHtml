@@ -6,18 +6,27 @@ AOS.init({
   offset: 100,
 });
 
-// 導航欄滾動效果
+// 導航欄滾動效果 - 使用節流優化
 let nav = document.querySelector("nav");
+let ticking = false;
 
-window.addEventListener("scroll", () => {
+function updateNavbar() {
   if (window.scrollY == 0) {
-    nav.style.boxShadow = "";
-    nav.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
+    nav.classList.remove("scrolled");
   } else {
-    nav.style.boxShadow = "0 10px 20px -10px rgba(0, 0, 0, 0.15)";
-    nav.style.backgroundColor = "rgba(255, 255, 255, 0.98)";
+    nav.classList.add("scrolled");
   }
-});
+  ticking = false;
+}
+
+function requestTick() {
+  if (!ticking) {
+    requestAnimationFrame(updateNavbar);
+    ticking = true;
+  }
+}
+
+window.addEventListener("scroll", requestTick, { passive: true });
 
 // 平滑滾動效果
 document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
