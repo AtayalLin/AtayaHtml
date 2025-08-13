@@ -28,26 +28,46 @@
     <link rel="stylesheet" href="./style/bubble.css" />
   </head>
   <body>
-    <nav data-aos="fade-down" data-aos-duration="800">
-      <ul>
-        <li>
-          <a href="#">家齊的個人網頁</a>
-        </li>
+    <nav class="navbar" data-aos="fade-down" data-aos-duration="800">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="#main-area">家齊的個人網頁</a>
+        </div>
 
-        <li>
-          <a target="_blank" href="./作品1/index.html"
-            >作品「日本美食推薦網頁」</a
-          >
-        </li>
+        <!-- 漢堡選單按鈕 -->
+        <div class="nav-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
 
-        <li>
-          <a target="_blank" href="./專案1/index.html">練習網站1</a>
-        </li>
-
-        <li>
-          <a target="_blank" href="./專案2/index.html">練習網站2</a>
-        </li>
-      </ul>
+        <!-- 導覽選單 -->
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item">
+            <a href="#about-me" class="nav-link">關於我</a>
+          </li>
+          <li class="nav-item">
+            <a href="#skills" class="nav-link">專長</a>
+          </li>
+          <li class="nav-item">
+            <a href="#resume" class="nav-link">履歷</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle">作品集</a>
+            <div class="dropdown-menu">
+              <a href="./作品1/index.html" target="_blank" class="dropdown-item"
+                >日本美食推薦網頁</a
+              >
+              <a href="./專案1/index.html" target="_blank" class="dropdown-item"
+                >練習網站1</a
+              >
+              <a href="./專案2/index.html" target="_blank" class="dropdown-item"
+                >練習網站2</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <main>

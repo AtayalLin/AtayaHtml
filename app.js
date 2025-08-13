@@ -7,7 +7,7 @@ AOS.init({
 });
 
 // 導航欄滾動效果 - 使用節流優化
-let nav = document.querySelector("nav");
+let nav = document.querySelector(".navbar");
 let ticking = false;
 
 function updateNavbar() {
@@ -27,6 +27,32 @@ function requestTick() {
 }
 
 window.addEventListener("scroll", requestTick, { passive: true });
+
+// 漢堡選單功能
+const mobileMenu = document.getElementById("mobile-menu");
+const navMenu = document.getElementById("nav-menu");
+
+mobileMenu.addEventListener("click", function () {
+  mobileMenu.classList.toggle("active");
+  navMenu.classList.toggle("active");
+});
+
+// 點擊選單項目後關閉選單
+document.querySelectorAll(".nav-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    navMenu.classList.remove("active");
+  });
+});
+
+// 點擊外部區域關閉選單
+document.addEventListener("click", function (event) {
+  const isClickInsideNav = nav.contains(event.target);
+  if (!isClickInsideNav && navMenu.classList.contains("active")) {
+    mobileMenu.classList.remove("active");
+    navMenu.classList.remove("active");
+  }
+});
 
 // 平滑滾動效果
 document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
