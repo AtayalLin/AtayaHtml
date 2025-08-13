@@ -4,17 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>家齊的個人網頁</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="stylesheet" href="./style/bubble.css" />
   </head>
   <body>
-    <nav>
+    <nav data-aos="fade-down" data-aos-duration="800">
       <ul>
         <li>
           <a href="#">家齊的個人網頁</a>
@@ -51,7 +65,7 @@
       </div>
 
       <section class="main-area">
-        <div class="info">
+        <div class="info" data-aos="fade-right" data-aos-duration="1000">
           <h1>嗨，我是林家齊 !</h1>
           <h2>
             我是從行政的職業，轉職過來的前端初學者。 目前有自學了一些
@@ -60,15 +74,15 @@
           </h2>
           <a target="_blank" href="./contact.html">前往104履歷瀏覽</a>
         </div>
-        <div class="img-area">
+        <div class="img-area" data-aos="fade-left" data-aos-duration="1000">
           <img src="./照片/合成背景圖.png" alt="個人照片" />
         </div>
       </section>
 
       <section class="about-me">
         <section class="description">
-          <h2>關於我的一些事情</h2>
-          <p>
+          <h2 data-aos="fade-up" data-aos-duration="800">關於我的一些事情</h2>
+          <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             我在國小學習時，因為接觸了電腦課，就覺得電腦方面的科技很有趣，
             長大之後也學習了取得了硬體、軟體方面一些基礎證照。
             但是因為後天得了疾病，而選擇了簡單的行政工作，也有了2年的工作經驗，
@@ -76,73 +90,209 @@
             所以我也去學習了許多其他領域的課程，也考取了部分領域的相關證照。
             現在則是想要學習前端工程師的技能，去接觸我一直以來所嚮往的科技業。
           </p>
-          <p>
-            我的主要技能為 WindowsXP、7、8、10 的系統操作、電腦裝修、Autodesk
-            Certified User AutoCAD(2D、3D)、 Sketch up
-            (2022、2023)、Enscape、Graphisoft ArchiCAD 19 Autodesk DWG TrueView
-            2019，以上都是之前工作所學習的辦公室技能以及機電繪圖技能，
-            未來會持續增加自身和工作上所學習的一些前端工程師技能。
-          </p>
+          <!-- 前端開發技能與學習成果區塊 -->
+          <div
+            class="frontend-skills-section"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="400"
+          >
+            <h3 class="skills-title">🚀 前端開發技能與學習成果</h3>
+
+            <div
+              class="skills-intro"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="500"
+            >
+              <p>
+                目前持續進修了至少有<strong>半年以上</strong>的前端技術學習，從
+                HTML、CSS、JavaScript 來進行製作一些簡單的靜態網頁 Side
+                Project，雖然沒有特別的功能，透過切版、排版以及 Bootstrap
+                插件，使網頁的完成度接近
+                <span class="highlight">60% ~ 70%</span>。目前還在進行更進階的
+                Side Project 實作與練習，並努力將技能應用於真實專案與業界需求。
+              </p>
+            </div>
+
+            <div class="skills-cards">
+              <!-- 技能卡片 1 -->
+              <div
+                class="skill-card"
+                data-aos="slide-up"
+                data-aos-duration="800"
+                data-aos-delay="600"
+              >
+                <div class="skill-number">01</div>
+                <h4 class="skill-title">基本語言與畫面切版</h4>
+                <div class="skill-content">
+                  <p>
+                    熟悉 <strong>VS Code</strong> 編輯器與
+                    <strong>HTML</strong> 結構語法，能運用語意標籤建構頁面架構，
+                    並透過
+                    <strong>CodePen</strong>
+                    練習互動功能與切版技巧，累積多筆完整的切版經驗。
+                  </p>
+                  <p>
+                    曾獨立規劃頁面的各個展示區塊，包含公司介紹、服務說明、聯絡表單等區塊，
+                    並依據品牌視覺設計進行色彩搭配與主視覺規劃，兼顧資訊層次與導覽動線，提升使用者體驗。
+                  </p>
+                  <p>
+                    掌握 <strong>CSS 選擇器</strong>、<strong>Box Model</strong
+                    >、排版屬性等應用技巧，
+                    能精確控制文字、圖片與互動式按鈕等元素的樣式與位置，讓網頁更具結構性與可維護性。
+                  </p>
+                </div>
+              </div>
+
+              <!-- 技能卡片 2 -->
+              <div
+                class="skill-card"
+                data-aos="slide-up"
+                data-aos-duration="800"
+                data-aos-delay="700"
+              >
+                <div class="skill-number">02</div>
+                <h4 class="skill-title">Flex 網頁排版和 RWD 佈局</h4>
+                <div class="skill-content">
+                  <p>
+                    熟悉 <strong>Flexbox</strong> 技術，靈活運用
+                    <code>flex-direction</code
+                    >、<code>justify-content</code>、<code>align-items</code>
+                    等對齊邏輯與彈性排版。
+                  </p>
+                  <p>
+                    實作中應用 Flex 進行導覽列、產品展示區與內容分區的設計，
+                    並使用
+                    <strong>Media Query</strong>
+                    製作適配手機、平板與桌機的響應式版面。
+                  </p>
+                  <p>
+                    曾完成商品卡片排版模組，針對不同裝置規劃顯示數量 （桌機每列
+                    <span class="highlight">3 款</span>、平板
+                    <span class="highlight">2 款</span>、手機單列），
+                    確保圖片與文字內容不失真、不跑版，同時保持操作體驗一致。
+                  </p>
+                </div>
+              </div>
+
+              <!-- 技能卡片 3 -->
+              <div
+                class="skill-card"
+                data-aos="slide-up"
+                data-aos-duration="800"
+                data-aos-delay="800"
+              >
+                <div class="skill-number">03</div>
+                <h4 class="skill-title">Bootstrap 與 SCSS 專案管理</h4>
+                <div class="skill-content">
+                  <p>
+                    具備使用
+                    <strong>Bootstrap</strong> 格線系統與功能元件的經驗，
+                    能快速建構一致性高的 UI 元件與排版結構。
+                  </p>
+                  <p>
+                    曾以 Bootstrap
+                    實作模擬電商網站作為練習，設計涵蓋產品列表頁、商品詳情頁、登入表單與購物流程，
+                    整合彈跳視窗、Tab 選單與 Accordion
+                    摺疊區塊，模擬完整購物體驗流程。
+                  </p>
+                  <p>
+                    透過
+                    <strong>SCSS</strong>
+                    進行樣式模組化管理，建立變數與共用設定區域 （如
+                    <code>$primary-color</code
+                    >、<code>$font-size-base</code>），
+                    分離版型元件與主體樣式，提升後續修改與維護效率，並支援多人協作與大型專案開發的需求。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div class="progress-bar-area">
-            <p>電腦組裝以及周邊安裝</p>
             <div
-              class="progress"
-              role="progressbar"
-              aria-label="Animated striped example"
-              aria-valuenow="75"
-              aria-valuemin="0"
-              aria-valuemax="100"
+              data-aos="slide-up"
+              data-aos-duration="1200"
+              data-aos-delay="100"
             >
+              <p>電腦組裝以及周邊安裝</p>
               <div
-                class="progress-bar progress-bar-striped progress-bar-animated"
-                style="width: 85%"
-              ></div>
+                class="progress"
+                role="progressbar"
+                aria-label="Animated striped example"
+                aria-valuenow="85"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div
+                  class="progress-bar progress-bar-striped progress-bar-animated"
+                  style="width: 85%"
+                ></div>
+              </div>
             </div>
 
-            <p>電腦軟體安裝以及系統操作</p>
             <div
-              class="progress"
-              role="progressbar"
-              aria-label="Animated striped example"
-              aria-valuenow="75"
-              aria-valuemin="0"
-              aria-valuemax="100"
+              data-aos="slide-up"
+              data-aos-duration="1200"
+              data-aos-delay="200"
             >
+              <p>電腦軟體安裝以及系統操作</p>
               <div
-                class="progress-bar progress-bar-striped progress-bar-animated bg-info"
-                style="width: 75%"
-              ></div>
+                class="progress"
+                role="progressbar"
+                aria-label="Animated striped example"
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div
+                  class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                  style="width: 75%"
+                ></div>
+              </div>
             </div>
 
-            <p>行政能力</p>
             <div
-              class="progress"
-              role="progressbar"
-              aria-label="Animated striped example"
-              aria-valuenow="75"
-              aria-valuemin="0"
-              aria-valuemax="100"
+              data-aos="slide-up"
+              data-aos-duration="1200"
+              data-aos-delay="300"
             >
+              <p>行政能力</p>
               <div
-                class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
-                style="width: 80%"
-              ></div>
+                class="progress"
+                role="progressbar"
+                aria-label="Animated striped example"
+                aria-valuenow="80"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div
+                  class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                  style="width: 80%"
+                ></div>
+              </div>
             </div>
 
-            <p>前端工程師技能</p>
             <div
-              class="progress"
-              role="progressbar"
-              aria-label="Animated striped example"
-              aria-valuenow="75"
-              aria-valuemin="0"
-              aria-valuemax="100"
+              data-aos="slide-up"
+              data-aos-duration="1200"
+              data-aos-delay="400"
             >
+              <p>前端工程師技能</p>
               <div
-                class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-                style="width: 60%"
-              ></div>
+                class="progress"
+                role="progressbar"
+                aria-label="Animated striped example"
+                aria-valuenow="60"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div
+                  class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                  style="width: 60%"
+                ></div>
+              </div>
             </div>
           </div>
         </section>
@@ -151,20 +301,37 @@
       <section class="resume">
         <section class="table">
           <table>
-            <tr style="border-top: 2px solid gray">
+            <tr
+              style="border-top: 2px solid gray"
+              data-aos="fade-right"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
               <td style="width: 10%">自我介紹</td>
               <td style="width: 85%">
-                我是林家齊，雖然在國小時期得了類風濕關節炎並接受過手術治療，
-                但這些困難並沒有阻止我追求自己的夢想和目標，我相信堅持不懈與持之以恆的努力可以克服一切。
-                我畢業於高雄市立海青高級工商職業學校電子科，並積累了兩年的工作經驗。
-                這段時間裡，我不斷地努力學習、成長，並且積累了豐富的經驗和技能。
+                您好，我是林家齊，具備兩年以上行政支援、電腦維修與 3D
+                繪圖等跨領域工作經驗，目前正積極投入前端開發領域，熟悉
+                HTML、CSS、JavaScript 等基礎語言能力，能獨立完成 RWD
+                響應式網站切版與互動效果設計，並熟悉 Git 版本控制與 VS Code
+                開發工具。
+                雖起步於行政與資訊支援領域，但我認為技術學習不受侷限。目前已經進行半年一上的自學、線上課程（目前於六角學院持續進修）與實作練習，並持續規劃學習目標轉職成為前端工程師。期望未來是先從靜態網頁的切版開始慢慢做起，透過團隊合作或公司專案來逐步成長，進一步熟練框架技術（如
+                React、Vue.js、Angular ），並在 2 -
+                3年後能夠踏入資深工程師的領域。
               </td>
             </tr>
-            <tr>
+            <tr
+              data-aos="fade-right"
+              data-aos-duration="800"
+              data-aos-delay="250"
+            >
               <td>學歷</td>
               <td>高雄市立海青高級工商職業學校 | 電子科，高職畢業</td>
             </tr>
-            <tr>
+            <tr
+              data-aos="fade-right"
+              data-aos-duration="800"
+              data-aos-delay="400"
+            >
               <td>經歷</td>
               <td>
                 <ol>
@@ -175,7 +342,11 @@
                 </ol>
               </td>
             </tr>
-            <tr>
+            <tr
+              data-aos="fade-right"
+              data-aos-duration="800"
+              data-aos-delay="550"
+            >
               <td>語言</td>
               <td>
                 <ul>
@@ -184,7 +355,11 @@
                 </ul>
               </td>
             </tr>
-            <tr>
+            <tr
+              data-aos="fade-right"
+              data-aos-duration="800"
+              data-aos-delay="700"
+            >
               <td>專長</td>
               <td>
                 <ul>
@@ -233,7 +408,11 @@
                 </ul>
               </td>
             </tr>
-            <tr>
+            <tr
+              data-aos="fade-right"
+              data-aos-duration="800"
+              data-aos-delay="850"
+            >
               <td>工作技能經驗</td>
               <td>
                 <ol>
@@ -255,7 +434,12 @@
             </tr>
           </table>
         </section>
-        <section class="picture">
+        <section
+          class="picture"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+        >
           <img src="./照片/山上生活照.png" alt="個人照片" />
           <div class="greenRect"></div>
           <div class="greenRect2"></div>
@@ -264,12 +448,17 @@
       </section>
     </main>
 
+    <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
 
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom Scripts -->
     <script src="./app.js"></script>
   </body>
 </html>
