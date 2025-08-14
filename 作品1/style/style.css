@@ -79,6 +79,17 @@ body .city:hover {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* 隱藏舊的城市卡片樣式 */
+body .city {
+  display: none !important;
+}
+
+body .city:hover {
+  transform: translateY(-5px) translateZ(0);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
 body .city section.left {
   flex: 0 0 300px;
 }
@@ -92,22 +103,555 @@ body .city section.left img {
 body .city section.right {
   flex: 1;
 }
+
 body .city section.right h4 {
   font-size: 2rem;
   color: rgb(255, 248, 186);
   margin: 0 0 0.5rem 0;
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
 }
+
 body .city section.right h5 {
   font-size: 1.5rem;
   color: rgb(6, 120, 120);
 }
+
 body .city section.right p {
   font-size: 1.2rem;
   margin: 0;
   line-height: 1.5;
   color: #333;
 }
+
+/* ===== 新的城市介紹區塊 - 上下佈局 ===== */
+.cities-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.city-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  margin: 3rem auto;
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(222, 184, 135, 0.3);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.city-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  border-color: rgba(222, 184, 135, 0.5);
+}
+
+/* 圖片區域 */
+.city-image {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.city-image figure {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.city-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.4s ease;
+}
+
+.city-card:hover .city-image img {
+  transform: scale(1.05);
+}
+
+/* 文字內容區域 */
+.city-content {
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.city-content h4 {
+  font-size: 2.5rem;
+  color: rgb(255, 248, 186);
+  margin: 0 0 1rem 0;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+}
+
+.city-content h5 {
+  font-size: 1.4rem;
+  color: rgb(6, 120, 120);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.city-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin: 0 0 1.5rem 0;
+  text-align: justify;
+}
+
+.city-source {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(222, 184, 135, 0.3);
+}
+
+.city-source small {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.city-source a {
+  color: rgb(6, 120, 120);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.city-source a:hover {
+  color: rgb(4, 90, 90);
+  text-decoration: underline;
+}
+
+/* 響應式設計 - 城市卡片 */
+@media (max-width: 768px) {
+  .cities-section {
+    padding: 1rem;
+  }
+
+  .city-card {
+    margin: 2rem auto;
+    border-radius: 20px;
+  }
+
+  .city-image {
+    height: 300px;
+  }
+
+  .city-content {
+    padding: 2rem;
+  }
+
+  .city-content h4 {
+    font-size: 2rem;
+  }
+
+  .city-content h5 {
+    font-size: 1.2rem;
+  }
+
+  .city-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .cities-section {
+    padding: 0.5rem;
+  }
+
+  .city-card {
+    margin: 1.5rem auto;
+    border-radius: 15px;
+  }
+
+  .city-image {
+    height: 250px;
+  }
+
+  .city-content {
+    padding: 1.5rem;
+  }
+
+  .city-content h4 {
+    font-size: 1.8rem;
+  }
+
+  .city-content h5 {
+    font-size: 1.1rem;
+  }
+
+  .city-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .city-source {
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+  }
+
+  .city-source small {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .city-image {
+    height: 200px;
+  }
+
+  .city-content {
+    padding: 1rem;
+  }
+
+  .city-content h4 {
+    font-size: 1.6rem;
+  }
+
+  .city-content h5 {
+    font-size: 1rem;
+  }
+
+  .city-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== 新的餐廳卡片樣式 ===== */
+.restaurant-card-new {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin: 2.5rem auto;
+  max-width: 1000px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(222, 184, 135, 0.2);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-card-new:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  border-color: rgba(222, 184, 135, 0.4);
+}
+
+/* 餐廳圖片區域 */
+.restaurant-image {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.restaurant-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.4s ease;
+}
+
+.restaurant-card-new:hover .restaurant-image img {
+  transform: scale(1.03);
+}
+
+/* 餐廳資訊區域 */
+.restaurant-info {
+  padding: 2rem;
+  flex: 1;
+}
+
+.restaurant-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.restaurant-header h3 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.stars {
+  color: #f39c12;
+  font-size: 1.2rem;
+}
+
+.score {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* 餐廳詳細資訊 */
+.restaurant-details {
+  margin-bottom: 2rem;
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: rgba(248, 249, 250, 0.8);
+  border-radius: 12px;
+  border-left: 4px solid #e8f4f8;
+}
+
+.detail-item i {
+  color: #7fb3d3;
+  font-size: 1.1rem;
+  margin-top: 0.2rem;
+  min-width: 16px;
+}
+
+.detail-item strong {
+  color: #34495e;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.detail-item p {
+  color: #5a6c7d;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* 按鈕區域 */
+.restaurant-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-google-search,
+.btn-google-maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.btn-google-search {
+  background: linear-gradient(135deg, #a8d8ea, #7fb3d3);
+  color: #2c3e50;
+  border: 1px solid rgba(127, 179, 211, 0.3);
+}
+
+.btn-google-maps {
+  background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+  color: #2c3e50;
+  border: 1px solid rgba(253, 203, 110, 0.3);
+}
+
+.btn-google-search:hover {
+  background: linear-gradient(135deg, #7fb3d3, #6c9bd1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(127, 179, 211, 0.3);
+  color: white;
+}
+
+.btn-google-maps:hover {
+  background: linear-gradient(135deg, #fdcb6e, #e17055);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(253, 203, 110, 0.3);
+  color: white;
+}
+
+/* 餐廳卡片響應式設計 */
+@media (max-width: 768px) {
+  .restaurant-card-new {
+    margin: 1.5rem;
+    border-radius: 15px;
+  }
+
+  .restaurant-image {
+    height: 220px;
+  }
+
+  .restaurant-info {
+    padding: 1.5rem;
+  }
+
+  .restaurant-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .detail-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .detail-item {
+    padding: 0.8rem;
+  }
+
+  .restaurant-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-google-search,
+  .btn-google-maps {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-card-new {
+    margin: 1rem;
+    border-radius: 12px;
+  }
+
+  .restaurant-image {
+    height: 180px;
+  }
+
+  .restaurant-info {
+    padding: 1rem;
+  }
+
+  .restaurant-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .detail-item {
+    padding: 0.6rem;
+    gap: 0.6rem;
+  }
+
+  .detail-item strong {
+    font-size: 0.8rem;
+  }
+
+  .detail-item p {
+    font-size: 0.85rem;
+  }
+
+  .btn-google-search,
+  .btn-google-maps {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* 隱藏舊的餐廳卡片樣式 */
+.restaurant-card {
+  display: none !important;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .restaurant-card {
+    margin: 1rem;
+    border-radius: 15px;
+  }
+
+  .restaurant-image-section {
+    height: 250px;
+  }
+
+  .restaurant-info {
+    padding: 1.5rem;
+  }
+
+  .restaurant-header h3 {
+    font-size: 1.8rem;
+  }
+
+  .restaurant-details {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .detail-section h4 {
+    font-size: 1.2rem;
+  }
+
+  .restaurant-actions {
+    flex-direction: column;
+  }
+
+  .action-btn {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-card {
+    margin: 0.5rem;
+    border-radius: 12px;
+  }
+
+  .restaurant-image-section {
+    height: 200px;
+  }
+
+  .restaurant-info {
+    padding: 1rem;
+  }
+
+  .restaurant-header h3 {
+    font-size: 1.6rem;
+  }
+
+  .detail-section h4 {
+    font-size: 1.1rem;
+  }
+
+  .detail-section p,
+  .detail-section ul {
+    font-size: 0.9rem;
+  }
+}
+
+/* 原本的城市卡片樣式已恢復 */
 @media (max-width: 768px) {
   body .city {
     flex-direction: column;
@@ -617,6 +1161,58 @@ body header nav .nav-toggle span {
   margin: 3px 0;
   transition: 0.3s;
   border-radius: 2px;
+}
+
+/* 筆記型電腦解析度修正 (1025*575以下) */
+@media (max-width: 1025px) and (max-height: 575px) {
+  body header {
+    padding: 0.3rem 0.8rem;
+    min-height: 60px;
+  }
+
+  body header section.logo {
+    flex: 1 1 300px;
+  }
+
+  body header section.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 0.5rem;
+  }
+
+  body header section.logo h1 {
+    font-size: 1.8rem;
+  }
+
+  body header nav {
+    flex: 2 1 400px;
+  }
+
+  body header nav .nav-menu li a {
+    font-size: 1.1rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* 中等螢幕導覽列優化 */
+@media (max-width: 1024px) and (min-height: 576px) {
+  body header {
+    padding: 0.5rem 1rem;
+  }
+
+  body header section.logo img {
+    width: 45px;
+    height: 45px;
+  }
+
+  body header section.logo h1 {
+    font-size: 2rem;
+  }
+
+  body header nav .nav-menu li a {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+  }
 }
 
 /* 響應式導覽列 */
@@ -1210,19 +1806,100 @@ body main.kyoto section.kyoto-img .bx-controls-direction .bx-next::before {
 }
 
 .bx-prev {
-  background-image: url("/按鈕圖片/左按鈕背景2.png"); /* 預設的圖片 */
+  background-image: url("../按鈕圖片/左按鈕背景2.png"); /* 預設的圖片 */
 }
 
 .bx-prev:hover {
-  background-image: url("/按鈕圖片/左按鈕背景1.png"); /* hover 時顯示的圖片 */
+  background-image: url("../按鈕圖片/左按鈕背景1.png"); /* hover 時顯示的圖片 */
 }
 
 .bx-next {
-  background-image: url("/按鈕圖片/右按鈕背景2.png"); /* 預設的圖片 */
+  background-image: url("../按鈕圖片/右按鈕背景2.png"); /* 預設的圖片 */
 }
 
 .bx-next:hover {
-  background-image: url("/按鈕圖片/右按鈕背景1.png"); /* hover 時顯示的圖片 */
+  background-image: url("../按鈕圖片/右按鈕背景1.png"); /* hover 時顯示的圖片 */
+}
+
+/* ===== 輪播組件照片名稱重新設計 ===== */
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    transparent 100%
+  );
+  padding: 2.5rem 2rem 2rem;
+  text-align: center;
+  border-radius: 0 0 30px 30px;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+
+.carousel-caption h5 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1.5px;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+.carousel-caption h5::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+}
+
+.carousel-caption p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #f8f9fa;
+  line-height: 1.6;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 0;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* 輪播組件懸停效果 */
+.carousel-item:hover .carousel-caption {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    transparent 100%
+  );
+  transform: translateY(-5px);
+}
+
+.carousel-item:hover .carousel-caption h5 {
+  transform: scale(1.05);
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);
+}
+
+.carousel-item:hover .carousel-caption p {
+  opacity: 1;
+  color: #ffffff;
 }
 
 /* 響應式設計 - 輪播組件優化 (進一步增加高度顯示旅客街道) */
@@ -1242,6 +1919,28 @@ body main.kyoto section.kyoto-img .bx-controls-direction .bx-next::before {
     background-size: cover;
     background-position: center center;
   }
+
+  /* 響應式輪播標題 */
+  .carousel-caption {
+    padding: 1.5rem 1rem 1.5rem;
+  }
+
+  .carousel-caption h5 {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.6rem;
+  }
+
+  .carousel-caption h5::after {
+    width: 40px;
+    height: 2px;
+    bottom: -6px;
+  }
+
+  .carousel-caption p {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1257,6 +1956,29 @@ body main.kyoto section.kyoto-img .bx-controls-direction .bx-next::before {
   body main.Kyoto section.Kyoto-img .carousel-bg,
   body main.Nara section.Nara-img .carousel-bg {
     height: 75vh;
+  }
+
+  /* 小螢幕輪播標題 */
+  .carousel-caption {
+    padding: 1rem 0.8rem 1.2rem;
+  }
+
+  .carousel-caption h5 {
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+  }
+
+  .carousel-caption h5::after {
+    width: 30px;
+    height: 2px;
+    bottom: -4px;
+  }
+
+  .carousel-caption p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding: 0 0.3rem;
   }
 }
 

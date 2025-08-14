@@ -19,9 +19,26 @@
     <link rel="stylesheet" href="./style/style.css" />
     <!-- AOS 動畫庫 -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- 高優先級預載入背景圖片 -->
+    <link
+      rel="preload"
+      href="./城市圖片/東京新宿.png"
+      as="image"
+      fetchpriority="high"
+      onload="this.onload=null;"
+    />
+    <!-- DNS預解析和預連接 -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   </head>
   <body>
-    <img class="fixed-image" src="./城市圖片/東京新宿.png" alt="fixed-image" />
+    <img
+      class="fixed-image"
+      src="./城市圖片/東京新宿.png"
+      alt="東京新宿背景"
+      loading="eager"
+      decoding="async"
+    />
     <header data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
       <section
         class="logo"
@@ -101,22 +118,9 @@
                   background-repeat: no-repeat;
                 "
               >
-                <div
-                  class="text-overlay"
-                  style="
-                    position: absolute;
-                    top: 10px;
-                    left: 10px;
-                    color: #3f3f3fe8;
-                    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
-                    padding: 5px 10px;
-                    font-family: myFont, DFkai-sb, sans-serif;
-                    font-size: 65px;
-                    border-radius: 5px;
-                    -webkit-text-stroke: 1.5px rgba(0, 0, 0);
-                  "
-                >
-                  東京 - 晴空塔
+                <div class="carousel-caption">
+                  <h5>東京晴空塔 ✨</h5>
+                  <p>高聳入雲的現代奇蹟，俯瞰整個東京都的絕美景色</p>
                 </div>
               </div>
             </div>
@@ -130,22 +134,9 @@
                   background-repeat: no-repeat;
                 "
               >
-                <div
-                  class="text-overlay"
-                  style="
-                    position: absolute;
-                    top: 10px;
-                    left: 10px;
-                    color: #fdd89fe8;
-                    text-shadow: 8px 8px 16px rgba(0, 0, 0, 0.85);
-                    padding: 5px 10px;
-                    font-family: myFont, DFkai-sb, sans-serif;
-                    font-size: 65px;
-                    border-radius: 5px;
-                    -webkit-text-stroke: 1.5px rgba(0, 0, 0);
-                  "
-                >
-                  東京 - 秋葉原街道
+                <div class="carousel-caption">
+                  <h5>秋葉原電器街 🎮</h5>
+                  <p>動漫迷的天堂，科技與次文化的完美融合之地</p>
                 </div>
               </div>
             </div>
@@ -159,22 +150,9 @@
                   background-repeat: no-repeat;
                 "
               >
-                <div
-                  class="text-overlay"
-                  style="
-                    position: absolute;
-                    top: 10px;
-                    left: 10px;
-                    color: #fffffffb;
-                    text-shadow: 8px 8px 16px rgba(26, 26, 26);
-                    padding: 5px 10px;
-                    font-family: myFont, DFkai-sb, sans-serif;
-                    font-size: 65px;
-                    border-radius: 5px;
-                    -webkit-text-stroke: 1.5px rgba(0, 0, 0);
-                  "
-                >
-                  東京 - 歌舞伎町一番街
+                <div class="carousel-caption">
+                  <h5>歌舞伎町不夜城 🌃</h5>
+                  <p>霓虹燈閃爍的夜生活中心，感受東京的無眠魅力</p>
                 </div>
               </div>
             </div>
@@ -188,22 +166,9 @@
                   background-repeat: no-repeat;
                 "
               >
-                <div
-                  class="text-overlay"
-                  style="
-                    position: absolute;
-                    top: 10px;
-                    left: 10px;
-                    color: hsla(83, 100%, 79%, 0.884);
-                    text-shadow: 8px 8px 16px rgba(0, 0, 0, 0.85);
-                    padding: 5px 10px;
-                    font-family: myFont, DFkai-sb, sans-serif;
-                    font-size: 65px;
-                    border-radius: 5px;
-                    -webkit-text-stroke: 1.5px rgba(0, 0, 0);
-                  "
-                >
-                  東京 - 淺草寺雷門
+                <div class="carousel-caption">
+                  <h5>淺草寺雷門 ⛩️</h5>
+                  <p>千年古剎的莊嚴之美，體驗江戶時代的傳統風情</p>
                 </div>
               </div>
             </div>
@@ -232,312 +197,261 @@
         <h3>東京餐廳、食堂介紹</h3>
       </section>
 
+      <!-- 第一家餐廳 -->
       <div
-        class="storeTokyo"
-        data-aos="slide-left"
-        data-aos-duration="800"
-        data-aos-once="true"
-      >
-        <!-- 東京餐廳部分 -->
-        <section
-          class="left"
-          data-aos="fade-up"
-          data-aos-delay="200"
-          data-aos-duration="800"
-          data-aos-once="true"
-        >
-          <figure>
-            <img src="./東京區/東京餐廳1.JPG" alt="東京餐廳照片" />
-          </figure>
-        </section>
-
-        <section
-          class="right"
-          data-aos="slide-left"
-          data-aos-delay="400"
-          data-aos-duration="800"
-          data-aos-once="true"
-        >
-          <h2>牛排飯 Center Beef 澀谷宮益坂店</h2>
-          <h4>
-            評論擁有 4.8
-            顆星的，位於澀谷車站外的牛排館，推薦「招牌和牛排飯」，便宜大碗又好吃。
-          </h4>
-          <h3>聯絡方式：</h3>
-          <ul>
-            <li>地址：東京都渋谷区渋谷1-12-24 707渋谷ビル 1F</li>
-            <li>餐廳電話：03-5467-5150</li>
-            <li>
-              交通：搭上東京JR/地鐵後，在「澀谷站」下車，往B3出口方向步行約3分鐘。
-            </li>
-            <li>
-              營業時間：星期一 ~ 五 AM 11:00– PM 15:00 Last Order PM 14:45， PM
-              17:30 – PM 22:00 PM Last Order 21:30 但星期二 PM 17:30 – PM 22:00
-              Last Order PM 21:20， 六、日、節假日 AM 11:00– PM 22:00 Last Order
-              PM 21:30
-            </li>
-            <li>
-              前往 Google 搜尋：<a
-                target="_blank"
-                href="https://www.google.com/search?sca_esv=9e9c33286d1c223f&rlz=1C1VIQF_zh-TWTW1083TW1083&sxsrf=ADLYWIKicR4bIdxAhcidHZEwpLMgpRsHKw:1734327699248&q=%E7%89%9B%E6%8E%92%E9%A3%AF+Center+Beef+%E6%BE%80%E8%B0%B7%E5%AE%AE%E7%9B%8A%E5%9D%82%E5%BA%97&source=lnms&fbs=AEQNm0AaBOazvTRM_Uafu9eNJJzCbF5Xkn0WmZWrNBlhQ5AQFOZM5xYdfIIIZQZe9lZbbb9163lvteYTuhqHYDF1LNDoySG9qVgCZkayojNqKYv-cCfsYZPDIVyA4sgMfT8oLSBeW92bYF1maRRv-7RslVbwWtG8qyotFTsWjR8WcxnrDAM6ap7h3ZNkfxV5Wihj8G_8qkhw&sa=X&ved=2ahUKEwiz-L-TyquKAxXOj68BHZXwLYAQ0pQJegQIFBAB&biw=1920&bih=911&dpr=1"
-                >牛排飯 Center Beef 澀谷宮益坂店</a
-              >
-            </li>
-            <li>
-              前往 Google 地圖查看位置 :
-              <a
-                target="_blank"
-                href="https://www.google.com/maps/place/%E7%89%9B%E6%8E%92%E9%A3%AF+Center+Beef+%E6%BE%80%E8%B0%B7%E5%AE%AE%E7%9B%8A%E5%9D%82%E5%BA%97/data=!4m2!3m1!1s0x0:0x966723d94e0361f7?sa=X&ved=1t:2428&ictx=111"
-                >點此前往地圖搜尋</a
-              >
-            </li>
-          </ul>
-        </section>
-      </div>
-
-      <div
-        class="storeTokyo"
+        class="restaurant-card-new"
         data-aos="fade-up"
         data-aos-duration="800"
         data-aos-once="true"
       >
-        <!-- 東京部分 -->
-        <section
-          class="left"
-          data-aos="slide-left"
-          data-aos-delay="200"
-          data-aos-duration="800"
-          data-aos-once="true"
-        >
-          <figure>
-            <img src="./東京區/東京餐廳2.jpg" alt="東京餐廳照片" />
-          </figure>
-        </section>
+        <!-- 餐廳圖片 -->
+        <div class="restaurant-image">
+          <img
+            src="./東京區/東京餐廳1.JPG"
+            alt="牛排飯 Center Beef 澀谷宮益坂店"
+            loading="lazy"
+          />
+        </div>
 
-        <section
-          class="right"
-          data-aos="fade-up"
-          data-aos-delay="400"
-          data-aos-duration="800"
-          data-aos-once="true"
-        >
-          <h2>辣麻味噌拉麵鬼金棒 - 池袋店</h2>
-          <h4>
-            池袋地區熱門拉麵店，獨特香料與辣油令人上癮，不吃辣也可以不用加，麵的分量也十足！
-          </h4>
-          <h3>聯絡方式：</h3>
-          <ul>
-            <li>地址：東京都豊島区東池袋1-13-14 M大樓1F</li>
-            <li>餐廳電話：03-5396-4202</li>
-            <li>交通：從各線「池袋」站步行約5分鐘</li>
-            <li>營業時間：星期一 ~ 日 AM 11:00 – PM 21:30</li>
-            <li>
-              前往 Google 搜尋：<a
-                target="_blank"
-                href="https://www.google.com/search?q=%E3%82%AB%E3%83%A9%E3%82%B7%E3%83%93%E5%91%B3%E5%99%8C%E3%82%89%E3%83%BC%E9%BA%BA+%E9%AC%BC%E9%87%91%E6%A3%92+%E6%B1%A0%E8%A2%8B%E5%BA%97&rlz=1C1VIQF_zh-TWTW1083TW1083&sourceid=chrome&ie=UTF-8"
-                >カラシビ味噌らー麺 鬼金棒 池袋店</a
-              >
-            </li>
-            <li>
-              前往 Google 地圖查看位置 :
-              <a
-                target="_blank"
-                href="https://www.google.com/maps?sca_esv=d6e9a249458c55ac&rlz=1C1VIQF_zh-TWTW1083TW1083&output=search&q=%E3%82%AB%E3%83%A9%E3%82%B7%E3%83%93%E5%91%B3%E5%99%8C%E3%82%89%E3%83%BC%E9%BA%BA+%E9%AC%BC%E9%87%91%E6%A3%92+%E6%B1%A0%E8%A2%8B%E5%BA%97&source=lnms&fbs=AEQNm0AaBOazvTRM_Uafu9eNJJzCbF5Xkn0WmZWrNBlhQ5AQFOZM5xYdfIIIZQZe9lZbbb9163lvteYTuhqHYDF1LNDoySG9qVgCZkayojNqKYv-cCfsYZPDIVyA4sgMfT8oLSBeW92bYF1maRRv-7RslVbwWtG8qyotFTsWjR8WcxnrDAM6ap7h3ZNkfxV5Wihj8G_8qkhw&entry=mc&ved=1t:200715&ictx=111"
-                >點此前往地圖搜尋</a
-              >
-            </li>
-          </ul>
-        </section>
+        <!-- 餐廳資訊 -->
+        <div class="restaurant-info">
+          <!-- 餐廳名稱和評分 -->
+          <div class="restaurant-header">
+            <h3>牛排飯 Center Beef 澀谷宮益坂店</h3>
+            <div class="rating">
+              <span class="stars">★★★★★</span>
+              <span class="score">4.8</span>
+            </div>
+          </div>
+
+          <!-- 餐廳詳細資訊 -->
+          <div class="restaurant-details">
+            <div class="detail-row">
+              <div class="detail-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <strong>地址</strong>
+                  <p>東京都渋谷区渋谷1-12-24 707渋谷ビル 1F</p>
+                </div>
+              </div>
+
+              <div class="detail-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <strong>電話</strong>
+                  <p>03-5467-5150</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="detail-row">
+              <div class="detail-item">
+                <i class="fas fa-train"></i>
+                <div>
+                  <strong>交通</strong>
+                  <p>JR澀谷站東口步行3分鐘</p>
+                </div>
+              </div>
+
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <strong>營業時間</strong>
+                  <p>11:00-22:00 (週一休息)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 按鈕區域 -->
+          <div class="restaurant-actions">
+            <a href="#" class="btn-google-search">
+              <i class="fab fa-google"></i>
+              Google 搜尋
+            </a>
+            <a href="#" class="btn-google-maps">
+              <i class="fas fa-map-marked-alt"></i>
+              Google 地圖
+            </a>
+          </div>
+        </div>
       </div>
-
+      <!-- 第二家餐廳 -->
       <div
-        class="storeTokyo"
-        data-aos="slide-left"
+        class="restaurant-card-new"
+        data-aos="fade-up"
         data-aos-duration="800"
+        data-aos-delay="200"
         data-aos-once="true"
       >
-        <!-- 東京部分 -->
-        <section
-          class="left"
-          data-aos="fade-up"
-          data-aos-delay="200"
-          data-aos-duration="800"
-          data-aos-once="true"
-        >
-          <figure>
-            <img src="./東京區/東京餐廳3.jpg" alt="東京餐廳照片" />
-          </figure>
-        </section>
+        <!-- 餐廳圖片 -->
+        <div class="restaurant-image">
+          <img
+            src="./東京區/東京餐廳2.jpg"
+            alt="築地本願寺カフェ Tsumugi"
+            loading="lazy"
+          />
+        </div>
 
-        <section
-          class="right"
-          data-aos="slide-left"
-          data-aos-delay="400"
-          data-aos-duration="800"
-          data-aos-once="true"
-        >
-          <h2>串燒名店 ─ 鳥竹</h2>
-          <h4>
-            東京涉谷當地推薦的居酒屋，體驗道地的日本居酒屋文化，無論是大份量的串燒組合，或是單點串燒、定食、湯品等品項都OK！
-          </h4>
-          <h3>聯絡方式：</h3>
-          <ul>
-            <li>地址：東京都渋谷区道玄坂1-6-1 1F</li>
-            <li>電話：03-3461-1627</li>
-            <li>交通 (1)：京王井之頭線【澀谷站】西口步行1分鐘。</li>
-            <li>交通 (2)：從JR山手線/埼京線【澀谷站】步行3分鐘。</li>
-            <li>
-              交通 (3)：東京地鐵半藏門線、東急田園都市線【澀谷站】步行4分鐘。
-            </li>
-            <li>交通 (4)：東京地鐵銀座線【澀谷站】步行4分鐘。</li>
-            <li>交通 (5)：東京地鐵副都心線、東急東橫線【澀谷站】步行7分鐘。</li>
-            <li>
-              營業時間：星期一 ~ 日 AM 12:00 - PM 23:00 Last Order PM
-              22:00。節慶假日當天、前、後。
-              ※夏季休假：8月盂蘭盆節期間一週；年末年初休假：12月31日至1月4日止
-              ※1月5日將在準備完成後開店。
-            </li>
-            <li>
-              前往 Google 搜尋：<a
-                target="_blank"
-                href="https://www.google.com/search?q=%E4%B8%B2%E7%87%92%E5%90%8D%E5%BA%97+%E2%94%80+%E9%B3%A5%E7%AB%B9&rlz=1C1VIQF_zh-TWTW1083TW1083&oq=%E4%B8%B2%E7%87%92%E5%90%8D%E5%BA%97+%E2%94%80+%E9%B3%A5%E7%AB%B9&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigAdIBBzIwN2owajmoAgCwAgE&sourceid=chrome&ie=UTF-8"
-                >鳥竹総本店</a
-              >
-            </li>
-            <li>
-              前往 Google 地圖查看位置 :
-              <a
-                target="_blank"
-                href="https://www.google.com/maps/place/%E4%B8%B2%E7%87%92%E5%90%8D%E5%BA%97+%E9%B3%A5%E7%AB%B9/@35.6580323,139.6989737,17z/data=!3m1!4b1!4m6!3m5!1s0x60188b57ca57cb1f:0x95f8eee476d2572e!8m2!3d35.6580323!4d139.6989737!16s%2Fg%2F11bv5shh7r?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
-                >點此前往地圖搜尋</a
-              >
-            </li>
-          </ul>
-        </section>
+        <!-- 餐廳資訊 -->
+        <div class="restaurant-info">
+          <!-- 餐廳名稱和評分 -->
+          <div class="restaurant-header">
+            <h3>築地本願寺カフェ Tsumugi</h3>
+            <div class="rating">
+              <span class="stars">★★★★☆</span>
+              <span class="score">4.2</span>
+            </div>
+          </div>
+
+          <!-- 餐廳詳細資訊 -->
+          <div class="restaurant-details">
+            <div class="detail-row">
+              <div class="detail-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <strong>地址</strong>
+                  <p>東京都中央区築地3-15-1 築地本願寺内</p>
+                </div>
+              </div>
+
+              <div class="detail-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <strong>電話</strong>
+                  <p>03-3541-1131</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="detail-row">
+              <div class="detail-item">
+                <i class="fas fa-train"></i>
+                <div>
+                  <strong>交通</strong>
+                  <p>東京地鐵日比谷線築地站1號出口步行1分鐘</p>
+                </div>
+              </div>
+
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <strong>營業時間</strong>
+                  <p>8:00-17:00 (週三休息)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 按鈕區域 -->
+          <div class="restaurant-actions">
+            <a
+              href="https://www.google.com/search?q=築地本願寺カフェ+Tsumugi"
+              target="_blank"
+              class="btn-google-search"
+            >
+              <i class="fab fa-google"></i>
+              Google 搜尋
+            </a>
+            <a
+              href="https://www.google.com/maps/search/築地本願寺カフェ+Tsumugi"
+              target="_blank"
+              class="btn-google-maps"
+            >
+              <i class="fas fa-map-marked-alt"></i>
+              Google 地圖
+            </a>
+          </div>
+        </div>
       </div>
+      <!-- 第三家餐廳 -->
+      <div
+        class="restaurant-card-new"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="400"
+        data-aos-once="true"
+      >
+        <!-- 餐廳圖片 -->
+        <div class="restaurant-image">
+          <img
+            src="./東京區/東京餐廳3.jpg"
+            alt="串燒名店 鳥竹"
+            loading="lazy"
+          />
+        </div>
 
-      <style>
-        .storeTokyo {
-          margin-top: 1px;
-          margin-right: 2rem;
-          margin-bottom: 2rem;
-          margin-left: 2rem;
-          padding: 0.5rem;
-          position: relative;
-          z-index: 1;
-          background-color: rgba(255, 255, 255, 0.85);
-          display: flex;
-          align-items: flex-start;
-          gap: 1rem;
-          border-radius: 50px;
-          flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        <!-- 餐廳資訊 -->
+        <div class="restaurant-info">
+          <!-- 餐廳名稱和評分 -->
+          <div class="restaurant-header">
+            <h3>串燒名店 ─ 鳥竹</h3>
+            <div class="rating">
+              <span class="stars">★★★★★</span>
+              <span class="score">4.7</span>
+            </div>
+          </div>
 
-          section.left {
-            flex: 0 0 600px;
-            figure {
-              margin: 0;
-            }
-            img {
-              width: 100%;
-              display: block;
-              border-radius: 50px;
-              margin: 0 auto; /* Centers the image */
-            }
-          }
+          <!-- 餐廳詳細資訊 -->
+          <div class="restaurant-details">
+            <div class="detail-row">
+              <div class="detail-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <strong>地址</strong>
+                  <p>東京都渋谷区道玄坂1-6-1 1F</p>
+                </div>
+              </div>
 
-          section.right {
-            flex: 1;
+              <div class="detail-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <strong>電話</strong>
+                  <p>03-3461-1627</p>
+                </div>
+              </div>
+            </div>
 
-            h2 {
-              font-size: 2.2rem;
-              color: rgb(255, 223, 117);
-              text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
-            }
+            <div class="detail-row">
+              <div class="detail-item">
+                <i class="fas fa-train"></i>
+                <div>
+                  <strong>交通</strong>
+                  <p>JR澀谷站西口步行1分鐘</p>
+                </div>
+              </div>
 
-            h3 {
-              font-size: 2rem;
-              color: rgb(255, 242, 122);
-              text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
-            }
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <strong>營業時間</strong>
+                  <p>12:00-23:00 (週日休息)</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-            h4,
-            h5 {
-              font-size: 1.8rem;
-              color: rgb(255, 248, 186);
-              margin: 0 0 0.5rem 0;
-              text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
-            }
-
-            ul {
-              font-size: 1.5rem;
-              margin: 0;
-              line-height: 1.5;
-              color: #333;
-            }
-          }
-
-          /* For screens smaller than 1024px (iPad and smaller devices) */
-          @media (max-width: 1024px) {
-            .storeTokyo {
-              flex-direction: column;
-              align-items: center; /* Centers the content */
-            }
-
-            .storeTokyo section.left,
-            .storeTokyo section.right {
-              width: 100%;
-              text-align: center; /* Centers text */
-            }
-          }
-
-          /* For screens smaller than 768px */
-          @media (max-width: 768px) {
-            flex-direction: column;
-            gap: 1rem;
-            margin: 1rem;
-            align-items: center; /* Ensures vertical stacking with centered content */
-
-            section.left {
-              flex: none;
-              img {
-                width: 100%;
-                border-radius: 20px;
-              }
-            }
-
-            section.right {
-              h2 {
-                font-size: 1.8rem;
-              }
-
-              h3 {
-                font-size: 1.6rem;
-              }
-
-              h4,
-              h5 {
-                font-size: 1.4rem;
-              }
-
-              ul {
-                font-size: 1.2rem;
-              }
-            }
-          }
-
-          /* For smaller screens like phones */
-          @media (max-width: 480px) {
-            margin: 0.5rem;
-            padding: 0.5rem;
-
-            section.left {
-              img {
-                border-radius: 15px;
-              }
-            }
-          }
-        }
-      </style>
+          <!-- 按鈕區域 -->
+          <div class="restaurant-actions">
+            <a
+              href="https://www.google.com/search?q=鳥竹総本店+澀谷"
+              target="_blank"
+              class="btn-google-search"
+            >
+              <i class="fab fa-google"></i>
+              Google 搜尋
+            </a>
+            <a
+              href="https://www.google.com/maps/place/鳥竹総本店/@35.6580323,139.6989737,17z"
+              target="_blank"
+              class="btn-google-maps"
+            >
+              <i class="fas fa-map-marked-alt"></i>
+              Google 地圖
+            </a>
+          </div>
+        </div>
+      </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
