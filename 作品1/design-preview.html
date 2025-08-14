@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小螢幕設計方案預覽</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .design-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .design-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .design-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .preview-frame {
+            width: 100%;
+            max-width: 425px;
+            margin: 0 auto;
+            border: 8px solid #333;
+            border-radius: 25px;
+            background: #333;
+            padding: 10px;
+        }
+        
+        .preview-screen {
+            width: 100%;
+            height: 575px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* 方案一：現代卡片式 */
+        .design1 .city-preview {
+            margin: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        
+        .design1 .image-section {
+            width: 100%;
+            height: 200px;
+            background: url('./城市圖片/東京涉谷.jpg') center/cover;
+            position: relative;
+        }
+        
+        .design1 .image-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+        }
+        
+        .design1 .content-section {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .design1 .title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .design1 .subtitle {
+            font-size: 0.9rem;
+            color: #34495e;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        
+        .design1 .text {
+            font-size: 0.8rem;
+            color: #5a6c7d;
+            line-height: 1.5;
+        }
+        
+        /* 方案二：雜誌風格 */
+        .design2 .city-preview {
+            margin: 15px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .design2 .image-section {
+            width: 100%;
+            height: 180px;
+            background: url('./城市圖片/東京涉谷.jpg') center/cover;
+            position: relative;
+        }
+        
+        .design2 .image-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+        }
+        
+        .design2 .image-section::before {
+            content: '東京 (Tokyo)';
+            position: absolute;
+            bottom: 12px;
+            left: 16px;
+            right: 16px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            z-index: 2;
+        }
+        
+        .design2 .content-section {
+            padding: 16px;
+        }
+        
+        .design2 .subtitle {
+            font-size: 0.85rem;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .design2 .text {
+            font-size: 0.75rem;
+            color: #4a5568;
+            line-height: 1.4;
+        }
+        
+        /* 方案三：極簡主義 */
+        .design3 .city-preview {
+            margin: 12px;
+            background: #fefefe;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            border: 1px solid #e8e8e8;
+        }
+        
+        .design3 .image-section {
+            width: 100%;
+            height: 160px;
+            background: url('./城市圖片/東京涉谷.jpg') center/cover;
+            position: relative;
+        }
+        
+        .design3 .image-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+        }
+        
+        .design3 .content-section {
+            padding: 16px;
+            text-align: center;
+        }
+        
+        .design3 .title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        
+        .design3 .subtitle {
+            font-size: 0.8rem;
+            color: #666666;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+        
+        .design3 .text {
+            font-size: 0.7rem;
+            color: #777777;
+            line-height: 1.4;
+            text-align: justify;
+            padding: 0 4px;
+        }
+        
+        .features {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .features h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .features ul {
+            color: rgba(255,255,255,0.9);
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .features li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>小螢幕設計方案預覽</h1>
+        
+        <div class="design-grid">
+            <!-- 方案一：現代卡片式 -->
+            <div class="design-card">
+                <div class="design-title">方案一：現代卡片式設計</div>
+                <div class="design-description">
+                    適用於 425x575 解析度，採用漸層背景、圓角卡片和陰影效果，營造現代感。
+                </div>
+                
+                <div class="preview-frame">
+                    <div class="preview-screen design1">
+                        <div class="city-preview">
+                            <div class="image-section"></div>
+                            <div class="content-section">
+                                <div class="title">東京 (Tokyo)</div>
+                                <div class="subtitle">東京是日本的首都和世界上人口最多的大都市</div>
+                                <div class="text">融合了未來主義與傳統風格，有各種各樣的餐廳、商店等著旅客前來探索...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="features">
+                    <h3>特色功能</h3>
+                    <ul>
+                        <li>漸層背景效果</li>
+                        <li>圓角卡片設計</li>
+                        <li>柔和陰影</li>
+                        <li>圖片漸層覆蓋</li>
+                        <li>現代色彩搭配</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 方案二：雜誌風格 -->
+            <div class="design-card">
+                <div class="design-title">方案二：雜誌風格設計</div>
+                <div class="design-description">
+                    適用於 375x575 解析度，標題浮在圖片上，具有強烈的視覺衝擊力。
+                </div>
+                
+                <div class="preview-frame" style="max-width: 375px;">
+                    <div class="preview-screen design2">
+                        <div class="city-preview">
+                            <div class="image-section"></div>
+                            <div class="content-section">
+                                <div class="subtitle">東京是日本的首都和世界上人口最多的大都市</div>
+                                <div class="text">融合了未來主義與傳統風格，有各種各樣的餐廳、商店等著旅客前來探索...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="features">
+                    <h3>特色功能</h3>
+                    <ul>
+                        <li>標題覆蓋在圖片上</li>
+                        <li>深色漸層遮罩</li>
+                        <li>雜誌風格排版</li>
+                        <li>強烈視覺對比</li>
+                        <li>時尚色彩搭配</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 方案三：極簡主義 -->
+            <div class="design-card">
+                <div class="design-title">方案三：極簡主義設計</div>
+                <div class="design-description">
+                    適用於 320x575 解析度，純淨簡約，注重內容可讀性和空間利用。
+                </div>
+                
+                <div class="preview-frame" style="max-width: 320px;">
+                    <div class="preview-screen design3">
+                        <div class="city-preview">
+                            <div class="image-section"></div>
+                            <div class="content-section">
+                                <div class="title">東京 (Tokyo)</div>
+                                <div class="subtitle">東京是日本的首都和世界上人口最多的大都市</div>
+                                <div class="text">融合了未來主義與傳統風格，有各種各樣的餐廳、商店等著旅客前來探索...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="features">
+                    <h3>特色功能</h3>
+                    <ul>
+                        <li>極簡純淨設計</li>
+                        <li>細線分隔元素</li>
+                        <li>居中對齊排版</li>
+                        <li>優雅字體間距</li>
+                        <li>高可讀性</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

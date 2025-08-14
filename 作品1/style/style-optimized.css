@@ -1,0 +1,962 @@
+@charset "UTF-8";
+
+/* ===== 字體與基礎設定 ===== */
+@font-face {
+  font-family: "myFont";
+  src: url(./YujiMai-Regular.ttf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "myFont", DFkai-sb, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  background-color: #2c3e50;
+  background-image: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+/* ===== 沉浸式背景 ===== */
+body img.fixed-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -5;
+  object-fit: cover;
+  object-position: center center;
+  background-color: #2c3e50;
+  background-image: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  content-visibility: visible;
+}
+
+.immersive-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* 舊的城市卡片樣式已移除，使用新的 .city-card 設計 */
+/* 隱藏所有舊的城市卡片相關樣式 */
+.city:not(.city-card) {
+  display: none !important;
+}
+
+/* 滾動動畫類別 */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.fade-in-up.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== 新的城市卡片設計 ===== */
+.cities-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.city-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.city-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.city-image-container {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.city-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.3s ease;
+}
+
+.city-card:hover .city-image {
+  transform: scale(1.05);
+}
+
+.city-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 2rem;
+  color: white;
+}
+
+.city-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: rgb(255, 248, 186);
+}
+
+.city-content {
+  padding: 2rem;
+}
+
+.city-description h4 {
+  font-size: 1.8rem;
+  color: rgb(6, 120, 120);
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.city-description p {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.city-details {
+  margin-bottom: 2rem;
+}
+
+.city-details p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.city-source {
+  margin-top: 1rem;
+}
+.city-source small {
+  color: #888;
+  font-size: 0.9rem;
+}
+.city-source a {
+  color: rgb(6, 120, 120);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.city-source a:hover {
+  color: rgb(4, 90, 90);
+  text-decoration: underline;
+}
+
+.city-action {
+  text-align: center;
+}
+
+.city-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, rgb(6, 120, 120), rgb(4, 90, 90));
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(6, 120, 120, 0.3);
+}
+
+.city-btn:hover {
+  background: linear-gradient(135deg, rgb(4, 90, 90), rgb(2, 60, 60));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(6, 120, 120, 0.4);
+  color: white;
+}
+
+/* ===== 導航列 ===== */
+body header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  transition: all 0.3s ease;
+}
+
+body header .logo img {
+  height: 50px;
+  width: auto;
+}
+
+body header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+body header nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+body header nav ul li a:hover {
+  color: rgb(6, 120, 120);
+}
+
+body header nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: rgb(6, 120, 120);
+  transition: width 0.3s ease;
+}
+
+body header nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* 漢堡選單 */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.nav-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* ===== 餐廳區塊基礎樣式 ===== */
+.storeTokyo,
+.storeOsaka,
+.storekyoto {
+  margin: 2rem;
+  border: 2.5px solid burlywood;
+  padding: 0.5rem;
+  position: relative;
+  z-index: 1;
+  background: rgba(248, 242, 242, 0.9);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.storeTokyo:hover,
+.storeOsaka:hover,
+.storekyoto:hover {
+  transform: translateY(-5px) translateZ(0);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.storeTokyo section.left,
+.storeOsaka section.left,
+.storekyoto section.left {
+  flex: 0 0 300px;
+}
+
+.storeTokyo section.left img,
+.storeOsaka section.left img,
+.storekyoto section.left img {
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+}
+
+.storeTokyo section.right,
+.storeOsaka section.right,
+.storekyoto section.right {
+  flex: 1;
+  padding: 1rem;
+}
+
+.storeTokyo section.right h4,
+.storeOsaka section.right h4,
+.storekyoto section.right h4 {
+  font-size: 2rem;
+  color: rgb(255, 248, 186);
+  margin: 0 0 0.5rem 0;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.storeTokyo section.right h5,
+.storeOsaka section.right h5,
+.storekyoto section.right h5 {
+  font-size: 1.5rem;
+  color: rgb(6, 120, 120);
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+}
+
+.storeTokyo section.right p,
+.storeOsaka section.right p,
+.storekyoto section.right p {
+  font-size: 1.2rem;
+  margin: 0;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* ===== 餐廳卡片設計 ===== */
+.restaurant-card {
+  display: flex;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 1000px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.restaurant-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.restaurant-image-section {
+  flex: 0 0 40%;
+  position: relative;
+  overflow: hidden;
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.3s ease;
+}
+
+.restaurant-card:hover .restaurant-image {
+  transform: scale(1.05);
+}
+
+.restaurant-info-section {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.restaurant-header h3 {
+  font-size: 1.8rem;
+  color: rgb(6, 120, 120);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.restaurant-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.stars {
+  color: #ffd700;
+  font-size: 1.2rem;
+}
+.rating-text {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.restaurant-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.restaurant-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.detail-item i {
+  color: rgb(6, 120, 120);
+  margin-top: 0.2rem;
+  font-size: 1.1rem;
+}
+
+.detail-content h4 {
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+}
+
+.detail-content p {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.restaurant-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, rgb(6, 120, 120), rgb(4, 90, 90));
+  color: white;
+  box-shadow: 0 4px 15px rgba(6, 120, 120, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, rgb(4, 90, 90), rgb(2, 60, 60));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(6, 120, 120, 0.4);
+  color: white;
+}
+
+.btn-secondary {
+  background: rgba(108, 117, 125, 0.1);
+  color: #6c757d;
+  border: 1px solid rgba(108, 117, 125, 0.3);
+}
+
+.btn-secondary:hover {
+  background: rgba(108, 117, 125, 0.2);
+  color: #495057;
+  transform: translateY(-1px);
+}
+
+/* ===== 輪播組件 ===== */
+.carousel-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.carousel-caption h5 {
+  color: #f8f9fa;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.carousel-caption p {
+  color: #f8f9fa;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* ===== 背景圖片區塊 ===== */
+body main.home section.background-img,
+body main.tokyo section.background-img,
+body main.Osaka section.background-img,
+body main.kyoto section.background-img {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+body main.home section.background-img div.filter,
+body main.tokyo section.background-img div.filter,
+body main.Osaka section.background-img div.filter,
+body main.kyoto section.background-img div.filter {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+body main.home section.background-img h3,
+body main.tokyo section.background-img h3,
+body main.Osaka section.background-img h3,
+body main.kyoto section.background-img h3 {
+  color: white;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin: 0;
+}
+
+/* ===== 響應式設計 ===== */
+
+/* 城市卡片響應式 */
+@media (max-width: 768px) {
+  .cities-container {
+    padding: 1rem;
+    gap: 2rem;
+  }
+  .city-image-container {
+    height: 250px;
+  }
+  .city-title {
+    font-size: 2rem;
+  }
+  .city-content {
+    padding: 1.5rem;
+  }
+  .city-description h4 {
+    font-size: 1.5rem;
+  }
+  .city-description p {
+    font-size: 1.1rem;
+  }
+  .city-details p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cities-container {
+    padding: 0.5rem;
+    gap: 1.5rem;
+  }
+  .city-image-container {
+    height: 200px;
+  }
+  .city-title {
+    font-size: 1.8rem;
+  }
+  .city-overlay {
+    padding: 1.5rem;
+  }
+  .city-content {
+    padding: 1rem;
+  }
+  .city-description h4 {
+    font-size: 1.3rem;
+  }
+  .city-description p {
+    font-size: 1rem;
+  }
+  .city-details p {
+    font-size: 0.9rem;
+  }
+  .city-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* 導航列響應式 */
+@media (max-width: 768px) {
+  body header {
+    padding: 0.8rem 1.5rem;
+  }
+
+  body header nav ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  body header nav ul.active {
+    display: flex;
+  }
+
+  body header nav ul li {
+    padding: 0.8rem 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+@media (max-width: 425px) {
+  body header {
+    padding: 0.6rem 1rem;
+  }
+
+  body header .logo img {
+    height: 40px;
+  }
+}
+
+/* 餐廳區塊響應式 */
+@media (max-width: 1440px) and (min-width: 1025px) {
+  .storeTokyo,
+  .storeOsaka,
+  .storekyoto {
+    margin: 1.8rem;
+    gap: 1.4rem;
+  }
+
+  .storeTokyo section.left,
+  .storeOsaka section.left,
+  .storekyoto section.left {
+    flex: 0 0 320px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .storeTokyo,
+  .storeOsaka,
+  .storekyoto {
+    margin: 1.5rem;
+    gap: 1.2rem;
+  }
+
+  .storeTokyo section.left,
+  .storeOsaka section.left,
+  .storekyoto section.left {
+    flex: 0 0 280px;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 426px) {
+  .storeTokyo,
+  .storeOsaka,
+  .storekyoto {
+    margin: 1rem;
+    gap: 1rem;
+  }
+
+  .storeTokyo section.left,
+  .storeOsaka section.left,
+  .storekyoto section.left {
+    flex: 0 0 250px;
+  }
+}
+
+@media (max-width: 425px) {
+  .storeTokyo,
+  .storeOsaka,
+  .storekyoto {
+    flex-direction: column;
+    margin: 0.8rem;
+    gap: 1rem;
+  }
+
+  .storeTokyo section.left,
+  .storeOsaka section.left,
+  .storekyoto section.left {
+    flex: none;
+    width: 100%;
+  }
+
+  .storeTokyo section.left img,
+  .storeOsaka section.left img,
+  .storekyoto section.left img {
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .storeTokyo section.right h4,
+  .storeOsaka section.right h4,
+  .storekyoto section.right h4 {
+    font-size: 1.5rem;
+  }
+
+  .storeTokyo section.right h5,
+  .storeOsaka section.right h5,
+  .storekyoto section.right h5 {
+    font-size: 1.2rem;
+  }
+
+  .storeTokyo section.right p,
+  .storeOsaka section.right p,
+  .storekyoto section.right p {
+    font-size: 1rem;
+  }
+}
+
+/* 餐廳卡片響應式 */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .restaurant-card {
+    margin: 1.5rem;
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 426px) {
+  .restaurant-card {
+    flex-direction: column;
+    margin: 1rem;
+    max-width: none;
+  }
+
+  .restaurant-image-section {
+    flex: none;
+    height: 250px;
+  }
+
+  .restaurant-info-section {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .restaurant-card {
+    flex-direction: column;
+    margin: 0.8rem;
+    border-radius: 15px;
+  }
+
+  .restaurant-image-section {
+    height: 200px;
+  }
+
+  .restaurant-info-section {
+    padding: 1rem;
+  }
+
+  .restaurant-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .restaurant-details {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .restaurant-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .action-btn {
+    justify-content: center;
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* 輪播組件響應式 */
+@media (max-width: 768px) {
+  .carousel-caption {
+    padding: 0.8rem;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .carousel-caption h5 {
+    font-size: 1rem;
+  }
+
+  .carousel-caption p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .carousel-caption {
+    padding: 0.6rem;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+  }
+
+  .carousel-caption h5 {
+    font-size: 0.9rem;
+  }
+
+  .carousel-caption p {
+    font-size: 0.75rem;
+  }
+}
+
+/* 背景圖片響應式 */
+@media (max-width: 768px) {
+  body main.home section.background-img,
+  body main.tokyo section.background-img,
+  body main.Osaka section.background-img,
+  body main.kyoto section.background-img {
+    min-height: 70vh;
+    background-attachment: scroll;
+  }
+
+  body main.home section.background-img h3,
+  body main.tokyo section.background-img h3,
+  body main.Osaka section.background-img h3,
+  body main.kyoto section.background-img h3 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 425px) {
+  body main.home section.background-img,
+  body main.tokyo section.background-img,
+  body main.Osaka section.background-img,
+  body main.kyoto section.background-img {
+    min-height: 60vh;
+  }
+
+  body main.home section.background-img h3,
+  body main.tokyo section.background-img h3,
+  body main.Osaka section.background-img h3,
+  body main.kyoto section.background-img h3 {
+    font-size: 1.5rem;
+  }
+
+  body main.home section.background-img div.filter,
+  body main.tokyo section.background-img div.filter,
+  body main.Osaka section.background-img div.filter,
+  body main.kyoto section.background-img div.filter {
+    padding: 1.5rem;
+  }
+}
+
+/* 背景圖片響應式優化 */
+@media (max-width: 768px) {
+  body img.fixed-image {
+    object-position: center top;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (max-width: 425px) {
+  body img.fixed-image {
+    object-position: center 20%;
+  }
+}
+
+/* 效能優化 */
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  [data-aos] {
+    animation-duration: 0.6s !important;
+    transition-duration: 0.6s !important;
+  }
+}
+
+/* 打印樣式 */
+@media print {
+  .restaurant-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin: 1rem 0;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+  .city-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin: 1rem 0;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+  body header {
+    display: none;
+  }
+
+  body img.fixed-image {
+    display: none;
+  }
+}
