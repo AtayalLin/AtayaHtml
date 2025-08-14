@@ -17,11 +17,19 @@
     />
 
     <link rel="stylesheet" href="./style/style.css" />
+    <!-- AOS 動畫庫 -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
     <img class="fixed-image" src="./城市圖片/東京新宿.png" alt="fixed-image" />
-    <header>
-      <section class="logo">
+    <header data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+      <section
+        class="logo"
+        data-aos="slide-left"
+        data-aos-delay="200"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
         <img
           src="./Logo/chopsticks-food-japan-svgrepo-com3.svg"
           alt="壽司圖案的 Logo"
@@ -29,27 +37,58 @@
         <h1>日本美食餐廳推薦</h1>
       </section>
 
-      <nav>
-        <ul>
+      <nav
+        data-aos="slide-left"
+        data-aos-delay="400"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
+        <ul class="nav-menu">
           <li><a href="./index.html">回首頁</a></li>
-          <li><a href="./tokyo.html">東京區域</a></li>
+          <li><a href="./tokyo.html" class="nav-active">東京區域</a></li>
           <li><a href="./osaka.html">大阪區域</a></li>
           <li><a href="./kyoto.html">京都區域</a></li>
         </ul>
+        <div class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </nav>
     </header>
 
     <main class="tokyo">
-      <section class="background-img">
+      <section
+        class="background-img"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-once="true"
+      >
         <div class="filter"></div>
-        <h3 class="tokyo-heading">
+        <h3
+          class="tokyo-heading"
+          data-aos="slide-left"
+          data-aos-delay="300"
+          data-aos-duration="1000"
+          data-aos-once="true"
+        >
           日本首都東京，華麗高樓，時尚街景<br />
           五花八門的豪華美食應有盡有，涵蓋了在地食堂與高級餐廳。<br />
           也包含了許多名勝古蹟、浪漫景點，從名勝古蹟到充滿未來感的地點應有盡有。
         </h3>
-        <hr />
+        <hr
+          data-aos="slide-left"
+          data-aos-delay="500"
+          data-aos-duration="800"
+          data-aos-once="true"
+        />
       </section>
-      <section class="tokyo-img">
+      <section
+        class="tokyo-img"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
         <div id="tokyoCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -58,6 +97,8 @@
                 style="
                   background-image: url('./東京區/東京晴空塔.jpg');
                   background-size: cover;
+                  background-position: center 30%;
+                  background-repeat: no-repeat;
                 "
               >
                 <div
@@ -85,7 +126,8 @@
                 style="
                   background-image: url('./東京區/秋葉原街道.jpg');
                   background-size: cover;
-                  background-position: center -105%;
+                  background-position: center 40%;
+                  background-repeat: no-repeat;
                 "
               >
                 <div
@@ -113,7 +155,8 @@
                 style="
                   background-image: url('./東京區/歌舞伎町一番街.jpg');
                   background-size: cover;
-                  background-position: center -120%;
+                  background-position: center 45%;
+                  background-repeat: no-repeat;
                 "
               >
                 <div
@@ -141,7 +184,8 @@
                 style="
                   background-image: url('./東京區/淺草寺雷門.jpg');
                   background-size: cover;
-                  background-position: center -97%;
+                  background-position: center 55%;
+                  background-repeat: no-repeat;
                 "
               >
                 <div
@@ -178,20 +222,42 @@
           </div>
         </div>
       </section>
-      <section class="tokyohr">
+      <section
+        class="tokyohr"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
         <hr />
         <h3>東京餐廳、食堂介紹</h3>
       </section>
 
-      <div class="storeTokyo">
+      <div
+        class="storeTokyo"
+        data-aos="slide-left"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
         <!-- 東京餐廳部分 -->
-        <section class="left">
+        <section
+          class="left"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-aos-duration="800"
+          data-aos-once="true"
+        >
           <figure>
             <img src="./東京區/東京餐廳1.JPG" alt="東京餐廳照片" />
           </figure>
         </section>
 
-        <section class="right">
+        <section
+          class="right"
+          data-aos="slide-left"
+          data-aos-delay="400"
+          data-aos-duration="800"
+          data-aos-once="true"
+        >
           <h2>牛排飯 Center Beef 澀谷宮益坂店</h2>
           <h4>
             評論擁有 4.8
@@ -229,15 +295,32 @@
         </section>
       </div>
 
-      <div class="storeTokyo">
+      <div
+        class="storeTokyo"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
         <!-- 東京部分 -->
-        <section class="left">
+        <section
+          class="left"
+          data-aos="slide-left"
+          data-aos-delay="200"
+          data-aos-duration="800"
+          data-aos-once="true"
+        >
           <figure>
             <img src="./東京區/東京餐廳2.jpg" alt="東京餐廳照片" />
           </figure>
         </section>
 
-        <section class="right">
+        <section
+          class="right"
+          data-aos="fade-up"
+          data-aos-delay="400"
+          data-aos-duration="800"
+          data-aos-once="true"
+        >
           <h2>辣麻味噌拉麵鬼金棒 - 池袋店</h2>
           <h4>
             池袋地區熱門拉麵店，獨特香料與辣油令人上癮，不吃辣也可以不用加，麵的分量也十足！
@@ -267,15 +350,32 @@
         </section>
       </div>
 
-      <div class="storeTokyo">
+      <div
+        class="storeTokyo"
+        data-aos="slide-left"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
         <!-- 東京部分 -->
-        <section class="left">
+        <section
+          class="left"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-aos-duration="800"
+          data-aos-once="true"
+        >
           <figure>
             <img src="./東京區/東京餐廳3.jpg" alt="東京餐廳照片" />
           </figure>
         </section>
 
-        <section class="right">
+        <section
+          class="right"
+          data-aos="slide-left"
+          data-aos-delay="400"
+          data-aos-duration="800"
+          data-aos-once="true"
+        >
           <h2>串燒名店 ─ 鳥竹</h2>
           <h4>
             東京涉谷當地推薦的居酒屋，體驗道地的日本居酒屋文化，無論是大份量的串燒組合，或是單點串燒、定食、湯品等品項都OK！
@@ -441,6 +541,9 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS 動畫庫 JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- 優化的沉浸式效果和AOS初始化 JavaScript -->
     <script src="./app.js"></script>
   </body>
 </html>

@@ -12,12 +12,20 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./style/style.css" />
+    <!-- AOS 動畫庫 -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
     <img class="fixed-image" src="./食物圖片/壽司1.jpg" alt="fixed-image" />
 
-    <header>
-      <section class="logo">
+    <header data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+      <section
+        class="logo"
+        data-aos="slide-right"
+        data-aos-delay="200"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
         <img
           src="./Logo/chopsticks-food-japan-svgrepo-com3.svg"
           alt="壽司圖案的 Logo"
@@ -25,35 +33,76 @@
         <h1>日本美食餐廳推薦</h1>
       </section>
 
-      <nav>
-        <ul>
-          <li><a href="./index.html">回首頁</a></li>
+      <nav
+        data-aos="slide-right"
+        data-aos-delay="400"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
+        <ul class="nav-menu">
+          <li><a href="./index.html" class="nav-active">回首頁</a></li>
           <li><a href="./tokyo.html">東京區域</a></li>
           <li><a href="./osaka.html">大阪區域</a></li>
           <li><a href="./kyoto.html">京都區域</a></li>
         </ul>
+        <div class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </nav>
     </header>
 
     <main class="home">
-      <section class="background-img">
+      <section
+        class="background-img"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-once="true"
+      >
         <div class="filter"></div>
-        <h3>
+        <h3
+          data-aos="slide-right"
+          data-aos-delay="300"
+          data-aos-duration="1000"
+          data-aos-once="true"
+        >
           旅遊同時，享受美食<br />
           日本各地吃透透，視覺與味覺的極致體驗。
         </h3>
       </section>
 
       <section>
-        <div class="city">
+        <div
+          class="city"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-once="true"
+        >
           <!-- 東京部分 -->
-          <section class="left">
+          <section
+            class="left"
+            data-aos="slide-right"
+            data-aos-delay="200"
+            data-aos-duration="800"
+            data-aos-once="true"
+          >
             <figure>
-              <img src="./城市圖片/東京涉谷.jpg" alt="東京城市照片" />
+              <img
+                src="./城市圖片/東京涉谷.jpg"
+                alt="東京城市照片"
+                loading="eager"
+              />
             </figure>
           </section>
 
-          <section class="right">
+          <section
+            class="right"
+            data-aos="fade-up"
+            data-aos-delay="400"
+            data-aos-duration="800"
+            data-aos-once="true"
+          >
             <h4>東京 (Tokyo)</h4>
             <h5>
               東京是日本的首都和世界上人口最多的大都市，融合了未來主義與傳統風格，有各種各樣的餐廳、商店等著旅客前來探索。
@@ -72,15 +121,37 @@
           </section>
         </div>
 
-        <div class="city">
+        <div
+          class="city"
+          data-aos="slide-right"
+          data-aos-duration="800"
+          data-aos-delay="300"
+          data-aos-once="true"
+        >
           <!-- 大阪部分 -->
-          <section class="left">
+          <section
+            class="left"
+            data-aos="fade-up"
+            data-aos-delay="500"
+            data-aos-duration="600"
+            data-aos-once="true"
+          >
             <figure>
-              <img src="./城市圖片/大阪道頓堀.jpg" alt="大阪城市照片" />
+              <img
+                src="./城市圖片/大阪道頓堀.jpg"
+                alt="大阪城市照片"
+                loading="lazy"
+              />
             </figure>
           </section>
 
-          <section class="right">
+          <section
+            class="right"
+            data-aos="slide-right"
+            data-aos-delay="700"
+            data-aos-duration="600"
+            data-aos-once="true"
+          >
             <h4>大阪 (Ōsaka)</h4>
             <h5>
               大阪是一個充滿魅力的悠閒城市，以當地美食、娛樂活動和夜生活而聞名，此外還擁有悠久的歷史和燦爛文化。
@@ -99,15 +170,37 @@
           </section>
         </div>
 
-        <div class="city">
-          <!-- 北海道部分 -->
-          <section class="left">
+        <div
+          class="city"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="600"
+          data-aos-once="true"
+        >
+          <!-- 京都部分 -->
+          <section
+            class="left"
+            data-aos="slide-right"
+            data-aos-delay="800"
+            data-aos-duration="600"
+            data-aos-once="true"
+          >
             <figure>
-              <img src="./城市圖片/京都市.png" alt="京都市照片" />
+              <img
+                src="./城市圖片/京都市.png"
+                alt="京都市照片"
+                loading="lazy"
+              />
             </figure>
           </section>
 
-          <section class="right">
+          <section
+            class="right"
+            data-aos="fade-up"
+            data-aos-delay="1000"
+            data-aos-duration="600"
+            data-aos-once="true"
+          >
             <h4>京都 (Kyōto)</h4>
             <h5>體驗在歷史洪流中不斷演進的日本文化，品味其中精髓。</h5>
             <p>
@@ -126,7 +219,9 @@
       </section>
     </main>
 
-    <!-- 沉浸式效果 JavaScript -->
+    <!-- AOS 動畫庫 JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- 優化的沉浸式效果和AOS初始化 JavaScript -->
     <script src="./app.js"></script>
   </body>
 </html>

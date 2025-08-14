@@ -24,26 +24,19 @@ body {
   overflow-x: hidden;
 }
 
-/* 沉浸式背景增強 */
+/* 沉浸式背景增強 - 固定背景圖片 */
 body img.fixed-image {
-  min-height: 120vh;
   position: fixed;
-  width: 100%;
-  height: auto;
-  top: calc(-20% + 20vh);
-  z-index: -5;
-  bottom: 0;
+  top: 0;
   left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -5;
   object-fit: cover;
-  transition: transform 0.1s ease-out;
-  will-change: transform;
+  object-position: center center;
 }
 
-/* 視差滾動效果 */
-.parallax-bg {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
+/* 移除視差滾動效果 - 背景圖片保持固定 */
 
 /* 沉浸式容器 */
 .immersive-container {
@@ -56,24 +49,23 @@ body .city {
   padding: 0.5rem;
   position: relative;
   z-index: 1;
-  background: rgba(248, 242, 242, 0.85);
-  backdrop-filter: blur(10px);
+  background: rgba(248, 242, 242, 0.9);
   display: flex;
   align-items: flex-start;
   gap: 1rem;
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-  transform: translateY(0);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transform: translateZ(0);
+  will-change: transform;
   /* For smaller screens, ensure text and images fit within the screen width */
   /* Ensure that the photo and content stack vertically if they cannot be aligned side-by-side */
 }
 
-/* 沉浸式卡片 hover 效果 */
+/* 優化的卡片 hover 效果 */
 body .city:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-  background: rgba(248, 242, 242, 0.95);
+  transform: translateY(-5px) translateZ(0);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* 滾動動畫類別 */
@@ -546,39 +538,174 @@ body header {
   align-items: center;
   position: sticky;
   top: 0;
-  z-index: 10;
-  box-shadow: 0 10px 6px -6px #777;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
 }
+
 body header section.logo {
   flex: 2 1 400px;
   display: flex;
   align-items: center;
 }
+
 body header section.logo h1 {
   font-size: 2.5rem;
+  margin: 0;
 }
+
 body header section.logo img {
   width: 6vw;
   height: 6vw;
+  margin-right: 1rem;
 }
+
 body header nav {
   flex: 5 1 500px;
+  position: relative;
 }
-body header nav ul {
+
+/* 導覽選單樣式 */
+body header nav .nav-menu {
   display: flex;
   list-style-type: none;
   justify-content: space-around;
+  margin: 0;
+  padding: 0;
 }
-body header nav ul li a {
+
+body header nav .nav-menu li a {
   color: black;
   text-decoration: none;
   font-size: 1.35rem;
-  transition: all 0.2s ease;
-  padding-bottom: 0.3rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  position: relative;
+  display: block;
 }
-body header nav ul li a:hover {
+
+/* 改善的hover效果 */
+body header nav .nav-menu li a:hover {
   color: rgb(79, 133, 155);
+  background-color: rgba(79, 133, 155, 0.1);
+  transform: translateY(-2px);
+}
+
+/* 當前頁面指示樣式 */
+body header nav .nav-menu li a.nav-active {
+  color: rgb(79, 133, 155);
+  background-color: rgba(79, 133, 155, 0.15);
+  font-weight: 700;
   border-bottom: 3px solid rgb(79, 133, 155);
+}
+
+/* 漢堡選單按鈕 (預設隱藏) */
+body header nav .nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+body header nav .nav-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* 響應式導覽列 */
+@media (max-width: 768px) {
+  body header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  body header section.logo {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
+
+  body header section.logo img {
+    width: 50px;
+    height: 50px;
+  }
+
+  body header section.logo h1 {
+    font-size: 1.8rem;
+  }
+
+  body header nav {
+    width: 100%;
+    flex: none;
+  }
+
+  body header nav .nav-toggle {
+    display: flex;
+    position: absolute;
+    top: -60px;
+    right: 0;
+  }
+
+  body header nav .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(247, 193, 111);
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  body header nav .nav-menu.active {
+    display: flex;
+  }
+
+  body header nav .nav-menu li {
+    width: 100%;
+  }
+
+  body header nav .nav-menu li a {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  body header nav .nav-menu li:last-child a {
+    border-bottom: none;
+  }
+
+  /* 漢堡選單動畫 */
+  body header nav .nav-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  body header nav .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  body header nav .nav-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+@media (max-width: 480px) {
+  body header section.logo h1 {
+    font-size: 1.5rem;
+  }
+
+  body header nav .nav-menu li a {
+    font-size: 1.1rem;
+    padding: 0.8rem;
+  }
 }
 /* 沉浸式首頁背景 */
 body main.home section.background-img {
@@ -686,10 +813,10 @@ body main.tokyo section.tokyohr hr {
   opacity: 0.7;
   text-align: center;
 }
-/* 沉浸式輪播區域 */
+/* 優化輪播區域 - 東京 (進一步增加高度顯示旅客街道) */
 body main.tokyo section.tokyo-img {
   position: relative;
-  min-height: 80vh;
+  min-height: 95vh;
   overflow: hidden;
   border-radius: 0 0 30px 30px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -700,16 +827,14 @@ body main.tokyo section.tokyo-img .carousel-inner {
 }
 
 body main.tokyo section.tokyo-img .carousel-bg {
-  height: 80vh;
+  height: 95vh;
   background-size: cover;
-  background-position: center;
-  transition: transform 0.5s ease;
+  background-position: center center;
+  background-repeat: no-repeat;
   position: relative;
-}
-
-/* 輪播項目 hover 效果 */
-body main.tokyo section.tokyo-img .carousel-item:hover .carousel-bg {
-  transform: scale(1.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 增強輪播控制按鈕 */
@@ -778,10 +903,10 @@ body main.tokyo section.tokyo-img .bx-controls-direction .bx-next::before {
     width: 80%;
   }
   body main.tokyo section.tokyo-img {
-    min-height: 50vh;
+    min-height: 85vh;
   }
   body main.tokyo section.tokyo-img .carousel-bg {
-    height: 50vh;
+    height: 85vh;
   }
   body main.tokyo section.tokyo-img .bx-controls-direction .bx-prev,
   body main.tokyo section.tokyo-img .bx-controls-direction .bx-next {
@@ -800,10 +925,10 @@ body main.tokyo section.tokyo-img .bx-controls-direction .bx-next::before {
     width: 85%;
   }
   body main.tokyo section.tokyo-img {
-    min-height: 60vh;
+    min-height: 90vh;
   }
   body main.tokyo section.tokyo-img .carousel-bg {
-    height: 60vh;
+    height: 90vh;
   }
 }
 body main.Osaka section.background-img {
@@ -866,10 +991,10 @@ body main.Osaka section.Osakahr hr {
   opacity: 0.7; /* 調整透明度 */
   text-align: center; /* 確保 hr 在容器中居中 */
 }
-/* 沉浸式大阪輪播區域 */
+/* 優化輪播區域 - 大阪 (進一步增加高度顯示旅客街道) */
 body main.Osaka section.Osaka-img {
   position: relative;
-  min-height: 80vh;
+  min-height: 95vh;
   overflow: hidden;
   border-radius: 0 0 30px 30px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -880,14 +1005,14 @@ body main.Osaka section.Osaka-img .carousel-inner {
 }
 
 body main.Osaka section.Osaka-img .carousel-bg {
-  height: 80vh;
+  height: 95vh;
   background-size: cover;
-  background-position: center;
-  transition: transform 0.5s ease;
-}
-
-body main.Osaka section.Osaka-img .carousel-item:hover .carousel-bg {
-  transform: scale(1.05);
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 body main.Osaka section.Osaka-img .carousel-control-prev-icon,
@@ -914,40 +1039,6 @@ body main.Osaka section.Osaka-img .carousel-control-next:hover {
   transform: scale(1.1);
 }
 
-body main.Osaka section.Osaka-img .carousel-bg {
-  height: 80vh;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.5s ease;
-}
-
-body main.Osaka section.Osaka-img .carousel-item:hover .carousel-bg {
-  transform: scale(1.05);
-}
-
-body main.Osaka section.Osaka-img .carousel-control-prev-icon,
-body main.Osaka section.Osaka-img .carousel-control-next-icon {
-  filter: invert(100%);
-  background-size: 30px 30px;
-  transition: all 0.3s ease;
-}
-
-body main.Osaka section.Osaka-img .carousel-control-prev,
-body main.Osaka section.Osaka-img .carousel-control-next {
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  margin: auto 20px;
-  transition: all 0.3s ease;
-}
-
-body main.Osaka section.Osaka-img .carousel-control-prev:hover,
-body main.Osaka section.Osaka-img .carousel-control-next:hover {
-  background: rgba(0, 0, 0, 0.6);
-  transform: scale(1.1);
-}
 body main.Osaka section.Osaka-img .bx-controls-direction {
   display: flex;
   justify-content: space-between;
@@ -1039,10 +1130,10 @@ body main.kyoto section.kyotohr hr {
   opacity: 0.7; /* 調整透明度 */
   text-align: center; /* 確保 hr 在容器中居中 */
 }
-/* 沉浸式京都輪播區域 */
+/* 優化輪播區域 - 京都 (進一步增加高度顯示旅客街道) */
 body main.kyoto section.kyoto-img {
   position: relative;
-  min-height: 80vh;
+  min-height: 95vh;
   overflow: hidden;
   border-radius: 0 0 30px 30px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -1053,14 +1144,14 @@ body main.kyoto section.kyoto-img .carousel-inner {
 }
 
 body main.kyoto section.kyoto-img .carousel-bg {
-  height: 80vh;
+  height: 95vh;
   background-size: cover;
-  background-position: center;
-  transition: transform 0.5s ease;
-}
-
-body main.kyoto section.kyoto-img .carousel-item:hover .carousel-bg {
-  transform: scale(1.05);
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 body main.kyoto section.kyoto-img .carousel-control-prev-icon,
@@ -1132,4 +1223,206 @@ body main.kyoto section.kyoto-img .bx-controls-direction .bx-next::before {
 
 .bx-next:hover {
   background-image: url("/按鈕圖片/右按鈕背景1.png"); /* hover 時顯示的圖片 */
-} /*# sourceMappingURL=style.css.map */
+}
+
+/* 響應式設計 - 輪播組件優化 (進一步增加高度顯示旅客街道) */
+@media (max-width: 768px) {
+  body main.tokyo section.tokyo-img,
+  body main.Osaka section.Osaka-img,
+  body main.Kyoto section.Kyoto-img,
+  body main.Nara section.Nara-img {
+    min-height: 85vh;
+  }
+
+  body main.tokyo section.tokyo-img .carousel-bg,
+  body main.Osaka section.Osaka-img .carousel-bg,
+  body main.Kyoto section.Kyoto-img .carousel-bg,
+  body main.Nara section.Nara-img .carousel-bg {
+    height: 85vh;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+@media (max-width: 480px) {
+  body main.tokyo section.tokyo-img,
+  body main.Osaka section.Osaka-img,
+  body main.Kyoto section.Kyoto-img,
+  body main.Nara section.Nara-img {
+    min-height: 75vh;
+  }
+
+  body main.tokyo section.tokyo-img .carousel-bg,
+  body main.Osaka section.Osaka-img .carousel-bg,
+  body main.Kyoto section.Kyoto-img .carousel-bg,
+  body main.Nara section.Nara-img .carousel-bg {
+    height: 75vh;
+  }
+}
+
+/* 街道風景圖片特殊優化 - 優先顯示旅客和街道 */
+.street-view-carousel {
+  background-size: cover !important;
+  background-position: center 55% !important; /* 調整為顯示更多街道和旅客 */
+  background-repeat: no-repeat !important;
+}
+
+.street-view-carousel.akihabara {
+  background-position: center 50% !important; /* 調整顯示更多街道 */
+}
+
+.street-view-carousel.kabukicho {
+  background-position: center 55% !important; /* 調整顯示更多旅客 */
+}
+
+.street-view-carousel.asakusa {
+  background-position: center 60% !important; /* 調整顯示更多街道活動 */
+}
+
+.street-view-carousel.dotonbori {
+  background-position: center 60% !important; /* 調整顯示更多街道和旅客 */
+}
+
+.street-view-carousel.shinsaibashi {
+  background-position: center 55% !important; /* 調整顯示更多購物街景 */
+}
+
+.street-view-carousel.shinsekai {
+  background-position: center 50% !important; /* 調整顯示更多市場活動 */
+}
+
+.street-view-carousel.hanami {
+  background-position: center 55% !important; /* 調整顯示更多賞櫻人群 */
+}
+
+.street-view-carousel.nishiki {
+  background-position: center 55% !important; /* 調整顯示更多市場街景 */
+}
+
+/* 優化輪播區域 - 奈良 (進一步增加高度顯示旅客街道) */
+body main.Nara section.Nara-img {
+  position: relative;
+  min-height: 95vh;
+  overflow: hidden;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+body main.Nara section.Nara-img .carousel-inner {
+  height: 100%;
+}
+
+body main.Nara section.Nara-img .carousel-bg {
+  height: 95vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body main.Nara section.Nara-img .carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  z-index: 1;
+}
+
+body main.Nara section.Nara-img .carousel-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+body main.Nara section.Nara-img .carousel-content h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  letter-spacing: 2px;
+}
+
+body main.Nara section.Nara-img .carousel-content p {
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  margin-bottom: 0;
+}
+
+/* 奈良區域的街景輪播特殊定位 */
+.street-view-carousel.nara-park {
+  background-position: center 40% !important;
+}
+
+.street-view-carousel.todaiji {
+  background-position: center 35% !important;
+}
+
+.street-view-carousel.kasuga {
+  background-position: center 45% !important;
+}
+
+/* AOS 效能優化 */
+[data-aos] {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 減少重繪和回流 */
+.carousel-bg,
+.fixed-image,
+.filter {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* 優化圖片載入 */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* 硬體加速 */
+.carousel-inner,
+.carousel-item,
+.city,
+.storeTokyo,
+.storeOsaka,
+.storekyoto {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* 優化動畫效能 */
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* 針對低效能裝置的優化 */
+@media (max-width: 768px) {
+  [data-aos] {
+    animation-duration: 0.6s !important;
+    transition-duration: 0.6s !important;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

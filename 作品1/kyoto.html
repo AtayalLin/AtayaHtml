@@ -16,6 +16,8 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./style/style.css" />
+    <!-- AOS 動畫庫 -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
     <img
@@ -24,8 +26,14 @@
       alt="fixed-image"
     />
 
-    <header>
-      <section class="logo">
+    <header data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+      <section
+        class="logo"
+        data-aos="slide-left"
+        data-aos-delay="200"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
         <img
           src="./Logo/chopsticks-food-japan-svgrepo-com3.svg"
           alt="壽司圖案的 Logo"
@@ -33,27 +41,58 @@
         <h1>日本美食餐廳推薦</h1>
       </section>
 
-      <nav>
-        <ul>
+      <nav
+        data-aos="slide-left"
+        data-aos-delay="400"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
+        <ul class="nav-menu">
           <li><a href="./index.html">回首頁</a></li>
           <li><a href="./tokyo.html">東京區域</a></li>
           <li><a href="./osaka.html">大阪區域</a></li>
-          <li><a href="./kyoto.html">京都區域</a></li>
+          <li><a href="./kyoto.html" class="nav-active">京都區域</a></li>
         </ul>
+        <div class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </nav>
     </header>
     <main class="kyoto">
-      <section class="background-img">
+      <section
+        class="background-img"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-once="true"
+      >
         <div class="filter"></div>
-        <h3 class="kyoto-heading">
+        <h3
+          class="kyoto-heading"
+          data-aos="slide-left"
+          data-aos-delay="300"
+          data-aos-duration="1000"
+          data-aos-once="true"
+        >
           體驗在歷史洪流中不斷演進的日本文化，品味其中精髓<br />
           京都的街道巷弄，充滿著日本自古以來的傳統風情。<br />
           京都的山和海，是日本人文與古老傳說的起源之地。<br />
           從京都市一路往北延伸，京都府狹長的地形橫跨了森林與海洋。
         </h3>
-        <hr />
+        <hr
+          data-aos="slide-left"
+          data-aos-delay="500"
+          data-aos-duration="800"
+          data-aos-once="true"
+        />
       </section>
-      <section class="kyoto-img">
+      <section
+        class="kyoto-img"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
         <div id="kyotoCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -62,7 +101,8 @@
                 style="
                   background-image: url('./京都區/清水寺.png');
                   background-size: cover;
-                  background-position: center -140%;
+                  background-position: center 45%;
+                  background-repeat: no-repeat;
                 "
               >
                 <div
@@ -90,7 +130,8 @@
                 style="
                   background-image: url('./京都區/花見小路.jpg');
                   background-size: cover;
-                  background-position: center 90%;
+                  background-position: center 45%;
+                  background-repeat: no-repeat;
                 "
               >
                 <div
@@ -118,6 +159,8 @@
                 style="
                   background-image: url('./京都區/31496262_m.jpg');
                   background-size: cover;
+                  background-position: center 35%;
+                  background-repeat: no-repeat;
                 "
               >
                 <div
@@ -145,6 +188,8 @@
                 style="
                   background-image: url('./京都區/錦市場.jpg');
                   background-size: cover;
+                  background-position: center 45%;
+                  background-repeat: no-repeat;
                 "
               >
                 <div
@@ -182,20 +227,42 @@
         </div>
       </section>
 
-      <section class="kyotohr">
+      <section
+        class="kyotohr"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
         <hr />
         <h3>京都餐廳、食堂介紹</h3>
       </section>
 
-      <div class="storekyoto">
-        <!-- 東京餐廳部分 -->
-        <section class="left">
+      <div
+        class="storekyoto"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
+        <!-- 京都餐廳部分 -->
+        <section
+          class="left"
+          data-aos="slide-left"
+          data-aos-delay="200"
+          data-aos-duration="800"
+          data-aos-once="true"
+        >
           <figure>
             <img src="./京都區/京都餐廳1.jpg" alt="京都餐廳照片" />
           </figure>
         </section>
 
-        <section class="right">
+        <section
+          class="right"
+          data-aos="fade-up"
+          data-aos-delay="400"
+          data-aos-duration="800"
+          data-aos-once="true"
+        >
           <h2>天丼まきの 京都寺町店</h2>
           <h4>
             大排長龍的熱門天婦羅定食，包含各式各樣的天婦羅炸物，份量大碗又好吃。
@@ -232,15 +299,32 @@
         </section>
       </div>
 
-      <div class="storekyoto">
-        <!-- 東京部分 -->
-        <section class="left">
+      <div
+        class="storekyoto"
+        data-aos="slide-left"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
+        <!-- 京都部分 -->
+        <section
+          class="left"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-aos-duration="800"
+          data-aos-once="true"
+        >
           <figure>
             <img src="./京都區/京都餐廳2.jpg" alt="京都餐廳照片" />
           </figure>
         </section>
 
-        <section class="right">
+        <section
+          class="right"
+          data-aos="slide-left"
+          data-aos-delay="400"
+          data-aos-duration="800"
+          data-aos-once="true"
+        >
           <h2>らーめん 千の風 京都</h2>
           <h4>
             京都人氣拉麵店，炙燒叉燒與九州豚骨白湯，香氣濃郁且口味剛好，也可以吃到美味的餃子。
@@ -276,15 +360,32 @@
         </section>
       </div>
 
-      <div class="storekyoto">
-        <!-- 東京部分 -->
-        <section class="left">
+      <div
+        class="storekyoto"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
+        <!-- 京都部分 -->
+        <section
+          class="left"
+          data-aos="slide-left"
+          data-aos-delay="200"
+          data-aos-duration="800"
+          data-aos-once="true"
+        >
           <figure>
             <img src="./京都區/京都餐廳3.jpg" alt="京都餐廳照片" />
           </figure>
         </section>
 
-        <section class="right">
+        <section
+          class="right"
+          data-aos="fade-up"
+          data-aos-delay="400"
+          data-aos-duration="800"
+          data-aos-once="true"
+        >
           <h2>やきとりの名門秋吉 河原町店</h2>
           <h4>
             高評價的平價雞肉串燒店，多種口味的好吃串燒，聚餐或續攤的好選擇。
@@ -322,6 +423,9 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS 動畫庫 JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- 優化的沉浸式效果和AOS初始化 JavaScript -->
     <script src="./app.js"></script>
   </body>
 </html>
