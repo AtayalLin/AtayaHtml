@@ -1218,14 +1218,16 @@ body header nav .nav-toggle span {
 /* 響應式導覽列 */
 @media (max-width: 768px) {
   body header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
     padding: 1rem;
+    position: relative; /* 讓下拉選單可相對 header 絕對定位 */
   }
 
   body header section.logo {
-    width: 100%;
-    justify-content: space-between;
+    width: auto;
+    flex: 1 1 auto; /* 撐開剩餘空間，讓 nav 靠右 */
+    justify-content: flex-start;
     margin-bottom: 0;
   }
 
@@ -1239,29 +1241,42 @@ body header nav .nav-toggle span {
   }
 
   body header nav {
-    width: 100%;
+    width: auto;
     flex: none;
+    position: static; /* 由 header 作為定位參照 */
+    margin-left: auto;
+    display: flex;
+    align-items: center;
   }
 
   body header nav .nav-toggle {
     display: flex;
-    position: absolute;
-    top: -60px;
-    right: 0;
+    position: static; /* 與 logo 同列，靠右的 nav 內顯示 */
+    z-index: 1101;
   }
 
   body header nav .nav-menu {
+    /* 手機展開：靠右對齊，向左下展開的白底卡片 */
     display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: rgb(247, 193, 111);
-    border-radius: 8px;
-    margin-top: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: absolute; /* 以 header 為定位參照 */
+    top: calc(100% + 0.6rem);
+    right: 1rem; /* 與 header 內邊距對齊，避免貼齊螢幕 */
+    left: auto;
+    transform: none;
+    width: min(420px, calc(100vw - 2rem));
+    box-sizing: border-box; /* 含邊框計算寬度，避免溢出 */
+
+    background: rgb(247, 193, 111); /* 與桌面導覽列一致的橘黃色 */
+    border: 4px solid #ffd84d; /* 亮黃色外框 */
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    z-index: 2000; /* 提高層級，避免被其他區塊覆蓋 */
+    padding: 0; /* 讓內部項目緊貼外框 */
+    overflow: hidden; /* 內部分隔線不超出圓角 */
   }
 
   body header nav .nav-menu.active {
-    display: flex;
+    display: block;
   }
 
   body header nav .nav-menu li {
@@ -1269,14 +1284,35 @@ body header nav .nav-toggle span {
   }
 
   body header nav .nav-menu li a {
-    padding: 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0.85rem 1rem;
+    font-size: 1.2rem; /* 回復接近原本尺寸 */
     text-align: center;
-    font-size: 1.2rem;
+    background: transparent;
+    color: black; /* 回復原本文字顏色 */
+    font-weight: 500;
+    border: none;
+    box-shadow: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
   }
 
+  /* 內部分隔線（不包含第一個） */
+  body header nav .nav-menu li + li a {
+    border-top: 4px solid #ffd84d;
+  }
+
+  /* hover 效果（回復原本的藍色） */
+  body header nav .nav-menu li a:hover {
+    background-color: rgba(79, 133, 155, 0.1);
+    color: rgb(79, 133, 155);
+  }
+
+  /* 方塊樣式下不需要最後一個去邊線 */
   body header nav .nav-menu li:last-child a {
-    border-bottom: none;
+    border: none;
   }
 
   /* 漢堡選單動畫 */
@@ -1294,16 +1330,154 @@ body header nav .nav-toggle span {
 }
 
 @media (max-width: 480px) {
+  body header {
+    padding: 0.6rem 0.8rem;
+  }
+
+  body header section.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 0.5rem;
+  }
+
   body header section.logo h1 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   body header nav .nav-menu li a {
-    font-size: 1.1rem;
-    padding: 0.8rem;
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+
+  body header nav .nav-toggle span {
+    width: 22px;
+    height: 2px;
   }
 }
 /* 沉浸式首頁背景 */
+
+/* 小螢幕（含 320px）導覽列可視性與標題可讀性強化 */
+@media (max-width: 768px) {
+  /* 讓漢堡按鈕更顯眼 */
+  body header nav .nav-toggle {
+    background: rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 6px 8px; /* 與原有 padding 疊加，實際以此為準 */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+  }
+  body header nav .nav-toggle span {
+    background-color: #ffffff; /* 橘色背景上對比更高 */
+  }
+
+  /* 縮小 header 高度，並將漢堡鍵放在右上角 */
+  body header {
+    padding: 0.35rem 0.6rem;
+    min-height: 48px;
+    flex-direction: row;
+    align-items: center;
+    position: relative; /* 讓漢堡按鈕以 header 為定位參考 */
+  }
+  /* 讓 nav 成為定位參照 */
+  body header nav {
+    position: relative;
+  }
+  body header section.logo {
+    padding-right: 2.2rem; /* 給右上的漢堡鍵預留空間 */
+    width: auto; /* 不要撐滿整行，與漢堡鍵分列 */
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 0;
+  }
+  body header section.logo img {
+    width: 36px;
+    height: 36px;
+  }
+  body header section.logo h1 {
+    font-size: 1.25rem;
+    max-width: 62vw; /* 預留右側給漢堡鍵 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  body header nav .nav-toggle {
+    position: static;
+    z-index: 1101;
+  }
+  body header nav .nav-menu {
+    margin-top: 0;
+  }
+
+  /* 首頁主視覺文案縮小 */
+  body main.home section.background-img h3 {
+    font-size: 2rem;
+    line-height: 1.45;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 標題過長時以省略處理，避免擠壓 */
+  body header section.logo h1 {
+    max-width: 65vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  /* 首頁主視覺文案再縮小 */
+  body main.home section.background-img h3 {
+    font-size: 1.45rem;
+    line-height: 1.45;
+  }
+}
+
+@media (max-width: 360px) {
+  /* 320~360px 再進一步調整 */
+  body header {
+    min-height: 44px;
+    padding: 0.3rem 0.5rem;
+    flex-direction: row;
+    align-items: center;
+    position: relative; /* 讓漢堡按鈕以 header 為定位參考 */
+  }
+  body header nav {
+    position: relative;
+  }
+  body header section.logo {
+    padding-right: 2rem;
+    width: auto;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.3rem;
+    margin: 0;
+  }
+  body header section.logo img {
+    width: 32px;
+    height: 32px;
+  }
+  body header section.logo h1 {
+    font-size: 1.1rem;
+    max-width: 62vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  body header nav .nav-toggle {
+    position: static;
+    padding: 6px;
+    z-index: 1101;
+  }
+  body header nav .nav-toggle span {
+    width: 18px;
+    height: 2.2px;
+  }
+  body main.home section.background-img h3 {
+    font-size: 1.2rem;
+    line-height: 1.35;
+  }
+}
+
 body main.home section.background-img {
   min-height: 100vh;
   position: relative;
