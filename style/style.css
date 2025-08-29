@@ -169,7 +169,36 @@ p {
 
 .nav-link:hover {
   color: #667eea;
-  transform: translateY(-2px);
+
+  /* 桌面：當連結較多時自動換行且保持間距，維持既有樣式 */
+}
+
+/* 桌面：當連結較多時自動換行且保持間距，維持既有樣式 */
+@media (min-width: 1025px) {
+  .nav-menu {
+    flex-wrap: wrap;
+    column-gap: 1.2rem;
+    row-gap: 0.35rem;
+  }
+  .nav-link {
+    font-size: 1rem;
+    padding: 0.6rem 0.9rem;
+  }
+  .nav-subtitle {
+    font-size: 0.78rem;
+    opacity: 0.9;
+  }
+}
+
+/* 介於 769~1200px：字級略縮，留出更多空間 */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .nav-link {
+    font-size: 0.95rem;
+    padding: 0.55rem 0.8rem;
+  }
+  .nav-subtitle {
+    font-size: 0.72rem;
+  }
 }
 
 /* 導覽列項目 hover 效果 */
