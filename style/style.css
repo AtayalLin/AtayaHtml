@@ -930,6 +930,40 @@ body main .pdf-viewer h1 {
   }
 }
 
+/* 平板專用漢堡選單 (769px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .nav-toggle {
+    display: flex;
+  }
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 2rem 0;
+    gap: 1rem;
+  }
+  .nav-menu.active {
+    left: 0;
+  }
+  .nav-link {
+    font-size: 1rem;
+    padding: 0.9rem 1rem;
+  }
+  .nav-subtitle {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.2rem;
+    font-size: 0.8rem;
+  }
+}
+
 /* 大型行動裝置 (481px - 768px) */
 @media (max-width: 768px) {
   .nav-toggle {
