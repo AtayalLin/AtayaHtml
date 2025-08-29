@@ -183,16 +183,19 @@ p {
 /* 桌面：當連結較多時自動換行且保持間距，維持既有樣式 */
 @media (min-width: 1025px) {
   .nav-menu {
-    flex-wrap: wrap;
-    column-gap: 1.2rem;
-    row-gap: 0.35rem;
+    flex-wrap: nowrap; /* 一排顯示，不換行 */
+    justify-content: space-between; /* 平均分布到整個右側欄寬度 */
+    gap: 1.2rem;
+    width: 100%;
+    flex: 1 1 auto;
   }
   .nav-link {
-    font-size: 1rem;
-    padding: 0.6rem 0.9rem;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.75rem;
+    white-space: nowrap; /* 文字不換行 */
   }
   .nav-subtitle {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     opacity: 0.9;
   }
 }
