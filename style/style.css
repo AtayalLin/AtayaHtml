@@ -108,6 +108,13 @@ p {
   background-clip: text;
   text-decoration: none;
   transition: opacity 0.2s ease;
+
+  /* 讓標題在桌面寬度時盡量單行顯示，避免被擠斷行 */
+  @media (min-width: 992px) {
+    .nav-logo a {
+      white-space: nowrap;
+    }
+  }
 }
 
 .nav-logo a:hover {
