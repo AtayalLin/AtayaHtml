@@ -1,549 +1,628 @@
 <!DOCTYPE html>
 <html lang="zh-hants">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>家齊的個人網頁</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>家齊的個人網頁</title>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
 
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+        <!-- AOS Animation Library -->
+        <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet"
+        />
 
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="./style/style.css" />
-    <link rel="stylesheet" href="./style/bubble.css" />
-  </head>
-  <body>
-    <nav class="navbar" data-aos="fade-down" data-aos-duration="800">
-      <div class="nav-container container-fluid">
-        <div class="row align-items-center gx-3 w-100">
-          <!-- 左側：Logo/標題欄位（適中寬度，讓標題完整顯示） -->
-          <div class="col-6 col-md-4 col-lg-2">
-            <div class="nav-logo">
-              <a href="#main-area">家齊的個人網頁</a>
-            </div>
-          </div>
-
-          <!-- 右側：選單與漢堡按鈕（更寬，容納一排按鈕） -->
-          <div
-            class="col-6 col-md-8 col-lg-10 d-flex align-items-center justify-content-end"
-          >
-            <!-- 漢堡選單按鈕 -->
-            <div class="nav-toggle" id="mobile-menu">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
-            </div>
-
-            <!-- 導覽選單 -->
-            <ul class="nav-menu" id="nav-menu">
-              <li class="nav-item">
-                <a href="./作品1/index.html" target="_blank" class="nav-link"
-                  >日本美食餐廳推薦</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  href="https://atayallin.github.io/Igs-test-vue/"
-                  target="_blank"
-                  class="nav-link"
-                  >Vue - H5 模擬遊戲大廳介面
-                  <span class="nav-subtitle">(H5 模擬遊戲大廳介面)</span></a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  href="https://atayallin.github.io/Vueshop-Side-Project-Demo-/"
-                  target="_blank"
-                  class="nav-link"
-                  >Vue電商Demo<span class="nav-subtitle">(日式電商)</span></a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  href="https://atayallin.github.io/Vue-2025-VueTodolist/"
-                  target="_blank"
-                  class="nav-link"
-                  >Vue 登入、註冊、清單網頁<span class="nav-subtitle"
-                    >(登入、註冊、清單功能展示)</span
-                  ></a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  href="https://atayallin.github.io/vue-test-frontend/"
-                  target="_blank"
-                  class="nav-link"
-                  >Vue 用戶管理介面<span class="nav-subtitle"
-                    >(用戶管理介面)</span
-                  ></a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <main>
-      <div id="background-wrap">
-        <div class="bubble x1"></div>
-        <div class="bubble x2"></div>
-        <div class="bubble x3"></div>
-        <div class="bubble x4"></div>
-        <div class="bubble x5"></div>
-        <div class="bubble x6"></div>
-        <div class="bubble x7"></div>
-        <div class="bubble x8"></div>
-        <div class="bubble x9"></div>
-        <div class="bubble x10"></div>
-      </div>
-
-      <section class="main-area">
-        <div class="info" data-aos="fade-right" data-aos-duration="1000">
-          <h1>嗨，我是林家齊 !</h1>
-          <h2>
-            我是從行政的職業，轉職過來的前端初學者。 目前有自學了一些
-            Html、Css、JavaScript 的一些基礎， 之後會在努力學習 Node.js、Vue.js
-            、Vite .....等與前端相關的程式語言。
-          </h2>
-          <a target="_blank" href="./contact.html">前往104履歷瀏覽</a>
-        </div>
-        <div class="img-area" data-aos="fade-left" data-aos-duration="1000">
-          <img src="./照片/合成背景圖.png" alt="個人照片" />
-        </div>
-      </section>
-
-      <section class="about-me">
-        <section class="description">
-          <h2 data-aos="fade-up" data-aos-duration="800">關於我的一些事情</h2>
-          <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-            我在國小學習時，因為接觸了電腦課，就覺得電腦方面的科技很有趣，
-            長大之後也學習了取得了硬體、軟體方面一些基礎證照。
-            但是因為後天得了疾病，而選擇了簡單的行政工作，也有了2年的工作經驗，
-            樂於學習新東西、做事有規劃、遇困難不輕言放棄，為了不讓自己只侷限在一個行政領域，
-            所以我也去學習了許多其他領域的課程，也考取了部分領域的相關證照。
-            現在則是想要學習前端工程師的技能，去接觸我一直以來所嚮往的科技業。
-          </p>
-          <!-- 前端開發技能與學習成果區塊 -->
-          <div
-            class="frontend-skills-section"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-delay="400"
-          >
-            <h3 class="skills-title">🚀 前端開發技能與學習成果</h3>
-
-            <div
-              class="skills-intro"
-              data-aos="fade-up"
-              data-aos-duration="800"
-              data-aos-delay="500"
-            >
-              <p>
-                目前持續進修了至少有<strong>半年以上</strong>的前端技術學習，從
-                HTML、CSS、JavaScript 來進行製作一些簡單的靜態網頁 Side
-                Project，雖然沒有特別的功能，透過切版、排版以及 Bootstrap
-                插件，使網頁的完成度接近
-                <span class="highlight">60% ~ 70%</span>。目前還在進行更進階的
-                Side Project 實作與練習，並努力將技能應用於真實專案與業界需求。
-              </p>
-            </div>
-
-            <div class="skills-cards">
-              <!-- 技能卡片 1 -->
-              <div
-                class="skill-card"
-                data-aos="slide-up"
-                data-aos-duration="800"
-                data-aos-delay="600"
-              >
-                <div class="skill-number">01</div>
-                <h4 class="skill-title">基本語言與畫面切版</h4>
-                <div class="skill-content">
-                  <p>
-                    熟悉 <strong>VS Code</strong> 編輯器與
-                    <strong>HTML</strong> 結構語法，能運用語意標籤建構頁面架構，
-                    並透過
-                    <strong>CodePen</strong>
-                    練習互動功能與切版技巧，累積多筆完整的切版經驗。
-                  </p>
-                  <p>
-                    曾獨立規劃頁面的各個展示區塊，包含公司介紹、服務說明、聯絡表單等區塊，
-                    並依據品牌視覺設計進行色彩搭配與主視覺規劃，兼顧資訊層次與導覽動線，提升使用者體驗。
-                  </p>
-                  <p>
-                    掌握 <strong>CSS 選擇器</strong>、<strong>Box Model</strong
-                    >、排版屬性等應用技巧，
-                    能精確控制文字、圖片與互動式按鈕等元素的樣式與位置，讓網頁更具結構性與可維護性。
-                  </p>
-                </div>
-              </div>
-
-              <!-- 技能卡片 2 -->
-              <div
-                class="skill-card"
-                data-aos="slide-up"
-                data-aos-duration="800"
-                data-aos-delay="700"
-              >
-                <div class="skill-number">02</div>
-                <h4 class="skill-title">Flex 網頁排版和 RWD 佈局</h4>
-                <div class="skill-content">
-                  <p>
-                    熟悉 <strong>Flexbox</strong> 技術，靈活運用
-                    <code>flex-direction</code
-                    >、<code>justify-content</code>、<code>align-items</code>
-                    等對齊邏輯與彈性排版。
-                  </p>
-                  <p>
-                    實作中應用 Flex 進行導覽列、產品展示區與內容分區的設計，
-                    並使用
-                    <strong>Media Query</strong>
-                    製作適配手機、平板與桌機的響應式版面。
-                  </p>
-                  <p>
-                    曾完成商品卡片排版模組，針對不同裝置規劃顯示數量 （桌機每列
-                    <span class="highlight">3 款</span>、平板
-                    <span class="highlight">2 款</span>、手機單列），
-                    確保圖片與文字內容不失真、不跑版，同時保持操作體驗一致。
-                  </p>
-                </div>
-              </div>
-
-              <!-- 技能卡片 3 -->
-              <div
-                class="skill-card"
-                data-aos="slide-up"
-                data-aos-duration="800"
-                data-aos-delay="800"
-              >
-                <div class="skill-number">03</div>
-                <h4 class="skill-title">Bootstrap 與 SCSS 專案管理</h4>
-                <div class="skill-content">
-                  <p>
-                    具備使用
-                    <strong>Bootstrap</strong> 格線系統與功能元件的經驗，
-                    能快速建構一致性高的 UI 元件與排版結構。
-                  </p>
-                  <p>
-                    曾以 Bootstrap
-                    實作模擬電商網站作為練習，設計涵蓋產品列表頁、商品詳情頁、登入表單與購物流程，
-                    整合彈跳視窗、Tab 選單與 Accordion
-                    摺疊區塊，模擬完整購物體驗流程。
-                  </p>
-                  <p>
-                    透過
-                    <strong>SCSS</strong>
-                    進行樣式模組化管理，建立變數與共用設定區域 （如
-                    <code>$primary-color</code
-                    >、<code>$font-size-base</code>），
-                    分離版型元件與主體樣式，提升後續修改與維護效率，並支援多人協作與大型專案開發的需求。
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="progress-bar-area">
-            <div
-              data-aos="slide-up"
-              data-aos-duration="1200"
-              data-aos-delay="100"
-            >
-              <p>電腦組裝以及周邊安裝</p>
-              <div
-                class="progress"
-                role="progressbar"
-                aria-label="Animated striped example"
-                aria-valuenow="85"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              >
-                <div
-                  class="progress-bar progress-bar-striped progress-bar-animated"
-                  style="width: 85%"
-                ></div>
-              </div>
-            </div>
-
-            <div
-              data-aos="slide-up"
-              data-aos-duration="1200"
-              data-aos-delay="200"
-            >
-              <p>電腦軟體安裝以及系統操作</p>
-              <div
-                class="progress"
-                role="progressbar"
-                aria-label="Animated striped example"
-                aria-valuenow="75"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              >
-                <div
-                  class="progress-bar progress-bar-striped progress-bar-animated bg-info"
-                  style="width: 75%"
-                ></div>
-              </div>
-            </div>
-
-            <div
-              data-aos="slide-up"
-              data-aos-duration="1200"
-              data-aos-delay="300"
-            >
-              <p>行政能力</p>
-              <div
-                class="progress"
-                role="progressbar"
-                aria-label="Animated striped example"
-                aria-valuenow="80"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              >
-                <div
-                  class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
-                  style="width: 80%"
-                ></div>
-              </div>
-            </div>
-
-            <div
-              data-aos="slide-up"
-              data-aos-duration="1200"
-              data-aos-delay="400"
-            >
-              <p>前端工程師技能</p>
-              <div
-                class="progress"
-                role="progressbar"
-                aria-label="Animated striped example"
-                aria-valuenow="60"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              >
-                <div
-                  class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-                  style="width: 60%"
-                ></div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </section>
-
-      <section class="resume">
-        <section class="table">
-          <table>
-            <tr
-              style="border-top: 2px solid gray"
-              data-aos="fade-right"
-              data-aos-duration="800"
-              data-aos-delay="100"
-            >
-              <td style="width: 10%">自我介紹</td>
-              <td style="width: 85%">
-                您好，我是林家齊，具備兩年以上行政支援、電腦維修與 3D
-                繪圖等跨領域工作經驗，目前正積極投入前端開發領域，熟悉
-                HTML、CSS、JavaScript 等基礎語言能力，能獨立完成 RWD
-                響應式網站切版與互動效果設計，並熟悉 Git 版本控制與 VS Code
-                開發工具。
-                雖起步於行政與資訊支援領域，但我認為技術學習不受侷限。目前已經進行半年一上的自學、線上課程（目前於六角學院持續進修）與實作練習，並持續規劃學習目標轉職成為前端工程師。期望未來是先從靜態網頁的切版開始慢慢做起，透過團隊合作或公司專案來逐步成長，進一步熟練框架技術（如
-                Vue.js、Vite、Angular ），並在 2 -
-                3年後能夠踏入資深工程師的領域。
-              </td>
-            </tr>
-            <tr
-              data-aos="fade-right"
-              data-aos-duration="800"
-              data-aos-delay="250"
-            >
-              <td>學歷</td>
-              <td>高雄市立海青高級工商職業學校 | 電子科，高職畢業</td>
-            </tr>
-            <tr
-              data-aos="fade-right"
-              data-aos-duration="800"
-              data-aos-delay="400"
-            >
-              <td>經歷</td>
-              <td>
-                <ol>
-                  <li>高雄市立楠梓國民中學 | 教務處行政人員</li>
-                  <li>高雄市交通部航港局南部航務中心 | 資料室約聘助理</li>
-                  <li>匠星工程有限公司 | 兼職資訊和行政助理</li>
-                  <li>興富發旗下建設 | 短期機電專員</li>
-                </ol>
-              </td>
-            </tr>
-            <tr
-              data-aos="fade-right"
-              data-aos-duration="800"
-              data-aos-delay="550"
-            >
-              <td>語言</td>
-              <td>
-                <ul>
-                  <li>中文 : 精通</li>
-                  <li>台語 : 中等</li>
-                </ul>
-              </td>
-            </tr>
-            <tr
-              data-aos="fade-right"
-              data-aos-duration="800"
-              data-aos-delay="700"
-            >
-              <td>專長</td>
-              <td>
-                <div class="skills-container">
-                  <div class="skill-category">
-                    <h4>
-                      <img
-                        src="./p3-0資源包/ICONS/icons8-microsoft-office.svg"
-                        alt="Microsoft Office"
-                        class="skill-icon"
-                      />
-                      辦公室軟體
-                    </h4>
-                    <p>Word、Excel、PowerPoint 辦公室軟體應用</p>
-                  </div>
-
-                  <div class="skill-category">
-                    <h4>
-                      <img
-                        src="./p3-0資源包/ICONS/icons8-windows-11.svg"
-                        alt="Windows"
-                        class="skill-icon"
-                      />
-                      作業系統
-                    </h4>
-                    <p>Windows XP、7、8、10、11 系統操作與管理</p>
-                  </div>
-
-                  <div class="skill-category">
-                    <h4>
-                      <img
-                        src="./p3-0資源包/ICONS/icons8-autocad.svg"
-                        alt="AutoCAD"
-                        class="skill-icon"
-                      />
-                      繪圖軟體
-                    </h4>
-                    <p>AutoCAD、SketchUp、Graphisoft ArchiCAD 19 建築繪圖</p>
-                  </div>
-
-                  <div class="skill-category">
-                    <h4>
-                      <img
-                        src="./p3-0資源包/ICONS/icons8-html-5.svg"
-                        alt="前端開發"
-                        class="skill-icon"
-                      />
-                      前端開發
-                    </h4>
-                    <div class="frontend-skills">
-                      <span class="skill-tag">
-                        <img
-                          src="./p3-0資源包/ICONS/icons8-html-5.svg"
-                          alt="HTML5"
-                        />
-                        HTML5
-                      </span>
-                      <span class="skill-tag">
-                        <img
-                          src="./p3-0資源包/ICONS/icons8-css3.svg"
-                          alt="CSS3"
-                        />
-                        CSS3
-                      </span>
-                      <span class="skill-tag">
-                        <img
-                          src="./p3-0資源包/ICONS/icons8-javascript.svg"
-                          alt="JavaScript"
-                        />
-                        JavaScript
-                      </span>
-                      <span class="skill-tag">
-                        <img src="./p3-0資源包/ICONS/vuejs.svg" alt="Vue.js" />
-                        Vue.js
-                      </span>
-                      <span class="skill-tag">
-                        <img src="./p3-0資源包/ICONS/vite.svg" alt="Vite" />
-                        Vite
-                      </span>
+        <!-- Custom Styles -->
+        <link rel="stylesheet" href="./style/style.css" />
+        <link rel="stylesheet" href="./style/bubble.css" />
+    </head>
+    <body>
+        <nav class="navbar" data-aos="fade-down" data-aos-duration="800">
+            <div class="nav-container container-fluid">
+                <div class="row align-items-center gx-3 w-100">
+                    <!-- 左側：Logo/標題欄位（適中寬度，讓標題完整顯示） -->
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="nav-logo">
+                            <a href="#main-area">家齊的個人網頁</a>
+                        </div>
                     </div>
-                    <p class="learning-note">🌱 持續學習中</p>
-                  </div>
+
+                    <!-- 右側：選單與漢堡按鈕（更寬，容納一排按鈕） -->
+                    <div
+                        class="col-6 col-md-8 col-lg-10 d-flex align-items-center justify-content-end"
+                    >
+                        <!-- 漢堡選單按鈕 -->
+                        <div class="nav-toggle" id="mobile-menu">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+
+                        <!-- 導覽選單 -->
+                        <ul class="nav-menu" id="nav-menu">
+                            <li class="nav-item">
+                                <a
+                                    href="./作品1/index.html"
+                                    target="_blank"
+                                    class="nav-link"
+                                    >日本美食餐廳推薦</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    href="https://atayallin.github.io/Igs-test-vue/"
+                                    target="_blank"
+                                    class="nav-link"
+                                    >Vue - H5 模擬遊戲大廳介面 <br />
+                                    <span class="nav-subtitle"
+                                        >(H5 模擬遊戲大廳介面)</span
+                                    ></a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    href="https://atayallin.github.io/Vueshop-Side-Project-Demo-/"
+                                    target="_blank"
+                                    class="nav-link"
+                                    >Vue電商Demo <br />
+                                    <span class="nav-subtitle"
+                                        >(日式電商)</span
+                                    ></a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    href="https://atayallin.github.io/Vue-2025-VueTodolist/"
+                                    target="_blank"
+                                    class="nav-link"
+                                    >Vue 登入、註冊、清單網頁 <br />
+                                    <span class="nav-subtitle"
+                                        >(登入、註冊、清單功能展示)</span
+                                    ></a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    href="https://atayallin.github.io/vue-test-frontend/"
+                                    target="_blank"
+                                    class="nav-link"
+                                    >Vue 用戶管理介面 <br />
+                                    <span class="nav-subtitle"
+                                        >(用戶管理介面)</span
+                                    ></a
+                                >
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-              </td>
-            </tr>
-            <tr
-              data-aos="fade-right"
-              data-aos-duration="800"
-              data-aos-delay="850"
-            >
-              <td>工作技能經驗</td>
-              <td>
-                <ol>
-                  <li>
-                    校內教務處公文、通知單製作，教育系統查閱、登記學生成績、出缺席、轉入/出學校資料。
-                  </li>
-                  <li>
-                    航務中心資料室的行政系統操作，建立電子檔與文件檔，日常調閱文件以及公文遞送。
-                  </li>
-                  <li>
-                    裝修工程公司資訊設備管理和行政公務，協助會計登打記帳、電腦硬體週邊安裝、公司建案文件歸檔。
-                  </li>
-                  <li>
-                    機電繪圖專員，平面圖對接樓層與住戶排水管，以及六向設備配置，並繪製完成後進行
-                    3D 建模後作開會檢討與修改。
-                  </li>
-                </ol>
-              </td>
-            </tr>
-          </table>
-        </section>
-        <section
-          class="picture"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-delay="200"
-        >
-          <img src="./照片/山上生活照.png" alt="個人照片" />
-          <div class="greenRect"></div>
-          <div class="greenRect2"></div>
-          <div class="greenRect3"></div>
-        </section>
-      </section>
-    </main>
+            </div>
+        </nav>
 
-    <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+        <main>
+            <div id="background-wrap">
+                <div class="bubble x1"></div>
+                <div class="bubble x2"></div>
+                <div class="bubble x3"></div>
+                <div class="bubble x4"></div>
+                <div class="bubble x5"></div>
+                <div class="bubble x6"></div>
+                <div class="bubble x7"></div>
+                <div class="bubble x8"></div>
+                <div class="bubble x9"></div>
+                <div class="bubble x10"></div>
+            </div>
 
-    <!-- AOS Animation Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <section class="main-area">
+                <div
+                    class="info"
+                    data-aos="fade-right"
+                    data-aos-duration="1000"
+                >
+                    <h1>嗨，我是林家齊 !</h1>
+                    <h2>
+                        我是從行政的職業，轉職過來的前端初學者。
+                        目前有自學了一些 Html、Css、JavaScript 的一些基礎，
+                        之後會在努力學習 Node.js、Vue.js 、Vite
+                        .....等與前端相關的程式語言。
+                    </h2>
+                    <a target="_blank" href="./contact.html">前往104履歷瀏覽</a>
+                </div>
+                <div
+                    class="img-area"
+                    data-aos="fade-left"
+                    data-aos-duration="1000"
+                >
+                    <img src="./照片/合成背景圖.png" alt="個人照片" />
+                </div>
+            </section>
 
-    <!-- Custom Scripts -->
-    <script src="./app.js"></script>
-  </body>
+            <section class="about-me">
+                <section class="description">
+                    <h2 data-aos="fade-up" data-aos-duration="800">
+                        關於我的一些事情
+                    </h2>
+                    <p
+                        data-aos="fade-up"
+                        data-aos-duration="1000"
+                        data-aos-delay="200"
+                    >
+                        我在國小學習時，因為接觸了電腦課，就覺得電腦方面的科技很有趣，
+                        長大之後也學習了取得了硬體、軟體方面一些基礎證照。
+                        但是因為後天得了疾病，而選擇了簡單的行政工作，也有了2年的工作經驗，
+                        樂於學習新東西、做事有規劃、遇困難不輕言放棄，為了不讓自己只侷限在一個行政領域，
+                        所以我也去學習了許多其他領域的課程，也考取了部分領域的相關證照。
+                        現在則是想要學習前端工程師的技能，去接觸我一直以來所嚮往的科技業。
+                    </p>
+                    <!-- 前端開發技能與學習成果區塊 -->
+                    <div
+                        class="frontend-skills-section"
+                        data-aos="fade-up"
+                        data-aos-duration="1000"
+                        data-aos-delay="400"
+                    >
+                        <h3 class="skills-title">🚀 前端開發技能與學習成果</h3>
+
+                        <div
+                            class="skills-intro"
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                            data-aos-delay="500"
+                        >
+                            <p>
+                                目前持續進修了至少有<strong>半年以上</strong>的前端技術學習，從
+                                HTML、CSS、JavaScript
+                                來進行製作一些簡單的靜態網頁 Side
+                                Project，雖然沒有特別的功能，透過切版、排版以及
+                                Bootstrap 插件，使網頁的完成度接近
+                                <span class="highlight">60% ~ 70%</span
+                                >。目前還在進行更進階的 Side Project
+                                實作與練習，並努力將技能應用於真實專案與業界需求。
+                            </p>
+                        </div>
+
+                        <div class="skills-cards">
+                            <!-- 技能卡片 1 -->
+                            <div
+                                class="skill-card"
+                                data-aos="slide-up"
+                                data-aos-duration="800"
+                                data-aos-delay="600"
+                            >
+                                <div class="skill-number">01</div>
+                                <h4 class="skill-title">基本語言與畫面切版</h4>
+                                <div class="skill-content">
+                                    <p>
+                                        熟悉 <strong>VS Code</strong> 編輯器與
+                                        <strong>HTML</strong>
+                                        結構語法，能運用語意標籤建構頁面架構，
+                                        並透過
+                                        <strong>CodePen</strong>
+                                        練習互動功能與切版技巧，累積多筆完整的切版經驗。
+                                    </p>
+                                    <p>
+                                        曾獨立規劃頁面的各個展示區塊，包含公司介紹、服務說明、聯絡表單等區塊，
+                                        並依據品牌視覺設計進行色彩搭配與主視覺規劃，兼顧資訊層次與導覽動線，提升使用者體驗。
+                                    </p>
+                                    <p>
+                                        掌握
+                                        <strong>CSS 選擇器</strong>、<strong
+                                            >Box Model</strong
+                                        >、排版屬性等應用技巧，
+                                        能精確控制文字、圖片與互動式按鈕等元素的樣式與位置，讓網頁更具結構性與可維護性。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- 技能卡片 2 -->
+                            <div
+                                class="skill-card"
+                                data-aos="slide-up"
+                                data-aos-duration="800"
+                                data-aos-delay="700"
+                            >
+                                <div class="skill-number">02</div>
+                                <h4 class="skill-title">
+                                    Flex 網頁排版和 RWD 佈局
+                                </h4>
+                                <div class="skill-content">
+                                    <p>
+                                        熟悉
+                                        <strong>Flexbox</strong> 技術，靈活運用
+                                        <code>flex-direction</code
+                                        >、<code>justify-content</code>、<code
+                                            >align-items</code
+                                        >
+                                        等對齊邏輯與彈性排版。
+                                    </p>
+                                    <p>
+                                        實作中應用 Flex
+                                        進行導覽列、產品展示區與內容分區的設計，
+                                        並使用
+                                        <strong>Media Query</strong>
+                                        製作適配手機、平板與桌機的響應式版面。
+                                    </p>
+                                    <p>
+                                        曾完成商品卡片排版模組，針對不同裝置規劃顯示數量
+                                        （桌機每列
+                                        <span class="highlight">3 款</span
+                                        >、平板
+                                        <span class="highlight">2 款</span
+                                        >、手機單列），
+                                        確保圖片與文字內容不失真、不跑版，同時保持操作體驗一致。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- 技能卡片 3 -->
+                            <div
+                                class="skill-card"
+                                data-aos="slide-up"
+                                data-aos-duration="800"
+                                data-aos-delay="800"
+                            >
+                                <div class="skill-number">03</div>
+                                <h4 class="skill-title">
+                                    Bootstrap 與 SCSS 專案管理
+                                </h4>
+                                <div class="skill-content">
+                                    <p>
+                                        具備使用
+                                        <strong>Bootstrap</strong>
+                                        格線系統與功能元件的經驗，
+                                        能快速建構一致性高的 UI 元件與排版結構。
+                                    </p>
+                                    <p>
+                                        曾以 Bootstrap
+                                        實作模擬電商網站作為練習，設計涵蓋產品列表頁、商品詳情頁、登入表單與購物流程，
+                                        整合彈跳視窗、Tab 選單與 Accordion
+                                        摺疊區塊，模擬完整購物體驗流程。
+                                    </p>
+                                    <p>
+                                        透過
+                                        <strong>SCSS</strong>
+                                        進行樣式模組化管理，建立變數與共用設定區域
+                                        （如
+                                        <code>$primary-color</code
+                                        >、<code>$font-size-base</code>），
+                                        分離版型元件與主體樣式，提升後續修改與維護效率，並支援多人協作與大型專案開發的需求。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-area">
+                        <div
+                            data-aos="slide-up"
+                            data-aos-duration="1200"
+                            data-aos-delay="100"
+                        >
+                            <p>電腦組裝以及周邊安裝</p>
+                            <div
+                                class="progress"
+                                role="progressbar"
+                                aria-label="Animated striped example"
+                                aria-valuenow="85"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                            >
+                                <div
+                                    class="progress-bar progress-bar-striped progress-bar-animated"
+                                    style="width: 85%"
+                                ></div>
+                            </div>
+                        </div>
+
+                        <div
+                            data-aos="slide-up"
+                            data-aos-duration="1200"
+                            data-aos-delay="200"
+                        >
+                            <p>電腦軟體安裝以及系統操作</p>
+                            <div
+                                class="progress"
+                                role="progressbar"
+                                aria-label="Animated striped example"
+                                aria-valuenow="75"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                            >
+                                <div
+                                    class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                                    style="width: 75%"
+                                ></div>
+                            </div>
+                        </div>
+
+                        <div
+                            data-aos="slide-up"
+                            data-aos-duration="1200"
+                            data-aos-delay="300"
+                        >
+                            <p>行政能力</p>
+                            <div
+                                class="progress"
+                                role="progressbar"
+                                aria-label="Animated striped example"
+                                aria-valuenow="80"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                            >
+                                <div
+                                    class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                                    style="width: 80%"
+                                ></div>
+                            </div>
+                        </div>
+
+                        <div
+                            data-aos="slide-up"
+                            data-aos-duration="1200"
+                            data-aos-delay="400"
+                        >
+                            <p>前端工程師技能</p>
+                            <div
+                                class="progress"
+                                role="progressbar"
+                                aria-label="Animated striped example"
+                                aria-valuenow="60"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                            >
+                                <div
+                                    class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                                    style="width: 60%"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section class="resume">
+                <section class="table">
+                    <table>
+                        <tr
+                            style="border-top: 2px solid gray"
+                            data-aos="fade-right"
+                            data-aos-duration="800"
+                            data-aos-delay="100"
+                        >
+                            <td style="width: 10%">自我介紹</td>
+                            <td style="width: 85%">
+                                您好，我是林家齊，具備兩年以上行政支援、電腦維修與
+                                3D
+                                繪圖等跨領域工作經驗，目前正積極投入前端開發領域，熟悉
+                                HTML、CSS、JavaScript 等基礎語言能力，能獨立完成
+                                RWD 響應式網站切版與互動效果設計，並熟悉 Git
+                                版本控制與 VS Code 開發工具。
+                                雖起步於行政與資訊支援領域，但我認為技術學習不受侷限。目前已經進行半年一上的自學、線上課程（目前於六角學院持續進修）與實作練習，並持續規劃學習目標轉職成為前端工程師。期望未來是先從靜態網頁的切版開始慢慢做起，透過團隊合作或公司專案來逐步成長，進一步熟練框架技術（如
+                                Vue.js、Vite、Angular ），並在 2 -
+                                3年後能夠踏入資深工程師的領域。
+                            </td>
+                        </tr>
+                        <tr
+                            data-aos="fade-right"
+                            data-aos-duration="800"
+                            data-aos-delay="250"
+                        >
+                            <td>學歷</td>
+                            <td>
+                                高雄市立海青高級工商職業學校 | 電子科，高職畢業
+                            </td>
+                        </tr>
+                        <tr
+                            data-aos="fade-right"
+                            data-aos-duration="800"
+                            data-aos-delay="400"
+                        >
+                            <td>經歷</td>
+                            <td>
+                                <ol>
+                                    <li>
+                                        高雄市立楠梓國民中學 | 教務處行政人員
+                                    </li>
+                                    <li>
+                                        高雄市交通部航港局南部航務中心 |
+                                        資料室約聘助理
+                                    </li>
+                                    <li>
+                                        匠星工程有限公司 | 兼職資訊和行政助理
+                                    </li>
+                                    <li>興富發旗下建設 | 短期機電專員</li>
+                                </ol>
+                            </td>
+                        </tr>
+                        <tr
+                            data-aos="fade-right"
+                            data-aos-duration="800"
+                            data-aos-delay="550"
+                        >
+                            <td>語言</td>
+                            <td>
+                                <ul>
+                                    <li>中文 : 精通</li>
+                                    <li>台語 : 中等</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr
+                            data-aos="fade-right"
+                            data-aos-duration="800"
+                            data-aos-delay="700"
+                        >
+                            <td>專長</td>
+                            <td>
+                                <div class="skills-container">
+                                    <div class="skill-category">
+                                        <h4>
+                                            <img
+                                                src="./p3-0資源包/ICONS/icons8-microsoft-office.svg"
+                                                alt="Microsoft Office"
+                                                class="skill-icon"
+                                            />
+                                            辦公室軟體
+                                        </h4>
+                                        <p>
+                                            Word、Excel、PowerPoint
+                                            辦公室軟體應用
+                                        </p>
+                                    </div>
+
+                                    <div class="skill-category">
+                                        <h4>
+                                            <img
+                                                src="./p3-0資源包/ICONS/icons8-windows-11.svg"
+                                                alt="Windows"
+                                                class="skill-icon"
+                                            />
+                                            作業系統
+                                        </h4>
+                                        <p>
+                                            Windows XP、7、8、10、11
+                                            系統操作與管理
+                                        </p>
+                                    </div>
+
+                                    <div class="skill-category">
+                                        <h4>
+                                            <img
+                                                src="./p3-0資源包/ICONS/icons8-autocad.svg"
+                                                alt="AutoCAD"
+                                                class="skill-icon"
+                                            />
+                                            繪圖軟體
+                                        </h4>
+                                        <p>
+                                            AutoCAD、SketchUp、Graphisoft
+                                            ArchiCAD 19 建築繪圖
+                                        </p>
+                                    </div>
+
+                                    <div class="skill-category">
+                                        <h4>
+                                            <img
+                                                src="./p3-0資源包/ICONS/icons8-html-5.svg"
+                                                alt="前端開發"
+                                                class="skill-icon"
+                                            />
+                                            前端開發
+                                        </h4>
+                                        <div class="frontend-skills">
+                                            <span class="skill-tag">
+                                                <img
+                                                    src="./p3-0資源包/ICONS/icons8-html-5.svg"
+                                                    alt="HTML5"
+                                                />
+                                                HTML5
+                                            </span>
+                                            <span class="skill-tag">
+                                                <img
+                                                    src="./p3-0資源包/ICONS/icons8-css3.svg"
+                                                    alt="CSS3"
+                                                />
+                                                CSS3
+                                            </span>
+                                            <span class="skill-tag">
+                                                <img
+                                                    src="./p3-0資源包/ICONS/icons8-javascript.svg"
+                                                    alt="JavaScript"
+                                                />
+                                                JavaScript
+                                            </span>
+                                            <span class="skill-tag">
+                                                <img
+                                                    src="./p3-0資源包/ICONS/vuejs.svg"
+                                                    alt="Vue.js"
+                                                />
+                                                Vue.js
+                                            </span>
+                                            <span class="skill-tag">
+                                                <img
+                                                    src="./p3-0資源包/ICONS/vite.svg"
+                                                    alt="Vite"
+                                                />
+                                                Vite
+                                            </span>
+                                            <span class="skill-tag">
+                                                <img
+                                                    src="./p3-0資源包/ICONS/angular-icon-svgrepo-com.svg"
+                                                    alt="angular"
+                                                />Angular
+                                            </span>
+                                        </div>
+                                        <p class="learning-note">
+                                            🌱 持續學習中
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr
+                            data-aos="fade-right"
+                            data-aos-duration="800"
+                            data-aos-delay="850"
+                        >
+                            <td>工作技能經驗</td>
+                            <td>
+                                <ol>
+                                    <li>
+                                        校內教務處公文、通知單製作，教育系統查閱、登記學生成績、出缺席、轉入/出學校資料。
+                                    </li>
+                                    <li>
+                                        航務中心資料室的行政系統操作，建立電子檔與文件檔，日常調閱文件以及公文遞送。
+                                    </li>
+                                    <li>
+                                        裝修工程公司資訊設備管理和行政公務，協助會計登打記帳、電腦硬體週邊安裝、公司建案文件歸檔。
+                                    </li>
+                                    <li>
+                                        機電繪圖專員，平面圖對接樓層與住戶排水管，以及六向設備配置，並繪製完成後進行
+                                        3D 建模後作開會檢討與修改。
+                                    </li>
+                                </ol>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+                <section
+                    class="picture"
+                    data-aos="zoom-in"
+                    data-aos-duration="1000"
+                    data-aos-delay="200"
+                >
+                    <img src="./照片/山上生活照.png" alt="個人照片" />
+                    <div class="greenRect"></div>
+                    <div class="greenRect2"></div>
+                    <div class="greenRect3"></div>
+                </section>
+            </section>
+        </main>
+
+        <!-- Bootstrap JS -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+        ></script>
+
+        <!-- AOS Animation Library -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <!-- Custom Scripts -->
+        <script src="./app.js"></script>
+    </body>
 </html>
