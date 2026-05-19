@@ -1,0 +1,30 @@
+# Claude Code local settings & memory
+.claude/
+
+# OS files
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# Working PDFs at repo root (履歷正本只放在 履歷pdf/ 資料夾)
+/104林家齊*.pdf
+
+# Build output (若未來導入 build tool)
+dist/
+build/
+node_modules/
