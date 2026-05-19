@@ -219,20 +219,4 @@ cd AtayaHtml
 - 導覽列改用 Bootstrap Columns 版型
 - 平板斷點 (769–1024px) 啟用漢堡選單
 
-## 聯絡方式
 
-- 📧 **Email**: [a437777@gmail.com](mailto:a437777@gmail.com)
-- ☎️ **Phone**: 0967-187-303
-- 🐙 **GitHub**: [@AtayalLin](https://github.com/AtayalLin)
-- 📍 **Location**: 高雄市左營區（接受遠端）
-- 💼 **求職狀態**: Available for Hire — 前端工程師職缺
-
-## 授權
-
-本專案採用 [MIT License](LICENSE) 授權。
-
----
-
-⭐ 如果這個專案對您有幫助，歡迎給個 Star！
-
-**Crafted with ❤️ in Kaohsiung, Taiwan**
