@@ -1,802 +1,2127 @@
 <!DOCTYPE html>
-<html lang="zh-Hant" data-theme="dark">
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-        />
-        <meta name="description" content="林家齊 Chia-Chi Lin — 前端工程師作品集。專注於 Vue 3、Angular、TypeScript 與 RWD 響應式介面開發。" />
-        <meta name="author" content="林家齊 Chia-Chi Lin" />
-        <meta name="theme-color" content="#0B1120" />
+<html lang="zh-Hant" data-theme="paper">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="林家齊 Lin Chia-Chi · Frontend Engineer · Annual Portfolio Report FY 2026" />
+<title>林家齊　Frontend Portfolio · Annual Report FY 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   v4 — Annual Report FY 2026
+   Persimmon + Navy + Cream · Bricolage + Hanken + Noto Sans TC
+   ═══════════════════════════════════════════════════════════════════════════ */
 
-        <title>林家齊 · Frontend Engineer Portfolio</title>
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: none; padding: 0; cursor: default; }
+a { color: inherit; text-decoration: none; }
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet"
-        />
+:root {
+  --cream:        #F6F2E5;
+  --cream-2:      #ECE5D2;
+  --cream-3:      #DDD3B9;
+  --ink:          #1A1612;
+  --ink-2:        #4A4138;
+  --ink-3:        #7E7568;
+  --ink-4:        #B5AC9C;
+  --rule:         rgba(26,22,18,.16);
+  --rule-soft:    rgba(26,22,18,.08);
 
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-            crossorigin="anonymous"
-        />
+  --persimmon:    #C25430;     /* 黧赭土 · muted clay */
+  --persimmon-d:  #8E3C20;
+  --navy:         #1E2A26;     /* 黑墨綠 · sumi green-black */
+  --navy-l:       #2E3B36;
+  --butter:       #D9B068;     /* 麥麥黃 · wheat */
+  --moss:         #4B5F4F;
 
-        <link
-            href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css"
-            rel="stylesheet"
-        />
+  --f-display:    "Bricolage Grotesque", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei UI", sans-serif;
+  --f-sans:       "Hanken Grotesk", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei UI", sans-serif;
+  --f-mono:       "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-        <link
-            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
-            rel="stylesheet"
-        />
+  --gutter:       clamp(20px, 4vw, 56px);
+  --max-w:        1480px;
+}
 
-        <link rel="stylesheet" href="./style/style.css" />
-    </head>
+html[data-theme="ink"] {
+  --cream:        #100E0B;
+  --cream-2:      #1A1714;
+  --cream-3:      #25211C;
+  --ink:          #F6F2E5;
+  --ink-2:        #C0B9A6;
+  --ink-3:        #8A8576;
+  --ink-4:        #5C5849;
+  --rule:         rgba(246,242,229,.20);
+  --rule-soft:    rgba(246,242,229,.10);
+  --persimmon:    #D9633A;
+  --navy:         #1F2A26;     /* deep sumi forest, dark on dark */
+  --butter:       #E0B670;
+  --moss:         #3A4A3D;
+}
 
-    <body>
-        <div class="site-loader" id="site-loader" aria-hidden="true">
-            <div class="site-loader__terminal">
-                <span class="site-loader__prompt">$</span>
-                <span class="site-loader__text">npm&nbsp;run&nbsp;portfolio</span>
-                <span class="site-loader__cursor"></span>
-            </div>
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--f-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  transition: background-color .35s ease, color .35s ease;
+}
+
+::selection { background: var(--persimmon); color: #fff; }
+
+/* ─── Typographic primitives ─── */
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  font-weight: 500;
+}
+.display {
+  font-family: var(--f-display);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: .92;
+}
+.rule { display: block; height: 1px; background: var(--rule); border: 0; margin: 0; }
+
+/* ─── Layout shell ─── */
+.shell {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+/* ─── Masthead ─── */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: color-mix(in srgb, var(--cream) 90%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.masthead__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 14px var(--gutter);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+  align-items: center;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.masthead__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.masthead__brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--persimmon);
+  color: #fff;
+  border-radius: 4px;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+.masthead__brand-sep {
+  width: 1px;
+  height: 14px;
+  background: var(--rule);
+}
+.masthead__nav {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+}
+.masthead__nav a {
+  color: var(--ink-3);
+  transition: color .2s ease;
+  white-space: nowrap;
+}
+.masthead__nav a:hover { color: var(--ink); }
+.masthead__nav a.is-active { color: var(--persimmon); }
+.masthead__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.masthead__cta {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 9px 14px;
+  border-radius: 999px;
+  transition: background .2s ease, color .2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.masthead__cta:hover { background: var(--persimmon); color: #fff; }
+.masthead__theme {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+}
+.masthead__theme button {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  color: var(--ink-3);
+  font-size: 11px;
+}
+.masthead__theme button.is-on { background: var(--ink); color: var(--cream); }
+
+@media (max-width: 1100px) {
+  .masthead__nav { display: none; }
+  .masthead__inner { grid-template-columns: auto 1fr; }
+}
+
+/* ─── Reveal on scroll ─── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1);
+}
+[data-reveal].is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COVER — annual report cover
+   ═══════════════════════════════════════════════════════════════════════════ */
+.cover {
+  position: relative;
+  min-height: calc(100vh - 60px);
+  padding: clamp(36px, 5vw, 64px) var(--gutter) clamp(36px, 4vw, 56px);
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: clamp(28px, 4vw, 56px);
+  overflow: hidden;
+}
+
+.cover__top {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  align-items: start;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.cover__top > * { display: flex; flex-direction: column; gap: 4px; }
+.cover__top .c { text-align: center; }
+.cover__top .r { text-align: right; align-items: flex-end; }
+.cover__top .lbl { color: var(--ink-3); font-size: 10px; }
+.cover__top .val { color: var(--ink); font-weight: 600; }
+.cover__top .val.accent { color: var(--persimmon); }
+
+.cover__main {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(24px, 4vw, 64px);
+  align-items: end;
+  min-height: 60vh;
+}
+@media (max-width: 900px) {
+  .cover__main { grid-template-columns: 1fr; }
+}
+
+.cover__name {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: clamp(64px, 11vw, 168px);
+  line-height: .9;
+  letter-spacing: -0.05em;
+  margin: 0;
+  color: var(--ink);
+  position: relative;
+  z-index: 2;
+}
+.cover__name .ch { display: block; }
+.cover__name .en {
+  display: block;
+  font-family: var(--f-sans);
+  font-weight: 300;
+  font-size: clamp(18px, 2.2vw, 30px);
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--ink-2);
+  margin-top: clamp(18px, 2vw, 28px);
+}
+
+.cover__hero-meta {
+  display: grid;
+  gap: 24px;
+  align-content: end;
+  padding-bottom: 8px;
+}
+.cover__role-card {
+  background: var(--persimmon);
+  color: #fff;
+  padding: clamp(20px, 2.4vw, 32px);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.cover__role-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(45deg, transparent 50%, rgba(255,255,255,.12) 50%);
+  pointer-events: none;
+}
+.cover__role-card .lbl {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  opacity: .85;
+  margin-bottom: 6px;
+}
+.cover__role-card .role {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  position: relative;
+  z-index: 1;
+}
+.cover__role-card .meta {
+  margin-top: clamp(16px, 2vw, 24px);
+  display: grid;
+  gap: 4px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  position: relative;
+  z-index: 2;
+}
+.cover__role-card .meta b { font-weight: 600; }
+
+.cover__portrait {
+  width: 120px;
+  aspect-ratio: 410/551;
+  border: 3px solid var(--ink);
+  position: relative;
+  overflow: hidden;
+  background: var(--cream-2);
+  justify-self: start;
+}
+.cover__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  filter: saturate(1.04) contrast(1.04);
+}
+.cover__portrait-tag {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: .14em;
+  padding: 3px 6px;
+}
+
+.cover__bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: end;
+  padding-top: clamp(24px, 3vw, 40px);
+  border-top: 2px solid var(--ink);
+}
+@media (max-width: 900px) {
+  .cover__bottom { grid-template-columns: 1fr; }
+}
+.cover__bottom .col h4 {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+.cover__bottom .col p {
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.cover__contents {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  min-width: 280px;
+}
+.cover__contents a {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 12px;
+  padding: 6px 0;
+  color: var(--ink-2);
+  transition: color .2s ease, padding .2s ease;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.cover__contents a:hover { color: var(--persimmon); padding-left: 4px; }
+.cover__contents a:last-child { border-bottom: 0; }
+.cover__contents .n { color: var(--ink-3); }
+.cover__contents .p { color: var(--ink-3); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SECTION FRAME — page-marker headers like annual reports
+   ═══════════════════════════════════════════════════════════════════════════ */
+.section {
+  padding-block: clamp(80px, 11vw, 160px);
+}
+.section--cream-2 { background: var(--cream-2); }
+
+.section__head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  align-items: baseline;
+  padding-bottom: clamp(36px, 5vw, 64px);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: clamp(40px, 5vw, 72px);
+}
+.section__num {
+  font-family: var(--f-display);
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: .95;
+  font-weight: 500;
+  color: var(--persimmon);
+  letter-spacing: -0.04em;
+}
+.section__title {
+  font-family: var(--f-display);
+  font-size: clamp(30px, 3.8vw, 52px);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.028em;
+  color: var(--ink);
+  margin: 0;
+}
+.section__title em {
+  font-style: normal;
+  color: var(--ink-3);
+  font-weight: 400;
+}
+.section__kicker {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  white-space: nowrap;
+  text-align: right;
+  align-self: end;
+  padding-bottom: 8px;
+}
+@media (max-width: 760px) {
+  .section__head { grid-template-columns: 1fr; }
+  .section__kicker { text-align: left; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SUMMARY — bento stat grid
+   ═══════════════════════════════════════════════════════════════════════════ */
+.summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 1.4vw, 20px);
+}
+@media (max-width: 900px) { .summary { grid-template-columns: 1fr 1fr; } }
+.kpi {
+  background: var(--cream-2);
+  border: 1px solid var(--rule);
+  padding: clamp(20px, 2.4vw, 32px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+  min-height: clamp(180px, 22vw, 260px);
+  overflow: hidden;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.kpi:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -16px rgba(10,10,10,.12);
+}
+.kpi--persimmon {
+  background: var(--persimmon);
+  color: #fff;
+  border-color: var(--persimmon);
+}
+.kpi--persimmon .kpi__num { color: #fff; }
+.kpi--persimmon .kpi__lbl { color: rgba(255,255,255,.85); }
+.kpi--persimmon .kpi__sub { color: rgba(255,255,255,.75); }
+.kpi--persimmon::after {
+  content: "▲";
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 14px;
+  color: rgba(255,255,255,.55);
+}
+.kpi--navy {
+  background: var(--navy);
+  color: var(--cream);
+  border-color: var(--navy);
+}
+.kpi--navy .kpi__num { color: var(--cream); }
+.kpi--navy .kpi__lbl { color: rgba(244,239,226,.75); }
+.kpi--navy .kpi__sub { color: rgba(244,239,226,.65); }
+
+.kpi__lbl {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.kpi__num {
+  font-family: var(--f-display);
+  font-size: clamp(48px, 6vw, 88px);
+  line-height: .92;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.kpi__num .unit {
+  font-size: .32em;
+  font-weight: 500;
+  margin-left: 6px;
+  letter-spacing: -0.02em;
+  color: inherit;
+  opacity: .7;
+}
+.kpi__sub {
+  font-family: var(--f-sans);
+  font-size: 13px;
+  color: var(--ink-3);
+  line-height: 1.4;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   STATEMENT PANEL — full-bleed navy
+   ═══════════════════════════════════════════════════════════════════════════ */
+.statement-panel {
+  background: var(--navy);
+  color: var(--cream);
+  padding-block: clamp(80px, 12vw, 168px);
+  position: relative;
+  overflow: hidden;
+}
+.statement-panel__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(246,242,229,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(246,242,229,.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.statement-panel__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: end;
+}
+@media (max-width: 900px) { .statement-panel__inner { grid-template-columns: 1fr; } }
+
+.statement-panel__head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-self: start;
+}
+.statement-panel__num {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--butter);
+}
+.statement-panel__quote {
+  font-family: var(--f-display);
+  font-size: clamp(32px, 4.2vw, 60px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--cream);
+  margin: 0;
+  text-wrap: balance;
+}
+.statement-panel__quote em {
+  font-style: normal;
+  color: var(--persimmon);
+  font-weight: 700;
+}
+.statement-panel__quote .mark {
+  display: inline-block;
+  font-family: var(--f-display);
+  color: var(--persimmon);
+  margin-right: .1em;
+}
+
+.statement-panel__body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: clamp(12px, 2vw, 32px);
+}
+.statement-panel__body p {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: rgba(244,239,226,.82);
+  max-width: 50ch;
+  text-wrap: pretty;
+}
+.statement-panel__body p strong { color: var(--cream); font-weight: 600; }
+
+.statement-panel__sig {
+  margin-top: clamp(20px, 3vw, 36px);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(244,239,226,.6);
+  padding-top: 16px;
+  border-top: 1px solid rgba(244,239,226,.2);
+}
+.statement-panel__sig b {
+  font-family: var(--f-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--cream);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   WORK — featured project pages with colored ribbons
+   ═══════════════════════════════════════════════════════════════════════════ */
+.work-page {
+  border-top: 1px solid var(--rule);
+  padding-block: clamp(56px, 7vw, 112px);
+}
+.work-page:first-of-type { border-top: 0; padding-top: 0; }
+
+.work-ribbon {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: clamp(16px, 2vw, 32px);
+  align-items: baseline;
+  padding: clamp(18px, 2vw, 28px) clamp(20px, 2.4vw, 32px);
+  margin-bottom: clamp(28px, 3.4vw, 48px);
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 4px;
+}
+.work-ribbon--persimmon { background: var(--persimmon); color: #fff; }
+.work-ribbon--navy { background: var(--navy); color: var(--cream); }
+.work-ribbon--butter { background: var(--butter); color: var(--ink); }
+.work-ribbon--moss { background: var(--moss); color: var(--cream); }
+
+.work-ribbon__idx {
+  font-family: var(--f-display);
+  font-size: clamp(32px, 3.6vw, 52px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.work-ribbon__title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.work-ribbon__title h3 {
+  font-family: var(--f-display);
+  font-size: clamp(20px, 2.2vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0;
+}
+.work-ribbon__title .en {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .8;
+}
+.work-ribbon__tag {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  background: rgba(255,255,255,.18);
+  border-radius: 999px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.work-ribbon--butter .work-ribbon__tag { background: rgba(0,0,0,.12); }
+.work-ribbon__year {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  white-space: nowrap;
+  opacity: .85;
+}
+@media (max-width: 760px) {
+  .work-ribbon { grid-template-columns: auto 1fr; }
+  .work-ribbon__tag, .work-ribbon__year { grid-column: 2; }
+}
+
+.work-body {
+  display: grid;
+  grid-template-columns: 6fr 5fr;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+}
+.work-body--alt { grid-template-columns: 5fr 6fr; }
+.work-body--alt .work-body__media { order: 2; }
+.work-body--alt .work-body__text { order: 1; }
+@media (max-width: 900px) {
+  .work-body, .work-body--alt { grid-template-columns: 1fr; }
+  .work-body--alt .work-body__media { order: 1; }
+  .work-body--alt .work-body__text { order: 2; }
+}
+
+.work-body__media {
+  border: 1px solid var(--rule);
+  background: var(--cream-2);
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  position: relative;
+  transition: transform .4s ease;
+}
+.work-body__media:hover { transform: translateY(-3px); }
+.work-body__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.work-body__text {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.work-body__desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin: 0;
+  text-wrap: pretty;
+}
+.work-body__desc strong { color: var(--ink); font-weight: 600; }
+.work-body__bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.work-body__bullets li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.work-body__bullets li::before {
+  content: "→";
+  font-family: var(--f-mono);
+  color: var(--persimmon);
+  font-weight: 600;
+}
+.work-body__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 6px;
+}
+.work-body__chip {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .04em;
+  padding: 5px 10px;
+  background: var(--cream-2);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--ink);
+}
+.work-body__links {
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+  flex-wrap: wrap;
+}
+.work-body__btn {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 11px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+  font-weight: 600;
+}
+.work-body__btn:hover { background: var(--ink); color: var(--cream); }
+.work-body__btn.is-primary { background: var(--ink); color: var(--cream); }
+.work-body__btn.is-primary:hover { background: var(--persimmon); border-color: var(--persimmon); color: #fff; }
+
+/* Work addendum — small list of remaining */
+.work-addendum {
+  margin-top: clamp(40px, 6vw, 80px);
+  padding-top: clamp(28px, 3vw, 40px);
+  border-top: 2px solid var(--ink);
+}
+.work-addendum__h {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.work-addendum__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.work-addendum__list li { border-bottom: 1px solid var(--rule-soft); }
+.work-addendum__list a {
+  display: grid;
+  grid-template-columns: 56px 1fr 1.2fr auto 24px;
+  gap: clamp(12px, 2vw, 28px);
+  align-items: center;
+  padding: clamp(16px, 1.6vw, 22px) 6px;
+  transition: padding .25s ease, background .25s ease;
+}
+.work-addendum__list a:hover {
+  background: var(--cream-2);
+  padding-inline: 14px;
+}
+.work-addendum__list .idx {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: .08em;
+}
+.work-addendum__list .ttl {
+  font-family: var(--f-display);
+  font-size: clamp(18px, 1.6vw, 22px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.work-addendum__list .ttl .en {
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--ink-3);
+  margin-top: 3px;
+}
+.work-addendum__list .stack {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--ink-2);
+  letter-spacing: .04em;
+}
+.work-addendum__list .yr {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+}
+.work-addendum__list .arr {
+  font-family: var(--f-mono);
+  color: var(--ink-3);
+  transition: transform .3s ease, color .3s ease;
+  text-align: right;
+}
+.work-addendum__list a:hover .arr {
+  transform: translateX(4px);
+  color: var(--persimmon);
+}
+@media (max-width: 760px) {
+  .work-addendum__list a { grid-template-columns: 36px 1fr auto; }
+  .work-addendum__list .stack { grid-column: 2 / 4; padding-top: 4px; }
+  .work-addendum__list .arr { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CAPABILITIES — spec sheet
+   ═══════════════════════════════════════════════════════════════════════════ */
+.cap-sheet {
+  border-top: 2px solid var(--ink);
+}
+.cap-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: clamp(20px, 3vw, 56px);
+  padding: clamp(22px, 2.6vw, 32px) 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+@media (max-width: 760px) { .cap-row { grid-template-columns: 1fr; gap: 12px; } }
+.cap-row__head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cap-row__head .idx {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--persimmon);
+  font-weight: 600;
+}
+.cap-row__head h3 {
+  font-family: var(--f-display);
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.05;
+}
+.cap-row__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 6px 18px;
+}
+.cap-row__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+  font-size: 14.5px;
+  border-bottom: 1px solid var(--rule-soft);
+  color: var(--ink);
+}
+.cap-row__item .lvl {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.cap-row__item.is-key .lvl { color: var(--persimmon); }
+.cap-row__item.is-key { font-weight: 500; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TIMELINE — horizontal journey
+   ═══════════════════════════════════════════════════════════════════════════ */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+@media (max-width: 760px) { .timeline { grid-template-columns: 1fr; } }
+
+.tl-act {
+  padding: clamp(28px, 3.4vw, 44px) clamp(20px, 2.4vw, 36px) clamp(36px, 5vw, 56px);
+  border-right: 1px solid var(--rule);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.tl-act:last-child { border-right: 0; }
+@media (max-width: 760px) {
+  .tl-act { border-right: 0; border-bottom: 1px solid var(--rule); }
+  .tl-act:last-child { border-bottom: 0; }
+}
+.tl-act::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: clamp(20px, 2.4vw, 36px);
+  width: 14px;
+  height: 14px;
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+}
+.tl-act.is-now::before {
+  background: var(--persimmon);
+  border-color: var(--persimmon);
+}
+
+.tl-act__year {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.tl-act__year .stage {
+  font-weight: 600;
+  color: var(--ink);
+}
+.tl-act.is-now .tl-act__year .stage { color: var(--persimmon); }
+
+.tl-act__role {
+  font-family: var(--f-display);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.tl-act__role em {
+  font-style: normal;
+  color: var(--persimmon);
+  font-weight: 700;
+}
+.tl-act__desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0;
+  text-wrap: pretty;
+}
+.tl-act__desc strong { color: var(--ink); font-weight: 600; }
+.tl-act__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 6px;
+}
+.tl-act__chip {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .06em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  color: var(--ink-2);
+}
+.tl-act.is-now .tl-act__chip {
+  border-color: var(--persimmon);
+  color: var(--persimmon);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CREDENTIALS — ledger table
+   ═══════════════════════════════════════════════════════════════════════════ */
+.ledger {
+  border-top: 2px solid var(--ink);
+}
+.ledger__hd {
+  display: grid;
+  grid-template-columns: 96px 1fr 120px 100px;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 600;
+}
+@media (max-width: 760px) { .ledger__hd { display: none; } }
+.ledger__row {
+  display: grid;
+  grid-template-columns: 96px 1fr 120px 100px;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule-soft);
+  align-items: baseline;
+  transition: background .25s ease, padding .25s ease;
+}
+.ledger__row:hover { background: var(--cream-2); padding-inline: 8px; }
+.ledger__row .yr {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+.ledger__row .nm {
+  font-family: var(--f-display);
+  font-size: clamp(16px, 1.5vw, 19px);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.ledger__row .nm small {
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .06em;
+  color: var(--ink-3);
+  margin-top: 2px;
+  font-weight: 400;
+}
+.ledger__row .iss {
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.ledger__row .ty {
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 4px 9px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  justify-self: start;
+}
+.ledger__row .ty.is-key {
+  background: var(--persimmon);
+  color: #fff;
+  border-color: var(--persimmon);
+}
+@media (max-width: 760px) {
+  .ledger__row { grid-template-columns: auto 1fr; gap: 8px 16px; }
+  .ledger__row .iss, .ledger__row .ty { grid-column: 2; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Q&A
+   ═══════════════════════════════════════════════════════════════════════════ */
+.qa {
+  border-top: 2px solid var(--ink);
+}
+.qa__item {
+  border-bottom: 1px solid var(--rule);
+  padding: clamp(24px, 3vw, 40px) 0;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: clamp(16px, 2vw, 32px);
+}
+@media (max-width: 760px) { .qa__item { grid-template-columns: 1fr; gap: 12px; } }
+.qa__num {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: .14em;
+  padding-top: 8px;
+  text-transform: uppercase;
+}
+.qa__body { display: flex; flex-direction: column; gap: 12px; }
+.qa__q {
+  font-family: var(--f-display);
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 0;
+}
+.qa__q::before {
+  content: "Q";
+  display: inline-block;
+  background: var(--persimmon);
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-right: 10px;
+  vertical-align: 18%;
+  font-weight: 600;
+}
+.qa__a {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 72ch;
+  text-wrap: pretty;
+}
+.qa__a::before {
+  content: "A";
+  display: inline-block;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-right: 10px;
+  vertical-align: 14%;
+  font-weight: 600;
+}
+.qa__a strong { color: var(--ink); font-weight: 600; }
+.qa__a em { color: var(--persimmon); font-style: normal; font-weight: 600; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONTACT PANEL — persimmon full-bleed
+   ═══════════════════════════════════════════════════════════════════════════ */
+.contact-panel {
+  background: var(--persimmon);
+  color: #fff;
+  padding-block: clamp(80px, 12vw, 168px);
+  position: relative;
+  overflow: hidden;
+}
+.contact-panel::after {
+  content: "—";
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  font-family: var(--f-display);
+  font-size: clamp(80px, 14vw, 200px);
+  line-height: .6;
+  color: rgba(255,255,255,.18);
+  pointer-events: none;
+  z-index: 0;
+}
+.contact-panel__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: end;
+}
+@media (max-width: 900px) { .contact-panel__inner { grid-template-columns: 1fr; } }
+
+.contact-panel__head {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.contact-panel__num {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.85);
+}
+.contact-panel__title {
+  font-family: var(--f-display);
+  font-size: clamp(36px, 5vw, 72px);
+  line-height: 1.02;
+  font-weight: 500;
+  letter-spacing: -0.032em;
+  color: #fff;
+  margin: 0;
+  text-wrap: balance;
+}
+.contact-panel__lead {
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255,255,255,.9);
+  margin: 0;
+  max-width: 38ch;
+  text-wrap: pretty;
+}
+.contact-panel__lead strong { color: #fff; font-weight: 600; }
+
+.contact-panel__right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.contact-panel__email {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 4vw, 56px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
+  display: inline-block;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #fff;
+  word-break: break-all;
+  transition: color .2s ease, border-color .2s ease;
+  align-self: flex-start;
+}
+.contact-panel__email:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+.contact-panel__meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 28px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.32);
+}
+.contact-panel__meta dt {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.7);
+  margin-bottom: 4px;
+}
+.contact-panel__meta dd {
+  margin: 0;
+  font-size: 14.5px;
+  color: #fff;
+}
+.contact-panel__meta dd a:hover { color: var(--ink); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COLOPHON
+   ═══════════════════════════════════════════════════════════════════════════ */
+.colophon {
+  padding: 28px var(--gutter) 36px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+  align-items: baseline;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  border-top: 1px solid var(--rule);
+}
+.colophon b { color: var(--ink-2); font-weight: 600; }
+.colophon__r { text-align: right; }
+@media (max-width: 760px) {
+  .colophon { grid-template-columns: 1fr; }
+  .colophon__r { text-align: left; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═════════════════════════════════════════════════════════════════════════
+     MASTHEAD
+     ═════════════════════════════════════════════════════════════════════════ -->
+<header class="masthead">
+  <div class="masthead__inner">
+    <div class="masthead__brand">
+      <span class="masthead__brand-mark" aria-hidden="true">L</span>
+      <span>林家齊　Lin&nbsp;C.C.</span>
+      <span class="masthead__brand-sep" aria-hidden="true"></span>
+      <span style="color:var(--ink-3);font-weight:500;">Annual Report&nbsp;·&nbsp;FY 2026</span>
+    </div>
+    <nav class="masthead__nav" aria-label="Sections">
+      <a href="#summary" data-nav="summary">01&nbsp;Summary</a>
+      <a href="#statement" data-nav="statement">02&nbsp;Statement</a>
+      <a href="#work" data-nav="work">03&nbsp;Work</a>
+      <a href="#cap" data-nav="cap">04&nbsp;Capabilities</a>
+      <a href="#timeline" data-nav="timeline">05&nbsp;Timeline</a>
+      <a href="#cred" data-nav="cred">06&nbsp;Credentials</a>
+      <a href="#qa" data-nav="qa">07&nbsp;Q&amp;A</a>
+    </nav>
+    <div class="masthead__actions">
+      <div class="masthead__theme" role="group" aria-label="Theme">
+        <button data-theme-btn="paper" class="is-on" title="Paper">●</button>
+        <button data-theme-btn="ink" title="Ink">○</button>
+      </div>
+      <a class="masthead__cta" href="#contact">Hire&nbsp;Me&nbsp;↗</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═════════════════════════════════════════════════════════════════════════
+     COVER
+     ═════════════════════════════════════════════════════════════════════════ -->
+<section class="cover" data-screen-label="01 Cover">
+
+  <div class="cover__top">
+    <div>
+      <span class="lbl">Document</span>
+      <span class="val">Annual&nbsp;Portfolio&nbsp;Report</span>
+    </div>
+    <div class="c">
+      <span class="lbl">Fiscal&nbsp;Year</span>
+      <span class="val">FY&nbsp;2026 · MMXXVI</span>
+    </div>
+    <div class="r">
+      <span class="lbl">Status</span>
+      <span class="val accent">● 求職中　Recruiting</span>
+    </div>
+  </div>
+
+  <div class="cover__main">
+    <h1 class="cover__name">
+      <span class="ch">林家齊</span>
+      <span class="en">Lin&nbsp;Chia-Chi　·　Frontend Engineer</span>
+    </h1>
+
+    <div class="cover__hero-meta">
+      <figure class="cover__portrait" aria-label="Portrait">
+        <img src="照片/去背個人照.png" alt="林家齊個人照" />
+        <span class="cover__portrait-tag">PORTRAIT&nbsp;·&nbsp;01</span>
+      </figure>
+
+      <div class="cover__role-card">
+        <div class="lbl">Position&nbsp;·&nbsp;職位</div>
+        <div class="role">Frontend<br />Engineer</div>
+        <dl class="meta">
+          <div><b>Focus.</b> Vue 3 · Angular 19 · TypeScript</div>
+          <div><b>Based.</b> Kaohsiung, Taiwan</div>
+          <div><b>Open.</b> Full-time · Remote</div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="col">
+      <h4>Issued&nbsp;by</h4>
+      <p>林家齊　Lin Chia-Chi<br /><span style="color:var(--ink-3);font-weight:400;">Independent · Sole Author</span></p>
+    </div>
+    <div class="col">
+      <h4>Contents&nbsp;at&nbsp;a&nbsp;glance</h4>
+      <p>8 chapters · 6 projects · 9 credentials<br /><span style="color:var(--ink-3);font-weight:400;">Est. read 4 minutes</span></p>
+    </div>
+    <ul class="cover__contents" aria-label="Contents">
+      <li><a href="#summary"><span class="n">01</span><span>Summary</span><span class="p">P.&nbsp;02</span></a></li>
+      <li><a href="#statement"><span class="n">02</span><span>Statement</span><span class="p">P.&nbsp;03</span></a></li>
+      <li><a href="#work"><span class="n">03</span><span>Selected Work</span><span class="p">P.&nbsp;04</span></a></li>
+      <li><a href="#cap"><span class="n">04</span><span>Capabilities</span><span class="p">P.&nbsp;07</span></a></li>
+      <li><a href="#timeline"><span class="n">05</span><span>Timeline</span><span class="p">P.&nbsp;08</span></a></li>
+      <li><a href="#cred"><span class="n">06</span><span>Credentials</span><span class="p">P.&nbsp;09</span></a></li>
+      <li><a href="#qa"><span class="n">07</span><span>Q&amp;A</span><span class="p">P.&nbsp;10</span></a></li>
+      <li><a href="#contact"><span class="n">08</span><span>Contact</span><span class="p">P.&nbsp;11</span></a></li>
+    </ul>
+  </div>
+
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════════════
+     01  SUMMARY
+     ═════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="summary" data-screen-label="02 Summary">
+  <div class="shell">
+    <header class="section__head" data-reveal>
+      <div class="section__num">01</div>
+      <h2 class="section__title">Summary <em>· 數字一覽</em></h2>
+      <span class="section__kicker">Reporting&nbsp;Year&nbsp;·&nbsp;2024 — 2026</span>
+    </header>
+
+    <div class="summary">
+      <div class="kpi kpi--persimmon" data-reveal>
+        <span class="kpi__lbl">Projects&nbsp;·&nbsp;作品</span>
+        <div>
+          <div class="kpi__num">06<span class="unit">件</span></div>
+          <div class="kpi__sub">前端 + 全端　六件親手交付</div>
         </div>
-
-        <div class="aurora" aria-hidden="true">
-            <span class="aurora__blob aurora__blob--indigo"></span>
-            <span class="aurora__blob aurora__blob--cyan"></span>
-            <span class="aurora__blob aurora__blob--violet"></span>
-            <div class="aurora__grid"></div>
+      </div>
+      <div class="kpi" data-reveal>
+        <span class="kpi__lbl">Bootcamp&nbsp;·&nbsp;培訓</span>
+        <div>
+          <div class="kpi__num">840<span class="unit">hrs</span></div>
+          <div class="kpi__sub">Java 全端整合實務 · 完成</div>
         </div>
+      </div>
+      <div class="kpi" data-reveal>
+        <span class="kpi__lbl">Credentials&nbsp;·&nbsp;證照</span>
+        <div>
+          <div class="kpi__num">09<span class="unit">張</span></div>
+          <div class="kpi__sub">國家級 + 業界認證</div>
+        </div>
+      </div>
+      <div class="kpi kpi--navy" data-reveal>
+        <span class="kpi__lbl">Cross-Domain&nbsp;·&nbsp;跨域</span>
+        <div>
+          <div class="kpi__num">2<span class="unit">+yrs</span></div>
+          <div class="kpi__sub">行政 · 維修 · 製圖背景</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <a class="skip-link" href="#main">跳到主要內容</a>
+<!-- ═════════════════════════════════════════════════════════════════════════
+     02  STATEMENT — full-bleed navy
+     ═════════════════════════════════════════════════════════════════════════ -->
+<section class="statement-panel" id="statement" data-screen-label="03 Statement">
+  <div class="statement-panel__bg" aria-hidden="true"></div>
+  <div class="statement-panel__inner">
+    <div class="statement-panel__head" data-reveal>
+      <div class="statement-panel__num">02 · Statement&nbsp;／&nbsp;自述</div>
+      <h2 class="statement-panel__quote">
+        <span class="mark">“</span>從行政與板手，<em>轉身寫程式碼。</em>
+      </h2>
+    </div>
 
-        <header class="site-nav js-site-nav" id="site-nav">
-            <div class="site-nav__inner container-xl">
-                <a class="site-nav__brand" href="#hero" aria-label="回到首頁">
-                    <span class="site-nav__brand-bracket">&lt;</span>
-                    <span class="site-nav__brand-name">家齊的個人網頁.dev</span>
-                    <span class="site-nav__brand-bracket">/&gt;</span>
-                </a>
+    <div class="statement-panel__body" data-reveal>
+      <p>
+        我是 <strong>林家齊</strong>。兩年以上行政、電腦維修與 3D 製圖跨域經驗，
+        現在以前端工程師為定位。
+      </p>
+      <p>
+        從 <strong>HTML / CSS / JavaScript</strong> 起步，深入 <strong>Vue 3 + Vite</strong> 框架，
+        完成 <strong>Angular 19 + Spring Boot</strong> 團隊全端專案。
+        習慣把之前工作的整理習慣帶進工程——先規劃資料結構、釐清角色權限、再開始切版。
+      </p>
+      <p>
+        完成台南應用科技大學「<strong>Java 全端整合實務運用</strong>」就業養成班 840 小時培訓，
+        及六角學院 30 天鐵人挑戰。期望從靜態切版做起，
+        逐步成長為能<strong>獨當一面</strong>的前端工程師。
+      </p>
 
-                <button
-                    class="site-nav__toggle js-nav-toggle"
-                    type="button"
-                    aria-controls="primary-menu"
-                    aria-expanded="false"
-                    aria-label="開啟選單"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+      <div class="statement-panel__sig">
+        <div>
+          <b>林家齊</b><br />Lin&nbsp;Chia-Chi
+        </div>
+        <div style="text-align:right;">
+          Kaohsiung,&nbsp;TW<br />FY&nbsp;2026
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <nav
-                    class="site-nav__menu js-nav-menu"
-                    id="primary-menu"
-                    aria-label="主選單"
-                >
-                    <ul class="site-nav__list">
-                        <li><a class="site-nav__link" href="#hero" data-section="hero">首頁</a></li>
-                        <li><a class="site-nav__link" href="#about" data-section="about">關於</a></li>
-                        <li><a class="site-nav__link" href="#skills" data-section="skills">技能</a></li>
-                        <li><a class="site-nav__link" href="#projects" data-section="projects">作品</a></li>
-                        <li><a class="site-nav__link" href="#credentials" data-section="credentials">證照</a></li>
-                        <li><a class="site-nav__link" href="#contact" data-section="contact">聯絡</a></li>
-                    </ul>
+<!-- ═════════════════════════════════════════════════════════════════════════
+     03  SELECTED WORK
+     ═════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="work" data-screen-label="04 Work">
+  <div class="shell">
+    <header class="section__head" data-reveal>
+      <div class="section__num">03</div>
+      <h2 class="section__title">Selected Work <em>· 精選作品</em></h2>
+      <span class="section__kicker">6&nbsp;Projects&nbsp;·&nbsp;2024 — 2026</span>
+    </header>
 
-                    <div class="site-nav__actions">
-                        <button
-                            class="theme-toggle js-theme-toggle"
-                            type="button"
-                            aria-label="切換深色／淺色模式"
-                        >
-                            <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                            </svg>
-                            <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true">
-                                <circle cx="12" cy="12" r="4" />
-                                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-                            </svg>
-                        </button>
-                        <a
-                            class="btn-pill btn-pill--ghost"
-                            href="https://github.com/AtayalLin"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            <i class="devicon-github-original"></i>
-                            GitHub
-                        </a>
-                        <a class="btn-pill btn-pill--solid" href="./contact.html">
-                            履歷
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M7 17L17 7M9 7h8v8" />
-                            </svg>
-                        </a>
-                    </div>
-                </nav>
-            </div>
-        </header>
+    <!-- ── 01 LazyBaoBao · Persimmon ── -->
+    <article class="work-page" data-reveal>
+      <header class="work-ribbon work-ribbon--persimmon">
+        <span class="work-ribbon__idx">01</span>
+        <div class="work-ribbon__title">
+          <h3>LazyBaoBao　懶飽飽智慧點餐系統</h3>
+          <span class="en">Team Project · Angular + Spring Boot</span>
+        </div>
+        <span class="work-ribbon__tag">Team · 前端負責人</span>
+        <span class="work-ribbon__year">FY&nbsp;2025</span>
+      </header>
+      <div class="work-body">
+        <a class="work-body__media" href="https://github.com/AtayalLin/Angular-Team-Frontend" target="_blank" rel="noopener" aria-label="LazyBaoBao GitHub">
+          <img src="照片/projects/lazybaobao.jpg" alt="LazyBaoBao 介面預覽" loading="lazy" />
+        </a>
+        <div class="work-body__text">
+          <p class="work-body__desc">
+            台灣在地美食訂餐平台，<strong>客戶／POS／老闆三角色一體化</strong>解決方案。
+            Angular 19 Standalone Components + Signals 即時同步狀態，搭配 GSAP、Lottie、AOS 打造完整動畫體驗。
+          </p>
+          <ul class="work-body__bullets">
+            <li>客戶端：3D 翻轉信用卡 UI、QR Code 行動支付、即時訂單追蹤</li>
+            <li>POS 終端：會員查詢、現金找零、三欄看板即時同步</li>
+            <li>老闆後台：8 大管理頁籤（商品／庫存／優惠／員工／稅率／報表）</li>
+            <li>內建 Mock 模式可離線運行，支援 ngrok 對外公開測試</li>
+          </ul>
+          <div class="work-body__chips">
+            <span class="work-body__chip">Angular 19</span>
+            <span class="work-body__chip">TypeScript</span>
+            <span class="work-body__chip">Signals</span>
+            <span class="work-body__chip">Spring Boot</span>
+            <span class="work-body__chip">MySQL</span>
+            <span class="work-body__chip">GSAP · Lottie</span>
+          </div>
+          <div class="work-body__links">
+            <a class="work-body__btn is-primary" href="https://github.com/AtayalLin/Angular-Team-Frontend" target="_blank" rel="noopener">Source&nbsp;↗</a>
+          </div>
+        </div>
+      </div>
+    </article>
 
-        <main id="main">
+    <!-- ── 02 QSDemo · Navy · Alt layout ── -->
+    <article class="work-page" data-reveal>
+      <header class="work-ribbon work-ribbon--navy">
+        <span class="work-ribbon__idx">02</span>
+        <div class="work-ribbon__title">
+          <h3>QSDemo　企業級問卷系統</h3>
+          <span class="en">Solo · Full Stack · Angular + Spring Boot</span>
+        </div>
+        <span class="work-ribbon__tag">Solo · Full Stack</span>
+        <span class="work-ribbon__year">FY&nbsp;2025</span>
+      </header>
+      <div class="work-body work-body--alt">
+        <a class="work-body__media" href="https://atayallin.github.io/Angular-qsdemo/" target="_blank" rel="noopener" aria-label="QSDemo Live">
+          <img src="照片/projects/qsdemo.jpg" alt="Angular QSDemo 介面" loading="lazy" />
+        </a>
+        <div class="work-body__text">
+          <p class="work-body__desc">
+            <strong>前後端分離</strong>的問卷管理平台。多權限管理、條件式邏輯（父題控制子題顯示）、
+            統計圖表視覺化、回應歷史、批次操作；完整篩選介面（名稱／時間／類型／狀態）與分頁機制。
+          </p>
+          <ul class="work-body__bullets">
+            <li>Angular 19 Standalone + RxJS Reactive Forms</li>
+            <li>Spring Boot 3.x RESTful + MySQL 8.x + JPA</li>
+            <li>權限角色：管理者／編輯／一般受訪者三層分離</li>
+          </ul>
+          <div class="work-body__chips">
+            <span class="work-body__chip">Angular 19</span>
+            <span class="work-body__chip">Spring Boot 3</span>
+            <span class="work-body__chip">MySQL 8</span>
+            <span class="work-body__chip">RESTful</span>
+            <span class="work-body__chip">JPA</span>
+          </div>
+          <div class="work-body__links">
+            <a class="work-body__btn is-primary" href="https://atayallin.github.io/Angular-qsdemo/" target="_blank" rel="noopener">Live&nbsp;↗</a>
+            <a class="work-body__btn" href="https://github.com/AtayalLin/Angular-qsdemo" target="_blank" rel="noopener">Source&nbsp;↗</a>
+          </div>
+        </div>
+      </div>
+    </article>
 
-            <section class="hero" id="hero">
-                <div class="container-xl">
-                    <div class="row align-items-center g-5">
-                        <div class="col-lg-7 hero__content" data-aos="fade-up" data-aos-duration="900">
-                            <span class="eyebrow">
-                                <span class="eyebrow__dot"></span>
-                                Available for Hire · 高雄 / Remote
-                            </span>
+    <!-- ── 03 Vueshop · Butter ── -->
+    <article class="work-page" data-reveal>
+      <header class="work-ribbon work-ribbon--butter">
+        <span class="work-ribbon__idx">03</span>
+        <div class="work-ribbon__title">
+          <h3>夜色道頓堀　Vue 日式電商 Demo</h3>
+          <span class="en">Solo · Live · 30 GitHub clones</span>
+        </div>
+        <span class="work-ribbon__tag">Solo · Live</span>
+        <span class="work-ribbon__year">FY&nbsp;2025</span>
+      </header>
+      <div class="work-body">
+        <a class="work-body__media" href="https://atayallin.github.io/Vueshop-Side-Project-Demo-/" target="_blank" rel="noopener" aria-label="Vueshop Live">
+          <img src="照片/projects/vue-shop.jpg" alt="Vue 日式電商 Demo 預覽" loading="lazy" />
+        </a>
+        <div class="work-body__text">
+          <p class="work-body__desc">
+            完整購物流程含登入／註冊、購物車、結帳，整合 Vue Router、<strong>vee-validate + Zod 表單驗證</strong>、
+            GitHub Actions 自動部署，並支援主題切換。社群迴響：<strong>30 位 Clone、62 次下載、18 訪客檢視</strong>。
+          </p>
+          <div class="work-body__chips">
+            <span class="work-body__chip">Vue 3</span>
+            <span class="work-body__chip">Vite</span>
+            <span class="work-body__chip">Pinia</span>
+            <span class="work-body__chip">vee-validate</span>
+            <span class="work-body__chip">Zod</span>
+            <span class="work-body__chip">GitHub Actions</span>
+          </div>
+          <div class="work-body__links">
+            <a class="work-body__btn is-primary" href="https://atayallin.github.io/Vueshop-Side-Project-Demo-/" target="_blank" rel="noopener">Live&nbsp;↗</a>
+            <a class="work-body__btn" href="https://github.com/AtayalLin/Vueshop-Side-Project-Demo-" target="_blank" rel="noopener">Source&nbsp;↗</a>
+          </div>
+        </div>
+      </div>
+    </article>
 
-                            <h1 class="hero__title">
-                                <span class="hero__greet">嗨，我是</span>
-                                <span class="hero__name gradient-text">林家齊</span>
-                                <span class="hero__role">
-                                    <span class="hero__role-prefix">&lt;</span>
-                                    <span class="hero__role-text js-type" data-words='["Frontend Engineer","Vue.js Developer","Angular Developer","RWD Designer","UI Craftsman"]'></span>
-                                    <span class="hero__role-prefix">/&gt;</span>
-                                </span>
-                            </h1>
+    <!-- Addendum -->
+    <div class="work-addendum" data-reveal>
+      <div class="work-addendum__h">
+        <span>More Work&nbsp;·&nbsp;其餘作品</span>
+        <span>Sub-listings · 04 — 06</span>
+      </div>
+      <ul class="work-addendum__list">
+        <li>
+          <a href="https://atayallin.github.io/Igs-test-vue/" target="_blank" rel="noopener">
+            <span class="idx">04</span>
+            <span class="ttl">H5 模擬遊戲大廳<span class="en">IGS interview challenge · Vue 3</span></span>
+            <span class="stack">Vue 3 · H5 · VIP 等級 · 輪播 Banner</span>
+            <span class="yr">2025</span>
+            <span class="arr">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/AtayalLin/AtayaHtml" target="_blank" rel="noopener">
+            <span class="idx">05</span>
+            <span class="ttl">AtayaHtml　個人作品集（前版）<span class="en">Personal site · BS5 · AOS · GSAP</span></span>
+            <span class="stack">HTML5 · Bootstrap 5 · AOS · GSAP · BEM</span>
+            <span class="yr">2024→26</span>
+            <span class="arr">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/AtayalLin/AtayaHtml/tree/main/%E4%BD%9C%E5%93%811" target="_blank" rel="noopener">
+            <span class="idx">06</span>
+            <span class="ttl">日本美食推薦網<span class="en">Static RWD · 東京 / 京都 / 大阪</span></span>
+            <span class="stack">HTML · CSS · AOS · RWD · 日式排版</span>
+            <span class="yr">2024</span>
+            <span class="arr">↗</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-                            <p class="hero__desc">
-                                兩年以上行政與資訊支援跨域經驗，積極轉職前端工程師。
-                                熟悉 <strong>Vue 3 + Vite + Pinia</strong> 與
-                                <strong>Angular 19 + TypeScript</strong>，
-                                能獨立完成 RWD 響應式網站，並參與多角色全端系統開發。
-                            </p>
+<!-- ═════════════════════════════════════════════════════════════════════════
+     04  CAPABILITIES
+     ═════════════════════════════════════════════════════════════════════════ -->
+<section class="section section--cream-2" id="cap" data-screen-label="05 Capabilities">
+  <div class="shell">
+    <header class="section__head" data-reveal>
+      <div class="section__num">04</div>
+      <h2 class="section__title">Capabilities <em>· 技術堆疊</em></h2>
+      <span class="section__kicker">As&nbsp;of&nbsp;Q2&nbsp;2026</span>
+    </header>
 
-                            <div class="hero__tech">
-                                <span class="tech-chip"><i class="devicon-html5-plain colored"></i>HTML5</span>
-                                <span class="tech-chip"><i class="devicon-css3-plain colored"></i>CSS3</span>
-                                <span class="tech-chip"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
-                                <span class="tech-chip"><i class="devicon-typescript-plain colored"></i>TypeScript</span>
-                                <span class="tech-chip"><i class="devicon-vuejs-plain colored"></i>Vue 3</span>
-                                <span class="tech-chip"><img class="tech-icon" src="./p3-0資源包/ICONS/angular-icon-svgrepo-com.svg" alt="" aria-hidden="true" />Angular</span>
-                                <span class="tech-chip"><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
-                                <span class="tech-chip"><i class="devicon-git-plain colored"></i>Git</span>
-                            </div>
+    <div class="cap-sheet" data-reveal>
+      <div class="cap-row">
+        <div class="cap-row__head">
+          <span class="idx">/ 01</span>
+          <h3>Frontend</h3>
+        </div>
+        <div class="cap-row__items">
+          <div class="cap-row__item is-key">Vue 3 + Vite + Pinia<span class="lvl">Daily</span></div>
+          <div class="cap-row__item is-key">Angular 19 + TypeScript<span class="lvl">Team Lead</span></div>
+          <div class="cap-row__item">HTML5 / CSS3 / SCSS<span class="lvl">Fluent</span></div>
+          <div class="cap-row__item">JavaScript ES6+<span class="lvl">Fluent</span></div>
+          <div class="cap-row__item">TypeScript<span class="lvl">Fluent</span></div>
+          <div class="cap-row__item">Responsive Web Design<span class="lvl">Specialty</span></div>
+          <div class="cap-row__item">Bootstrap 5<span class="lvl">Familiar</span></div>
+          <div class="cap-row__item">vee-validate + Zod<span class="lvl">Familiar</span></div>
+        </div>
+      </div>
 
-                            <div class="hero__cta">
-                                <a class="btn-pill btn-pill--solid btn-pill--lg" href="#projects">
-                                    瀏覽作品
-                                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M5 12h14M13 5l7 7-7 7" />
-                                    </svg>
-                                </a>
-                                <a class="btn-pill btn-pill--outline btn-pill--lg" href="#contact">
-                                    聯絡我
-                                </a>
-                            </div>
+      <div class="cap-row">
+        <div class="cap-row__head">
+          <span class="idx">/ 02</span>
+          <h3>Backend</h3>
+        </div>
+        <div class="cap-row__items">
+          <div class="cap-row__item">Java<span class="lvl">Trained</span></div>
+          <div class="cap-row__item">Spring Boot 3.x<span class="lvl">Project</span></div>
+          <div class="cap-row__item">MySQL 8.x<span class="lvl">Project</span></div>
+          <div class="cap-row__item">RESTful API<span class="lvl">Practical</span></div>
+          <div class="cap-row__item">Eclipse / IntelliJ<span class="lvl">Used</span></div>
+        </div>
+      </div>
 
-                            <dl class="hero__stats" aria-label="重點數字">
-                                <div class="hero__stat">
-                                    <dt>主力專案</dt>
-                                    <dd><span class="js-counter" data-target="6">0</span>+</dd>
-                                </div>
-                                <div class="hero__stat">
-                                    <dt>培訓時數</dt>
-                                    <dd><span class="js-counter" data-target="840">0</span>h</dd>
-                                </div>
-                                <div class="hero__stat">
-                                    <dt>專業證照</dt>
-                                    <dd><span class="js-counter" data-target="10">0</span>+</dd>
-                                </div>
-                                <div class="hero__stat">
-                                    <dt>GitHub Clones</dt>
-                                    <dd><span class="js-counter" data-target="30">0</span>+</dd>
-                                </div>
-                            </dl>
-                        </div>
+      <div class="cap-row">
+        <div class="cap-row__head">
+          <span class="idx">/ 03</span>
+          <h3>Tooling</h3>
+        </div>
+        <div class="cap-row__items">
+          <div class="cap-row__item">Git · GitHub<span class="lvl">Daily</span></div>
+          <div class="cap-row__item">GitHub Actions<span class="lvl">Deploy</span></div>
+          <div class="cap-row__item">GitHub Pages<span class="lvl">Deploy</span></div>
+          <div class="cap-row__item">VS Code · IntelliJ<span class="lvl">Daily</span></div>
+          <div class="cap-row__item">Figma<span class="lvl">Used</span></div>
+          <div class="cap-row__item">Notion<span class="lvl">PM</span></div>
+          <div class="cap-row__item">WordPress<span class="lvl">Used</span></div>
+        </div>
+      </div>
 
-                        <div class="col-lg-5 hero__visual" data-aos="fade-left" data-aos-duration="900" data-aos-delay="200">
-                            <div class="hero__portrait">
-                                <div class="hero__portrait-ring"></div>
-                                <div class="hero__portrait-frame">
-                                    <img
-                                        src="./照片/合成背景圖.png"
-                                        alt="林家齊個人形象照"
-                                        loading="eager"
-                                    />
-                                </div>
-                                <span class="hero__sticker hero__sticker--vue">
-                                    <i class="devicon-vuejs-plain colored"></i>
-                                    Vue 3
-                                </span>
-                                <span class="hero__sticker hero__sticker--angular">
-                                    <img class="tech-icon" src="./p3-0資源包/ICONS/angular-icon-svgrepo-com.svg" alt="" aria-hidden="true" />
-                                    Angular
-                                </span>
-                                <span class="hero__sticker hero__sticker--react">
-                                    <i class="devicon-react-original colored"></i>
-                                    React
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+      <div class="cap-row">
+        <div class="cap-row__head">
+          <span class="idx">/ 04</span>
+          <h3>Adjacent</h3>
+        </div>
+        <div class="cap-row__items">
+          <div class="cap-row__item">AutoCAD 2D / 3D<span class="lvl">Certified</span></div>
+          <div class="cap-row__item">SketchUp<span class="lvl">Used</span></div>
+          <div class="cap-row__item">ArchiCAD 19<span class="lvl">Used</span></div>
+          <div class="cap-row__item">Office 全家桶<span class="lvl">Daily</span></div>
+          <div class="cap-row__item">Windows 系統管理<span class="lvl">Hardware</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    <a class="hero__scroll" href="#about" aria-label="向下捲動">
-                        <span></span>
-                    </a>
-                </div>
-            </section>
+<!-- ═════════════════════════════════════════════════════════════════════════
+     05  TIMELINE
+     ═════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="timeline" data-screen-label="06 Timeline">
+  <div class="shell">
+    <header class="section__head" data-reveal>
+      <div class="section__num">05</div>
+      <h2 class="section__title">Timeline <em>· 轉職三段</em></h2>
+      <span class="section__kicker">Three&nbsp;Acts&nbsp;·&nbsp;2023 — Now</span>
+    </header>
 
-            <section class="section" id="about" aria-labelledby="about-title">
-                <div class="container-xl">
-                    <header class="section__head" data-aos="fade-up">
-                        <span class="section__tag">01 — About</span>
-                        <h2 class="section__title" id="about-title">
-                            從行政到前端，<br />
-                            <span class="gradient-text">用程式碼說故事</span>
-                        </h2>
-                    </header>
+    <div class="timeline" data-reveal>
+      <article class="tl-act">
+        <div class="tl-act__year"><span>2023 · Act 01</span><span class="stage">Origin</span></div>
+        <h3 class="tl-act__role">行政 ‧ 維修 ‧ <em>製圖</em></h3>
+        <p class="tl-act__desc">
+          兩年以上跨域工作，從<strong>行政支援</strong>、<strong>電腦硬體維修</strong>到 <strong>AutoCAD / SketchUp</strong> 3D 製圖。
+          這段時間養成了規劃力、解題耐心，與對版面比例的敏感度。
+        </p>
+        <div class="tl-act__chips">
+          <span class="tl-act__chip">Admin</span>
+          <span class="tl-act__chip">Hardware</span>
+          <span class="tl-act__chip">AutoCAD</span>
+          <span class="tl-act__chip">SketchUp</span>
+        </div>
+      </article>
 
-                    <div class="row g-5 align-items-start">
-                        <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-                            <p class="about__intro">
-                                您好，我是<strong>林家齊</strong>，
-                                具備兩年以上行政支援、電腦維修與 3D 繪圖等跨領域工作經驗，
-                                目前正積極投入前端開發領域。
-                            </p>
-                            <p class="about__paragraph">
-                                從 HTML / CSS / JavaScript 起步，
-                                持續深入 Vue 3 + Vite 框架，並擁有 Angular 19 + Spring Boot 團隊專案實戰經驗。
-                                熟悉 Git 版控、GitHub Pages 部署、Figma 介面規劃，
-                                並以 Notion 協作管理開發進度。
-                            </p>
-                            <p class="about__paragraph">
-                                目前於台南應用科技大學「Java 全端整合實務運用」就業養成班進修（114/11 ~ 115/05，共 840 小時），
-                                同步完成六角學院「30 天軟體工程師體驗營 2025」鐵人挑戰。
-                                期望從靜態切版做起，逐步成長為能獨當一面的前端工程師。
-                            </p>
+      <article class="tl-act">
+        <div class="tl-act__year"><span>2024 · Act 02</span><span class="stage">Pivot</span></div>
+        <h3 class="tl-act__role">自學前端 ‧ <em>切版上手</em></h3>
+        <p class="tl-act__desc">
+          自學 <strong>HTML / CSS / JavaScript</strong>，深入 <strong>Vue 3 + Vite + Pinia</strong>，
+          完成第一個對外部署的 RWD 作品 — 日本美食推薦網。
+          同年完成<strong>六角學院 30 天鐵人挑戰</strong>。
+        </p>
+        <div class="tl-act__chips">
+          <span class="tl-act__chip">Self-taught</span>
+          <span class="tl-act__chip">Vue 3</span>
+          <span class="tl-act__chip">Vite</span>
+          <span class="tl-act__chip">RWD</span>
+        </div>
+      </article>
 
-                            <div class="about__highlights">
-                                <div class="highlight-card" data-aos="zoom-in" data-aos-delay="150">
-                                    <span class="highlight-card__icon" aria-hidden="true">
-                                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                                    </span>
-                                    <h3>跨域整合力</h3>
-                                    <p>行政、繪圖、資訊維修經驗培養出細心、規劃力與解題耐心。</p>
-                                </div>
-                                <div class="highlight-card" data-aos="zoom-in" data-aos-delay="250">
-                                    <span class="highlight-card__icon" aria-hidden="true">
-                                        <svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
-                                    </span>
-                                    <h3>實作驅動</h3>
-                                    <p>3+ 個 RWD 響應式網站、Vue/Angular Side Project 全流程部署 GitHub。</p>
-                                </div>
-                                <div class="highlight-card" data-aos="zoom-in" data-aos-delay="350">
-                                    <span class="highlight-card__icon" aria-hidden="true">
-                                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                                    </span>
-                                    <h3>持續學習</h3>
-                                    <p>840 小時 Java 全端養成、六角學院鐵人完賽、AutoCAD 國際認證。</p>
-                                </div>
-                            </div>
-                        </div>
+      <article class="tl-act is-now">
+        <div class="tl-act__year"><span>2025—26 · Act 03</span><span class="stage">Now</span></div>
+        <h3 class="tl-act__role">前端工程師 ‧ <em>求職中</em></h3>
+        <p class="tl-act__desc">
+          完成台南應用科技大學「<strong>Java 全端整合實務運用</strong>」就業養成班 840 小時培訓，
+          擔任 <strong>LazyBaoBao 團隊專案前端負責人</strong>，
+          交付 Angular 19 + Spring Boot 全端系統。
+        </p>
+        <div class="tl-act__chips">
+          <span class="tl-act__chip">Angular 19</span>
+          <span class="tl-act__chip">TypeScript</span>
+          <span class="tl-act__chip">Spring Boot</span>
+          <span class="tl-act__chip">Team Lead</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
-                        <aside class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
-                            <div class="profile-card">
-                                <div class="profile-card__head">
-                                    <span class="profile-card__dot" aria-hidden="true"></span>
-                                    <span class="profile-card__dot" aria-hidden="true"></span>
-                                    <span class="profile-card__dot" aria-hidden="true"></span>
-                                    <span class="profile-card__title">about.json</span>
-                                </div>
-                                <pre class="profile-card__body"><code><span class="tk-punc">{</span>
-  <span class="tk-key">"name"</span>: <span class="tk-str">"林家齊 Chia-Chi Lin"</span>,
-  <span class="tk-key">"role"</span>: <span class="tk-str">"Frontend Engineer"</span>,
-  <span class="tk-key">"location"</span>: <span class="tk-str">"Kaohsiung, Taiwan"</span>,
-  <span class="tk-key">"education"</span>: <span class="tk-str">"海青工商 · 電子科"</span>,
-  <span class="tk-key">"focus"</span>: <span class="tk-punc">[</span>
-    <span class="tk-str">"Vue 3 + Vite"</span>,
-    <span class="tk-str">"Angular + TypeScript"</span>,
-    <span class="tk-str">"Responsive Web Design"</span>
-  <span class="tk-punc">]</span>,
-  <span class="tk-key">"learning"</span>: <span class="tk-str">"React, Next.js"</span>,
-  <span class="tk-key">"hireable"</span>: <span class="tk-bool">true</span>
-<span class="tk-punc">}</span></code></pre>
-                            </div>
-                        </aside>
-                    </div>
-                </div>
-            </section>
+<!-- ═════════════════════════════════════════════════════════════════════════
+     06  CREDENTIALS
+     ═════════════════════════════════════════════════════════════════════════ -->
+<section class="section section--cream-2" id="cred" data-screen-label="07 Credentials">
+  <div class="shell">
+    <header class="section__head" data-reveal>
+      <div class="section__num">06</div>
+      <h2 class="section__title">Credentials <em>· 證照索引</em></h2>
+      <span class="section__kicker">9&nbsp;Entries&nbsp;·&nbsp;National&nbsp;&amp;&nbsp;Industry</span>
+    </header>
 
-            <section class="section section--alt" id="skills" aria-labelledby="skills-title">
-                <div class="container-xl">
-                    <header class="section__head" data-aos="fade-up">
-                        <span class="section__tag">02 — Skills</span>
-                        <h2 class="section__title" id="skills-title">
-                            技能<span class="gradient-text">堆疊</span>
-                        </h2>
-                        <p class="section__lede">
-                            前端為主、後端為輔，並具備 RWD、版控、設計工具與作業系統等綜合能力。
-                        </p>
-                    </header>
+    <div class="ledger" data-reveal>
+      <div class="ledger__hd">
+        <span>Year</span>
+        <span>Credential</span>
+        <span>Issuer</span>
+        <span>Class</span>
+      </div>
+      <div class="ledger__row">
+        <span class="yr">2024</span>
+        <span class="nm">Autodesk AutoCAD 2D / 3D 國際認證<small>Autodesk Certified User</small></span>
+        <span class="iss">Autodesk</span>
+        <span class="ty is-key">Intl.</span>
+      </div>
+      <div class="ledger__row">
+        <span class="yr">2023</span>
+        <span class="nm">乙級儀表電子技術士<small>勞動部　Class B</small></span>
+        <span class="iss">勞動部</span>
+        <span class="ty is-key">Gov.</span>
+      </div>
+      <div class="ledger__row">
+        <span class="yr">2022</span>
+        <span class="nm">丙級電腦硬體裝修技術士<small>勞動部　Class C</small></span>
+        <span class="iss">勞動部</span>
+        <span class="ty">Gov.</span>
+      </div>
+      <div class="ledger__row">
+        <span class="yr">2021</span>
+        <span class="nm">丙級工業電子技術士<small>勞動部　Class C</small></span>
+        <span class="iss">勞動部</span>
+        <span class="ty">Gov.</span>
+      </div>
+      <div class="ledger__row">
+        <span class="yr">2020</span>
+        <span class="nm">TQC-OA　Word / Excel / PowerPoint<small>輸入專業認證</small></span>
+        <span class="iss">電腦技能基金會</span>
+        <span class="ty">TQC</span>
+      </div>
+      <div class="ledger__row">
+        <span class="yr">2020</span>
+        <span class="nm">TQC-OA　中文 / 英文輸入<small>輸入專業認證</small></span>
+        <span class="iss">電腦技能基金會</span>
+        <span class="ty">TQC</span>
+      </div>
+      <div class="ledger__row">
+        <span class="yr">2020</span>
+        <span class="nm">TQC　雲端技術及網路服務<small>Cloud &amp; Network</small></span>
+        <span class="iss">電腦技能基金會</span>
+        <span class="ty">TQC</span>
+      </div>
+      <div class="ledger__row">
+        <span class="yr">2025</span>
+        <span class="nm">六角學院　30 天軟體工程師體驗營　鐵人完賽<small>2025 全勤完成</small></span>
+        <span class="iss">六角學院</span>
+        <span class="ty is-key">Camp</span>
+      </div>
+      <div class="ledger__row">
+        <span class="yr">2025–26</span>
+        <span class="nm">Java 全端整合實務運用　就業養成班<small>台南應用科技大學　840 小時　完成</small></span>
+        <span class="iss">台應大</span>
+        <span class="ty is-key">Bootcamp</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    <div class="skills-grid">
-                        <article class="skill-group" data-aos="fade-up" data-aos-delay="100">
-                            <header class="skill-group__head">
-                                <span class="skill-group__index">/01</span>
-                                <h3 class="skill-group__title">Frontend</h3>
-                            </header>
-                            <ul class="skill-group__list">
-                                <li><i class="devicon-html5-plain colored"></i>HTML5</li>
-                                <li><i class="devicon-css3-plain colored"></i>CSS3 / SCSS</li>
-                                <li><i class="devicon-javascript-plain colored"></i>JavaScript</li>
-                                <li><i class="devicon-typescript-plain colored"></i>TypeScript</li>
-                                <li><i class="devicon-vuejs-plain colored"></i>Vue 3 + Vite</li>
-                                <li><img class="tech-icon" src="./p3-0資源包/ICONS/angular-icon-svgrepo-com.svg" alt="" aria-hidden="true" />Angular 19</li>
-                                <li><i class="devicon-bootstrap-plain colored"></i>Bootstrap 5</li>
-                                <li>
-                                    <svg class="tech-icon" viewBox="0 0 32 32" aria-hidden="true">
-                                        <path fill="#FFD859" d="M16 4c-1.5 0-2.5 1-2.5 2.5 0 .5.1.9.3 1.3-3.5 1-6 4.3-6 8.2 0 1.5.4 3 1 4.3-.9.7-1.5 1.8-1.5 3 0 2.1 1.7 3.7 3.7 3.7 1.2 0 2.3-.6 3-1.5.5.2 1.1.3 1.7.3h.6c.6 0 1.2-.1 1.7-.3.7.9 1.8 1.5 3 1.5 2.1 0 3.7-1.7 3.7-3.7 0-1.2-.6-2.3-1.5-3 .7-1.3 1-2.7 1-4.3 0-3.9-2.5-7.2-6-8.2.2-.4.3-.8.3-1.3 0-1.5-1-2.5-2.5-2.5z"/>
-                                        <path fill="#8B5A2B" d="M14.5 6.5c0-.5.5-1 1-1s1 .5 1 1-.5 1-1 1-1-.5-1-1z" opacity=".4"/>
-                                        <circle cx="13" cy="14" r="1.2" fill="#8B5A2B"/>
-                                        <circle cx="19" cy="14" r="1.2" fill="#8B5A2B"/>
-                                        <circle cx="16" cy="17" r="1.2" fill="#8B5A2B"/>
-                                        <circle cx="13" cy="20" r="1.2" fill="#8B5A2B"/>
-                                        <circle cx="19" cy="20" r="1.2" fill="#8B5A2B"/>
-                                    </svg>
-                                    Pinia
-                                </li>
-                            </ul>
-                        </article>
+<!-- ═════════════════════════════════════════════════════════════════════════
+     07  Q&A
+     ═════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="qa" data-screen-label="08 Q&amp;A">
+  <div class="shell">
+    <header class="section__head" data-reveal>
+      <div class="section__num">07</div>
+      <h2 class="section__title">Interview <em>· 六題訪談</em></h2>
+      <span class="section__kicker">Six&nbsp;Questions</span>
+    </header>
 
-                        <article class="skill-group" data-aos="fade-up" data-aos-delay="200">
-                            <header class="skill-group__head">
-                                <span class="skill-group__index">/02</span>
-                                <h3 class="skill-group__title">Backend</h3>
-                            </header>
-                            <ul class="skill-group__list">
-                                <li><i class="devicon-java-plain colored"></i>Java</li>
-                                <li><i class="devicon-spring-plain colored"></i>Spring Boot</li>
-                                <li><i class="devicon-mysql-plain colored"></i>MySQL</li>
-                                <li><i class="devicon-eclipse-plain colored"></i>Eclipse</li>
-                            </ul>
-                        </article>
+    <div class="qa" data-reveal>
+      <div class="qa__item">
+        <span class="qa__num">№&nbsp;01</span>
+        <div class="qa__body">
+          <p class="qa__q">為什麼從行政與電子維修，轉身做前端？</p>
+          <p class="qa__a">
+            做行政與維修這幾年，我發現自己最有成就感的時刻，都是「<strong>把混亂的事情整理成有秩序的介面</strong>」——
+            無論是排報表、修硬體還是畫 AutoCAD。
+            前端剛好把這件事放大成一個職業，
+            <em>能用程式碼放大十倍的影響力</em>。所以我認真學了。
+          </p>
+        </div>
+      </div>
+      <div class="qa__item">
+        <span class="qa__num">№&nbsp;02</span>
+        <div class="qa__body">
+          <p class="qa__q">主力是 Vue 還是 Angular？兩個都會嗎？</p>
+          <p class="qa__a">
+            <strong>Vue 3</strong> 是我最常用的，Vite + Pinia + vee-validate 完整側專案都跑過；
+            <strong>Angular 19</strong> 是團隊專案 LazyBaoBao 的主力框架，
+            我擔任前端負責人，Standalone Components、Signals、RxJS Reactive Forms 全部實戰過。
+            兩個都會，<em>不偏食</em>。
+          </p>
+        </div>
+      </div>
+      <div class="qa__item">
+        <span class="qa__num">№&nbsp;03</span>
+        <div class="qa__body">
+          <p class="qa__q">作品集中最有挑戰的是哪一個？</p>
+          <p class="qa__a">
+            <strong>LazyBaoBao</strong>。一個系統要服務<em>客戶、POS 終端、老闆後台三個角色</em>，
+            狀態同步、權限分離、UI 一致性都要兼顧；
+            還做了 3D 翻卡支付、Lottie 動畫、Mock 模式離線測試。
+            學到最多的是「<strong>大型專案怎麼拆模組、讓多人協作不打架</strong>」。
+          </p>
+        </div>
+      </div>
+      <div class="qa__item">
+        <span class="qa__num">№&nbsp;04</span>
+        <div class="qa__body">
+          <p class="qa__q">沒有資工背景，會不會是劣勢？</p>
+          <p class="qa__a">
+            電子科出身、做過硬體維修，對<em>底層怎麼跑的有直覺</em>；
+            做過 AutoCAD / SketchUp 製圖，對版面、間距、比例敏感；
+            做過行政，知道怎麼把需求文件拆成可執行步驟。
+            這些反而是<strong>跨域整合的優勢</strong>。
+          </p>
+        </div>
+      </div>
+      <div class="qa__item">
+        <span class="qa__num">№&nbsp;05</span>
+        <div class="qa__body">
+          <p class="qa__q">期望的工作型態？</p>
+          <p class="qa__a">
+            <strong>高雄上班或遠端皆可</strong>，正職／半天皆考慮。
+            最在意的是<em>有人能 code review、能學東西的環境</em>——比起薪水，我更想要成長空間。
+          </p>
+        </div>
+      </div>
+      <div class="qa__item">
+        <span class="qa__num">№&nbsp;06</span>
+        <div class="qa__body">
+          <p class="qa__q">下一步想學什麼？</p>
+          <p class="qa__a">
+            短期把 <strong>React + Next.js</strong> 補起來，三大框架都有實戰；
+            中期深入 <em>TypeScript 進階型別、效能調校與 a11y 無障礙</em>；
+            長期目標是<strong>能獨立負責一條產品線</strong>的資深前端。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                        <article class="skill-group" data-aos="fade-up" data-aos-delay="300">
-                            <header class="skill-group__head">
-                                <span class="skill-group__index">/03</span>
-                                <h3 class="skill-group__title">Tools &amp; Workflow</h3>
-                            </header>
-                            <ul class="skill-group__list">
-                                <li><i class="devicon-git-plain colored"></i>Git</li>
-                                <li><i class="devicon-github-original"></i>GitHub Actions</li>
-                                <li><i class="devicon-vscode-plain colored"></i>VS Code</li>
-                                <li><i class="devicon-figma-plain colored"></i>Figma</li>
-                                <li><i class="devicon-notion-plain"></i>Notion</li>
-                                <li><i class="devicon-wordpress-plain colored"></i>WordPress</li>
-                            </ul>
-                        </article>
+<!-- ═════════════════════════════════════════════════════════════════════════
+     08  CONTACT — persimmon full-bleed
+     ═════════════════════════════════════════════════════════════════════════ -->
+<section class="contact-panel" id="contact" data-screen-label="09 Contact">
+  <div class="contact-panel__inner">
+    <div class="contact-panel__head" data-reveal>
+      <div class="contact-panel__num">08 · Contact&nbsp;／&nbsp;聯絡</div>
+      <h2 class="contact-panel__title">尋找新機會，<br />一起寫好介面。</h2>
+      <p class="contact-panel__lead">
+        積極尋找<strong>前端工程師</strong>職缺，高雄上班或遠端皆可。
+        歡迎來信討論合作。
+      </p>
+    </div>
+    <div class="contact-panel__right" data-reveal>
+      <a class="contact-panel__email" href="mailto:a437777@gmail.com">a437777@gmail.com&nbsp;↗</a>
+      <dl class="contact-panel__meta">
+        <div>
+          <dt>Phone</dt>
+          <dd><a href="tel:+886967187303">0967-187-303</a></dd>
+        </div>
+        <div>
+          <dt>GitHub</dt>
+          <dd><a href="https://github.com/AtayalLin" target="_blank" rel="noopener">github.com/AtayalLin&nbsp;↗</a></dd>
+        </div>
+        <div>
+          <dt>Location</dt>
+          <dd>高雄市左營區　Kaohsiung, TW</dd>
+        </div>
+        <div>
+          <dt>Résumé</dt>
+          <dd><a href="https://github.com/AtayalLin/AtayaHtml/raw/main/%E5%B1%A5%E6%AD%B7pdf/104%E6%9E%97%E5%AE%B6%E9%BD%8A(2026%E5%89%8D%E7%AB%AF%E5%B1%A5%E6%AD%B70514).pdf" target="_blank" rel="noopener">2026 PDF&nbsp;↗</a></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
 
-                        <article class="skill-group" data-aos="fade-up" data-aos-delay="400">
-                            <header class="skill-group__head">
-                                <span class="skill-group__index">/04</span>
-                                <h3 class="skill-group__title">Design &amp; Others</h3>
-                            </header>
-                            <ul class="skill-group__list">
-                                <li>
-                                    <img src="./p3-0資源包/ICONS/icons8-autocad.svg" alt="" aria-hidden="true" />
-                                    AutoCAD 2D / 3D
-                                </li>
-                                <li>
-                                    <img src="./p3-0資源包/ICONS/sketchup-svgrepo-com.svg" alt="" aria-hidden="true" />
-                                    SketchUp
-                                </li>
-                                <li>
-                                    <img src="./p3-0資源包/ICONS/archicad-svgrepo-com.svg" alt="" aria-hidden="true" />
-                                    ArchiCAD 19
-                                </li>
-                                <li>
-                                    <img src="./p3-0資源包/ICONS/icons8-microsoft-office.svg" alt="" aria-hidden="true" />
-                                    Office 全家桶
-                                </li>
-                                <li>
-                                    <img src="./p3-0資源包/ICONS/icons8-windows-11.svg" alt="" aria-hidden="true" />
-                                    Windows 系統管理
-                                </li>
-                            </ul>
-                        </article>
-                    </div>
+<!-- ═════════════════════════════════════════════════════════════════════════
+     COLOPHON
+     ═════════════════════════════════════════════════════════════════════════ -->
+<footer class="colophon">
+  <div><b>©&nbsp;2026</b>&nbsp;&nbsp;林家齊　Lin&nbsp;Chia-Chi</div>
+  <div style="text-align:center;"><b>Set in</b>&nbsp;Bricolage&nbsp;Grotesque · Hanken&nbsp;Grotesk · JetBrains&nbsp;Mono</div>
+  <div class="colophon__r">Annual&nbsp;Report&nbsp;·&nbsp;FY 2026&nbsp;·&nbsp;End of Document</div>
+</footer>
 
-                    <div class="bars" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="bars__title">熟練度自評</h3>
-                        <div class="bar">
-                            <div class="bar__label">
-                                <span>Vue 3 / Vite / Pinia</span>
-                                <span class="bar__value">78%</span>
-                            </div>
-                            <div class="bar__track">
-                                <div class="bar__fill" style="--w: 78%"></div>
-                            </div>
-                        </div>
-                        <div class="bar">
-                            <div class="bar__label">
-                                <span>Angular + TypeScript</span>
-                                <span class="bar__value">72%</span>
-                            </div>
-                            <div class="bar__track">
-                                <div class="bar__fill" style="--w: 72%"></div>
-                            </div>
-                        </div>
-                        <div class="bar">
-                            <div class="bar__label">
-                                <span>HTML / CSS / RWD</span>
-                                <span class="bar__value">85%</span>
-                            </div>
-                            <div class="bar__track">
-                                <div class="bar__fill" style="--w: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="bar">
-                            <div class="bar__label">
-                                <span>Git / GitHub Pages 部署</span>
-                                <span class="bar__value">80%</span>
-                            </div>
-                            <div class="bar__track">
-                                <div class="bar__fill" style="--w: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="bar">
-                            <div class="bar__label">
-                                <span>Spring Boot / MySQL</span>
-                                <span class="bar__value">55%</span>
-                            </div>
-                            <div class="bar__track">
-                                <div class="bar__fill" style="--w: 55%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+<script>
+(() => {
+  // Theme switcher
+  const themeBtns = document.querySelectorAll('[data-theme-btn]');
+  const saved = localStorage.getItem('portfolio-theme-v4');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+  function syncThemeBtns() {
+    const cur = document.documentElement.getAttribute('data-theme') || 'paper';
+    themeBtns.forEach(b => b.classList.toggle('is-on', b.dataset.themeBtn === cur));
+  }
+  themeBtns.forEach(b => {
+    b.addEventListener('click', () => {
+      document.documentElement.setAttribute('data-theme', b.dataset.themeBtn);
+      localStorage.setItem('portfolio-theme-v4', b.dataset.themeBtn);
+      syncThemeBtns();
+    });
+  });
+  syncThemeBtns();
 
-            <section class="section" id="projects" aria-labelledby="projects-title">
-                <div class="container-xl">
-                    <header class="section__head" data-aos="fade-up">
-                        <span class="section__tag">03 — Projects</span>
-                        <h2 class="section__title" id="projects-title">
-                            精選<span class="gradient-text">作品集</span>
-                        </h2>
-                        <p class="section__lede">
-                            涵蓋團隊全端、電商 Demo、遊戲大廳、靜態 RWD 與個人作品集站；
-                            全部以 Git 完整版控、部署於 GitHub Pages。
-                        </p>
-                    </header>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href').slice(1);
+      if (!id) return;
+      const t = document.getElementById(id);
+      if (!t) return;
+      e.preventDefault();
+      t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 
-                    <div class="projects-grid">
-                        <article class="project-card project-card--featured" data-aos="fade-up">
-                            <a class="project-card__media-link" href="https://github.com/AtayalLin/Angular-Team-Frontend" target="_blank" rel="noopener" aria-label="開啟 LazyBaoBao GitHub">
-                                <img
-                                    class="project-card__image"
-                                    src="./照片/projects/lazybaobao.jpg"
-                                    alt="LazyBaoBao 懶飽飽智慧點餐系統介面預覽"
-                                    loading="lazy"
-                                />
-                                <div class="project-card__overlay">
-                                    <div class="project-card__stack">
-                                        <span><img class="tech-icon" src="./p3-0資源包/ICONS/angular-icon-svgrepo-com.svg" alt="" aria-hidden="true" />Angular 19</span>
-                                        <span><i class="devicon-typescript-plain colored"></i>TS</span>
-                                        <span><i class="devicon-spring-plain colored"></i>Spring Boot</span>
-                                        <span><i class="devicon-mysql-plain colored"></i>MySQL</span>
-                                    </div>
-                                    <div class="project-card__badge">Team · 前端負責人</div>
-                                </div>
-                            </a>
-                            <div class="project-card__body">
-                                <span class="project-card__index">P / 01 · Featured</span>
-                                <h3 class="project-card__title">LazyBaoBao 懶飽飽智慧點餐系統</h3>
-                                <p class="project-card__desc">
-                                    台灣在地美食訂餐平台，<strong>客戶／POS／老闆三角色一體化解決方案</strong>。
-                                    採 Angular 19 Standalone Components + Signals 即時同步狀態，
-                                    搭配 GSAP、Lottie、AOS 打造完整動畫體驗。
-                                </p>
-                                <ul class="project-card__bullets">
-                                    <li>客戶端：3D 翻轉信用卡 UI、QR Code 行動支付、即時訂單追蹤</li>
-                                    <li>POS 終端：會員查詢、現金找零計算機、三欄看板即時同步</li>
-                                    <li>老闆後台：8 大管理頁籤（商品／庫存／優惠／員工／稅率／報表）</li>
-                                    <li>內建 Mock 模式可離線完整運行，支援 ngrok 對外公開測試</li>
-                                </ul>
-                                <div class="project-card__links">
-                                    <a class="btn-pill btn-pill--solid btn-pill--sm" href="https://github.com/AtayalLin/Angular-Team-Frontend" target="_blank" rel="noopener">
-                                        <i class="devicon-github-original"></i>
-                                        Source Code
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
 
-                        <article class="project-card" data-aos="fade-up" data-aos-delay="100">
-                            <a class="project-card__media-link" href="https://atayallin.github.io/Vueshop-Side-Project-Demo-/" target="_blank" rel="noopener" aria-label="開啟 Vue 電商 Demo">
-                                <img
-                                    class="project-card__image"
-                                    src="./照片/projects/vue-shop.jpg"
-                                    alt="Vue 日式電商 Demo - 夜色道頓堀和風選物"
-                                    loading="lazy"
-                                />
-                                <div class="project-card__overlay">
-                                    <div class="project-card__stack">
-                                        <span><i class="devicon-vuejs-plain colored"></i>Vue 3</span>
-                                        <span><i class="devicon-vitejs-plain colored"></i>Vite</span>
-                                        <span>Pinia</span>
-                                    </div>
-                                    <div class="project-card__badge">⭐ Live</div>
-                                </div>
-                            </a>
-                            <div class="project-card__body">
-                                <span class="project-card__index">P / 02</span>
-                                <h3 class="project-card__title">Vue 日式電商 Demo</h3>
-                                <p class="project-card__desc">
-                                    <strong>「夜色道頓堀．和風選物」</strong>—— 完整購物流程含登入／註冊、購物車、
-                                    結帳，整合 Vue Router、vee-validate + Zod 表單驗證、GitHub Actions 自動部署，
-                                    並支援主題切換。社群迴響：<strong>30 位 Clone、62 次下載、18 訪客檢視</strong>。
-                                </p>
-                                <div class="project-card__links">
-                                    <a class="btn-pill btn-pill--solid btn-pill--sm" href="https://atayallin.github.io/Vueshop-Side-Project-Demo-/" target="_blank" rel="noopener">
-                                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M10 14L21 3M21 14v7H3V3h7"/></svg>
-                                        Live Demo
-                                    </a>
-                                    <a class="btn-pill btn-pill--ghost btn-pill--sm" href="https://github.com/AtayalLin/Vueshop-Side-Project-Demo-" target="_blank" rel="noopener">
-                                        <i class="devicon-github-original"></i>
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
+  // Active nav based on viewport
+  const navMap = new Map();
+  document.querySelectorAll('[data-nav]').forEach(a => navMap.set(a.dataset.nav, a));
+  const secIO = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        navMap.forEach(a => a.classList.remove('is-active'));
+        const link = navMap.get(en.target.id);
+        if (link) link.classList.add('is-active');
+      }
+    });
+  }, { threshold: 0.3 });
+  ['summary','statement','work','cap','timeline','cred','qa','contact'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) secIO.observe(el);
+  });
+})();
+</script>
 
-                        <article class="project-card" data-aos="fade-up" data-aos-delay="200">
-                            <a class="project-card__media-link" href="https://atayallin.github.io/Igs-test-vue/" target="_blank" rel="noopener" aria-label="開啟 H5 遊戲大廳">
-                                <img
-                                    class="project-card__image"
-                                    src="./照片/projects/game-hall.jpg"
-                                    alt="Vue H5 模擬遊戲大廳 - TestPlayer VIP1 介面"
-                                    loading="lazy"
-                                />
-                                <div class="project-card__overlay">
-                                    <div class="project-card__stack">
-                                        <span><i class="devicon-vuejs-plain colored"></i>Vue 3</span>
-                                        <span>H5 Hall</span>
-                                    </div>
-                                    <div class="project-card__badge">IGS 面試試題</div>
-                                </div>
-                            </a>
-                            <div class="project-card__body">
-                                <span class="project-card__index">P / 03</span>
-                                <h3 class="project-card__title">Vue H5 模擬遊戲大廳</h3>
-                                <p class="project-card__desc">
-                                    2025/10 收到 <strong>IGS 遊戲公司試題</strong> 後製作的 H5 遊戲入口網頁，
-                                    含遊戲分類（全部／最愛／電動／街機／棋牌）、輪播 Banner、活動公告、
-                                    使用者 VIP 等級與金幣資訊展示，並提供商城／排行榜／公會等主要功能導航。
-                                </p>
-                                <div class="project-card__links">
-                                    <a class="btn-pill btn-pill--solid btn-pill--sm" href="https://atayallin.github.io/Igs-test-vue/" target="_blank" rel="noopener">
-                                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M10 14L21 3M21 14v7H3V3h7"/></svg>
-                                        Live Demo
-                                    </a>
-                                    <a class="btn-pill btn-pill--ghost btn-pill--sm" href="https://github.com/AtayalLin/Igs-test-vue" target="_blank" rel="noopener">
-                                        <i class="devicon-github-original"></i>
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="project-card" data-aos="fade-up" data-aos-delay="300">
-                            <a class="project-card__media-link" href="https://atayallin.github.io/Angular-qsdemo/" target="_blank" rel="noopener" aria-label="開啟 Angular QSDemo">
-                                <img
-                                    class="project-card__image"
-                                    src="./照片/projects/qsdemo.jpg"
-                                    alt="Angular QSDemo 企業級問卷系統 - 篩選條件介面"
-                                    loading="lazy"
-                                />
-                                <div class="project-card__overlay">
-                                    <div class="project-card__stack">
-                                        <span><img class="tech-icon" src="./p3-0資源包/ICONS/angular-icon-svgrepo-com.svg" alt="" aria-hidden="true" />Angular 19</span>
-                                        <span><i class="devicon-spring-plain colored"></i>Spring Boot</span>
-                                        <span><i class="devicon-mysql-plain colored"></i>MySQL</span>
-                                    </div>
-                                    <div class="project-card__badge">Full Stack</div>
-                                </div>
-                            </a>
-                            <div class="project-card__body">
-                                <span class="project-card__index">P / 04</span>
-                                <h3 class="project-card__title">QSDemo 企業級問卷系統</h3>
-                                <p class="project-card__desc">
-                                    <strong>前後端分離的問卷管理平台</strong>。多權限管理、條件式邏輯
-                                    （父題控制子題顯示）、統計圖表視覺化、回應歷史、批次操作。
-                                    具備完整的篩選條件介面（問卷名稱／時間區間／類型／狀態）與分頁機制。
-                                    全端 Angular 19 Standalone + Spring Boot 3.x RESTful API + MySQL 8.x。
-                                </p>
-                                <div class="project-card__links">
-                                    <a class="btn-pill btn-pill--solid btn-pill--sm" href="https://atayallin.github.io/Angular-qsdemo/" target="_blank" rel="noopener">
-                                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M10 14L21 3M21 14v7H3V3h7"/></svg>
-                                        Live Demo
-                                    </a>
-                                    <a class="btn-pill btn-pill--ghost btn-pill--sm" href="https://github.com/AtayalLin/Angular-qsdemo" target="_blank" rel="noopener">
-                                        <i class="devicon-github-original"></i>
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="project-card" data-aos="fade-up" data-aos-delay="400">
-                            <a class="project-card__media-link" href="https://github.com/AtayalLin/AtayaHtml" target="_blank" rel="noopener" aria-label="開啟 AtayaHtml GitHub">
-                                <img
-                                    class="project-card__image"
-                                    src="./照片/projects/atayahtml.jpg"
-                                    alt="AtayaHtml 個人作品集網站預覽"
-                                    loading="lazy"
-                                />
-                                <div class="project-card__overlay">
-                                    <div class="project-card__stack">
-                                        <span><i class="devicon-html5-plain colored"></i>HTML5</span>
-                                        <span><i class="devicon-bootstrap-plain colored"></i>BS5</span>
-                                        <span>AOS / GSAP</span>
-                                    </div>
-                                    <div class="project-card__badge">⭐ This Site</div>
-                                </div>
-                            </a>
-                            <div class="project-card__body">
-                                <span class="project-card__index">P / 05</span>
-                                <h3 class="project-card__title">AtayaHtml · 個人作品集</h3>
-                                <p class="project-card__desc">
-                                    <strong>本站。</strong>結合 Bootstrap 5、AOS、GSAP ScrollTrigger 與 Glassmorphism
-                                    打造的多區塊作品集：Hero 打字機、技能堆疊、卡片動畫、深淺模式切換、
-                                    並依 Will 保哥 CSS Guidelines 寫作 BEM 樣式。
-                                </p>
-                                <div class="project-card__links">
-                                    <a class="btn-pill btn-pill--ghost btn-pill--sm" href="https://github.com/AtayalLin/AtayaHtml" target="_blank" rel="noopener">
-                                        <i class="devicon-github-original"></i>
-                                        Source Code
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="project-card" data-aos="fade-up" data-aos-delay="500">
-                            <a class="project-card__media-link" href="./作品1/index.html" target="_blank" rel="noopener" aria-label="開啟日本美食推薦網">
-                                <img
-                                    class="project-card__image"
-                                    src="./照片/projects/japan-food.jpg"
-                                    alt="日本美食推薦網 - 旅遊同時享受美食"
-                                    loading="lazy"
-                                />
-                                <div class="project-card__overlay">
-                                    <div class="project-card__stack">
-                                        <span><i class="devicon-html5-plain colored"></i>HTML</span>
-                                        <span><i class="devicon-css3-plain colored"></i>CSS</span>
-                                        <span>RWD</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="project-card__body">
-                                <span class="project-card__index">P / 06</span>
-                                <h3 class="project-card__title">日本美食推薦網</h3>
-                                <p class="project-card__desc">
-                                    <strong>「旅遊同時，享受美食」</strong>—— 2024/11 起的個人靜態 RWD 作品，
-                                    嘗試 AOS 動畫、超連結與圖文排版，呈現
-                                    <strong>東京／京都／大阪三大區</strong>的代表美食，
-                                    以日式風格搭配大圖視覺營造沉浸式瀏覽體驗。
-                                </p>
-                                <div class="project-card__links">
-                                    <a class="btn-pill btn-pill--solid btn-pill--sm" href="./作品1/index.html" target="_blank" rel="noopener">
-                                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M10 14L21 3M21 14v7H3V3h7"/></svg>
-                                        Open
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section section--alt" id="credentials" aria-labelledby="credentials-title">
-                <div class="container-xl">
-                    <header class="section__head section__head--center" data-aos="fade-up">
-                        <span class="section__tag">04 — Credentials</span>
-                        <h2 class="section__title section__title--center" id="credentials-title">
-                            證照與<span class="gradient-text">成就</span>
-                        </h2>
-                        <p class="section__lede" style="margin-left: auto; margin-right: auto;">
-                            從電子、資訊到設計繪圖，跨域累積多項國家級與業界證照。
-                        </p>
-                    </header>
-
-                    <div class="badges" data-aos="fade-up">
-                        <ul class="badges__list">
-                            <li class="badge-pill">Autodesk AutoCAD 2D / 3D 國際認證</li>
-                            <li class="badge-pill">丙級電腦硬體裝修技術士</li>
-                            <li class="badge-pill">乙級儀表電子技術士</li>
-                            <li class="badge-pill">丙級工業電子技術士</li>
-                            <li class="badge-pill">TQC-OA · Word / Excel / PowerPoint</li>
-                            <li class="badge-pill">TQC-OA · 中文輸入 / 英文輸入</li>
-                            <li class="badge-pill">TQC · 雲端技術及網路服務</li>
-                            <li class="badge-pill">六角學院 · 30 天軟體工程師體驗營 2025 完賽</li>
-                            <li class="badge-pill">Java 全端整合實務運用 · 840 小時 (進修中)</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section section--cta" id="contact" aria-labelledby="contact-title">
-                <div class="container-xl">
-                    <div class="cta" data-aos="zoom-in">
-                        <span class="section__tag">05 — Contact</span>
-                        <h2 class="section__title section__title--center" id="contact-title">
-                            尋找新機會，<br />
-                            <span class="gradient-text">一起打造好產品</span>
-                        </h2>
-                        <p class="cta__lede">
-                            目前正積極尋找 <strong>前端工程師</strong> 職缺，
-                            高雄上班或遠端皆可，全職／半天皆考慮。歡迎來信討論合作。
-                        </p>
-
-                        <div class="cta__actions">
-                            <a class="btn-pill btn-pill--solid btn-pill--xl" href="mailto:a437777@gmail.com">
-                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z M22 6l-10 7L2 6"/></svg>
-                                a437777@gmail.com
-                            </a>
-                            <a class="btn-pill btn-pill--outline btn-pill--xl" href="./contact.html">
-                                查看履歷 PDF
-                            </a>
-                        </div>
-
-                        <ul class="cta__links" aria-label="其他聯絡方式">
-                            <li>
-                                <a href="https://github.com/AtayalLin" target="_blank" rel="noopener">
-                                    <i class="devicon-github-original"></i>
-                                    github.com/AtayalLin
-                                </a>
-                            </li>
-                            <li>
-                                <a href="tel:+886967187303">
-                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.31 1.6.57 2.36a2 2 0 0 1-.45 2.11L7.91 9.5a16 16 0 0 0 6 6l1.31-1.31a2 2 0 0 1 2.11-.45c.76.26 1.55.44 2.36.57A2 2 0 0 1 22 16.92z"/></svg>
-                                    0967-187-303
-                                </a>
-                            </li>
-                            <li>
-                                <span>
-                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                    高雄市左營區
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="site-footer">
-            <div class="container-xl">
-                <p>© <span id="footer-year">2026</span> 林家齊 Chia-Chi Lin. Crafted with Bootstrap 5 · AOS · GSAP.</p>
-                <p class="site-footer__sub">Made in Kaohsiung · 持續學習，永不停步 🚀</p>
-            </div>
-        </footer>
-
-        <button class="back-to-top js-back-to-top" type="button" aria-label="返回頂端">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
-        </button>
-
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"
-        ></script>
-
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-
-        <script src="./app.js"></script>
-    </body>
+</body>
 </html>
