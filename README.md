@@ -236,7 +236,7 @@ cd AtayaHtml
 
 ### 2026/05/26 — Annual Report Redesign 📰
 
-- ✨ **完整重寫**為「年度報告 FY 2026」設計語言
+- ✨ **完整重寫**為「2026 個人網頁」設計語言
 - 🎨 配色改為 Persimmon `#C25430` + Navy `#1E2A26` + Cream `#F6F2E5` 印刷感色調
 - 🔤 字體系統換為 **Bricolage Grotesque + Hanken Grotesk + JetBrains Mono + Noto Sans TC**
 - 📐 結構重組為 8 章節 + 封面 + Colophon:Cover / Summary / Statement / Work / Capabilities / Timeline / Credentials / Q&A / Contact
