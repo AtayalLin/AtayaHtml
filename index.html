@@ -1,2127 +1,409 @@
-<!DOCTYPE html>
-<html lang="zh-Hant" data-theme="paper">
+<!doctype html>
+<html lang="zh-Hant-TW" data-theme="paper">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="林家齊 Lin Chia-Chi · Frontend Engineer · Annual Portfolio Report FY 2026" />
-<title>林家齊　Frontend Portfolio · Annual Report FY 2026</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>林家齊｜前端工程師作品集</title>
+<meta name="description" content="林家齊，前端工程師／全端工程師。Angular 19 為主力、Vue 3 次專長，完成 840 小時 Java 全端培訓，曾任團隊專案前端負責人。求職中，錄取後一週可上班。" />
+<meta property="og:title" content="林家齊｜前端工程師作品集" />
+<meta property="og:description" content="Angular 19、Vue 3、TypeScript、Spring Boot。從行政與資料處理工作轉職前端，作品、經歷與每段空檔期都整理在這裡。" />
+<meta property="og:image" content="https://atayallin.github.io/AtayaHtml/照片/projects/lazybaobao.jpg" />
+<meta name="theme-color" content="#F4F5F1" />
+<script>
+  /* 在繪製前套用主題，避免畫面閃爍 */
+  try {
+    var t = localStorage.getItem("ataya-theme");
+    if (t === "paper" || t === "ink") document.documentElement.setAttribute("data-theme", t);
+    else if (window.matchMedia("(prefers-color-scheme: dark)").matches) document.documentElement.setAttribute("data-theme", "ink");
+  } catch (e) {}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" />
-<style>
-/* ═══════════════════════════════════════════════════════════════════════════
-   v4 — Annual Report FY 2026
-   Persimmon + Navy + Cream · Bricolage + Hanken + Noto Sans TC
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-*, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-img { display: block; max-width: 100%; }
-button { font: inherit; color: inherit; background: none; border: none; padding: 0; cursor: default; }
-a { color: inherit; text-decoration: none; }
-
-:root {
-  --cream:        #F6F2E5;
-  --cream-2:      #ECE5D2;
-  --cream-3:      #DDD3B9;
-  --ink:          #1A1612;
-  --ink-2:        #4A4138;
-  --ink-3:        #7E7568;
-  --ink-4:        #B5AC9C;
-  --rule:         rgba(26,22,18,.16);
-  --rule-soft:    rgba(26,22,18,.08);
-
-  --persimmon:    #C25430;     /* 黧赭土 · muted clay */
-  --persimmon-d:  #8E3C20;
-  --navy:         #1E2A26;     /* 黑墨綠 · sumi green-black */
-  --navy-l:       #2E3B36;
-  --butter:       #D9B068;     /* 麥麥黃 · wheat */
-  --moss:         #4B5F4F;
-
-  --f-display:    "Bricolage Grotesque", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei UI", sans-serif;
-  --f-sans:       "Hanken Grotesk", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei UI", sans-serif;
-  --f-mono:       "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
-
-  --gutter:       clamp(20px, 4vw, 56px);
-  --max-w:        1480px;
-}
-
-html[data-theme="ink"] {
-  --cream:        #100E0B;
-  --cream-2:      #1A1714;
-  --cream-3:      #25211C;
-  --ink:          #F6F2E5;
-  --ink-2:        #C0B9A6;
-  --ink-3:        #8A8576;
-  --ink-4:        #5C5849;
-  --rule:         rgba(246,242,229,.20);
-  --rule-soft:    rgba(246,242,229,.10);
-  --persimmon:    #D9633A;
-  --navy:         #1F2A26;     /* deep sumi forest, dark on dark */
-  --butter:       #E0B670;
-  --moss:         #3A4A3D;
-}
-
-body {
-  background: var(--cream);
-  color: var(--ink);
-  font-family: var(--f-sans);
-  font-size: 15px;
-  line-height: 1.6;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
-  transition: background-color .35s ease, color .35s ease;
-}
-
-::selection { background: var(--persimmon); color: #fff; }
-
-/* ─── Typographic primitives ─── */
-.eyebrow {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  font-weight: 500;
-}
-.display {
-  font-family: var(--f-display);
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  line-height: .92;
-}
-.rule { display: block; height: 1px; background: var(--rule); border: 0; margin: 0; }
-
-/* ─── Layout shell ─── */
-.shell {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding-inline: var(--gutter);
-}
-
-/* ─── Masthead ─── */
-.masthead {
-  position: sticky;
-  top: 0;
-  z-index: 60;
-  background: color-mix(in srgb, var(--cream) 90%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--rule);
-}
-.masthead__inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 14px var(--gutter);
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 24px;
-  align-items: center;
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-.masthead__brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
-  color: var(--ink);
-}
-.masthead__brand-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  background: var(--persimmon);
-  color: #fff;
-  border-radius: 4px;
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0;
-}
-.masthead__brand-sep {
-  width: 1px;
-  height: 14px;
-  background: var(--rule);
-}
-.masthead__nav {
-  display: flex;
-  justify-content: center;
-  gap: 22px;
-}
-.masthead__nav a {
-  color: var(--ink-3);
-  transition: color .2s ease;
-  white-space: nowrap;
-}
-.masthead__nav a:hover { color: var(--ink); }
-.masthead__nav a.is-active { color: var(--persimmon); }
-.masthead__actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.masthead__cta {
-  background: var(--ink);
-  color: var(--cream);
-  padding: 9px 14px;
-  border-radius: 999px;
-  transition: background .2s ease, color .2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.masthead__cta:hover { background: var(--persimmon); color: #fff; }
-.masthead__theme {
-  display: flex;
-  gap: 2px;
-  padding: 3px;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-}
-.masthead__theme button {
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  color: var(--ink-3);
-  font-size: 11px;
-}
-.masthead__theme button.is-on { background: var(--ink); color: var(--cream); }
-
-@media (max-width: 1100px) {
-  .masthead__nav { display: none; }
-  .masthead__inner { grid-template-columns: auto 1fr; }
-}
-
-/* ─── Reveal on scroll ─── */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1);
-}
-[data-reveal].is-in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) {
-  [data-reveal] { opacity: 1 !important; transform: none !important; }
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   COVER — annual report cover
-   ═══════════════════════════════════════════════════════════════════════════ */
-.cover {
-  position: relative;
-  min-height: calc(100vh - 60px);
-  padding: clamp(36px, 5vw, 64px) var(--gutter) clamp(36px, 4vw, 56px);
-  max-width: var(--max-w);
-  margin: 0 auto;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: clamp(28px, 4vw, 56px);
-  overflow: hidden;
-}
-
-.cover__top {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 24px;
-  align-items: start;
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
-.cover__top > * { display: flex; flex-direction: column; gap: 4px; }
-.cover__top .c { text-align: center; }
-.cover__top .r { text-align: right; align-items: flex-end; }
-.cover__top .lbl { color: var(--ink-3); font-size: 10px; }
-.cover__top .val { color: var(--ink); font-weight: 600; }
-.cover__top .val.accent { color: var(--persimmon); }
-
-.cover__main {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: clamp(24px, 4vw, 64px);
-  align-items: end;
-  min-height: 60vh;
-}
-@media (max-width: 900px) {
-  .cover__main { grid-template-columns: 1fr; }
-}
-
-.cover__name {
-  font-family: var(--f-display);
-  font-weight: 600;
-  font-size: clamp(64px, 11vw, 168px);
-  line-height: .9;
-  letter-spacing: -0.05em;
-  margin: 0;
-  color: var(--ink);
-  position: relative;
-  z-index: 2;
-}
-.cover__name .ch { display: block; }
-.cover__name .en {
-  display: block;
-  font-family: var(--f-sans);
-  font-weight: 300;
-  font-size: clamp(18px, 2.2vw, 30px);
-  line-height: 1.2;
-  letter-spacing: 0;
-  color: var(--ink-2);
-  margin-top: clamp(18px, 2vw, 28px);
-}
-
-.cover__hero-meta {
-  display: grid;
-  gap: 24px;
-  align-content: end;
-  padding-bottom: 8px;
-}
-.cover__role-card {
-  background: var(--persimmon);
-  color: #fff;
-  padding: clamp(20px, 2.4vw, 32px);
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
-}
-.cover__role-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 64px;
-  height: 64px;
-  background: linear-gradient(45deg, transparent 50%, rgba(255,255,255,.12) 50%);
-  pointer-events: none;
-}
-.cover__role-card .lbl {
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  opacity: .85;
-  margin-bottom: 6px;
-}
-.cover__role-card .role {
-  font-family: var(--f-display);
-  font-size: clamp(28px, 3.2vw, 44px);
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.025em;
-  position: relative;
-  z-index: 1;
-}
-.cover__role-card .meta {
-  margin-top: clamp(16px, 2vw, 24px);
-  display: grid;
-  gap: 4px;
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .06em;
-  position: relative;
-  z-index: 2;
-}
-.cover__role-card .meta b { font-weight: 600; }
-
-.cover__portrait {
-  width: 120px;
-  aspect-ratio: 410/551;
-  border: 3px solid var(--ink);
-  position: relative;
-  overflow: hidden;
-  background: var(--cream-2);
-  justify-self: start;
-}
-.cover__portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 18%;
-  filter: saturate(1.04) contrast(1.04);
-}
-.cover__portrait-tag {
-  position: absolute;
-  top: -1px;
-  right: -1px;
-  background: var(--ink);
-  color: var(--cream);
-  font-family: var(--f-mono);
-  font-size: 8.5px;
-  letter-spacing: .14em;
-  padding: 3px 6px;
-}
-
-.cover__bottom {
-  display: grid;
-  grid-template-columns: 1fr 1fr auto;
-  gap: clamp(20px, 3vw, 40px);
-  align-items: end;
-  padding-top: clamp(24px, 3vw, 40px);
-  border-top: 2px solid var(--ink);
-}
-@media (max-width: 900px) {
-  .cover__bottom { grid-template-columns: 1fr; }
-}
-.cover__bottom .col h4 {
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin: 0 0 8px;
-  font-weight: 500;
-}
-.cover__bottom .col p {
-  margin: 0;
-  font-family: var(--f-display);
-  font-size: clamp(15px, 1.5vw, 18px);
-  line-height: 1.4;
-  font-weight: 500;
-  letter-spacing: -0.015em;
-  color: var(--ink);
-}
-.cover__contents {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 4px;
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  min-width: 280px;
-}
-.cover__contents a {
-  display: grid;
-  grid-template-columns: 28px 1fr auto;
-  gap: 12px;
-  padding: 6px 0;
-  color: var(--ink-2);
-  transition: color .2s ease, padding .2s ease;
-  border-bottom: 1px solid var(--rule-soft);
-}
-.cover__contents a:hover { color: var(--persimmon); padding-left: 4px; }
-.cover__contents a:last-child { border-bottom: 0; }
-.cover__contents .n { color: var(--ink-3); }
-.cover__contents .p { color: var(--ink-3); }
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   SECTION FRAME — page-marker headers like annual reports
-   ═══════════════════════════════════════════════════════════════════════════ */
-.section {
-  padding-block: clamp(80px, 11vw, 160px);
-}
-.section--cream-2 { background: var(--cream-2); }
-
-.section__head {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 20px;
-  align-items: baseline;
-  padding-bottom: clamp(36px, 5vw, 64px);
-  border-bottom: 1px solid var(--rule);
-  margin-bottom: clamp(40px, 5vw, 72px);
-}
-.section__num {
-  font-family: var(--f-display);
-  font-size: clamp(36px, 4vw, 56px);
-  line-height: .95;
-  font-weight: 500;
-  color: var(--persimmon);
-  letter-spacing: -0.04em;
-}
-.section__title {
-  font-family: var(--f-display);
-  font-size: clamp(30px, 3.8vw, 52px);
-  line-height: 1;
-  font-weight: 500;
-  letter-spacing: -0.028em;
-  color: var(--ink);
-  margin: 0;
-}
-.section__title em {
-  font-style: normal;
-  color: var(--ink-3);
-  font-weight: 400;
-}
-.section__kicker {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  white-space: nowrap;
-  text-align: right;
-  align-self: end;
-  padding-bottom: 8px;
-}
-@media (max-width: 760px) {
-  .section__head { grid-template-columns: 1fr; }
-  .section__kicker { text-align: left; }
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   SUMMARY — bento stat grid
-   ═══════════════════════════════════════════════════════════════════════════ */
-.summary {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(12px, 1.4vw, 20px);
-}
-@media (max-width: 900px) { .summary { grid-template-columns: 1fr 1fr; } }
-.kpi {
-  background: var(--cream-2);
-  border: 1px solid var(--rule);
-  padding: clamp(20px, 2.4vw, 32px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 16px;
-  position: relative;
-  min-height: clamp(180px, 22vw, 260px);
-  overflow: hidden;
-  transition: transform .35s ease, box-shadow .35s ease;
-}
-.kpi:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 32px -16px rgba(10,10,10,.12);
-}
-.kpi--persimmon {
-  background: var(--persimmon);
-  color: #fff;
-  border-color: var(--persimmon);
-}
-.kpi--persimmon .kpi__num { color: #fff; }
-.kpi--persimmon .kpi__lbl { color: rgba(255,255,255,.85); }
-.kpi--persimmon .kpi__sub { color: rgba(255,255,255,.75); }
-.kpi--persimmon::after {
-  content: "▲";
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  font-size: 14px;
-  color: rgba(255,255,255,.55);
-}
-.kpi--navy {
-  background: var(--navy);
-  color: var(--cream);
-  border-color: var(--navy);
-}
-.kpi--navy .kpi__num { color: var(--cream); }
-.kpi--navy .kpi__lbl { color: rgba(244,239,226,.75); }
-.kpi--navy .kpi__sub { color: rgba(244,239,226,.65); }
-
-.kpi__lbl {
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-.kpi__num {
-  font-family: var(--f-display);
-  font-size: clamp(48px, 6vw, 88px);
-  line-height: .92;
-  font-weight: 600;
-  letter-spacing: -0.05em;
-  color: var(--ink);
-  font-variant-numeric: tabular-nums;
-}
-.kpi__num .unit {
-  font-size: .32em;
-  font-weight: 500;
-  margin-left: 6px;
-  letter-spacing: -0.02em;
-  color: inherit;
-  opacity: .7;
-}
-.kpi__sub {
-  font-family: var(--f-sans);
-  font-size: 13px;
-  color: var(--ink-3);
-  line-height: 1.4;
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   STATEMENT PANEL — full-bleed navy
-   ═══════════════════════════════════════════════════════════════════════════ */
-.statement-panel {
-  background: var(--navy);
-  color: var(--cream);
-  padding-block: clamp(80px, 12vw, 168px);
-  position: relative;
-  overflow: hidden;
-}
-.statement-panel__bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(246,242,229,.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(246,242,229,.06) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
-.statement-panel__inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding-inline: var(--gutter);
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 5vw, 80px);
-  align-items: end;
-}
-@media (max-width: 900px) { .statement-panel__inner { grid-template-columns: 1fr; } }
-
-.statement-panel__head {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-self: start;
-}
-.statement-panel__num {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--butter);
-}
-.statement-panel__quote {
-  font-family: var(--f-display);
-  font-size: clamp(32px, 4.2vw, 60px);
-  line-height: 1.05;
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  color: var(--cream);
-  margin: 0;
-  text-wrap: balance;
-}
-.statement-panel__quote em {
-  font-style: normal;
-  color: var(--persimmon);
-  font-weight: 700;
-}
-.statement-panel__quote .mark {
-  display: inline-block;
-  font-family: var(--f-display);
-  color: var(--persimmon);
-  margin-right: .1em;
-}
-
-.statement-panel__body {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  padding-top: clamp(12px, 2vw, 32px);
-}
-.statement-panel__body p {
-  margin: 0;
-  font-size: 15.5px;
-  line-height: 1.7;
-  color: rgba(244,239,226,.82);
-  max-width: 50ch;
-  text-wrap: pretty;
-}
-.statement-panel__body p strong { color: var(--cream); font-weight: 600; }
-
-.statement-panel__sig {
-  margin-top: clamp(20px, 3vw, 36px);
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 16px;
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: rgba(244,239,226,.6);
-  padding-top: 16px;
-  border-top: 1px solid rgba(244,239,226,.2);
-}
-.statement-panel__sig b {
-  font-family: var(--f-display);
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  text-transform: none;
-  color: var(--cream);
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   WORK — featured project pages with colored ribbons
-   ═══════════════════════════════════════════════════════════════════════════ */
-.work-page {
-  border-top: 1px solid var(--rule);
-  padding-block: clamp(56px, 7vw, 112px);
-}
-.work-page:first-of-type { border-top: 0; padding-top: 0; }
-
-.work-ribbon {
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  gap: clamp(16px, 2vw, 32px);
-  align-items: baseline;
-  padding: clamp(18px, 2vw, 28px) clamp(20px, 2.4vw, 32px);
-  margin-bottom: clamp(28px, 3.4vw, 48px);
-  background: var(--ink);
-  color: var(--cream);
-  border-radius: 4px;
-}
-.work-ribbon--persimmon { background: var(--persimmon); color: #fff; }
-.work-ribbon--navy { background: var(--navy); color: var(--cream); }
-.work-ribbon--butter { background: var(--butter); color: var(--ink); }
-.work-ribbon--moss { background: var(--moss); color: var(--cream); }
-
-.work-ribbon__idx {
-  font-family: var(--f-display);
-  font-size: clamp(32px, 3.6vw, 52px);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  font-variant-numeric: tabular-nums;
-}
-.work-ribbon__title {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.work-ribbon__title h3 {
-  font-family: var(--f-display);
-  font-size: clamp(20px, 2.2vw, 30px);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
-  margin: 0;
-}
-.work-ribbon__title .en {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  opacity: .8;
-}
-.work-ribbon__tag {
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  padding: 6px 10px;
-  background: rgba(255,255,255,.18);
-  border-radius: 999px;
-  font-weight: 500;
-  white-space: nowrap;
-}
-.work-ribbon--butter .work-ribbon__tag { background: rgba(0,0,0,.12); }
-.work-ribbon__year {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .12em;
-  white-space: nowrap;
-  opacity: .85;
-}
-@media (max-width: 760px) {
-  .work-ribbon { grid-template-columns: auto 1fr; }
-  .work-ribbon__tag, .work-ribbon__year { grid-column: 2; }
-}
-
-.work-body {
-  display: grid;
-  grid-template-columns: 6fr 5fr;
-  gap: clamp(28px, 4vw, 64px);
-  align-items: start;
-}
-.work-body--alt { grid-template-columns: 5fr 6fr; }
-.work-body--alt .work-body__media { order: 2; }
-.work-body--alt .work-body__text { order: 1; }
-@media (max-width: 900px) {
-  .work-body, .work-body--alt { grid-template-columns: 1fr; }
-  .work-body--alt .work-body__media { order: 1; }
-  .work-body--alt .work-body__text { order: 2; }
-}
-
-.work-body__media {
-  border: 1px solid var(--rule);
-  background: var(--cream-2);
-  aspect-ratio: 16/10;
-  overflow: hidden;
-  position: relative;
-  transition: transform .4s ease;
-}
-.work-body__media:hover { transform: translateY(-3px); }
-.work-body__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.work-body__text {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-.work-body__desc {
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--ink-2);
-  margin: 0;
-  text-wrap: pretty;
-}
-.work-body__desc strong { color: var(--ink); font-weight: 600; }
-.work-body__bullets {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.work-body__bullets li {
-  display: grid;
-  grid-template-columns: 18px 1fr;
-  gap: 10px;
-  padding: 6px 0;
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--ink-2);
-}
-.work-body__bullets li::before {
-  content: "→";
-  font-family: var(--f-mono);
-  color: var(--persimmon);
-  font-weight: 600;
-}
-.work-body__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  padding-top: 6px;
-}
-.work-body__chip {
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: .04em;
-  padding: 5px 10px;
-  background: var(--cream-2);
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  color: var(--ink);
-}
-.work-body__links {
-  display: flex;
-  gap: 10px;
-  padding-top: 10px;
-  flex-wrap: wrap;
-}
-.work-body__btn {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  padding: 11px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--ink);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: background .2s ease, color .2s ease, border-color .2s ease;
-  font-weight: 600;
-}
-.work-body__btn:hover { background: var(--ink); color: var(--cream); }
-.work-body__btn.is-primary { background: var(--ink); color: var(--cream); }
-.work-body__btn.is-primary:hover { background: var(--persimmon); border-color: var(--persimmon); color: #fff; }
-
-/* Work addendum — small list of remaining */
-.work-addendum {
-  margin-top: clamp(40px, 6vw, 80px);
-  padding-top: clamp(28px, 3vw, 40px);
-  border-top: 2px solid var(--ink);
-}
-.work-addendum__h {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-.work-addendum__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.work-addendum__list li { border-bottom: 1px solid var(--rule-soft); }
-.work-addendum__list a {
-  display: grid;
-  grid-template-columns: 56px 1fr 1.2fr auto 24px;
-  gap: clamp(12px, 2vw, 28px);
-  align-items: center;
-  padding: clamp(16px, 1.6vw, 22px) 6px;
-  transition: padding .25s ease, background .25s ease;
-}
-.work-addendum__list a:hover {
-  background: var(--cream-2);
-  padding-inline: 14px;
-}
-.work-addendum__list .idx {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  color: var(--ink-3);
-  letter-spacing: .08em;
-}
-.work-addendum__list .ttl {
-  font-family: var(--f-display);
-  font-size: clamp(18px, 1.6vw, 22px);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-}
-.work-addendum__list .ttl .en {
-  display: block;
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  font-weight: 400;
-  color: var(--ink-3);
-  margin-top: 3px;
-}
-.work-addendum__list .stack {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  color: var(--ink-2);
-  letter-spacing: .04em;
-}
-.work-addendum__list .yr {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  color: var(--ink-3);
-}
-.work-addendum__list .arr {
-  font-family: var(--f-mono);
-  color: var(--ink-3);
-  transition: transform .3s ease, color .3s ease;
-  text-align: right;
-}
-.work-addendum__list a:hover .arr {
-  transform: translateX(4px);
-  color: var(--persimmon);
-}
-@media (max-width: 760px) {
-  .work-addendum__list a { grid-template-columns: 36px 1fr auto; }
-  .work-addendum__list .stack { grid-column: 2 / 4; padding-top: 4px; }
-  .work-addendum__list .arr { display: none; }
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   CAPABILITIES — spec sheet
-   ═══════════════════════════════════════════════════════════════════════════ */
-.cap-sheet {
-  border-top: 2px solid var(--ink);
-}
-.cap-row {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: clamp(20px, 3vw, 56px);
-  padding: clamp(22px, 2.6vw, 32px) 0;
-  border-bottom: 1px solid var(--rule);
-  align-items: baseline;
-}
-@media (max-width: 760px) { .cap-row { grid-template-columns: 1fr; gap: 12px; } }
-.cap-row__head {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.cap-row__head .idx {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--persimmon);
-  font-weight: 600;
-}
-.cap-row__head h3 {
-  font-family: var(--f-display);
-  font-size: clamp(24px, 2.6vw, 34px);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  margin: 0;
-  line-height: 1.05;
-}
-.cap-row__items {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 6px 18px;
-}
-.cap-row__item {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 6px 0;
-  font-size: 14.5px;
-  border-bottom: 1px solid var(--rule-soft);
-  color: var(--ink);
-}
-.cap-row__item .lvl {
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-.cap-row__item.is-key .lvl { color: var(--persimmon); }
-.cap-row__item.is-key { font-weight: 500; }
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   TIMELINE — horizontal journey
-   ═══════════════════════════════════════════════════════════════════════════ */
-.timeline {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 2px solid var(--ink);
-  border-bottom: 1px solid var(--rule);
-}
-@media (max-width: 760px) { .timeline { grid-template-columns: 1fr; } }
-
-.tl-act {
-  padding: clamp(28px, 3.4vw, 44px) clamp(20px, 2.4vw, 36px) clamp(36px, 5vw, 56px);
-  border-right: 1px solid var(--rule);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.tl-act:last-child { border-right: 0; }
-@media (max-width: 760px) {
-  .tl-act { border-right: 0; border-bottom: 1px solid var(--rule); }
-  .tl-act:last-child { border-bottom: 0; }
-}
-.tl-act::before {
-  content: "";
-  position: absolute;
-  top: -7px;
-  left: clamp(20px, 2.4vw, 36px);
-  width: 14px;
-  height: 14px;
-  background: var(--cream);
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-}
-.tl-act.is-now::before {
-  background: var(--persimmon);
-  border-color: var(--persimmon);
-}
-
-.tl-act__year {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-.tl-act__year .stage {
-  font-weight: 600;
-  color: var(--ink);
-}
-.tl-act.is-now .tl-act__year .stage { color: var(--persimmon); }
-
-.tl-act__role {
-  font-family: var(--f-display);
-  font-size: clamp(22px, 2.4vw, 30px);
-  font-weight: 600;
-  line-height: 1.15;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-  margin: 0;
-}
-.tl-act__role em {
-  font-style: normal;
-  color: var(--persimmon);
-  font-weight: 700;
-}
-.tl-act__desc {
-  font-size: 14px;
-  line-height: 1.65;
-  color: var(--ink-2);
-  margin: 0;
-  text-wrap: pretty;
-}
-.tl-act__desc strong { color: var(--ink); font-weight: 600; }
-.tl-act__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: auto;
-  padding-top: 6px;
-}
-.tl-act__chip {
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .06em;
-  padding: 3px 9px;
-  border-radius: 999px;
-  border: 1px solid var(--rule);
-  color: var(--ink-2);
-}
-.tl-act.is-now .tl-act__chip {
-  border-color: var(--persimmon);
-  color: var(--persimmon);
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   CREDENTIALS — ledger table
-   ═══════════════════════════════════════════════════════════════════════════ */
-.ledger {
-  border-top: 2px solid var(--ink);
-}
-.ledger__hd {
-  display: grid;
-  grid-template-columns: 96px 1fr 120px 100px;
-  gap: 16px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--rule);
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  font-weight: 600;
-}
-@media (max-width: 760px) { .ledger__hd { display: none; } }
-.ledger__row {
-  display: grid;
-  grid-template-columns: 96px 1fr 120px 100px;
-  gap: 16px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--rule-soft);
-  align-items: baseline;
-  transition: background .25s ease, padding .25s ease;
-}
-.ledger__row:hover { background: var(--cream-2); padding-inline: 8px; }
-.ledger__row .yr {
-  font-family: var(--f-mono);
-  font-size: 12px;
-  color: var(--ink-3);
-  font-variant-numeric: tabular-nums;
-}
-.ledger__row .nm {
-  font-family: var(--f-display);
-  font-size: clamp(16px, 1.5vw, 19px);
-  font-weight: 500;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-}
-.ledger__row .nm small {
-  display: block;
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: .06em;
-  color: var(--ink-3);
-  margin-top: 2px;
-  font-weight: 400;
-}
-.ledger__row .iss {
-  font-size: 13px;
-  color: var(--ink-2);
-}
-.ledger__row .ty {
-  font-family: var(--f-mono);
-  font-size: 9.5px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  padding: 4px 9px;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  justify-self: start;
-}
-.ledger__row .ty.is-key {
-  background: var(--persimmon);
-  color: #fff;
-  border-color: var(--persimmon);
-}
-@media (max-width: 760px) {
-  .ledger__row { grid-template-columns: auto 1fr; gap: 8px 16px; }
-  .ledger__row .iss, .ledger__row .ty { grid-column: 2; }
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   Q&A
-   ═══════════════════════════════════════════════════════════════════════════ */
-.qa {
-  border-top: 2px solid var(--ink);
-}
-.qa__item {
-  border-bottom: 1px solid var(--rule);
-  padding: clamp(24px, 3vw, 40px) 0;
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: clamp(16px, 2vw, 32px);
-}
-@media (max-width: 760px) { .qa__item { grid-template-columns: 1fr; gap: 12px; } }
-.qa__num {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  color: var(--ink-3);
-  letter-spacing: .14em;
-  padding-top: 8px;
-  text-transform: uppercase;
-}
-.qa__body { display: flex; flex-direction: column; gap: 12px; }
-.qa__q {
-  font-family: var(--f-display);
-  font-size: clamp(20px, 2.2vw, 28px);
-  font-weight: 600;
-  letter-spacing: -0.022em;
-  line-height: 1.3;
-  color: var(--ink);
-  margin: 0;
-}
-.qa__q::before {
-  content: "Q";
-  display: inline-block;
-  background: var(--persimmon);
-  color: #fff;
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: 0;
-  padding: 2px 7px;
-  border-radius: 4px;
-  margin-right: 10px;
-  vertical-align: 18%;
-  font-weight: 600;
-}
-.qa__a {
-  font-size: 15px;
-  line-height: 1.75;
-  color: var(--ink-2);
-  margin: 0;
-  max-width: 72ch;
-  text-wrap: pretty;
-}
-.qa__a::before {
-  content: "A";
-  display: inline-block;
-  background: var(--ink);
-  color: var(--cream);
-  font-family: var(--f-mono);
-  font-size: 10px;
-  padding: 2px 7px;
-  border-radius: 4px;
-  margin-right: 10px;
-  vertical-align: 14%;
-  font-weight: 600;
-}
-.qa__a strong { color: var(--ink); font-weight: 600; }
-.qa__a em { color: var(--persimmon); font-style: normal; font-weight: 600; }
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   CONTACT PANEL — persimmon full-bleed
-   ═══════════════════════════════════════════════════════════════════════════ */
-.contact-panel {
-  background: var(--persimmon);
-  color: #fff;
-  padding-block: clamp(80px, 12vw, 168px);
-  position: relative;
-  overflow: hidden;
-}
-.contact-panel::after {
-  content: "—";
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  font-family: var(--f-display);
-  font-size: clamp(80px, 14vw, 200px);
-  line-height: .6;
-  color: rgba(255,255,255,.18);
-  pointer-events: none;
-  z-index: 0;
-}
-.contact-panel__inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding-inline: var(--gutter);
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 5vw, 80px);
-  align-items: end;
-}
-@media (max-width: 900px) { .contact-panel__inner { grid-template-columns: 1fr; } }
-
-.contact-panel__head {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.contact-panel__num {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.85);
-}
-.contact-panel__title {
-  font-family: var(--f-display);
-  font-size: clamp(36px, 5vw, 72px);
-  line-height: 1.02;
-  font-weight: 500;
-  letter-spacing: -0.032em;
-  color: #fff;
-  margin: 0;
-  text-wrap: balance;
-}
-.contact-panel__lead {
-  font-size: 16px;
-  line-height: 1.65;
-  color: rgba(255,255,255,.9);
-  margin: 0;
-  max-width: 38ch;
-  text-wrap: pretty;
-}
-.contact-panel__lead strong { color: #fff; font-weight: 600; }
-
-.contact-panel__right {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.contact-panel__email {
-  font-family: var(--f-display);
-  font-size: clamp(28px, 4vw, 56px);
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  color: #fff;
-  display: inline-block;
-  padding-bottom: 8px;
-  border-bottom: 2px solid #fff;
-  word-break: break-all;
-  transition: color .2s ease, border-color .2s ease;
-  align-self: flex-start;
-}
-.contact-panel__email:hover {
-  color: var(--ink);
-  border-bottom-color: var(--ink);
-}
-.contact-panel__meta {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px 28px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255,255,255,.32);
-}
-.contact-panel__meta dt {
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.7);
-  margin-bottom: 4px;
-}
-.contact-panel__meta dd {
-  margin: 0;
-  font-size: 14.5px;
-  color: #fff;
-}
-.contact-panel__meta dd a:hover { color: var(--ink); }
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   COLOPHON
-   ═══════════════════════════════════════════════════════════════════════════ */
-.colophon {
-  padding: 28px var(--gutter) 36px;
-  max-width: var(--max-w);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 24px;
-  align-items: baseline;
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: .1em;
-  color: var(--ink-3);
-  text-transform: uppercase;
-  border-top: 1px solid var(--rule);
-}
-.colophon b { color: var(--ink-2); font-weight: 600; }
-.colophon__r { text-align: right; }
-@media (max-width: 760px) {
-  .colophon { grid-template-columns: 1fr; }
-  .colophon__r { text-align: left; }
-}
-
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" />
+<link rel="stylesheet" href="style/site.css" />
 </head>
 <body>
+<a class="skip" href="#main">跳到主要內容</a>
 
-<!-- ═════════════════════════════════════════════════════════════════════════
-     MASTHEAD
-     ═════════════════════════════════════════════════════════════════════════ -->
-<header class="masthead">
-  <div class="masthead__inner">
-    <div class="masthead__brand">
-      <span class="masthead__brand-mark" aria-hidden="true">L</span>
-      <span>林家齊　Lin&nbsp;C.C.</span>
-      <span class="masthead__brand-sep" aria-hidden="true"></span>
-      <span style="color:var(--ink-3);font-weight:500;">Annual Report&nbsp;·&nbsp;FY 2026</span>
-    </div>
-    <nav class="masthead__nav" aria-label="Sections">
-      <a href="#summary" data-nav="summary">01&nbsp;Summary</a>
-      <a href="#statement" data-nav="statement">02&nbsp;Statement</a>
-      <a href="#work" data-nav="work">03&nbsp;Work</a>
-      <a href="#cap" data-nav="cap">04&nbsp;Capabilities</a>
-      <a href="#timeline" data-nav="timeline">05&nbsp;Timeline</a>
-      <a href="#cred" data-nav="cred">06&nbsp;Credentials</a>
-      <a href="#qa" data-nav="qa">07&nbsp;Q&amp;A</a>
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="brand" href="#top" aria-label="林家齊，回到頁首">
+      <span class="brand__name">林家齊</span>
+      <span class="brand__role">前端工程師</span>
+    </a>
+    <nav class="nav" aria-label="頁面區塊">
+      <a href="#work">作品</a>
+      <a href="#career">經歷</a>
+      <a href="#skills">技能</a>
+      <a href="#credentials">學歷證照</a>
+      <a href="#contact">聯絡</a>
     </nav>
-    <div class="masthead__actions">
-      <div class="masthead__theme" role="group" aria-label="Theme">
-        <button data-theme-btn="paper" class="is-on" title="Paper">●</button>
-        <button data-theme-btn="ink" title="Ink">○</button>
-      </div>
-      <a class="masthead__cta" href="#contact">Hire&nbsp;Me&nbsp;↗</a>
+    <div class="topbar__actions">
+      <button class="theme-btn" type="button" aria-pressed="false" aria-label="切換深色模式">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+      <a class="btn btn--solid btn--sm" href="履歷pdf/林家齊履歷_20261008.pdf" download>下載履歷</a>
     </div>
   </div>
 </header>
 
-<!-- ═════════════════════════════════════════════════════════════════════════
-     COVER
-     ═════════════════════════════════════════════════════════════════════════ -->
-<section class="cover" data-screen-label="01 Cover">
+<main id="main">
 
-  <div class="cover__top">
-    <div>
-      <span class="lbl">Document</span>
-      <span class="val">Annual&nbsp;Portfolio&nbsp;Report</span>
-    </div>
-    <div class="c">
-      <span class="lbl">Fiscal&nbsp;Year</span>
-      <span class="val">FY&nbsp;2026 · MMXXVI</span>
-    </div>
-    <div class="r">
-      <span class="lbl">Status</span>
-      <span class="val accent">● 求職中　Recruiting</span>
-    </div>
-  </div>
-
-  <div class="cover__main">
-    <h1 class="cover__name">
-      <span class="ch">林家齊</span>
-      <span class="en">Lin&nbsp;Chia-Chi　·　Frontend Engineer</span>
-    </h1>
-
-    <div class="cover__hero-meta">
-      <figure class="cover__portrait" aria-label="Portrait">
-        <img src="照片/去背個人照.png" alt="林家齊個人照" />
-        <span class="cover__portrait-tag">PORTRAIT&nbsp;·&nbsp;01</span>
-      </figure>
-
-      <div class="cover__role-card">
-        <div class="lbl">Position&nbsp;·&nbsp;職位</div>
-        <div class="role">Frontend<br />Engineer</div>
-        <dl class="meta">
-          <div><b>Focus.</b> Vue 3 · Angular 19 · TypeScript</div>
-          <div><b>Based.</b> Kaohsiung, Taiwan</div>
-          <div><b>Open.</b> Full-time · Remote</div>
-        </dl>
+<!-- ═════ 開場 ═════ -->
+<section class="hero" id="top">
+  <div class="wrap hero__grid">
+    <div class="hero__text">
+      <p class="status"><span class="status__dot" aria-hidden="true"></span>求職中，錄取後一週可上班</p>
+      <h1 class="hero__name">林家齊</h1>
+      <p class="hero__role">前端工程師／全端工程師</p>
+      <p class="hero__lead">
+        從行政與資料處理工作轉職前端。以 Angular 19 + TypeScript 為主力，
+        擔任過多角色 POS 點餐系統的團隊前端負責人，也獨立完成 Angular + Spring Boot
+        前後端分離專案。作品、測試紀錄和每一段經歷都整理在這裡，可以直接驗證。
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--solid" href="#work">看作品</a>
+        <a class="btn btn--line" href="#career">看轉職歷程</a>
+        <a class="btn btn--text" href="mailto:a437777@gmail.com">a437777@gmail.com</a>
       </div>
     </div>
+
+    <aside class="card-id" aria-label="求職條件">
+      <div class="card-id__photo">
+        <img src="照片/去背個人照.png" alt="林家齊的大頭照" width="410" height="551" />
+      </div>
+      <dl class="card-id__list">
+        <div><dt>應徵職缺</dt><dd>前端工程師、全端工程師</dd></div>
+        <div><dt>主力技術</dt><dd>Angular 19、Vue 3、TypeScript</dd></div>
+        <div><dt>工作地點</dt><dd>高雄、台北、新北、台中，可遠端</dd></div>
+        <div><dt>工作型態</dt><dd>全職或兼職，日班或半天班</dd></div>
+      </dl>
+    </aside>
   </div>
 
-  <div class="cover__bottom">
-    <div class="col">
-      <h4>Issued&nbsp;by</h4>
-      <p>林家齊　Lin Chia-Chi<br /><span style="color:var(--ink-3);font-weight:400;">Independent · Sole Author</span></p>
-    </div>
-    <div class="col">
-      <h4>Contents&nbsp;at&nbsp;a&nbsp;glance</h4>
-      <p>8 chapters · 6 projects · 9 credentials<br /><span style="color:var(--ink-3);font-weight:400;">Est. read 4 minutes</span></p>
-    </div>
-    <ul class="cover__contents" aria-label="Contents">
-      <li><a href="#summary"><span class="n">01</span><span>Summary</span><span class="p">P.&nbsp;02</span></a></li>
-      <li><a href="#statement"><span class="n">02</span><span>Statement</span><span class="p">P.&nbsp;03</span></a></li>
-      <li><a href="#work"><span class="n">03</span><span>Selected Work</span><span class="p">P.&nbsp;04</span></a></li>
-      <li><a href="#cap"><span class="n">04</span><span>Capabilities</span><span class="p">P.&nbsp;07</span></a></li>
-      <li><a href="#timeline"><span class="n">05</span><span>Timeline</span><span class="p">P.&nbsp;08</span></a></li>
-      <li><a href="#cred"><span class="n">06</span><span>Credentials</span><span class="p">P.&nbsp;09</span></a></li>
-      <li><a href="#qa"><span class="n">07</span><span>Q&amp;A</span><span class="p">P.&nbsp;10</span></a></li>
-      <li><a href="#contact"><span class="n">08</span><span>Contact</span><span class="p">P.&nbsp;11</span></a></li>
+  <div class="wrap">
+    <ul class="proof" aria-label="可驗證的成果">
+      <li><strong>840 小時</strong><span>Java 全端整合實務培訓，2026/5 結訓</span></li>
+      <li><strong>6 件</strong><span>專案作品，含團隊與獨立開發</span></li>
+      <li><strong>25 / 25</strong><span>Playwright E2E regression 全數通過</span></li>
+      <li><strong>60 次提交</strong><span>QSDemo 從 v1.0.0 迭代到 v2.5.0</span></li>
     </ul>
   </div>
-
 </section>
 
-<!-- ═════════════════════════════════════════════════════════════════════════
-     01  SUMMARY
-     ═════════════════════════════════════════════════════════════════════════ -->
-<section class="section" id="summary" data-screen-label="02 Summary">
-  <div class="shell">
-    <header class="section__head" data-reveal>
-      <div class="section__num">01</div>
-      <h2 class="section__title">Summary <em>· 數字一覽</em></h2>
-      <span class="section__kicker">Reporting&nbsp;Year&nbsp;·&nbsp;2024 — 2026</span>
+<!-- ═════ 作品 ═════ -->
+<section class="section" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <header class="section__head">
+      <h2 id="work-title">專案作品</h2>
+      <p>兩個 Angular + Spring Boot 全端專案是主要代表作，其餘作品展示 Vue 3、React 19 與純前端的實作廣度。</p>
     </header>
 
-    <div class="summary">
-      <div class="kpi kpi--persimmon" data-reveal>
-        <span class="kpi__lbl">Projects&nbsp;·&nbsp;作品</span>
-        <div>
-          <div class="kpi__num">06<span class="unit">件</span></div>
-          <div class="kpi__sub">前端 + 全端　六件親手交付</div>
-        </div>
-      </div>
-      <div class="kpi" data-reveal>
-        <span class="kpi__lbl">Bootcamp&nbsp;·&nbsp;培訓</span>
-        <div>
-          <div class="kpi__num">840<span class="unit">hrs</span></div>
-          <div class="kpi__sub">Java 全端整合實務 · 完成</div>
-        </div>
-      </div>
-      <div class="kpi" data-reveal>
-        <span class="kpi__lbl">Credentials&nbsp;·&nbsp;證照</span>
-        <div>
-          <div class="kpi__num">09<span class="unit">張</span></div>
-          <div class="kpi__sub">國家級 + 業界認證</div>
-        </div>
-      </div>
-      <div class="kpi kpi--navy" data-reveal>
-        <span class="kpi__lbl">Cross-Domain&nbsp;·&nbsp;跨域</span>
-        <div>
-          <div class="kpi__num">2<span class="unit">+yrs</span></div>
-          <div class="kpi__sub">行政 · 維修 · 製圖背景</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════════════════════════════════════════════════════════════════
-     02  STATEMENT — full-bleed navy
-     ═════════════════════════════════════════════════════════════════════════ -->
-<section class="statement-panel" id="statement" data-screen-label="03 Statement">
-  <div class="statement-panel__bg" aria-hidden="true"></div>
-  <div class="statement-panel__inner">
-    <div class="statement-panel__head" data-reveal>
-      <div class="statement-panel__num">02 · Statement&nbsp;／&nbsp;自述</div>
-      <h2 class="statement-panel__quote">
-        <span class="mark">“</span>從行政與板手，<em>轉身寫程式碼。</em>
-      </h2>
-    </div>
-
-    <div class="statement-panel__body" data-reveal>
-      <p>
-        我是 <strong>林家齊</strong>。兩年以上行政、電腦維修與 3D 製圖跨域經驗，
-        現在以前端工程師為定位。
-      </p>
-      <p>
-        從 <strong>HTML / CSS / JavaScript</strong> 起步，深入 <strong>Vue 3 + Vite</strong> 框架，
-        完成 <strong>Angular 19 + Spring Boot</strong> 團隊全端專案。
-        習慣把之前工作的整理習慣帶進工程——先規劃資料結構、釐清角色權限、再開始切版。
-      </p>
-      <p>
-        完成台南應用科技大學「<strong>Java 全端整合實務運用</strong>」就業養成班 840 小時培訓，
-        及六角學院 30 天鐵人挑戰。期望從靜態切版做起，
-        逐步成長為能<strong>獨當一面</strong>的前端工程師。
-      </p>
-
-      <div class="statement-panel__sig">
-        <div>
-          <b>林家齊</b><br />Lin&nbsp;Chia-Chi
-        </div>
-        <div style="text-align:right;">
-          Kaohsiung,&nbsp;TW<br />FY&nbsp;2026
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════════════════════════════════════════════════════════════════
-     03  SELECTED WORK
-     ═════════════════════════════════════════════════════════════════════════ -->
-<section class="section" id="work" data-screen-label="04 Work">
-  <div class="shell">
-    <header class="section__head" data-reveal>
-      <div class="section__num">03</div>
-      <h2 class="section__title">Selected Work <em>· 精選作品</em></h2>
-      <span class="section__kicker">6&nbsp;Projects&nbsp;·&nbsp;2024 — 2026</span>
-    </header>
-
-    <!-- ── 01 LazyBaoBao · Persimmon ── -->
-    <article class="work-page" data-reveal>
-      <header class="work-ribbon work-ribbon--persimmon">
-        <span class="work-ribbon__idx">01</span>
-        <div class="work-ribbon__title">
-          <h3>LazyBaoBao　懶飽飽智慧點餐系統</h3>
-          <span class="en">Team Project · Angular + Spring Boot</span>
-        </div>
-        <span class="work-ribbon__tag">Team · 前端負責人</span>
-        <span class="work-ribbon__year">FY&nbsp;2025</span>
-      </header>
-      <div class="work-body">
-        <a class="work-body__media" href="https://github.com/AtayalLin/Angular-Team-Frontend" target="_blank" rel="noopener" aria-label="LazyBaoBao GitHub">
-          <img src="照片/projects/lazybaobao.jpg" alt="LazyBaoBao 介面預覽" loading="lazy" />
-        </a>
-        <div class="work-body__text">
-          <p class="work-body__desc">
-            台灣在地美食訂餐平台，<strong>客戶／POS／老闆三角色一體化</strong>解決方案。
-            Angular 19 Standalone Components + Signals 即時同步狀態，搭配 GSAP、Lottie、AOS 打造完整動畫體驗。
-          </p>
-          <ul class="work-body__bullets">
-            <li>客戶端：3D 翻轉信用卡 UI、QR Code 行動支付、即時訂單追蹤</li>
-            <li>POS 終端：會員查詢、現金找零、三欄看板即時同步</li>
-            <li>老闆後台：8 大管理頁籤（商品／庫存／優惠／員工／稅率／報表）</li>
-            <li>內建 Mock 模式可離線運行，支援 ngrok 對外公開測試</li>
-          </ul>
-          <div class="work-body__chips">
-            <span class="work-body__chip">Angular 19</span>
-            <span class="work-body__chip">TypeScript</span>
-            <span class="work-body__chip">Signals</span>
-            <span class="work-body__chip">Spring Boot</span>
-            <span class="work-body__chip">MySQL</span>
-            <span class="work-body__chip">GSAP · Lottie</span>
-          </div>
-          <div class="work-body__links">
-            <a class="work-body__btn is-primary" href="https://github.com/AtayalLin/Angular-Team-Frontend" target="_blank" rel="noopener">Source&nbsp;↗</a>
-          </div>
-        </div>
+    <article class="feature">
+      <a class="feature__shot" href="https://github.com/AtayalLin/Angular-Team-Frontend" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <img src="照片/projects/lazybaobao.jpg" alt="" loading="lazy" width="1877" height="903" />
+      </a>
+      <div class="feature__body">
+        <p class="tagline"><span class="pill pill--accent">團隊專案，前端負責人</span><time>2026/4 – 2026/5</time></p>
+        <h3>懶飽飽智慧點餐系統</h3>
+        <p class="feature__desc">餐飲管理系統，涵蓋客戶端、員工 POS 與管理後台三種角色介面。團隊在一個月內完成主要功能，我負責前端架構與整合。</p>
+        <ul class="ticks">
+          <li>規劃前端架構，用 Angular Signals 管理跨元件狀態，讓客戶下單、訂單狀態與 POS 看板同步</li>
+          <li>串接 Spring Boot + MySQL RESTful API，設計 Mock／真實 API 切換機制，前後端可以並行開發</li>
+          <li>實作點餐、購物車、結帳、信用卡互動、行動支付 QR Code 與角色權限控制</li>
+          <li>導入 Playwright E2E 與 API Mock，涵蓋登入、角色導向、權限、POS 與後台，25 項 regression 全數通過</li>
+          <li>用 AI Agent 輔助測試規劃、案例產生、失敗分析與 test healing，結果由我人工確認</li>
+        </ul>
+        <ul class="stack" aria-label="使用技術"><li>Angular 19</li><li>TypeScript</li><li>Angular Signals</li><li>Spring Boot</li><li>MySQL</li><li>Playwright</li></ul>
+        <p class="links"><a href="https://github.com/AtayalLin/Angular-Team-Frontend" target="_blank" rel="noopener">前端原始碼</a></p>
       </div>
     </article>
 
-    <!-- ── 02 QSDemo · Navy · Alt layout ── -->
-    <article class="work-page" data-reveal>
-      <header class="work-ribbon work-ribbon--navy">
-        <span class="work-ribbon__idx">02</span>
-        <div class="work-ribbon__title">
-          <h3>QSDemo　企業級問卷系統</h3>
-          <span class="en">Solo · Full Stack · Angular + Spring Boot</span>
-        </div>
-        <span class="work-ribbon__tag">Solo · Full Stack</span>
-        <span class="work-ribbon__year">FY&nbsp;2025</span>
-      </header>
-      <div class="work-body work-body--alt">
-        <a class="work-body__media" href="https://atayallin.github.io/Angular-qsdemo/" target="_blank" rel="noopener" aria-label="QSDemo Live">
-          <img src="照片/projects/qsdemo.jpg" alt="Angular QSDemo 介面" loading="lazy" />
-        </a>
-        <div class="work-body__text">
-          <p class="work-body__desc">
-            <strong>前後端分離</strong>的問卷管理平台。多權限管理、條件式邏輯（父題控制子題顯示）、
-            統計圖表視覺化、回應歷史、批次操作；完整篩選介面（名稱／時間／類型／狀態）與分頁機制。
-          </p>
-          <ul class="work-body__bullets">
-            <li>Angular 19 Standalone + RxJS Reactive Forms</li>
-            <li>Spring Boot 3.x RESTful + MySQL 8.x + JPA</li>
-            <li>權限角色：管理者／編輯／一般受訪者三層分離</li>
-          </ul>
-          <div class="work-body__chips">
-            <span class="work-body__chip">Angular 19</span>
-            <span class="work-body__chip">Spring Boot 3</span>
-            <span class="work-body__chip">MySQL 8</span>
-            <span class="work-body__chip">RESTful</span>
-            <span class="work-body__chip">JPA</span>
-          </div>
-          <div class="work-body__links">
-            <a class="work-body__btn is-primary" href="https://atayallin.github.io/Angular-qsdemo/" target="_blank" rel="noopener">Live&nbsp;↗</a>
-            <a class="work-body__btn" href="https://github.com/AtayalLin/Angular-qsdemo" target="_blank" rel="noopener">Source&nbsp;↗</a>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- ── 03 Vueshop · Butter ── -->
-    <article class="work-page" data-reveal>
-      <header class="work-ribbon work-ribbon--butter">
-        <span class="work-ribbon__idx">03</span>
-        <div class="work-ribbon__title">
-          <h3>夜色道頓堀　Vue 日式電商 Demo</h3>
-          <span class="en">Solo · Live · 30 GitHub clones</span>
-        </div>
-        <span class="work-ribbon__tag">Solo · Live</span>
-        <span class="work-ribbon__year">FY&nbsp;2025</span>
-      </header>
-      <div class="work-body">
-        <a class="work-body__media" href="https://atayallin.github.io/Vueshop-Side-Project-Demo-/" target="_blank" rel="noopener" aria-label="Vueshop Live">
-          <img src="照片/projects/vue-shop.jpg" alt="Vue 日式電商 Demo 預覽" loading="lazy" />
-        </a>
-        <div class="work-body__text">
-          <p class="work-body__desc">
-            完整購物流程含登入／註冊、購物車、結帳，整合 Vue Router、<strong>vee-validate + Zod 表單驗證</strong>、
-            GitHub Actions 自動部署，並支援主題切換。社群迴響：<strong>30 位 Clone、62 次下載、18 訪客檢視</strong>。
-          </p>
-          <div class="work-body__chips">
-            <span class="work-body__chip">Vue 3</span>
-            <span class="work-body__chip">Vite</span>
-            <span class="work-body__chip">Pinia</span>
-            <span class="work-body__chip">vee-validate</span>
-            <span class="work-body__chip">Zod</span>
-            <span class="work-body__chip">GitHub Actions</span>
-          </div>
-          <div class="work-body__links">
-            <a class="work-body__btn is-primary" href="https://atayallin.github.io/Vueshop-Side-Project-Demo-/" target="_blank" rel="noopener">Live&nbsp;↗</a>
-            <a class="work-body__btn" href="https://github.com/AtayalLin/Vueshop-Side-Project-Demo-" target="_blank" rel="noopener">Source&nbsp;↗</a>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Addendum -->
-    <div class="work-addendum" data-reveal>
-      <div class="work-addendum__h">
-        <span>More Work&nbsp;·&nbsp;其餘作品</span>
-        <span>Sub-listings · 04 — 06</span>
-      </div>
-      <ul class="work-addendum__list">
-        <li>
-          <a href="https://atayallin.github.io/Igs-test-vue/" target="_blank" rel="noopener">
-            <span class="idx">04</span>
-            <span class="ttl">H5 模擬遊戲大廳<span class="en">IGS interview challenge · Vue 3</span></span>
-            <span class="stack">Vue 3 · H5 · VIP 等級 · 輪播 Banner</span>
-            <span class="yr">2025</span>
-            <span class="arr">↗</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/AtayalLin/AtayaHtml" target="_blank" rel="noopener">
-            <span class="idx">05</span>
-            <span class="ttl">AtayaHtml　個人作品集（前版）<span class="en">Personal site · BS5 · AOS · GSAP</span></span>
-            <span class="stack">HTML5 · Bootstrap 5 · AOS · GSAP · BEM</span>
-            <span class="yr">2024→26</span>
-            <span class="arr">↗</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/AtayalLin/AtayaHtml/tree/main/%E4%BD%9C%E5%93%811" target="_blank" rel="noopener">
-            <span class="idx">06</span>
-            <span class="ttl">日本美食推薦網<span class="en">Static RWD · 東京 / 京都 / 大阪</span></span>
-            <span class="stack">HTML · CSS · AOS · RWD · 日式排版</span>
-            <span class="yr">2024</span>
-            <span class="arr">↗</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════════════════════════════════════════════════════════════════
-     04  CAPABILITIES
-     ═════════════════════════════════════════════════════════════════════════ -->
-<section class="section section--cream-2" id="cap" data-screen-label="05 Capabilities">
-  <div class="shell">
-    <header class="section__head" data-reveal>
-      <div class="section__num">04</div>
-      <h2 class="section__title">Capabilities <em>· 技術堆疊</em></h2>
-      <span class="section__kicker">As&nbsp;of&nbsp;Q2&nbsp;2026</span>
-    </header>
-
-    <div class="cap-sheet" data-reveal>
-      <div class="cap-row">
-        <div class="cap-row__head">
-          <span class="idx">/ 01</span>
-          <h3>Frontend</h3>
-        </div>
-        <div class="cap-row__items">
-          <div class="cap-row__item is-key">Vue 3 + Vite + Pinia<span class="lvl">Daily</span></div>
-          <div class="cap-row__item is-key">Angular 19 + TypeScript<span class="lvl">Team Lead</span></div>
-          <div class="cap-row__item">HTML5 / CSS3 / SCSS<span class="lvl">Fluent</span></div>
-          <div class="cap-row__item">JavaScript ES6+<span class="lvl">Fluent</span></div>
-          <div class="cap-row__item">TypeScript<span class="lvl">Fluent</span></div>
-          <div class="cap-row__item">Responsive Web Design<span class="lvl">Specialty</span></div>
-          <div class="cap-row__item">Bootstrap 5<span class="lvl">Familiar</span></div>
-          <div class="cap-row__item">vee-validate + Zod<span class="lvl">Familiar</span></div>
-        </div>
-      </div>
-
-      <div class="cap-row">
-        <div class="cap-row__head">
-          <span class="idx">/ 02</span>
-          <h3>Backend</h3>
-        </div>
-        <div class="cap-row__items">
-          <div class="cap-row__item">Java<span class="lvl">Trained</span></div>
-          <div class="cap-row__item">Spring Boot 3.x<span class="lvl">Project</span></div>
-          <div class="cap-row__item">MySQL 8.x<span class="lvl">Project</span></div>
-          <div class="cap-row__item">RESTful API<span class="lvl">Practical</span></div>
-          <div class="cap-row__item">Eclipse / IntelliJ<span class="lvl">Used</span></div>
-        </div>
-      </div>
-
-      <div class="cap-row">
-        <div class="cap-row__head">
-          <span class="idx">/ 03</span>
-          <h3>Tooling</h3>
-        </div>
-        <div class="cap-row__items">
-          <div class="cap-row__item">Git · GitHub<span class="lvl">Daily</span></div>
-          <div class="cap-row__item">GitHub Actions<span class="lvl">Deploy</span></div>
-          <div class="cap-row__item">GitHub Pages<span class="lvl">Deploy</span></div>
-          <div class="cap-row__item">VS Code · IntelliJ<span class="lvl">Daily</span></div>
-          <div class="cap-row__item">Figma<span class="lvl">Used</span></div>
-          <div class="cap-row__item">Notion<span class="lvl">PM</span></div>
-          <div class="cap-row__item">WordPress<span class="lvl">Used</span></div>
-        </div>
-      </div>
-
-      <div class="cap-row">
-        <div class="cap-row__head">
-          <span class="idx">/ 04</span>
-          <h3>Adjacent</h3>
-        </div>
-        <div class="cap-row__items">
-          <div class="cap-row__item">AutoCAD 2D / 3D<span class="lvl">Certified</span></div>
-          <div class="cap-row__item">SketchUp<span class="lvl">Used</span></div>
-          <div class="cap-row__item">ArchiCAD 19<span class="lvl">Used</span></div>
-          <div class="cap-row__item">Office 全家桶<span class="lvl">Daily</span></div>
-          <div class="cap-row__item">Windows 系統管理<span class="lvl">Hardware</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════════════════════════════════════════════════════════════════
-     05  TIMELINE
-     ═════════════════════════════════════════════════════════════════════════ -->
-<section class="section" id="timeline" data-screen-label="06 Timeline">
-  <div class="shell">
-    <header class="section__head" data-reveal>
-      <div class="section__num">05</div>
-      <h2 class="section__title">Timeline <em>· 轉職三段</em></h2>
-      <span class="section__kicker">Three&nbsp;Acts&nbsp;·&nbsp;2023 — Now</span>
-    </header>
-
-    <div class="timeline" data-reveal>
-      <article class="tl-act">
-        <div class="tl-act__year"><span>2023 · Act 01</span><span class="stage">Origin</span></div>
-        <h3 class="tl-act__role">行政 ‧ 維修 ‧ <em>製圖</em></h3>
-        <p class="tl-act__desc">
-          兩年以上跨域工作，從<strong>行政支援</strong>、<strong>電腦硬體維修</strong>到 <strong>AutoCAD / SketchUp</strong> 3D 製圖。
-          這段時間養成了規劃力、解題耐心，與對版面比例的敏感度。
+    <article class="feature feature--flip">
+      <a class="feature__shot" href="https://atayallin.github.io/Angular-qsdemo/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <img src="照片/projects/qsdemo.jpg" alt="" loading="lazy" width="1728" height="907" />
+      </a>
+      <div class="feature__body">
+        <p class="tagline"><span class="pill pill--accent">獨立完成，前後端分離</span><time>2026/2 – 2026/3</time></p>
+        <h3>QSDemo 問卷管理系統</h3>
+        <p class="feature__desc">前端 Angular 19 Standalone Components，後端 Spring Boot + MySQL，涵蓋一般使用者、會員中心與管理員流程，前後端 repository 分開管理。</p>
+        <ul class="ticks">
+          <li>獨立完成問卷建立、發佈與取消發佈、填答、預覽、歷史紀錄及管理後台</li>
+          <li>用 Angular Router state 在填答頁和預覽頁之間傳遞資料，不依賴 localStorage 保存流程狀態</li>
+          <li>串接 Spring Boot RESTful API，處理表單資料、權限與錯誤流程</li>
+          <li>從 v1.0.0 迭代到 v2.5.0，共 60 次提交，保留功能擴充與問題修正紀錄</li>
+        </ul>
+        <ul class="stack" aria-label="使用技術"><li>Angular 19</li><li>Standalone Components</li><li>Spring Boot</li><li>MySQL</li><li>RESTful API</li></ul>
+        <p class="links">
+          <a href="https://atayallin.github.io/Angular-qsdemo/" target="_blank" rel="noopener">線上展示</a>
+          <a href="https://github.com/AtayalLin/Angular-qsdemo" target="_blank" rel="noopener">原始碼</a>
         </p>
-        <div class="tl-act__chips">
-          <span class="tl-act__chip">Admin</span>
-          <span class="tl-act__chip">Hardware</span>
-          <span class="tl-act__chip">AutoCAD</span>
-          <span class="tl-act__chip">SketchUp</span>
+      </div>
+    </article>
+
+    <h3 class="subhead">其他作品</h3>
+    <div class="minis">
+      <article class="mini">
+        <img src="照片/projects/vue-shop.jpg" alt="Vue 日式電商網站首頁" loading="lazy" width="1897" height="907" />
+        <div class="mini__body">
+          <p class="tagline"><span class="pill">個人 Side Project</span><time>2025/8 起</time></p>
+          <h4>Vue 日式電商 Demo</h4>
+          <p>完整購物流程：登入註冊、商品瀏覽、購物車、結帳、訂單紀錄。結帳表單用 vee-validate + Zod 驗證，計價邏輯抽成 usePricing composable，並配置 Vitest 與 Playwright。</p>
+          <ul class="stack"><li>Vue 3</li><li>Vite</li><li>Pinia</li><li>Vue Router</li><li>Zod</li><li>Vitest</li><li>GitHub Actions</li></ul>
+          <p class="links">
+            <a href="https://atayallin.github.io/Vueshop-Side-Project-Demo-/" target="_blank" rel="noopener">線上展示</a>
+            <a href="https://github.com/AtayalLin/Vueshop-Side-Project-Demo-" target="_blank" rel="noopener">原始碼</a>
+          </p>
         </div>
       </article>
 
-      <article class="tl-act">
-        <div class="tl-act__year"><span>2024 · Act 02</span><span class="stage">Pivot</span></div>
-        <h3 class="tl-act__role">自學前端 ‧ <em>切版上手</em></h3>
-        <p class="tl-act__desc">
-          自學 <strong>HTML / CSS / JavaScript</strong>，深入 <strong>Vue 3 + Vite + Pinia</strong>，
-          完成第一個對外部署的 RWD 作品 — 日本美食推薦網。
-          同年完成<strong>六角學院 30 天鐵人挑戰</strong>。
-        </p>
-        <div class="tl-act__chips">
-          <span class="tl-act__chip">Self-taught</span>
-          <span class="tl-act__chip">Vue 3</span>
-          <span class="tl-act__chip">Vite</span>
-          <span class="tl-act__chip">RWD</span>
+      <article class="mini">
+        <img src="照片/projects/react-inventory.jpg" alt="智慧餐飲進銷存管理系統的儀表板畫面" loading="lazy" width="900" height="506" />
+        <div class="mini__body">
+          <p class="tagline"><span class="pill">個人專案，開發中</span><time>2026/6 起</time></p>
+          <h4>智慧餐飲進銷存管理系統</h4>
+          <p>React 19 + TypeScript 開發，TanStack Query 管理伺服器狀態、Zod 驗證資料，並用 n8n 建立庫存同步與 AI 通知自動化流程。</p>
+          <ul class="stack"><li>React 19</li><li>TypeScript</li><li>TanStack Query</li><li>Zod</li><li>n8n</li></ul>
+          <p class="links"><span class="muted">尚未公開，面試時可即時展示</span></p>
         </div>
       </article>
 
-      <article class="tl-act is-now">
-        <div class="tl-act__year"><span>2025—26 · Act 03</span><span class="stage">Now</span></div>
-        <h3 class="tl-act__role">前端工程師 ‧ <em>求職中</em></h3>
-        <p class="tl-act__desc">
-          完成台南應用科技大學「<strong>Java 全端整合實務運用</strong>」就業養成班 840 小時培訓，
-          擔任 <strong>LazyBaoBao 團隊專案前端負責人</strong>，
-          交付 Angular 19 + Spring Boot 全端系統。
-        </p>
-        <div class="tl-act__chips">
-          <span class="tl-act__chip">Angular 19</span>
-          <span class="tl-act__chip">TypeScript</span>
-          <span class="tl-act__chip">Spring Boot</span>
-          <span class="tl-act__chip">Team Lead</span>
+      <article class="mini">
+        <img src="照片/projects/game-hall.jpg" alt="Vue 模擬遊戲大廳入口頁面" loading="lazy" width="1912" height="903" />
+        <div class="mini__body">
+          <p class="tagline"><span class="pill">公司前端試題</span><time>2025/10</time></p>
+          <h4>Vue 模擬遊戲大廳</h4>
+          <p>受遊戲公司邀請完成的 H5 前端試題。實作分類篩選、300ms 防抖即時搜尋、跨分類同步的收藏管理，並設計 RESTful API 服務層與 Mock 資料後備機制。</p>
+          <ul class="stack"><li>Vue 3</li><li>Vite</li><li>Pinia</li><li>GSAP</li><li>GitHub Actions</li></ul>
+          <p class="links">
+            <a href="https://atayallin.github.io/Igs-test-vue/" target="_blank" rel="noopener">線上展示</a>
+            <a href="https://github.com/AtayalLin/Igs-test-vue" target="_blank" rel="noopener">原始碼</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="mini">
+        <img src="照片/projects/atayahtml.jpg" alt="個人作品集網站畫面" loading="lazy" width="1872" height="900" />
+        <div class="mini__body">
+          <p class="tagline"><span class="pill">求職作品集</span><time>2024/11 起</time></p>
+          <h4>個人網頁（就是這個網站）</h4>
+          <p>純 HTML、CSS、Vanilla JavaScript 手刻，無框架、無建置工具。淺色／深色主題用 localStorage 記住偏好，IntersectionObserver 處理導覽高亮與經歷動畫，三個斷點 RWD。</p>
+          <ul class="stack"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>IntersectionObserver</li></ul>
+          <p class="links"><a href="https://github.com/AtayalLin/AtayaHtml" target="_blank" rel="noopener">原始碼</a></p>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ═════════════════════════════════════════════════════════════════════════
-     06  CREDENTIALS
-     ═════════════════════════════════════════════════════════════════════════ -->
-<section class="section section--cream-2" id="cred" data-screen-label="07 Credentials">
-  <div class="shell">
-    <header class="section__head" data-reveal>
-      <div class="section__num">06</div>
-      <h2 class="section__title">Credentials <em>· 證照索引</em></h2>
-      <span class="section__kicker">9&nbsp;Entries&nbsp;·&nbsp;National&nbsp;&amp;&nbsp;Industry</span>
-    </header>
-
-    <div class="ledger" data-reveal>
-      <div class="ledger__hd">
-        <span>Year</span>
-        <span>Credential</span>
-        <span>Issuer</span>
-        <span>Class</span>
-      </div>
-      <div class="ledger__row">
-        <span class="yr">2024</span>
-        <span class="nm">Autodesk AutoCAD 2D / 3D 國際認證<small>Autodesk Certified User</small></span>
-        <span class="iss">Autodesk</span>
-        <span class="ty is-key">Intl.</span>
-      </div>
-      <div class="ledger__row">
-        <span class="yr">2023</span>
-        <span class="nm">乙級儀表電子技術士<small>勞動部　Class B</small></span>
-        <span class="iss">勞動部</span>
-        <span class="ty is-key">Gov.</span>
-      </div>
-      <div class="ledger__row">
-        <span class="yr">2022</span>
-        <span class="nm">丙級電腦硬體裝修技術士<small>勞動部　Class C</small></span>
-        <span class="iss">勞動部</span>
-        <span class="ty">Gov.</span>
-      </div>
-      <div class="ledger__row">
-        <span class="yr">2021</span>
-        <span class="nm">丙級工業電子技術士<small>勞動部　Class C</small></span>
-        <span class="iss">勞動部</span>
-        <span class="ty">Gov.</span>
-      </div>
-      <div class="ledger__row">
-        <span class="yr">2020</span>
-        <span class="nm">TQC-OA　Word / Excel / PowerPoint<small>輸入專業認證</small></span>
-        <span class="iss">電腦技能基金會</span>
-        <span class="ty">TQC</span>
-      </div>
-      <div class="ledger__row">
-        <span class="yr">2020</span>
-        <span class="nm">TQC-OA　中文 / 英文輸入<small>輸入專業認證</small></span>
-        <span class="iss">電腦技能基金會</span>
-        <span class="ty">TQC</span>
-      </div>
-      <div class="ledger__row">
-        <span class="yr">2020</span>
-        <span class="nm">TQC　雲端技術及網路服務<small>Cloud &amp; Network</small></span>
-        <span class="iss">電腦技能基金會</span>
-        <span class="ty">TQC</span>
-      </div>
-      <div class="ledger__row">
-        <span class="yr">2025</span>
-        <span class="nm">六角學院　30 天軟體工程師體驗營　鐵人完賽<small>2025 全勤完成</small></span>
-        <span class="iss">六角學院</span>
-        <span class="ty is-key">Camp</span>
-      </div>
-      <div class="ledger__row">
-        <span class="yr">2025–26</span>
-        <span class="nm">Java 全端整合實務運用　就業養成班<small>台南應用科技大學　840 小時　完成</small></span>
-        <span class="iss">台應大</span>
-        <span class="ty is-key">Bootcamp</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════════════════════════════════════════════════════════════════
-     07  Q&A
-     ═════════════════════════════════════════════════════════════════════════ -->
-<section class="section" id="qa" data-screen-label="08 Q&amp;A">
-  <div class="shell">
-    <header class="section__head" data-reveal>
-      <div class="section__num">07</div>
-      <h2 class="section__title">Interview <em>· 六題訪談</em></h2>
-      <span class="section__kicker">Six&nbsp;Questions</span>
-    </header>
-
-    <div class="qa" data-reveal>
-      <div class="qa__item">
-        <span class="qa__num">№&nbsp;01</span>
-        <div class="qa__body">
-          <p class="qa__q">為什麼從行政與電子維修，轉身做前端？</p>
-          <p class="qa__a">
-            做行政與維修這幾年，我發現自己最有成就感的時刻，都是「<strong>把混亂的事情整理成有秩序的介面</strong>」——
-            無論是排報表、修硬體還是畫 AutoCAD。
-            前端剛好把這件事放大成一個職業，
-            <em>能用程式碼放大十倍的影響力</em>。所以我認真學了。
-          </p>
-        </div>
-      </div>
-      <div class="qa__item">
-        <span class="qa__num">№&nbsp;02</span>
-        <div class="qa__body">
-          <p class="qa__q">主力是 Vue 還是 Angular？兩個都會嗎？</p>
-          <p class="qa__a">
-            <strong>Vue 3</strong> 是我最常用的，Vite + Pinia + vee-validate 完整側專案都跑過；
-            <strong>Angular 19</strong> 是團隊專案 LazyBaoBao 的主力框架，
-            我擔任前端負責人，Standalone Components、Signals、RxJS Reactive Forms 全部實戰過。
-            兩個都會，<em>不偏食</em>。
-          </p>
-        </div>
-      </div>
-      <div class="qa__item">
-        <span class="qa__num">№&nbsp;03</span>
-        <div class="qa__body">
-          <p class="qa__q">作品集中最有挑戰的是哪一個？</p>
-          <p class="qa__a">
-            <strong>LazyBaoBao</strong>。一個系統要服務<em>客戶、POS 終端、老闆後台三個角色</em>，
-            狀態同步、權限分離、UI 一致性都要兼顧；
-            還做了 3D 翻卡支付、Lottie 動畫、Mock 模式離線測試。
-            學到最多的是「<strong>大型專案怎麼拆模組、讓多人協作不打架</strong>」。
-          </p>
-        </div>
-      </div>
-      <div class="qa__item">
-        <span class="qa__num">№&nbsp;04</span>
-        <div class="qa__body">
-          <p class="qa__q">沒有資工背景，會不會是劣勢？</p>
-          <p class="qa__a">
-            電子科出身、做過硬體維修，對<em>底層怎麼跑的有直覺</em>；
-            做過 AutoCAD / SketchUp 製圖，對版面、間距、比例敏感；
-            做過行政，知道怎麼把需求文件拆成可執行步驟。
-            這些反而是<strong>跨域整合的優勢</strong>。
-          </p>
-        </div>
-      </div>
-      <div class="qa__item">
-        <span class="qa__num">№&nbsp;05</span>
-        <div class="qa__body">
-          <p class="qa__q">期望的工作型態？</p>
-          <p class="qa__a">
-            <strong>高雄上班或遠端皆可</strong>，正職／半天皆考慮。
-            最在意的是<em>有人能 code review、能學東西的環境</em>——比起薪水，我更想要成長空間。
-          </p>
-        </div>
-      </div>
-      <div class="qa__item">
-        <span class="qa__num">№&nbsp;06</span>
-        <div class="qa__body">
-          <p class="qa__q">下一步想學什麼？</p>
-          <p class="qa__a">
-            短期把 <strong>React + Next.js</strong> 補起來，三大框架都有實戰；
-            中期深入 <em>TypeScript 進階型別、效能調校與 a11y 無障礙</em>；
-            長期目標是<strong>能獨立負責一條產品線</strong>的資深前端。
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════════════════════════════════════════════════════════════════
-     08  CONTACT — persimmon full-bleed
-     ═════════════════════════════════════════════════════════════════════════ -->
-<section class="contact-panel" id="contact" data-screen-label="09 Contact">
-  <div class="contact-panel__inner">
-    <div class="contact-panel__head" data-reveal>
-      <div class="contact-panel__num">08 · Contact&nbsp;／&nbsp;聯絡</div>
-      <h2 class="contact-panel__title">尋找新機會，<br />一起寫好介面。</h2>
-      <p class="contact-panel__lead">
-        積極尋找<strong>前端工程師</strong>職缺，高雄上班或遠端皆可。
-        歡迎來信討論合作。
+<!-- ═════ 經歷：commit graph ═════ -->
+<section class="section section--tint" id="career" aria-labelledby="career-title">
+  <div class="wrap">
+    <header class="section__head">
+      <h2 id="career-title">工作經歷與轉職歷程</h2>
+      <p>由新到舊排列，時間前後銜接。主線是工作與轉職；旁支是兩段空檔期，以及那段時間實際在做什麼。</p>
+      <p class="legend" aria-hidden="true">
+        <span class="legend__item"><i class="legend__main"></i>工作與轉職</span>
+        <span class="legend__item"><i class="legend__branch"></i>空檔期</span>
       </p>
+    </header>
+
+    <ol class="graph">
+      <li class="node node--head">
+        <div class="node__rail" aria-hidden="true"></div>
+        <div class="node__card">
+          <p class="node__time"><time>2023/10 – 至今</time><span class="node__ref">HEAD</span></p>
+          <h3>前端工程轉職：進修與專案實作</h3>
+          <p>確認以前端／軟體開發為長期方向後，從 HTML、CSS、JavaScript 一路學到 TypeScript、Angular、Vue 與 React，再用 840 小時全端培訓補上後端與整合能力。目前以前端工程師方向求職。</p>
+          <ol class="steps">
+            <li><time>2026/6 起</time><span>React 19 + n8n 個人專案開發中，擴充第三個框架</span></li>
+            <li><time>2026/4 – 5</time><span>懶飽飽智慧點餐系統，擔任團隊前端負責人</span></li>
+            <li><time>2026/2 – 3</time><span>獨立完成 QSDemo 前後端分離問卷系統</span></li>
+            <li><time>2025/11 – 2026/5</time><span>Java 全端整合實務運用就業養成班，840 小時結訓</span></li>
+            <li><time>2025/10</time><span>受遊戲公司邀請完成 Vue 前端試題並部署上線</span></li>
+            <li><time>2025/8</time><span>開始 Vue 3 日式電商 Side Project</span></li>
+            <li><time>2025/6</time><span>六角學院 30 天軟體工程師體驗營，100% 任務完賽</span></li>
+            <li><time>2023/10</time><span>投入前端學習：HTML、CSS、JavaScript</span></li>
+          </ol>
+        </div>
+      </li>
+
+      <li class="node">
+        <div class="node__rail" aria-hidden="true"></div>
+        <div class="node__card">
+          <p class="node__time"><time>2023/4 – 2023/9</time><span class="node__dur">6 個月</span></p>
+          <h3>兼職資訊行政助理</h3>
+          <p class="node__org">匠星工程有限公司，建築工程業</p>
+          <p>整理工程照片、把部落格文章搬到新網站、協助粉絲團貼文與回覆、在正航系統輸入與修正報價單，並處理同事的電腦軟硬體問題。</p>
+        </div>
+      </li>
+
+      <li class="node node--branch">
+        <div class="node__rail" aria-hidden="true"></div>
+        <div class="node__card">
+          <p class="node__time"><time>2020/11 – 2023/3</time><span class="node__gap">空檔期</span></p>
+          <h3>職涯探索與設計技能自學</h3>
+          <p>結束約聘工作後，原本規劃往室內設計發展，自學繪圖軟體與 3D 建模。之後透過工程相關工作與業界交流重新評估工作型態，把長期方向轉向網頁設計與軟體開發。</p>
+        </div>
+      </li>
+
+      <li class="node">
+        <div class="node__rail" aria-hidden="true"></div>
+        <div class="node__card">
+          <p class="node__time"><time>2020/4 – 2020/10</time><span class="node__dur">7 個月</span></p>
+          <h3>約聘助理（資料輸入）</h3>
+          <p class="node__org">交通部航港局南部航務中心</p>
+          <p>船舶資料建檔與歸檔、調閱資料、註冊船舶商標。處理與歸檔 200 份以上船舶資料，並用 Excel 自動化把行政作業時間縮短約 20%。</p>
+        </div>
+      </li>
+
+      <li class="node node--branch">
+        <div class="node__rail" aria-hidden="true"></div>
+        <div class="node__card">
+          <p class="node__time"><time>2017/9 – 2020/3</time><span class="node__gap">空檔期</span></p>
+          <h3>健康休養與職涯恢復</h3>
+          <p>因健康因素需要較長期的治療與復健，離開學校行政工作。這段期間以恢復身體狀況為主，狀況穩定後重新投入職場，經就業服務站媒合進入航港局任職。</p>
+        </div>
+      </li>
+
+      <li class="node">
+        <div class="node__rail" aria-hidden="true"></div>
+        <div class="node__card">
+          <p class="node__time"><time>2016/1 – 2017/8</time><span class="node__dur">1 年 8 個月</span></p>
+          <h3>教務處行政人員</h3>
+          <p class="node__org">高雄市立楠梓國民中學</p>
+          <p>學生資料輸入、記功嘉獎與轉學資料處理、文書排版與檔案管理。</p>
+        </div>
+      </li>
+
+      <li class="node node--root">
+        <div class="node__rail" aria-hidden="true"></div>
+        <div class="node__card">
+          <p class="node__time"><time>2014/6</time></p>
+          <h3>高雄市立海青工商，電子科畢業</h3>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═════ 技能 ═════ -->
+<section class="section" id="skills" aria-labelledby="skills-title">
+  <div class="wrap">
+    <header class="section__head">
+      <h2 id="skills-title">技術能力</h2>
+      <p>每一項都能對應到上面至少一個作品。</p>
+    </header>
+
+    <div class="tiers">
+      <div class="tier tier--main">
+        <p class="tier__label">主力</p>
+        <p class="tier__name">Angular 19</p>
+        <p>Standalone Components、Signals、Router、表單驗證。兩個全端專案的主要框架。</p>
+      </div>
+      <div class="tier">
+        <p class="tier__label">次專長</p>
+        <p class="tier__name">Vue 3</p>
+        <p>Vite、Pinia、Vue Router、Composition API。可獨立完成整個專案。</p>
+      </div>
+      <div class="tier">
+        <p class="tier__label">擴充中</p>
+        <p class="tier__name">React 19</p>
+        <p>TanStack Query、Zod。目前用在進銷存管理系統。</p>
+      </div>
     </div>
-    <div class="contact-panel__right" data-reveal>
-      <a class="contact-panel__email" href="mailto:a437777@gmail.com">a437777@gmail.com&nbsp;↗</a>
-      <dl class="contact-panel__meta">
-        <div>
-          <dt>Phone</dt>
-          <dd><a href="tel:+886967187303">0967-187-303</a></dd>
-        </div>
-        <div>
-          <dt>GitHub</dt>
-          <dd><a href="https://github.com/AtayalLin" target="_blank" rel="noopener">github.com/AtayalLin&nbsp;↗</a></dd>
-        </div>
-        <div>
-          <dt>Location</dt>
-          <dd>高雄市左營區　Kaohsiung, TW</dd>
-        </div>
-        <div>
-          <dt>Résumé</dt>
-          <dd><a href="https://github.com/AtayalLin/AtayaHtml/raw/main/%E5%B1%A5%E6%AD%B7pdf/104%E6%9E%97%E5%AE%B6%E9%BD%8A(2026%E5%89%8D%E7%AB%AF%E5%B1%A5%E6%AD%B70514).pdf" target="_blank" rel="noopener">2026 PDF&nbsp;↗</a></dd>
-        </div>
-      </dl>
+
+    <dl class="skill-table">
+      <div><dt>語言</dt><dd>HTML5、CSS3／SCSS、JavaScript、TypeScript</dd></div>
+      <div><dt>前端能力</dt><dd>RESTful API 串接、狀態管理、表單驗證、RWD、角色權限控制</dd></div>
+      <div><dt>測試</dt><dd>Playwright E2E、API Mock、Regression Testing、Vitest</dd></div>
+      <div><dt>工程化</dt><dd>Git、GitHub Actions CI/CD、GitHub Pages 自動部署、版本與 CHANGELOG 紀錄</dd></div>
+      <div><dt>後端串接</dt><dd>Java、Spring Boot、MySQL</dd></div>
+      <div><dt>自動化</dt><dd>n8n 資料同步與通知流程</dd></div>
+      <div><dt>AI 與協作</dt><dd>Claude Code、ChatGPT、Gemini、AI Agent 輔助開發與測試；Figma、Notion</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ═════ 工作習慣 ═════ -->
+<section class="section section--tint" id="value" aria-labelledby="value-title">
+  <div class="wrap">
+    <header class="section__head">
+      <h2 id="value-title">轉職背景帶來的工作習慣</h2>
+    </header>
+    <div class="values">
+      <div class="value">
+        <h3>把文件和紀錄當成產出的一部分</h3>
+        <p>行政工作讓我重視流程、資料整理與文件完整度。寫程式後，延伸成對 README、CHANGELOG、版本紀錄和測試可重現性的要求。</p>
+      </div>
+      <div class="value">
+        <h3>先拆角色與資料，再開始切版</h3>
+        <p>多角色系統先釐清權限與資料流，再決定元件與狀態怎麼切。Mock／真實 API 切換機制，讓前後端不用互相等待。</p>
+      </div>
+      <div class="value">
+        <h3>用 AI 加速，但每個結果都自己確認</h3>
+        <p>AI 用在測試規劃、案例產生與失敗分析，最後是否採用由我判斷，並用實際的 regression 結果驗證。</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═════════════════════════════════════════════════════════════════════════
-     COLOPHON
-     ═════════════════════════════════════════════════════════════════════════ -->
-<footer class="colophon">
-  <div><b>©&nbsp;2026</b>&nbsp;&nbsp;林家齊　Lin&nbsp;Chia-Chi</div>
-  <div style="text-align:center;"><b>Set in</b>&nbsp;Bricolage&nbsp;Grotesque · Hanken&nbsp;Grotesk · JetBrains&nbsp;Mono</div>
-  <div class="colophon__r">Annual&nbsp;Report&nbsp;·&nbsp;FY 2026&nbsp;·&nbsp;End of Document</div>
+<!-- ═════ 學歷證照 ═════ -->
+<section class="section" id="credentials" aria-labelledby="cred-title">
+  <div class="wrap">
+    <header class="section__head">
+      <h2 id="cred-title">學歷、培訓與證照</h2>
+    </header>
+    <div class="cred">
+      <div>
+        <h3 class="subhead">培訓與學歷</h3>
+        <ul class="cred-list">
+          <li><time>2025/11 – 2026/5</time><div><strong>Java 全端整合實務運用就業養成班（第四梯次）</strong><span>台南應用科技大學國際產訓中心，840 小時，取得結訓證書</span></div></li>
+          <li><time>2025/6</time><div><strong>30 天軟體工程師體驗營</strong><span>六角學院，100% 任務達成，鐵人完賽證書</span></div></li>
+          <li><time>2011 – 2014</time><div><strong>高雄市立海青高級工商職業學校</strong><span>電子科畢業</span></div></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="subhead">證照</h3>
+        <ul class="cred-list cred-list--compact">
+          <li><div><strong>Autodesk AutoCAD 國際認證</strong><span>Autodesk Certified User</span></div></li>
+          <li><div><strong>乙級儀表電子技術士</strong><span>勞動部</span></div></li>
+          <li><div><strong>丙級電腦硬體裝修技術士</strong><span>勞動部</span></div></li>
+          <li><div><strong>丙級工業電子技術士</strong><span>勞動部</span></div></li>
+          <li><div><strong>TQC 雲端技術及網路服務</strong><span>電腦技能基金會</span></div></li>
+          <li><div><strong>TQC-OA Word、Excel、PowerPoint 與中英文輸入</strong><span>電腦技能基金會</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ 聯絡 ═════ -->
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap contact__grid">
+    <div>
+      <h2 id="contact-title">有適合的職缺，歡迎聯絡我</h2>
+      <p>正在找前端工程師或全端工程師的職位，高雄、台北、新北、台中都可以，也接受遠端。錄取後一週可以上班。</p>
+      <a class="contact__mail" href="mailto:a437777@gmail.com">a437777@gmail.com</a>
+    </div>
+    <dl class="contact__list">
+      <div><dt>電話</dt><dd><a href="tel:+886967187303">0967-187-303</a></dd></div>
+      <div><dt>GitHub</dt><dd><a href="https://github.com/AtayalLin" target="_blank" rel="noopener">github.com/AtayalLin</a></dd></div>
+      <div><dt>履歷</dt><dd><a href="contact.html">線上瀏覽</a><a href="履歷pdf/林家齊履歷_20261008.pdf" download>下載 PDF</a></dd></div>
+      <div><dt>所在地</dt><dd>高雄市左營區</dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>© 2026 林家齊</p>
+    <p>HTML、CSS、JavaScript 手刻，部署於 GitHub Pages</p>
+  </div>
 </footer>
 
-<script>
-(() => {
-  // Theme switcher
-  const themeBtns = document.querySelectorAll('[data-theme-btn]');
-  const saved = localStorage.getItem('portfolio-theme-v4');
-  if (saved) document.documentElement.setAttribute('data-theme', saved);
-  function syncThemeBtns() {
-    const cur = document.documentElement.getAttribute('data-theme') || 'paper';
-    themeBtns.forEach(b => b.classList.toggle('is-on', b.dataset.themeBtn === cur));
-  }
-  themeBtns.forEach(b => {
-    b.addEventListener('click', () => {
-      document.documentElement.setAttribute('data-theme', b.dataset.themeBtn);
-      localStorage.setItem('portfolio-theme-v4', b.dataset.themeBtn);
-      syncThemeBtns();
-    });
-  });
-  syncThemeBtns();
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const id = a.getAttribute('href').slice(1);
-      if (!id) return;
-      const t = document.getElementById(id);
-      if (!t) return;
-      e.preventDefault();
-      t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-
-  // Reveal on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(en => {
-      if (en.isIntersecting) {
-        en.target.classList.add('is-in');
-        io.unobserve(en.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
-  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
-
-  // Active nav based on viewport
-  const navMap = new Map();
-  document.querySelectorAll('[data-nav]').forEach(a => navMap.set(a.dataset.nav, a));
-  const secIO = new IntersectionObserver((entries) => {
-    entries.forEach(en => {
-      if (en.isIntersecting) {
-        navMap.forEach(a => a.classList.remove('is-active'));
-        const link = navMap.get(en.target.id);
-        if (link) link.classList.add('is-active');
-      }
-    });
-  }, { threshold: 0.3 });
-  ['summary','statement','work','cap','timeline','cred','qa','contact'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) secIO.observe(el);
-  });
-})();
-</script>
-
+<script src="app.js" defer></script>
 </body>
 </html>
