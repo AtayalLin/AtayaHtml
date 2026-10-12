@@ -85,6 +85,21 @@
         <a class="btn btn--line" href="#career">看轉職歷程</a>
         <a class="btn btn--text" href="mailto:a437777@gmail.com">a437777@gmail.com</a>
       </div>
+
+      <dl class="spec" aria-label="常用技術">
+        <div class="spec__row">
+          <dt>前端框架</dt>
+          <dd><ul class="spec__chips"><li class="is-main">Angular 19</li><li>Vue 3</li><li>React 19</li><li>TypeScript</li><li>Pinia</li></ul></dd>
+        </div>
+        <div class="spec__row">
+          <dt>後端串接</dt>
+          <dd><ul class="spec__chips"><li>Spring Boot</li><li>MySQL</li><li>RESTful API</li></ul></dd>
+        </div>
+        <div class="spec__row">
+          <dt>測試部署</dt>
+          <dd><ul class="spec__chips"><li>Playwright E2E</li><li>Vitest</li><li>GitHub Actions</li><li>n8n</li></ul></dd>
+        </div>
+      </dl>
     </div>
 
     <!-- 求職條件：以建築圖說標題欄的形式呈現 -->
@@ -150,11 +165,6 @@
   </div>
 </section>
 
-<!-- 技術跑馬燈：純裝飾，完整技能列表在下方技術能力區 -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track"><ul><li>Angular 19</li><li>Vue 3</li><li>TypeScript</li><li>Spring Boot</li><li>MySQL</li><li>Playwright E2E</li><li>React 19</li><li>Pinia</li><li>RESTful API</li><li>GitHub Actions</li><li>n8n</li><li>Vitest</li></ul><ul><li>Angular 19</li><li>Vue 3</li><li>TypeScript</li><li>Spring Boot</li><li>MySQL</li><li>Playwright E2E</li><li>React 19</li><li>Pinia</li><li>RESTful API</li><li>GitHub Actions</li><li>n8n</li><li>Vitest</li></ul></div>
-</div>
-
 <!-- ═════ 作品 ═════ -->
 <section class="section" id="work" aria-labelledby="work-title">
   <div class="wrap">
@@ -164,10 +174,10 @@
     </header>
 
     <article class="feature" id="lazybaobao">
-      <div class="media" data-src="影片/lazybaobao.mp4">
-        <img src="照片/projects/lazybaobao.jpg" alt="懶飽飽智慧點餐系統的客戶端首頁畫面" loading="lazy" width="1877" height="903" />
-        <button class="media__play" type="button" aria-label="播放懶飽飽智慧點餐系統操作影片，長度 2 分 17 秒">
-          <span class="media__icon" aria-hidden="true"></span>操作影片<time>2:17</time>
+      <div class="media media--video">
+        <video data-src="影片/lazybaobao.mp4" poster="照片/projects/lazybaobao.jpg" muted loop playsinline preload="none" aria-label="懶飽飽智慧點餐系統操作影片（無聲）"></video>
+        <button class="media__toggle" type="button" aria-label="暫停懶飽飽智慧點餐系統操作影片">
+          <span class="media__icon" aria-hidden="true"></span><span class="media__state">播放中</span><time>2:17</time>
         </button>
       </div>
       <div class="feature__body">
@@ -211,12 +221,12 @@
     <h3 class="subhead">其他作品</h3>
     <div class="minis">
       <article class="mini">
-        <div class="media" data-src="影片/vueshop.mp4">
-          <img src="照片/projects/vue-shop.jpg" alt="Vue 日式電商網站首頁" loading="lazy" width="1897" height="907" />
-          <button class="media__play" type="button" aria-label="播放 Vue 日式電商操作影片，長度 2 分 35 秒">
-            <span class="media__icon" aria-hidden="true"></span>操作影片<time>2:35</time>
-          </button>
-        </div>
+        <div class="media media--video">
+        <video data-src="影片/vueshop.mp4" poster="照片/projects/vue-shop.jpg" muted loop playsinline preload="none" aria-label="Vue 日式電商操作影片（無聲）"></video>
+        <button class="media__toggle" type="button" aria-label="暫停Vue 日式電商操作影片">
+          <span class="media__icon" aria-hidden="true"></span><span class="media__state">播放中</span><time>2:35</time>
+        </button>
+      </div>
         <div class="mini__body">
           <p class="tagline"><span class="pill">個人 Side Project</span><time>2025/8 起</time></p>
           <h4>Vue 日式電商 Demo</h4>
@@ -230,12 +240,12 @@
       </article>
 
       <article class="mini">
-        <div class="media" data-src="影片/react.mp4">
-          <img src="照片/projects/react-inventory.jpg" alt="智慧餐飲進銷存管理系統的儀表板畫面" loading="lazy" width="900" height="506" />
-          <button class="media__play" type="button" aria-label="播放智慧餐飲進銷存管理系統操作影片，長度 2 分 59 秒">
-            <span class="media__icon" aria-hidden="true"></span>操作影片<time>2:59</time>
-          </button>
-        </div>
+        <div class="media media--video">
+        <video data-src="影片/react.mp4" poster="照片/projects/react-inventory.jpg" muted loop playsinline preload="none" aria-label="智慧餐飲進銷存管理系統操作影片（無聲）"></video>
+        <button class="media__toggle" type="button" aria-label="暫停智慧餐飲進銷存管理系統操作影片">
+          <span class="media__icon" aria-hidden="true"></span><span class="media__state">播放中</span><time>2:59</time>
+        </button>
+      </div>
         <div class="mini__body">
           <p class="tagline"><span class="pill">個人專案，開發中</span><time>2026/6 起</time></p>
           <h4>智慧餐飲進銷存管理系統</h4>
@@ -246,12 +256,12 @@
       </article>
 
       <article class="mini">
-        <div class="media" data-src="影片/gamehall.mp4">
-          <img src="照片/projects/game-hall.jpg" alt="Vue 模擬遊戲大廳入口頁面" loading="lazy" width="1912" height="903" />
-          <button class="media__play" type="button" aria-label="播放 Vue 模擬遊戲大廳操作影片，長度 54 秒">
-            <span class="media__icon" aria-hidden="true"></span>操作影片<time>0:54</time>
-          </button>
-        </div>
+        <div class="media media--video">
+        <video data-src="影片/gamehall.mp4" poster="照片/projects/game-hall.jpg" muted loop playsinline preload="none" aria-label="Vue 模擬遊戲大廳操作影片（無聲）"></video>
+        <button class="media__toggle" type="button" aria-label="暫停Vue 模擬遊戲大廳操作影片">
+          <span class="media__icon" aria-hidden="true"></span><span class="media__state">播放中</span><time>0:54</time>
+        </button>
+      </div>
         <div class="mini__body">
           <p class="tagline"><span class="pill">公司前端試題</span><time>2025/10</time></p>
           <h4>Vue 模擬遊戲大廳</h4>
@@ -265,12 +275,12 @@
       </article>
 
       <article class="mini">
-        <div class="media" data-src="影片/japanfood.mp4">
-          <img src="照片/projects/japan-food.jpg" alt="日本美食推薦網首頁" loading="lazy" width="1885" height="903" />
-          <button class="media__play" type="button" aria-label="播放日本美食推薦網操作影片，長度 57 秒">
-            <span class="media__icon" aria-hidden="true"></span>操作影片<time>0:57</time>
-          </button>
-        </div>
+        <div class="media media--video">
+        <video data-src="影片/japanfood.mp4" poster="照片/projects/japan-food.jpg" muted loop playsinline preload="none" aria-label="日本美食推薦網操作影片（無聲）"></video>
+        <button class="media__toggle" type="button" aria-label="暫停日本美食推薦網操作影片">
+          <span class="media__icon" aria-hidden="true"></span><span class="media__state">播放中</span><time>0:57</time>
+        </button>
+      </div>
         <div class="mini__body">
           <p class="tagline"><span class="pill">早期練習作品</span><time>2024</time></p>
           <h4>日本美食推薦網</h4>

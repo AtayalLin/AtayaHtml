@@ -35,27 +35,52 @@
     });
   }
 
-  /* ---------- 作品影片：按下才載入並播放 ---------- */
-  Array.prototype.forEach.call(document.querySelectorAll(".media[data-src]"), function (box) {
-    var btn = box.querySelector(".media__play");
-    var img = box.querySelector("img");
-    if (!btn) return;
-    btn.addEventListener("click", function () {
-      var video = document.createElement("video");
-      video.src = box.getAttribute("data-src");
-      if (img) video.poster = img.currentSrc || img.src;
-      video.controls = true;
-      video.muted = true;          /* 影片本身沒有聲音，靜音才能在手機上自動播放 */
-      video.playsInline = true;
-      video.setAttribute("playsinline", "");
-      video.setAttribute("aria-label", btn.getAttribute("aria-label").replace("播放", ""));
-      box.replaceChildren(video);
-      box.classList.add("is-playing");
+  /* ---------- 作品影片：捲到畫面內自動播放（靜音、循環），離開畫面暫停 ---------- */
+  var videoBoxes = Array.prototype.slice.call(document.querySelectorAll(".media--video"));
+
+  videoBoxes.forEach(function (box) {
+    var video = box.querySelector("video");
+    var btn = box.querySelector(".media__toggle");
+    var state = box.querySelector(".media__state");
+    var name = video.getAttribute("aria-label").replace("（無聲）", "");
+    box._userPaused = reduceMotion;   /* 偏好減少動態時，預設不自動播放 */
+
+    function load() {
+      if (!video.getAttribute("src")) { video.src = video.getAttribute("data-src"); }
+    }
+    function setUI(paused) {
+      if (paused) btn.setAttribute("data-paused", ""); else btn.removeAttribute("data-paused");
+      btn.setAttribute("aria-label", (paused ? "播放" : "暫停") + name);
+      state.textContent = paused ? "播放影片" : "播放中";
+    }
+    box._play = function () {
+      load();
       var p = video.play();
-      if (p && p.catch) p.catch(function () { /* 瀏覽器擋自動播放時，保留控制列讓使用者自己按 */ });
-      video.focus();
+      if (p && p.catch) p.catch(function () { setUI(true); });
+      setUI(false);
+    };
+    box._pause = function () { video.pause(); setUI(true); };
+
+    setUI(true);
+    btn.addEventListener("click", function () {
+      if (video.paused) { box._userPaused = false; box._play(); }
+      else { box._userPaused = true; box._pause(); }
     });
   });
+
+  if ("IntersectionObserver" in window && videoBoxes.length) {
+    var videoObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var box = entry.target;
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
+          if (!box._userPaused) box._play();
+        } else if (!box.querySelector("video").paused) {
+          box._pause();
+        }
+      });
+    }, { threshold: [0, 0.35] });
+    videoBoxes.forEach(function (box) { videoObserver.observe(box); });
+  }
 
   /* ---------- 兩側欄：目前區塊名稱與 commit 進度 ---------- */
   var railLinks = Array.prototype.slice.call(document.querySelectorAll(".rail__dots a"));
