@@ -1,17 +1,16 @@
-# 林家齊 · Frontend Engineer Portfolio
+# 林家齊｜前端工程師作品集
 
-> 從行政、板手到程式碼。
-> 以「年度報告 Annual Report FY 2026」為設計隱喻的個人作品集網站,
-> 把求職資料當作一份**可以翻閱的文件**來排版。
+> 從行政與資料處理工作轉職前端。
+> 這個網站把作品、經歷和每一段空檔期都整理在同一頁，讓招募方在幾分鐘內確認：
+> 我已經準備好以前端／全端工程師的身分投入工作。
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-atayallin.github.io%2FAtayaHtml-C25430?style=for-the-badge&logo=github&logoColor=white)](https://atayallin.github.io/AtayaHtml/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-1E2A26.svg?style=for-the-badge)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-atayallin.github.io%2FAtayaHtml-5C7A2B?style=for-the-badge&logo=github&logoColor=white)](https://atayallin.github.io/AtayaHtml/)
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![No Framework](https://img.shields.io/badge/No%20Framework-Vanilla-2E3B36?style=flat)
-![Google Fonts](https://img.shields.io/badge/Google%20Fonts-Bricolage%20%C2%B7%20Hanken%20%C2%B7%20JetBrains-4285F4?style=flat&logo=googlefonts&logoColor=white)
+![No Framework](https://img.shields.io/badge/No%20Framework-Vanilla-16212B?style=flat)
+![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-222222?style=flat&logo=githubpages&logoColor=white)
 
 ---
 
@@ -20,13 +19,14 @@
 - [專案簡介](#專案簡介)
 - [線上預覽](#線上預覽)
 - [設計概念](#設計概念)
+- [頁面結構](#頁面結構)
 - [主要特色](#主要特色)
-- [技術棧](#技術棧)
+- [技術實作](#技術實作)
 - [專案結構](#專案結構)
-- [章節結構](#章節結構)
-- [作品集連結](#作品集連結)
+- [收錄作品](#收錄作品)
 - [設計系統](#設計系統)
 - [本地運行](#本地運行)
+- [維護說明](#維護說明)
 - [瀏覽器支援](#瀏覽器支援)
 - [更新紀錄](#更新紀錄)
 - [聯絡方式](#聯絡方式)
@@ -36,14 +36,15 @@
 
 ## 專案簡介
 
-`AtayaHtml` 是 **林家齊(Lin Chia-Chi)** 的個人作品集網站,定位為求職用的前端工程師門面。
-2026 年五月重新設計為「**年度報告風 Annual Report FY 2026**」——
-把作品集當作一份**封面 → 數字摘要 → 自述 → 精選作品 → 能力清單 → 時間線 → 證照分類 → Q&A → 聯絡**
-的完整文件,在排版上採用印刷感的色塊、頁碼索引、與分章編號。
+`AtayaHtml` 是 **林家齊（Lin Chia-Chi）** 的求職作品集網站，應徵職缺為前端工程師／全端工程師。
 
-技術上是**純靜態單頁網站**:整份 CSS 內嵌於 `<style>` 區塊,
-JavaScript 為原生 Vanilla(僅實作主題切換、平滑捲動、IntersectionObserver 進場動畫)。
-不依賴任何前端框架、不需要 build step、不需要 `npm install`。
+2026 年 10 月依新版履歷全面翻新，設計目標只有一個：**讓 HR 與面試官快速、可驗證地看懂我**。
+
+- 開場就看到求職條件、主力技術與可驗證的成果數字
+- 主要作品附上操作影片，不用離開頁面就能看到實際畫面
+- 工作經歷以 git commit graph 呈現，兩段空檔期畫成支線，並說明期間在做什麼
+
+技術上是**純靜態網站**：手寫 HTML、CSS、Vanilla JavaScript，沒有框架、沒有建置工具、不需要 `npm install`。
 
 ## 線上預覽
 
@@ -51,222 +52,210 @@ JavaScript 為原生 Vanilla(僅實作主題切換、平滑捲動、Intersection
 
 ## 設計概念
 
-| 元素 | 對應到年度報告 |
+整體視覺結合兩個背景：**建築製圖**（轉職前的工作）與 **Git 版本控制**（現在的工作方式）。
+
+| 設計元素 | 來源與用意 |
 |---|---|
-| 封面 (Cover) | 公司年報封面 — 標題 + Fiscal Year + 發行人 + 目錄 |
-| Summary | 數字摘要 (KPI bento grid) |
-| Statement | CEO 致詞 — 全幅 navy 色塊 |
-| Selected Work | 精選作品報導 — 帶色塊 ribbon 的專題頁 |
-| Capabilities | 規格清單 (spec sheet) |
-| Timeline | 三幕轉職劇本 (Origin / Pivot / Now) |
-| Credentials | 證照分類帳 (ledger table) |
-| Q&A | 訪談六題 |
-| Contact | 聯絡資訊(全幅 persimmon 色塊) |
-| Colophon | 出版資訊頁尾 |
+| 製圖紙方格底紋 | 呼應 AutoCAD／SketchUp 製圖經驗 |
+| 圖說標題欄（求職條件卡） | 仿建築圖面右下角的標題欄，含「繪製／更新」欄位 |
+| Commit graph 經歷 | 主線是工作與轉職，旁支是空檔期，`HEAD` 標示目前狀態 |
+| 2014–2026 時間總覽 | 十年經歷壓縮成一條線，不用捲動就能看到全貌 |
+| 左側縱書欄 | 參考日本網站的直排側欄，顯示目前閱讀的區塊 |
+| 右側 commit 進度欄 | 隨捲動填滿，每個節點可點擊跳轉 |
+
+配色以**橄欖綠**為主色（對應履歷標題色），**琥珀色**只用在空檔期，讓兩種資訊一眼就能區分。
+
+## 頁面結構
+
+| 區塊 | ID | 內容 |
+|---|---|---|
+| 開場 | `#top` | 求職狀態、姓名與職稱、自我介紹、技術規格表、求職條件標題欄、時間總覽、四個成果數字 |
+| 專案作品 | `#work` | 兩個主打全端專案＋四個其他作品，五支操作影片 |
+| 工作經歷與轉職歷程 | `#career` | Commit graph 時間線＋固定在側邊的經歷摘要 |
+| 技術能力 | `#skills` | 主力／次專長／擴充中三級框架，加上七類技能表 |
+| 工作習慣 | `#value` | 轉職背景帶來的三個工作習慣 |
+| 學歷、培訓與證照 | `#credentials` | 840 小時全端培訓、六角學院體驗營、技術士與國際證照 |
+| 聯絡 | `#contact` | Email、電話、GitHub、履歷線上瀏覽與下載 |
+
+另有 `contact.html`：新版履歷 PDF 的線上瀏覽頁。
 
 ## 主要特色
 
 | 類別 | 細節 |
 |---|---|
-| 📰 **排版** | Annual Report 印刷風 — 頁碼、章節編號、出版資訊頁尾、目錄索引 |
-| 🎨 **配色** | Persimmon `#C25430` 黧赭土 + Navy `#1E2A26` 黑墨綠 + Cream `#F6F2E5` 米黃,輔以 Butter `#D9B068` / Moss `#4B5F4F` |
-| 🌗 **雙主題** | Paper(米黃紙)/ Ink(深墨)兩種模式,`localStorage` 持久化 |
-| 🎬 **動畫** | IntersectionObserver-driven `data-reveal` 進場 + 平滑捲動 + 滾動觸發 active nav |
-| 📱 **響應式** | 760 / 900 / 1100px 三斷點,行動裝置自動切換為直式排版 |
-| ♿ **無障礙** | 語意化標籤、`prefers-reduced-motion` 尊重、可見 focus 樣式、ARIA labels |
-| ⚡ **效能** | 純單檔(`index.html` 約 76KB)、`loading="lazy"`、無外部 CSS/JS 依賴 |
-| 🧱 **工程化** | CSS Custom Properties 集中、`color-mix()`、`clamp()` 流體排版、`text-wrap: balance/pretty` |
+| 🎬 **作品影片** | 捲到畫面內自動靜音循環播放，離開畫面暫停；只載入看得到的影片，每支都可手動暫停 |
+| 🌗 **雙主題** | 淺色（paper）／深色（ink），預設跟隨系統，切換結果以 `localStorage` 記住，載入前套用避免閃爍 |
+| 🧭 **兩側導覽** | 寬螢幕（≥1360px）左右留白顯示縱書區塊名稱與 commit 進度欄，不覆蓋內容 |
+| ✨ **質感細節** | 邊緣柔光、極淡底紋顆粒、經歷 commit graph 依序進場 |
+| 📖 **中文排版** | `word-break: keep-all` 只在標點處斷行，關鍵詞組不拆開；手機改回一般斷行 |
+| 📱 **響應式** | 1080 / 760 / 480px 三個斷點，手機上的求職條件卡、時間總覽、經歷都另行調整 |
+| ♿ **無障礙** | 語意化標籤、ARIA、跳至主要內容連結、可見的 focus 樣式；文字對比皆超過 WCAG AA 4.5:1；尊重 `prefers-reduced-motion`（停止動畫、影片不自動播放） |
+| ⚡ **效能** | 圖片 `loading="lazy"`，影片 `preload="none"` 並壓縮為 720p 無聲版本，CSS／JS 加版本號避免快取舊檔 |
 
-## 技術棧
-
-### 前端
+## 技術實作
 
 | 技術 | 用途 |
 |---|---|
-| **HTML5** | 語意化結構、ARIA 屬性、SEO meta |
-| **CSS3** (內嵌) | CSS Grid · Flexbox · Custom Properties · `clamp()` · `color-mix()` · `aspect-ratio` |
-| **JavaScript** (Vanilla ES6+) | 主題切換 · 平滑捲動 · `IntersectionObserver` × 2(進場動畫 + active nav) |
+| **HTML5** | 語意化結構、ARIA 屬性、Open Graph meta |
+| **CSS3** | Grid、Flexbox、Custom Properties、`clamp()`、`color-mix()`、`mask-image`、`writing-mode`、`text-wrap: balance / pretty` |
+| **JavaScript**（Vanilla） | 主題切換、`IntersectionObserver`（導覽高亮、經歷進場、影片自動播放）、`requestAnimationFrame` 節流的捲動進度 |
+| **SVG** | 時間總覽線圖、底紋顆粒（`feTurbulence`）、主題切換圖示 |
+| **ffmpeg** | 作品影片轉為 720p／30fps H.264、去除音軌、`faststart` 以利串流 |
 
-### 字體 (Google Fonts CDN)
+### 字體（Google Fonts）
 
 | 字體 | 用途 |
 |---|---|
-| **Bricolage Grotesque** | 標題 / 數字 (display) |
-| **Hanken Grotesk** | 內文 (sans) |
-| **Noto Sans TC** | 中文 fallback |
-| **JetBrains Mono** | 標籤、章節編號、技術 chips (mono) |
+| **Noto Serif TC** | 姓名、標題、數字 |
+| **IBM Plex Sans** + **Noto Sans TC** | 內文 |
+| **IBM Plex Mono** | 日期、技術標籤 |
 
 ### 部署
 
-- **GitHub Pages** — push to `main` 即自動部署
-- 履歷 PDF 透過 GitHub raw 提供下載
+- **GitHub Pages**：push 到 `main` 即自動部署
 
 ## 專案結構
 
 ```
 AtayaHtml/
-├── index.html                     # 主頁面(年度報告風 · 內嵌 CSS · 約 76KB)
-├── 履歷pdf/
-│   └── 104林家齊(2026前端履歷0514).pdf
+├── index.html                  # 主頁面
+├── contact.html                # 履歷 PDF 線上瀏覽頁
+├── app.js                      # 主題切換、側欄進度、影片自動播放、進場動畫
+├── style/
+│   └── site.css                # 全站樣式（淺色／深色色票、三個斷點）
+├── 影片/                        # 作品操作影片（720p、無聲，共約 14MB）
+│   ├── lazybaobao.mp4
+│   ├── vueshop.mp4
+│   ├── react.mp4
+│   ├── gamehall.mp4
+│   └── japanfood.mp4
 ├── 照片/
-│   ├── 去背個人照.png             # 封面人像
-│   ├── 合成背景圖.png             # (舊版用,保留)
-│   ├── 山上生活照.png             # (備用)
-│   └── projects/                  # 作品集首頁截圖
-│       ├── lazybaobao.jpg
-│       ├── vue-shop.jpg
-│       ├── game-hall.jpg
-│       ├── qsdemo.jpg
-│       ├── atayahtml.jpg
-│       └── japan-food.jpg
-├── 作品1/                          # 嵌入式作品:日本美食推薦網
-│
-├── (備份 · 不再使用)
-│   ├── style/style.css            # 舊版 Glassmorphism 樣式
-│   ├── style/style.scss
-│   ├── style/bubble.css
-│   ├── app.js                     # 舊版互動腳本
-│   ├── contact.html               # 舊版履歷瀏覽頁
-│   └── p3-0資源包/ICONS/          # 舊版本地 SVG 圖示
-│
+│   ├── 去背個人照.png
+│   └── projects/               # 作品截圖（影片封面）
+├── 履歷pdf/
+│   └── 林家齊履歷_20261008.pdf
+├── 作品1/                       # 日本美食推薦網（早期作品，站內線上展示）
+├── 專案1/、專案2/                # 早期練習
 ├── README.md
-├── LICENSE
 └── .gitignore
 ```
 
-> **備註**:舊版 `style/`、`app.js`、`contact.html` 暫時保留作備份,新版完全不引用。
+> `style/style.css`、`style.scss`、`bubble.css` 與舊版履歷 PDF 為舊版設計遺留，新版頁面不再引用。
 
-## 章節結構
+## 收錄作品
 
-| # | 區塊 | ID | 內容重點 |
+| 作品 | 類型 | 技術 | 連結 |
 |---|---|---|---|
-| 00 | **Cover** | (無) | 封面:中英文姓名 + 個人照 + 角色卡片(Persimmon)+ 目錄索引 |
-| 01 | **Summary** | `#summary` | 4 個 KPI bento:作品 6 件、培訓 840hrs、證照 9 張、跨域 2+ 年 |
-| 02 | **Statement** | `#statement` | 全幅 Navy 色塊 — 自述「從行政與板手,轉身寫程式碼」 |
-| 03 | **Selected Work** | `#work` | 3 個精選作品(色塊 ribbon: Persimmon / Navy / Butter)+ 3 個 sub-listings |
-| 04 | **Capabilities** | `#cap` | 4 大類技能清單:Frontend / Backend / Tooling / Adjacent |
-| 05 | **Timeline** | `#timeline` | 三幕劇:Act 01 Origin(2023)/ Act 02 Pivot(2024)/ Act 03 Now(2025–26) |
-| 06 | **Credentials** | `#cred` | 9 項證照 ledger:Autodesk、勞動部乙/丙級、TQC、六角學院、Java 養成班 |
-| 07 | **Q&A** | `#qa` | 六題訪談自述 |
-| 08 | **Contact** | `#contact` | 全幅 Persimmon 色塊 — Email / Phone / GitHub / Résumé PDF |
-| —  | **Colophon** | (footer) | 出版資訊:版權、字體、年份 |
-
-## 作品集連結
-
-| # | 專案 | 技術棧 | 連結 |
-|---|---|---|---|
-| 01 | **LazyBaoBao 懶飽飽智慧點餐系統** (團隊專案・前端負責人) | Angular 19 · TS · Signals · Spring Boot · MySQL · GSAP · Lottie | [Source](https://github.com/AtayalLin/Angular-Team-Frontend) |
-| 02 | **QSDemo 企業級問卷系統** (Solo · Full Stack) | Angular 19 · Spring Boot 3.x · MySQL 8.x · JPA | [Live](https://atayallin.github.io/Angular-qsdemo/) · [Code](https://github.com/AtayalLin/Angular-qsdemo) |
-| 03 | **夜色道頓堀 Vue 日式電商 Demo** | Vue 3 · Vite · Pinia · vee-validate · Zod · GitHub Actions | [Live](https://atayallin.github.io/Vueshop-Side-Project-Demo-/) · [Code](https://github.com/AtayalLin/Vueshop-Side-Project-Demo-) |
-| 04 | **Vue H5 模擬遊戲大廳** (IGS 面試試題) | Vue 3 · H5 · VIP 等級 · 輪播 | [Live](https://atayallin.github.io/Igs-test-vue/) · [Code](https://github.com/AtayalLin/Igs-test-vue) |
-| 05 | **AtayaHtml 個人作品集**(本站) | HTML5 · CSS3 · Vanilla JS | [Code](https://github.com/AtayalLin/AtayaHtml) |
-| 06 | **日本美食推薦網** | HTML · CSS · AOS · RWD | 內嵌於本站 `/作品1/` |
+| **懶飽飽智慧點餐系統** | 團隊專案，前端負責人 | Angular 19、TypeScript、Signals、Spring Boot、MySQL、Playwright | [原始碼](https://github.com/AtayalLin/Angular-Team-Frontend) |
+| **QSDemo 問卷管理系統** | 獨立完成，前後端分離 | Angular 19 Standalone、Spring Boot、MySQL、RESTful API | [線上展示](https://atayallin.github.io/Angular-qsdemo/)・[原始碼](https://github.com/AtayalLin/Angular-qsdemo) |
+| **Vue 日式電商 Demo** | 個人 Side Project | Vue 3、Vite、Pinia、Vue Router、Zod、Vitest、GitHub Actions | [線上展示](https://atayallin.github.io/Vueshop-Side-Project-Demo-/)・[原始碼](https://github.com/AtayalLin/Vueshop-Side-Project-Demo-) |
+| **智慧餐飲進銷存管理系統** | 個人專案，開發中 | React 19、TypeScript、TanStack Query、Zod、n8n | 尚未公開，面試時可展示 |
+| **Vue 模擬遊戲大廳** | 公司前端試題 | Vue 3、Vite、Pinia、GSAP、GitHub Actions | [線上展示](https://atayallin.github.io/Igs-test-vue/)・[原始碼](https://github.com/AtayalLin/Igs-test-vue) |
+| **日本美食推薦網** | 早期練習作品 | HTML5、CSS3、JavaScript、RWD | 站內 [`作品1/`](作品1/index.html) |
 
 ## 設計系統
 
-### 配色 Tokens
+### 色票
 
 ```css
-/* Paper Mode (default) */
---cream:        #F6F2E5;     /* 主背景 米黃紙 */
---cream-2:      #ECE5D2;
---cream-3:      #DDD3B9;
---ink:          #1A1612;     /* 主前景 墨 */
---ink-2:        #4A4138;
---ink-3:        #7E7568;
+/* 淺色 paper（預設） */
+--bg:      #F4F5F1;   /* 背景 */
+--surface: #FFFFFF;   /* 卡片 */
+--ink:     #16212B;   /* 主文字 */
+--ink-2:   #3E4B57;   /* 內文 */
+--ink-3:   #56616D;   /* 次要文字（對比 5.3:1 以上） */
+--accent:  #5C7A2B;   /* 橄欖綠：主色、主線 */
+--branch:  #B97A12;   /* 琥珀：只用於空檔期支線 */
 
---persimmon:    #C25430;     /* 黧赭土 · 主強調色 */
---persimmon-d:  #8E3C20;
---navy:         #1E2A26;     /* 黑墨綠 · 自述/CTA 色塊 */
---butter:       #D9B068;     /* 麥麥黃 · 第三色 */
---moss:         #4B5F4F;     /* 苔綠 · 輔助色 */
-
-/* Ink Mode (dark) */
---cream:        #100E0B;
---ink:          #F6F2E5;
---persimmon:    #D9633A;
+/* 深色 ink */
+--bg:      #12181E;
+--surface: #1C252E;
+--ink:     #E8ECE5;
+--ink-3:   #A3AEB9;   /* 次要文字（對比 6.9:1 以上） */
+--accent:  #9DBE5E;
+--branch:  #E2A642;
 ```
 
-### 字體系統
+### 字體與尺寸
 
 ```css
---f-display:    "Bricolage Grotesque", "Noto Sans TC", system-ui, sans-serif;
---f-sans:       "Hanken Grotesk", "Noto Sans TC", system-ui, sans-serif;
---f-mono:       "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+--f-serif: "Noto Serif TC", serif;                      /* 標題 */
+--f-sans:  "IBM Plex Sans", "Noto Sans TC", sans-serif; /* 內文 */
+--f-mono:  "IBM Plex Mono", monospace;                  /* 日期、標籤 */
+
+--wrap:    1240px;                    /* 內容最寬 */
+--gutter:  clamp(16px, 4vw, 40px);    /* 左右留白 */
+--radius:  10px;
 ```
 
-### 排版尺度
-
-```css
---gutter:       clamp(20px, 4vw, 56px);    /* 左右留白 */
---max-w:        1480px;                     /* 內容最寬 */
-```
+最小字級 13px，日期與欄位標籤 14–15px。
 
 ## 本地運行
-
-### 直接開啟
 
 ```bash
 git clone https://github.com/AtayalLin/AtayaHtml.git
 cd AtayaHtml
-# 用瀏覽器直接打開 index.html
 ```
 
-### 推薦:VS Code Live Server
+推薦使用 VS Code **Live Server**：右鍵 `index.html` →「Open with Live Server」。
 
-1. 安裝 `Live Server` 擴展
-2. 右鍵 `index.html` → `Open with Live Server`
-3. 自動開啟 `http://127.0.0.1:5500/`(熱重載)
+> 影片自動播放需要透過 `http://` 開啟（Live Server 或 GitHub Pages）。直接雙擊 `index.html` 以 `file://` 開啟時，部分瀏覽器會限制。
 
-> **純靜態網站**:無 build step、無 `npm install`、無外部 CSS/JS 依賴(僅 Google Fonts CDN)。
+## 維護說明
+
+- **改了 CSS 或 JS 後**：把 `index.html` 與 `contact.html` 裡的 `site.css?v=5`、`app.js?v=5` 版本號加 1，訪客才不會讀到舊快取。
+- **新增作品影片**：先壓縮再放進 `影片/`，例如：
+  ```bash
+  ffmpeg -i 原始影片.mp4 -an -vf "fps=30,scale=1280:-2" -c:v libx264 -crf 30 -preset slow -movflags +faststart 影片/新作品.mp4
+  ```
+  再複製一組 `.media--video` 區塊，修改 `data-src`、`poster` 與時長。
+- **更新履歷**：替換 `履歷pdf/` 內的檔案，並同步修改 `index.html`、`contact.html` 的下載連結。
 
 ## 瀏覽器支援
 
 | 瀏覽器 | 支援版本 |
 |---|---|
-| Chrome / Edge | 105+ |
-| Firefox | 113+ |
-| Safari | 16.4+ |
-| iOS / Android | iOS 16.4+ / Android 13+ |
+| Chrome / Edge | 114+ |
+| Firefox | 121+ |
+| Safari | 17.5+ |
 
-> 使用了 `color-mix()`、`text-wrap: balance/pretty`、`aspect-ratio`、`backdrop-filter`、CSS Custom Properties。
-> 較舊瀏覽器會 graceful degrade(失去玻璃模糊、文字平衡換行等細節,但排版結構仍正確)。
+> 使用了 `color-mix()`、`text-wrap: balance / pretty`、`mask-image`、`backdrop-filter`。較舊的瀏覽器會失去部分細節（例如文字平衡換行、毛玻璃效果），但版面結構與內容都能正常閱讀。
 
 ## 更新紀錄
 
-### 2026/05/26 — Annual Report Redesign 📰
+### 2026/10/12：依新版履歷全面翻新
 
-- ✨ **完整重寫**為「2026 個人網頁」設計語言
-- 🎨 配色改為 Persimmon `#C25430` + Navy `#1E2A26` + Cream `#F6F2E5` 印刷感色調
-- 🔤 字體系統換為 **Bricolage Grotesque + Hanken Grotesk + JetBrains Mono + Noto Sans TC**
-- 📐 結構重組為 8 章節 + 封面 + Colophon:Cover / Summary / Statement / Work / Capabilities / Timeline / Credentials / Q&A / Contact
-- 🧹 **CSS 全部內嵌**於 `<style>` 區塊,不再引用 `style/style.css`、`bubble.css`、Bootstrap、AOS、GSAP、Devicon
-- 💡 主題切換改名為 Paper / Ink,沿用 `localStorage` 持久化
-- 🗑️ 移除舊版打字機效果、Glassmorphism、漸層強調色、AOS 進場、Aurora 背景
-- 📄 履歷 PDF 連結改為直接從 GitHub raw 下載
+- 依 2026/10/08 新版履歷重寫全部內容，定位為前端／全端工程師
+- 新設計：建築製圖 × Git 版本控制，橄欖綠＋琥珀雙色系統
+- 開場加入求職條件標題欄、技術規格表、2014–2026 時間總覽與可點擊的成果數字
+- 工作經歷改為 commit graph，空檔期以支線呈現並說明期間內容
+- 五個作品加入操作影片，捲到畫面內自動播放
+- 寬螢幕加入左側縱書欄、右側 commit 進度欄、邊緣柔光與底紋顆粒
+- 中文斷行改為 `keep-all`，小字放大並加深，對比達 WCAG AA
+- 樣式拆分為 `style/site.css`，`app.js` 改寫為純 Vanilla JavaScript
+- `contact.html` 改為新版履歷線上瀏覽頁
 
-### 2026/05/19 — Glassmorphism 版
+### 2026/05/26：Annual Report 版
 
-- 深色 Glassmorphism + Motion-Driven 設計
-- 打字機效果、Aurora 背景、深淺模式切換
-- Bootstrap 5 + AOS + GSAP + Devicon
+- 年度報告風設計（Persimmon＋Navy＋Cream 配色）
+- 8 章節結構：Summary、Statement、Work、Capabilities、Timeline、Credentials、Q&A、Contact
 
-### 2025/08/24
+### 2026/05/19：Glassmorphism 版
 
-- 導覽列改用 Bootstrap Columns
-- 平板斷點啟用漢堡選單
+- 深色 Glassmorphism＋打字機效果、Aurora 背景
+- Bootstrap 5＋AOS＋GSAP＋Devicon
 
 ## 聯絡方式
 
 | 管道 | 連結 |
 |---|---|
 | ✉️ Email | <a437777@gmail.com> |
-| 📞 Phone | 0967-187-303 |
+| 📞 電話 | 0967-187-303 |
 | 🐙 GitHub | [github.com/AtayalLin](https://github.com/AtayalLin) |
-| 📍 Location | 高雄市左營區 Kaohsiung, TW |
-| 📄 Résumé | [104林家齊(2026 前端履歷 0514).pdf](https://github.com/AtayalLin/AtayaHtml/raw/main/履歷pdf/104林家齊(2026前端履歷0514).pdf) |
+| 📍 所在地 | 高雄市左營區（可到台北、新北、台中，或遠端） |
+| 📄 履歷 | [線上瀏覽](https://atayallin.github.io/AtayaHtml/contact.html)・[下載 PDF](履歷pdf/林家齊履歷_20261008.pdf) |
 
 ## 授權
 
-本專案採用 [MIT License](LICENSE)。
-個人照片與履歷 PDF 為個人資料,**不在授權範圍內**,僅供求職用途瀏覽。
+網站程式碼可自由參考學習。
+個人照片、作品影片與履歷 PDF 為個人資料，**不在授權範圍內**，僅供求職用途瀏覽。
