@@ -25,6 +25,28 @@
 <body>
 <a class="skip" href="#main">跳到主要內容</a>
 
+<!-- 兩側裝飾：只出現在寬螢幕的左右留白，不覆蓋內容 -->
+<div class="ambient" aria-hidden="true"><span></span><span></span></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="rail rail--left" aria-hidden="true">
+  <span class="rail__name">林家齊</span>
+  <span class="rail__rule"></span>
+  <span class="rail__section" data-rail-label>前端工程師</span>
+  <span class="rail__rule"></span>
+  <span class="rail__year">2026</span>
+</div>
+<nav class="rail rail--right" aria-label="區塊進度">
+  <span class="rail__track" aria-hidden="true"><span class="rail__fill"></span></span>
+  <ol class="rail__dots">
+    <li><a href="#top" data-for="top" data-label="開場"><span>開場</span></a></li>
+    <li><a href="#work" data-for="work" data-label="專案作品"><span>專案作品</span></a></li>
+    <li><a href="#career" data-for="career" data-label="經歷"><span>經歷</span></a></li>
+    <li><a href="#skills" data-for="skills" data-label="技術能力"><span>技術能力</span></a></li>
+    <li><a href="#credentials" data-for="credentials" data-label="學歷證照"><span>學歷證照</span></a></li>
+    <li><a href="#contact" data-for="contact" data-label="聯絡"><span>聯絡</span></a></li>
+  </ol>
+</nav>
+
 <header class="topbar">
   <div class="wrap topbar__inner">
     <a class="brand" href="#top" aria-label="林家齊，回到頁首">
@@ -57,7 +79,7 @@
       <p class="status"><span class="status__dot" aria-hidden="true"></span>求職中，錄取後一週可上班</p>
       <h1 class="hero__name">林家齊</h1>
       <p class="hero__role">前端工程師／全端工程師</p>
-      <p class="hero__lead">從行政與資料處理工作轉職前端。以 Angular 19 + TypeScript 為主力，擔任過多角色 POS 點餐系統的團隊前端負責人，也獨立完成 Angular + Spring Boot 前後端分離專案。作品影片、測試紀錄和每一段經歷都整理在這裡，可以直接驗證。</p>
+      <p class="hero__lead">從行政與資料處理工作轉職前端。以 <span class="nw">Angular 19 + TypeScript</span> 為主力，擔任過多角色 POS 點餐系統的團隊前端負責人，也獨立完成 <span class="nw">Angular + Spring Boot</span> 前後端分離專案。作品影片、測試紀錄和每一段經歷都整理在這裡，可以直接驗證。</p>
       <div class="hero__cta">
         <a class="btn btn--solid" href="#work">看作品</a>
         <a class="btn btn--line" href="#career">看轉職歷程</a>
@@ -71,10 +93,10 @@
         <img src="照片/去背個人照.png" alt="林家齊的大頭照" width="410" height="551" />
       </div>
       <dl class="tblock__grid">
-        <div class="tblock__row"><dt>應徵職缺</dt><dd>前端工程師、全端工程師</dd></div>
-        <div class="tblock__row"><dt>主力技術</dt><dd>Angular 19、Vue 3、TypeScript</dd></div>
-        <div class="tblock__row"><dt>工作地點</dt><dd>高雄、台北、新北、台中，可遠端</dd></div>
-        <div class="tblock__row"><dt>工作型態</dt><dd>全職或兼職，日班或半天班</dd></div>
+        <div class="tblock__row"><dt>應徵職缺</dt><dd><span class="nw">前端工程師、</span><span class="nw">全端工程師</span></dd></div>
+        <div class="tblock__row"><dt>主力技術</dt><dd><span class="nw">Angular 19、</span><span class="nw">Vue 3、</span><span class="nw">TypeScript</span></dd></div>
+        <div class="tblock__row"><dt>工作地點</dt><dd><span class="nw">高雄、台北、新北、台中，</span><span class="nw">可遠端</span></dd></div>
+        <div class="tblock__row"><dt>工作型態</dt><dd><span class="nw">全職或兼職，</span><span class="nw">日班或半天班</span></dd></div>
         <div class="tblock__row tblock__row--split">
           <div><dt>繪製</dt><dd>林家齊</dd></div>
           <div><dt>更新</dt><dd><time datetime="2026-10">2026/10</time></dd></div>
@@ -127,6 +149,11 @@
     </ul>
   </div>
 </section>
+
+<!-- 技術跑馬燈：純裝飾，完整技能列表在下方技術能力區 -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track"><ul><li>Angular 19</li><li>Vue 3</li><li>TypeScript</li><li>Spring Boot</li><li>MySQL</li><li>Playwright E2E</li><li>React 19</li><li>Pinia</li><li>RESTful API</li><li>GitHub Actions</li><li>n8n</li><li>Vitest</li></ul><ul><li>Angular 19</li><li>Vue 3</li><li>TypeScript</li><li>Spring Boot</li><li>MySQL</li><li>Playwright E2E</li><li>React 19</li><li>Pinia</li><li>RESTful API</li><li>GitHub Actions</li><li>n8n</li><li>Vitest</li></ul></div>
+</div>
 
 <!-- ═════ 作品 ═════ -->
 <section class="section" id="work" aria-labelledby="work-title">
@@ -283,6 +310,7 @@
       </p>
     </header>
 
+    <div class="career">
     <ol class="graph">
       <li class="node node--head">
         <div class="node__rail" aria-hidden="true"></div>
@@ -359,6 +387,20 @@
         </div>
       </li>
     </ol>
+
+    <aside class="career__aside" aria-label="經歷摘要">
+      <div class="summary">
+        <h3 class="summary__title">經歷摘要</h3>
+        <dl class="summary__list">
+          <div><dt>轉職投入</dt><dd><strong>3 年</strong><span><span class="nw">2023/10 起</span>持續學習與實作，至今沒有中斷</span></dd></div>
+          <div><dt>全端培訓</dt><dd><strong>840 小時</strong><span>2025/11 – 2026/5，取得結訓證書</span></dd></div>
+          <div><dt>工作經驗</dt><dd><strong>3 段</strong><span>行政與資料處理，涵蓋<span class="nw">學校、</span><span class="nw">公部門、</span><span class="nw">工程公司</span></span></dd></div>
+          <div><dt>空檔期</dt><dd><strong>2 段</strong><span>原因與期間內容都在左側支線說明</span></dd></div>
+        </dl>
+        <a class="btn btn--solid summary__cta" href="履歷pdf/林家齊履歷_20261008.pdf" download>下載完整履歷</a>
+      </div>
+    </aside>
+    </div>
   </div>
 </section>
 

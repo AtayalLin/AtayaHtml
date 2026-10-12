@@ -57,6 +57,53 @@
     });
   });
 
+  /* ---------- 兩側欄：目前區塊名稱與 commit 進度 ---------- */
+  var railLinks = Array.prototype.slice.call(document.querySelectorAll(".rail__dots a"));
+  var railFill = document.querySelector(".rail--right");
+  var railLabel = document.querySelector("[data-rail-label]");
+  var railTargets = railLinks.map(function (a) { return document.getElementById(a.getAttribute("data-for")); });
+  var lastIndex = -1;
+  var ticking = false;
+
+  function updateRails() {
+    ticking = false;
+    if (!railLinks.length) return;
+    var probe = window.scrollY + window.innerHeight * 0.4;
+    var index = 0;
+    railTargets.forEach(function (el, i) { if (el && el.offsetTop <= probe) index = i; });
+
+    /* 進度 = 已經過的區塊 + 目前區塊內的比例 */
+    var cur = railTargets[index];
+    var next = railTargets[index + 1];
+    var span = next ? next.offsetTop - cur.offsetTop : cur.offsetHeight;
+    var frac = Math.min(1, Math.max(0, (probe - cur.offsetTop) / Math.max(span, 1)));
+    var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+    var progress = atBottom ? 1 : (index + (next ? frac : 0)) / (railLinks.length - 1);
+    if (railFill) railFill.style.setProperty("--progress", Math.min(1, progress).toFixed(4));
+    if (atBottom) index = railLinks.length - 1;
+
+    if (index === lastIndex) return;
+    lastIndex = index;
+    railLinks.forEach(function (a, i) {
+      a.classList.toggle("is-done", i < index);
+      a.classList.toggle("is-current", i === index);
+      if (i === index) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+    });
+    if (railLabel) {
+      var text = index === 0 ? "前端工程師" : railLinks[index].getAttribute("data-label");
+      if (reduceMotion) { railLabel.textContent = text; return; }
+      railLabel.classList.add("is-swapping");
+      setTimeout(function () { railLabel.textContent = text; railLabel.classList.remove("is-swapping"); }, 200);
+    }
+  }
+
+  function requestRails() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(updateRails); }
+  }
+  window.addEventListener("scroll", requestRails, { passive: true });
+  window.addEventListener("resize", requestRails);
+  updateRails();
+
   if (!("IntersectionObserver" in window)) return;
 
   /* ---------- 2. 導覽高亮 ---------- */
