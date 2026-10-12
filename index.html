@@ -57,11 +57,7 @@
       <p class="status"><span class="status__dot" aria-hidden="true"></span>求職中，錄取後一週可上班</p>
       <h1 class="hero__name">林家齊</h1>
       <p class="hero__role">前端工程師／全端工程師</p>
-      <p class="hero__lead">
-        從行政與資料處理工作轉職前端。以 Angular 19 + TypeScript 為主力，
-        擔任過多角色 POS 點餐系統的團隊前端負責人，也獨立完成 Angular + Spring Boot
-        前後端分離專案。作品、測試紀錄和每一段經歷都整理在這裡，可以直接驗證。
-      </p>
+      <p class="hero__lead">從行政與資料處理工作轉職前端。以 Angular 19 + TypeScript 為主力，擔任過多角色 POS 點餐系統的團隊前端負責人，也獨立完成 Angular + Spring Boot 前後端分離專案。作品影片、測試紀錄和每一段經歷都整理在這裡，可以直接驗證。</p>
       <div class="hero__cta">
         <a class="btn btn--solid" href="#work">看作品</a>
         <a class="btn btn--line" href="#career">看轉職歷程</a>
@@ -69,25 +65,65 @@
       </div>
     </div>
 
-    <aside class="card-id" aria-label="求職條件">
-      <div class="card-id__photo">
+    <!-- 求職條件：以建築圖說標題欄的形式呈現 -->
+    <aside class="tblock" aria-label="求職條件">
+      <div class="tblock__photo">
         <img src="照片/去背個人照.png" alt="林家齊的大頭照" width="410" height="551" />
       </div>
-      <dl class="card-id__list">
-        <div><dt>應徵職缺</dt><dd>前端工程師、全端工程師</dd></div>
-        <div><dt>主力技術</dt><dd>Angular 19、Vue 3、TypeScript</dd></div>
-        <div><dt>工作地點</dt><dd>高雄、台北、新北、台中，可遠端</dd></div>
-        <div><dt>工作型態</dt><dd>全職或兼職，日班或半天班</dd></div>
+      <dl class="tblock__grid">
+        <div class="tblock__row"><dt>應徵職缺</dt><dd>前端工程師、全端工程師</dd></div>
+        <div class="tblock__row"><dt>主力技術</dt><dd>Angular 19、Vue 3、TypeScript</dd></div>
+        <div class="tblock__row"><dt>工作地點</dt><dd>高雄、台北、新北、台中，可遠端</dd></div>
+        <div class="tblock__row"><dt>工作型態</dt><dd>全職或兼職，日班或半天班</dd></div>
+        <div class="tblock__row tblock__row--split">
+          <div><dt>繪製</dt><dd>林家齊</dd></div>
+          <div><dt>更新</dt><dd><time datetime="2026-10">2026/10</time></dd></div>
+        </div>
       </dl>
     </aside>
   </div>
 
+  <!-- 2014–2026 時間總覽 -->
   <div class="wrap">
+    <div class="overview">
+      <div class="overview__head">
+        <h2 class="overview__title">2014 – 2026 時間總覽</h2>
+        <a class="overview__more" href="#career">每段經歷的完整說明</a>
+      </div>
+      <div class="ov" role="img" aria-label="時間總覽：2014 年高職畢業，2016 至 2017 年學校行政，2017 至 2020 年健康休養，2020 年航港局約聘，2020 至 2023 年設計自學，2023 年工程行政兼職，2023 年 10 月起轉職前端，目前求職中。">
+        <svg class="ov__svg" viewBox="0 0 1000 64" preserveAspectRatio="none" aria-hidden="true">
+          <line class="ov__base" x1="0" y1="46" x2="1000" y2="46" />
+          <path class="ov__main" d="M32 46 H282 M481 46 H525 M712 46 H983" />
+          <path class="ov__branch" d="M282 46 C304 46 304 14 326 14 H437 C459 14 459 46 481 46" />
+          <path class="ov__branch" d="M525 46 C547 46 547 14 569 14 H668 C690 14 690 46 712 46" />
+        </svg>
+        <span class="ov__dot" style="left:3.2%"></span>
+        <span class="ov__dot" style="left:15.4%"></span>
+        <span class="ov__dot ov__dot--branch" style="left:38.1%"></span>
+        <span class="ov__dot" style="left:48.1%"></span>
+        <span class="ov__dot ov__dot--branch" style="left:61.8%"></span>
+        <span class="ov__dot" style="left:71.2%"></span>
+        <span class="ov__dot" style="left:75%"></span>
+        <span class="ov__dot" style="left:91%"></span>
+        <span class="ov__dot ov__dot--head" style="left:98.3%"></span>
+
+        <span class="ov__label ov__label--up" style="left:38.1%">健康休養</span>
+        <span class="ov__label ov__label--up" style="left:61.8%">設計自學</span>
+        <span class="ov__label ov__label--head">HEAD 求職中</span>
+        <span class="ov__label" style="left:21.8%">學校行政</span>
+        <span class="ov__label" style="left:50.3%">航港局</span>
+        <span class="ov__label ov__label--accent" style="left:85%">轉職前端</span>
+      </div>
+      <div class="ov__years" aria-hidden="true">
+        <span style="left:0%">2014</span><span style="left:15.4%">2016</span><span style="left:30.8%">2018</span><span style="left:46.2%">2020</span><span style="left:61.5%">2022</span><span style="left:76.9%">2024</span><span style="left:92.3%">2026</span>
+      </div>
+    </div>
+
     <ul class="proof" aria-label="可驗證的成果">
-      <li><strong>840 小時</strong><span>Java 全端整合實務培訓，2026/5 結訓</span></li>
-      <li><strong>6 件</strong><span>專案作品，含團隊與獨立開發</span></li>
-      <li><strong>25 / 25</strong><span>Playwright E2E regression 全數通過</span></li>
-      <li><strong>60 次提交</strong><span>QSDemo 從 v1.0.0 迭代到 v2.5.0</span></li>
+      <li><a href="#credentials"><strong>840 小時</strong><span>Java 全端培訓，2026/5 結訓</span></a></li>
+      <li><a href="#work"><strong>6 件</strong><span>主要專案作品，含團隊與獨立開發</span></a></li>
+      <li><a href="#lazybaobao"><strong>25 / 25</strong><span>Playwright E2E regression 全數通過</span></a></li>
+      <li><a href="#qsdemo"><strong>60 次提交</strong><span>QSDemo 從 v1.0.0 迭代到 v2.5.0</span></a></li>
     </ul>
   </div>
 </section>
@@ -97,13 +133,16 @@
   <div class="wrap">
     <header class="section__head">
       <h2 id="work-title">專案作品</h2>
-      <p>兩個 Angular + Spring Boot 全端專案是主要代表作，其餘作品展示 Vue 3、React 19 與純前端的實作廣度。</p>
+      <p>兩個 Angular + Spring Boot 全端專案是主要代表作，其餘作品展示 Vue 3、React 19 與純前端的實作廣度。有影片的作品可以直接在這裡播放操作過程。</p>
     </header>
 
-    <article class="feature">
-      <a class="feature__shot" href="https://github.com/AtayalLin/Angular-Team-Frontend" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-        <img src="照片/projects/lazybaobao.jpg" alt="" loading="lazy" width="1877" height="903" />
-      </a>
+    <article class="feature" id="lazybaobao">
+      <div class="media" data-src="影片/lazybaobao.mp4">
+        <img src="照片/projects/lazybaobao.jpg" alt="懶飽飽智慧點餐系統的客戶端首頁畫面" loading="lazy" width="1877" height="903" />
+        <button class="media__play" type="button" aria-label="播放懶飽飽智慧點餐系統操作影片，長度 2 分 17 秒">
+          <span class="media__icon" aria-hidden="true"></span>操作影片<time>2:17</time>
+        </button>
+      </div>
       <div class="feature__body">
         <p class="tagline"><span class="pill pill--accent">團隊專案，前端負責人</span><time>2026/4 – 2026/5</time></p>
         <h3>懶飽飽智慧點餐系統</h3>
@@ -120,8 +159,8 @@
       </div>
     </article>
 
-    <article class="feature feature--flip">
-      <a class="feature__shot" href="https://atayallin.github.io/Angular-qsdemo/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+    <article class="feature feature--flip" id="qsdemo">
+      <a class="media media--link" href="https://atayallin.github.io/Angular-qsdemo/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
         <img src="照片/projects/qsdemo.jpg" alt="" loading="lazy" width="1728" height="907" />
       </a>
       <div class="feature__body">
@@ -145,7 +184,12 @@
     <h3 class="subhead">其他作品</h3>
     <div class="minis">
       <article class="mini">
-        <img src="照片/projects/vue-shop.jpg" alt="Vue 日式電商網站首頁" loading="lazy" width="1897" height="907" />
+        <div class="media" data-src="影片/vueshop.mp4">
+          <img src="照片/projects/vue-shop.jpg" alt="Vue 日式電商網站首頁" loading="lazy" width="1897" height="907" />
+          <button class="media__play" type="button" aria-label="播放 Vue 日式電商操作影片，長度 2 分 35 秒">
+            <span class="media__icon" aria-hidden="true"></span>操作影片<time>2:35</time>
+          </button>
+        </div>
         <div class="mini__body">
           <p class="tagline"><span class="pill">個人 Side Project</span><time>2025/8 起</time></p>
           <h4>Vue 日式電商 Demo</h4>
@@ -159,18 +203,28 @@
       </article>
 
       <article class="mini">
-        <img src="照片/projects/react-inventory.jpg" alt="智慧餐飲進銷存管理系統的儀表板畫面" loading="lazy" width="900" height="506" />
+        <div class="media" data-src="影片/react.mp4">
+          <img src="照片/projects/react-inventory.jpg" alt="智慧餐飲進銷存管理系統的儀表板畫面" loading="lazy" width="900" height="506" />
+          <button class="media__play" type="button" aria-label="播放智慧餐飲進銷存管理系統操作影片，長度 2 分 59 秒">
+            <span class="media__icon" aria-hidden="true"></span>操作影片<time>2:59</time>
+          </button>
+        </div>
         <div class="mini__body">
           <p class="tagline"><span class="pill">個人專案，開發中</span><time>2026/6 起</time></p>
           <h4>智慧餐飲進銷存管理系統</h4>
           <p>React 19 + TypeScript 開發，TanStack Query 管理伺服器狀態、Zod 驗證資料，並用 n8n 建立庫存同步與 AI 通知自動化流程。</p>
           <ul class="stack"><li>React 19</li><li>TypeScript</li><li>TanStack Query</li><li>Zod</li><li>n8n</li></ul>
-          <p class="links"><span class="muted">尚未公開，面試時可即時展示</span></p>
+          <p class="links"><span class="muted">原始碼尚未公開，面試時可即時展示</span></p>
         </div>
       </article>
 
       <article class="mini">
-        <img src="照片/projects/game-hall.jpg" alt="Vue 模擬遊戲大廳入口頁面" loading="lazy" width="1912" height="903" />
+        <div class="media" data-src="影片/gamehall.mp4">
+          <img src="照片/projects/game-hall.jpg" alt="Vue 模擬遊戲大廳入口頁面" loading="lazy" width="1912" height="903" />
+          <button class="media__play" type="button" aria-label="播放 Vue 模擬遊戲大廳操作影片，長度 54 秒">
+            <span class="media__icon" aria-hidden="true"></span>操作影片<time>0:54</time>
+          </button>
+        </div>
         <div class="mini__body">
           <p class="tagline"><span class="pill">公司前端試題</span><time>2025/10</time></p>
           <h4>Vue 模擬遊戲大廳</h4>
@@ -184,11 +238,31 @@
       </article>
 
       <article class="mini">
-        <img src="照片/projects/atayahtml.jpg" alt="個人作品集網站畫面" loading="lazy" width="1872" height="900" />
+        <div class="media" data-src="影片/japanfood.mp4">
+          <img src="照片/projects/japan-food.jpg" alt="日本美食推薦網首頁" loading="lazy" width="1885" height="903" />
+          <button class="media__play" type="button" aria-label="播放日本美食推薦網操作影片，長度 57 秒">
+            <span class="media__icon" aria-hidden="true"></span>操作影片<time>0:57</time>
+          </button>
+        </div>
+        <div class="mini__body">
+          <p class="tagline"><span class="pill">早期練習作品</span><time>2024</time></p>
+          <h4>日本美食推薦網</h4>
+          <p>轉職初期的切版作品，依東京、京都、大阪三區整理餐廳推薦。練習 RWD 排版、輪播元件與多頁面結構，也是第一個對外部署的作品。</p>
+          <ul class="stack"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>RWD</li></ul>
+          <p class="links">
+            <a href="作品1/index.html" target="_blank" rel="noopener">線上展示</a>
+            <a href="https://github.com/AtayalLin/AtayaHtml/tree/main/%E4%BD%9C%E5%93%811" target="_blank" rel="noopener">原始碼</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="mini mini--wide">
         <div class="mini__body">
           <p class="tagline"><span class="pill">求職作品集</span><time>2024/11 起</time></p>
-          <h4>個人網頁（就是這個網站）</h4>
-          <p>純 HTML、CSS、Vanilla JavaScript 手刻，無框架、無建置工具。淺色／深色主題用 localStorage 記住偏好，IntersectionObserver 處理導覽高亮與經歷動畫，三個斷點 RWD。</p>
+          <h4>這個網站</h4>
+          <p>純 HTML、CSS、Vanilla JavaScript 手刻，無框架、無建置工具。淺色／深色主題用 localStorage 記住偏好，IntersectionObserver 處理導覽高亮與經歷動畫，三個斷點 RWD，部署於 GitHub Pages。</p>
+        </div>
+        <div class="mini__aside">
           <ul class="stack"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>IntersectionObserver</li></ul>
           <p class="links"><a href="https://github.com/AtayalLin/AtayaHtml" target="_blank" rel="noopener">原始碼</a></p>
         </div>
@@ -202,7 +276,7 @@
   <div class="wrap">
     <header class="section__head">
       <h2 id="career-title">工作經歷與轉職歷程</h2>
-      <p>由新到舊排列，時間前後銜接。主線是工作與轉職；旁支是兩段空檔期，以及那段時間實際在做什麼。</p>
+      <p>由新到舊排列，時間前後銜接。主線是工作與轉職，旁支是兩段空檔期，以及那段時間實際在做什麼。</p>
       <p class="legend" aria-hidden="true">
         <span class="legend__item"><i class="legend__main"></i>工作與轉職</span>
         <span class="legend__item"><i class="legend__branch"></i>空檔期</span>

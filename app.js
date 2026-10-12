@@ -35,6 +35,28 @@
     });
   }
 
+  /* ---------- 作品影片：按下才載入並播放 ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll(".media[data-src]"), function (box) {
+    var btn = box.querySelector(".media__play");
+    var img = box.querySelector("img");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var video = document.createElement("video");
+      video.src = box.getAttribute("data-src");
+      if (img) video.poster = img.currentSrc || img.src;
+      video.controls = true;
+      video.muted = true;          /* 影片本身沒有聲音，靜音才能在手機上自動播放 */
+      video.playsInline = true;
+      video.setAttribute("playsinline", "");
+      video.setAttribute("aria-label", btn.getAttribute("aria-label").replace("播放", ""));
+      box.replaceChildren(video);
+      box.classList.add("is-playing");
+      var p = video.play();
+      if (p && p.catch) p.catch(function () { /* 瀏覽器擋自動播放時，保留控制列讓使用者自己按 */ });
+      video.focus();
+    });
+  });
+
   if (!("IntersectionObserver" in window)) return;
 
   /* ---------- 2. 導覽高亮 ---------- */
