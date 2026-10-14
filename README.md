@@ -149,7 +149,7 @@ AtayaHtml/
 | **懶飽飽智慧點餐系統** | 團隊專案，前端負責人 | Angular 19、TypeScript、Signals、Spring Boot、MySQL、Playwright | [原始碼](https://github.com/AtayalLin/Angular-Team-Frontend) |
 | **QSDemo 問卷管理系統** | 獨立完成，前後端分離 | Angular 19 Standalone、Spring Boot、MySQL、RESTful API | [線上展示](https://atayallin.github.io/Angular-qsdemo/)・[原始碼](https://github.com/AtayalLin/Angular-qsdemo) |
 | **Vue 日式電商 Demo** | 個人 Side Project | Vue 3、Vite、Pinia、Vue Router、Zod、Vitest、GitHub Actions | [線上展示](https://atayallin.github.io/Vueshop-Side-Project-Demo-/)・[原始碼](https://github.com/AtayalLin/Vueshop-Side-Project-Demo-) |
-| **智慧餐飲進銷存管理系統** | 個人專案，開發中 | React 19、TypeScript、TanStack Query、Zod、n8n | [原始碼](https://github.com/AtayalLin/restaurant-inventory-system-React) |
+| **智慧餐飲進銷存管理系統** | 個人專案，開發中 | React 19、TypeScript、TanStack Query、Zod、n8n、GitHub Actions | [線上展示](https://atayallin.github.io/restaurant-inventory-system-React/)・[原始碼](https://github.com/AtayalLin/restaurant-inventory-system-React) |
 | **Vue 模擬遊戲大廳** | 公司前端試題 | Vue 3、Vite、Pinia、GSAP、GitHub Actions | [線上展示](https://atayallin.github.io/Igs-test-vue/)・[原始碼](https://github.com/AtayalLin/Igs-test-vue) |
 | **日本美食推薦網** | 早期練習作品 | HTML5、CSS3、JavaScript、RWD | 站內 [`作品1/`](作品1/index.html) |
 
