@@ -133,7 +133,7 @@ AtayaHtml/
 │   ├── 去背個人照.png
 │   └── projects/               # 作品截圖（影片封面）
 ├── 履歷pdf/
-│   └── 林家齊履歷_20261008.pdf
+│   └── 林家齊履歷_20261014.pdf
 ├── 作品1/                       # 日本美食推薦網（早期作品，站內線上展示）
 ├── 專案1/、專案2/                # 早期練習
 ├── README.md
@@ -149,7 +149,7 @@ AtayaHtml/
 | **懶飽飽智慧點餐系統** | 團隊專案，前端負責人 | Angular 19、TypeScript、Signals、Spring Boot、MySQL、Playwright | [原始碼](https://github.com/AtayalLin/Angular-Team-Frontend) |
 | **QSDemo 問卷管理系統** | 獨立完成，前後端分離 | Angular 19 Standalone、Spring Boot、MySQL、RESTful API | [線上展示](https://atayallin.github.io/Angular-qsdemo/)・[原始碼](https://github.com/AtayalLin/Angular-qsdemo) |
 | **Vue 日式電商 Demo** | 個人 Side Project | Vue 3、Vite、Pinia、Vue Router、Zod、Vitest、GitHub Actions | [線上展示](https://atayallin.github.io/Vueshop-Side-Project-Demo-/)・[原始碼](https://github.com/AtayalLin/Vueshop-Side-Project-Demo-) |
-| **智慧餐飲進銷存管理系統** | 個人專案，開發中 | React 19、TypeScript、TanStack Query、Zod、n8n、GitHub Actions | [線上展示](https://atayallin.github.io/restaurant-inventory-system-React/)・[原始碼](https://github.com/AtayalLin/restaurant-inventory-system-React) |
+| **智慧餐飲進銷存管理系統** | 個人專案，前後端 | React 19、TypeScript、Spring Boot、MySQL、JWT、Docker、GitHub Actions | [線上展示](https://atayallin.github.io/restaurant-inventory-system-React/)・[前端](https://github.com/AtayalLin/restaurant-inventory-system-React)・[後端](https://github.com/AtayalLin/restaurant-inventory-system-api) |
 | **Vue 模擬遊戲大廳** | 公司前端試題 | Vue 3、Vite、Pinia、GSAP、GitHub Actions | [線上展示](https://atayallin.github.io/Igs-test-vue/)・[原始碼](https://github.com/AtayalLin/Igs-test-vue) |
 | **日本美食推薦網** | 早期練習作品 | HTML5、CSS3、JavaScript、RWD | 站內 [`作品1/`](作品1/index.html) |
 
@@ -253,7 +253,7 @@ cd AtayaHtml
 | 📞 電話 | 0967-187-303 |
 | 🐙 GitHub | [github.com/AtayalLin](https://github.com/AtayalLin) |
 | 📍 所在地 | 高雄市左營區（可到台北、新北、台中，或遠端） |
-| 📄 履歷 | [線上瀏覽](https://atayallin.github.io/AtayaHtml/contact.html)・[下載 PDF](履歷pdf/林家齊履歷_20261008.pdf) |
+| 📄 履歷 | [線上瀏覽](https://atayallin.github.io/AtayaHtml/contact.html)・[下載 PDF](履歷pdf/林家齊履歷_20261014.pdf) |
 
 ## 授權
 
